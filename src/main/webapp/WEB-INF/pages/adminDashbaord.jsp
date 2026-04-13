@@ -4,6 +4,7 @@
 <html>
     <head>
         <title>Admin Dashboard</title>
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/adminDashboard.css">
     </head>
 
     <body>
@@ -77,7 +78,7 @@
             <div class="adminWelcome">
                 <div>
                     <p style="font-size: 30; color: white; margin-left: 50px; margin-top: 50px; margin-bottom: 0px"><b>Welcome Back Admin!</b></p>
-                    <p style="color:white; margin-left: 50px">Let us continue to check and moniter the website</p>
+                    <p style="color:white; margin-left: 50px">Let us continue to check and monitor the website</p>
                 </div>
 
                 <div class="buttonRectangle">
@@ -165,7 +166,7 @@
 
                     <div class="listedItem" style="border: none;">
                         <div class="listedItemInfo">
-                            <p class="listedItemName">Omega Seamaster,</p>
+                            <p class="listedItemName">Omega seamaster,</p>
                             <p class="listedItemSellerName">by Andrew</p>
                         </div>
                         <span class="listedItemPrice">$5000</span>
