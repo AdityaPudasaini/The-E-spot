@@ -10,7 +10,7 @@
 			<div class="Logo"><b>The E-sopt</b></div>
 
 			<div class="linksToNavigate">
-				<a href="#">Browse</a>
+				<a href="#">Browse</a> 
 				<a href="#">Sell</a>
 				<a href="#"> About</a>
 			</div>
