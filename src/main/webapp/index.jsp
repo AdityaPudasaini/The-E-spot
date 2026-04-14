@@ -11,7 +11,7 @@
 
 			<div class="linksToNavigate">
 				<a href="#">Browse</a> 
-				<a href="#">Sell</a>
+				<a href="#">Sell</a> 
 				<a href="#"> About</a>
 			</div>
 
