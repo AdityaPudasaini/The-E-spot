@@ -6,7 +6,7 @@
 	</head>
 	
 	<body>
-		<nav>
+		<nav> 
 			<div class="Logo"><b>The E-sopt</b></div>
 
 			<div class="linksToNavigate">
