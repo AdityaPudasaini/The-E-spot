@@ -27,7 +27,7 @@
 		</nav>
 
         <div class="firstShow">
-            <img class="backgroundImage" src="background.jpg">
+            <img class="backgroundImage" src="${pageContext.request.contextPath}/Images/background.jpg">
 
             <div class="putOver"></div>
             <div class="insideContent">

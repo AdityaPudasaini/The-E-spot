@@ -88,28 +88,28 @@
 
             <div style="display: flex;">
                 <div class="smallRectangle">
-                    <img src="Revenue.png" class="revenueIcon">
+                    <img src="${pageContext.request.contextPath}/Images/Revenue.png" class="revenueIcon">
                     <p class="revenueText"><b>Total Revenue Generated</b></p>
                     <p class="numbers"><b>$10,000,000</b></p>
                     <p class="underText">5% up from last year</p>
                 </div>
 
                 <div class="smallRectangle">
-                    <img src="product Sold.png" class="productSoldIcon">
+                    <img src="${pageContext.request.contextPath}/Images/product_Sold.png" class="productSoldIcon">
                     <p class="productSoldText"><b>Total Product Sold/Day</b></p>
                     <p class="numbers"><b>10,000</b></p>
                     <p class="underText">0.2% up from last year</p>
                 </div>
 
                 <div class="smallRectangle">
-                    <img src="product Listed.png" class="productListedIcon">
+                    <img src="${pageContext.request.contextPath}/Images/product_Listed.png" class="productListedIcon">
                     <p class="productListedText"><b>Total Product Listed/Day</b></p>
                     <p class="numbers"><b>15,219</b></p>
                     <p class="underText">0.3% up from last year</p>
                 </div>
 
                 <div class="smallRectangle">
-                    <img src="people visited.jpg" class="peopleVisitedIcon">
+                    <img src="${pageContext.request.contextPath}/Images/people_visited.jpg" class="peopleVisitedIcon">
                     <p class="peopleVisitedText" style="padding-left: 20px;"><b>Website visitors/Day</b></p>
                     <p class="numbers"><b>84,328</b></p>
                     <p class="underText">0.04% up from last year</p>
