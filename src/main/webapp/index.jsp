@@ -37,7 +37,7 @@
                     <button class="sellingButton">Start Selling</button>
                     <button class="seeListingButton">Browse Listings</button>
                 </div>
-            </div>
+            </div> 
         </div>
 
         <div class="statsBar">
