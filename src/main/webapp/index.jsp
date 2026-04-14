@@ -13,7 +13,7 @@
 				<a href="#">Browse</a> 
 				<a href="#">Sell</a> 
 				<a href="#"> About</a>
-			</div>
+			</div> 
 
             <div style="display: flex;">
                 <form action="<%=request.getContextPath()%>/register" method="get">
