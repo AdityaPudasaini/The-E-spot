@@ -32,12 +32,20 @@
             <div class="putOver"></div>
             <div class="insideContent">
                 <h1 class="slogan">Buy, sell and <em class="discover" style="color: rgb(79, 231, 255);">discover</em> something new</h1>
+<<<<<<< HEAD
                 <p class="underText">Thousands of listings updated daily. Find great deals or reach buyers across the country all in one place.</p>
+=======
+                <p class="underText">Thousands of listings updated daily. Find great deals or reach buyers across the country — all in one place.</p>
+>>>>>>> 45f55f09bdcd87cf09e68b3aefb722d3c0f7c0f8
                 <div class="someButtons">
                     <button class="sellingButton">Start Selling</button>
                     <button class="seeListingButton">Browse Listings</button>
                 </div>
+<<<<<<< HEAD
             </div>
+=======
+            </div> 
+>>>>>>> 45f55f09bdcd87cf09e68b3aefb722d3c0f7c0f8
         </div>
 
         <div class="statsBar">
