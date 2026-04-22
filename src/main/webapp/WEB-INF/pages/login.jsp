@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
+		<meta charset="UTF-8"> 
 		<title>Login</title>
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
 	</head>
