@@ -1,0 +1,245 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>About us - The E-Spot</title>
+<link rel="stylesheet" href="css/styles.css" type="text/css">
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #fff;
+    font-family: "Inter", Arial, sans-serif;
+}
+
+.page-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 48px 16px;
+    flex-grow: 1;
+}
+
+.login-card {
+    display: flex;
+    width: 100%;
+    max-width: 1152px;
+    min-height: 600px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #81A6C6;
+background: linear-gradient(to bottom rgba(129, 166, 198, 1) 0%, rgba(120, 175, 191, 1) 51%, rgba(222, 224, 224, 1) 100%);
+}
+
+.form-container {
+    width: 100%;
+    padding: 48px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-inner {
+    max-width: 448px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.form-header {
+    margin-bottom: 40px;
+}
+
+.form-header h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #122d4f;
+    margin-bottom: 4px;
+}
+
+.form-header p {
+    color: #374151;
+    font-weight: 500;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.field-group {
+    position: relative;
+}
+
+.field-group label {
+    position: absolute;
+    left: 16px;
+    top: 8px;
+    font-size: 10px;
+    font-weight: 700;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.075em;
+}
+
+.field-group input {
+    width: 100%;
+    padding: 24px 16px 8px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    outline: none;
+    background: white;
+    color: #122d4f;
+    font-weight: 500;
+    box-sizing: border-box;
+}
+
+.field-group input:focus {
+    border-color: #122d4f;
+    box-shadow: 0 0 0 1px #122d4f;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 16px;
+}
+
+.btn-row {
+    display: flex;
+    gap: 16px;
+}
+
+.btn-primary,
+.btn-outline {
+    flex: 1;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+}
+
+.btn-primary {
+    background: #122d4f;
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover { background: #1a3d6b; }
+.btn-primary:active { transform: scale(0.95); }
+
+.btn-outline {
+    background: transparent;
+    color: #122d4f;
+    border: 1px solid #122d4f;
+}
+
+.btn-outline:hover { background: rgba(255,255,255,0.2); }
+.btn-outline:active { transform: scale(0.95); }
+
+.forgot {
+    text-align: center;
+}
+
+.btn-forgot {
+    background: none;
+    border: none;
+    color: #b91c1c;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-forgot:hover { text-decoration: underline; }
+
+.form-footer {
+    margin-top: 48px;
+}
+
+.form-footer p {
+    font-size: 10px;
+    color: #374151;
+    line-height: 1.6;
+    max-width: 320px;
+}
+
+.image-panel {
+    display: none;
+    width: 50%;
+    padding: 24px;
+}
+
+.image-panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 24px;
+}
+
+@media (min-width: 768px) {
+    .form-container { width: 50%; }
+    .image-panel { display: block; }
+}
+</style>
+</head>
+<body>
+<%@include file="../components/header.jsp" %>
+<div class="page-content">
+  <div class="login-card">
+
+    
+    <div class="form-container">
+      <div class="form-inner">
+        <div class="form-header">
+          <h2>Welcome Back!</h2>
+          <p>Please log in to your account.</p>
+        </div>
+
+        <form action="#" method="POST">
+          <div class="field-group">
+            <label for="email">Email:</label>
+            <input id="email" name="email" type="email" placeholder="example@gmail.com" required />
+          </div>
+
+          <div class="field-group">
+            <label for="password">Password:</label>
+            <input id="password" name="password" type="password" placeholder="********" required />
+          </div>
+
+          <div class="actions">
+            <div class="btn-row">
+              <button type="submit" class="btn-primary">Login</button>
+              <button type="button" class="btn-outline">No Account? Register</button>
+            </div>
+            <div class="forgot">
+              <button type="button" class="btn-forgot">Forgot Password?</button>
+            </div>
+          </div>
+        </form>
+
+        <div class="form-footer">
+          <p>By logging in you agree to our terms and that you have read our data policy.</p>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="image-panel">
+      <img src="images/smile.jpg" alt="Happy group of diverse friends celebrating" />
+    </div>
+
+  </div>
+</div>
+
+
+<%@include file="../components/footer.jsp" %>
+</body>
+</html>
