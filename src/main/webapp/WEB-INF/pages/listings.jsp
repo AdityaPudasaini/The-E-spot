@@ -42,7 +42,8 @@
                     <option>Flagged</option>
                 </select>
             </div>
-		</div>
+		
+		
 		
 		<%@ include file="/WEB-INF/pages/adminFooter.jsp" %>
 	</body>
