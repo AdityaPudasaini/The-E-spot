@@ -25,7 +25,7 @@
 			</a>
             <br>
 
-			<a href="#" style="text-decoration: none;">
+			<a href="${pageContext.request.contextPath}/users" style="text-decoration: none;">
 			    <span class="rectangle ${currentPage == 'users' ? 'active' : ''}">Users</span>
 			</a>
             <br>

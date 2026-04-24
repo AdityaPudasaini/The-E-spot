@@ -14,18 +14,16 @@
             <div class="topPart">
                 <p class="dashboardHeading"><b>Dashboard</b></p>
 
-                <div class="searchbar">
-                    <p class="searchText">Search everything here</p>
-                </div>
+                <input type="text" class="searchbar" placeholder="Search everything">
 
                 <div class="adminPhoto" style="margin-top: 0px; margin-left: 45px">A</div>
             </div>
 
             <div class="adminWelcome">
                 <div>
-                    <p style="font-size: 30; color: white; margin-left: 50px; margin-top: 50px; margin-bottom: 0px"><b>Welcome Back Admin!</b></p>
+                    <p style="color: white; margin-left: 50px; margin-top: 50px; margin-bottom: 0px; font-size: 30px;"><b>Welcome Back Admin!</b></p>
                     <p style="color:white; margin-left: 50px">Let us continue to check and moniter the website</p>
-                </div>
+                </div> 
 
                 <a href="#" class="buttonRectangle" style="text-decoration: none;">
                     <span class="report">View Report</span>
