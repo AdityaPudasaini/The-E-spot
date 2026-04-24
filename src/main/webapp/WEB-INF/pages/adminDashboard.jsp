@@ -8,56 +8,8 @@
     </head>
 
 	<body>
-        <div class="sidePanel">
-            <p class="Logo">The E-spot</p>
-
-            <br>
-            <a href="#" class="dashboardLink" style="text-decoration: none;">
-                <span class="rectangle active">Dashboard</span>
-            </a>
-            <br>
-
-            <a href="#" class="listingLink" style="text-decoration: none;">
-                <span class="rectangle">Listings</span>
-            </a>
-            <br>
-
-            <a href="#" class="userLink" style="text-decoration: none;">
-                <span class="rectangle">Users</span>
-            </a>
-            <br>
-
-            <a href="#" class="revenueLink" style="text-decoration: none;">
-                <span class="rectangle">Revenue</span>
-            </a>
-            <br>
-
-            <a href="#" class="orderLink" style="text-decoration: none;">
-                <span class="rectangle">Orders</span>
-            </a>
-            <br>
-
-            <a href="#" class="flaggedItemsLink" style="text-decoration: none;">
-                <span class="rectangle">Flagged Items</span>
-            </a>
-            <br>
-
-            <a href="#" class="reportLink" style="text-decoration: none;">
-                <span class="rectangle">Reports</span>
-            </a>    
-            <br>
-
-            <a href="#" class="settingsLink" style="text-decoration: none;">
-                <span class="rectangle">Settings</span>
-            </a>
-
-            <div class="adminShow">
-                <div class="adminInfo">
-                    <button class="logout">Logout</button>
-                </div>
-            </div>
-        </div>
-
+		<%@ include file="/WEB-INF/pages/adminSidebar.jsp" %>
+        
         <div style="display: flex; flex-direction: column; margin-left: 250px; width: calc(100% - 250px);">
             <div class="topPart">
                 <p class="dashboardHeading"><b>Dashboard</b></p>
@@ -169,14 +121,10 @@
                         </div>
                         <span class="listedItemPrice">$5000</span>
                     </div>
-
                 </div>
-
             </div>
         </div>
-
-        <div class="footer">
-            The E-spot © 2026
-        </div>
+        
+        <%@ include file="/WEB-INF/pages/adminFooter.jsp" %>
     </body>
 </html>

@@ -6,10 +6,14 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Listings</title>
+		<title>Footer</title>
 	</head>
-	
+		
 	<body>
-		<%@ include file="/WEB-INF/pages/adminSidebar.jsp" %>
+	
+		<div class="footer">
+            The E-spot © 2026
+        </div>
+        
 	</body>
 </html>

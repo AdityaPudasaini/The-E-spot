@@ -27,7 +27,8 @@ public class ListingServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		request.setAttribute("currentPage", "listing");
+		request.getRequestDispatcher("/WEB-INF/pages/listings.jsp").forward(request, response);
 	}
 
 	/**
