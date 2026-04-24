@@ -1,2 +1,212 @@
 @charset "UTF-8";
 
+body {
+                margin: 0;
+                padding: 0;
+                background-color: #F0F4FF;
+                color: #0F172A;
+            }
+
+            .topPart {
+                display: flex;
+                align-items: center;
+                background-color: white;
+                padding: 18px 32px;
+                border-bottom: 1px solid #E2E8F0;
+                width: 100%;
+            }
+            
+            .dashboardHeading {
+                font-size: 22px;
+                margin: 0;
+                white-space: nowrap;
+            }
+            
+            .searchbar {
+                flex: 1;
+                max-width: 480px;
+                margin: 0 32px;
+                padding: 10px 16px;
+                border: 1px solid #E2E8F0;
+                border-radius: 10px;
+                background: #F8FAFF;
+            }
+            
+            .searchText {
+                margin: 0;
+                font-size: 14px;
+                color: #94a3b8;
+            }
+            
+            .adminPhoto {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: #000000;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold;
+                font-size: 16px;
+            }
+            
+            /* Filters */
+            .categoriesSelect {
+                display: flex;
+                gap: 12px;
+                padding: 24px 32px 0px 32px;
+                flex-wrap: wrap;
+            }
+            
+            .searchInput {
+                flex: 1;
+                min-width: 240px;
+                padding: 10px 14px;
+                border: 1px solid #E2E8F0;
+                border-radius: 8px;
+                background: #fff;
+                font-size: 14px;
+                font-family: Arial, sans-serif;
+            }
+            
+            .categories {
+                padding: 10px 14px;
+                border: 1px solid #E2E8F0;
+                border-radius: 8px;
+                background: #fff;
+                font-size: 14px;
+                font-family: Arial, sans-serif;
+            }
+
+            .tableBox {
+                margin: 24px 32px 0px 32px;
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+                overflow: hidden;
+            }
+            
+            .listingTable {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            
+            .tableHead {
+                text-align: left;
+                padding: 14px 18px;
+                font-size: 13px;
+                font-weight: bold;
+                color: #475569;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                background: #F8FAFF;
+                border-bottom: 1px solid #E2E8F0;
+            }
+            
+            .tableRow:hover {
+                background-color: #F0F4FF;
+            }
+            
+            .tableRowListing {
+                padding: 14px 18px;
+                font-size: 14px;
+                border-bottom: 1px solid #E2E8F0;
+            }
+            
+            .tableRow:last-child .tableRowListing {
+                border-bottom: none;
+            }
+            
+            .productImage {
+                width: 50px;
+                height: 50px;
+                border-radius: 8px;
+                object-fit: cover;
+                display: block;
+            }
+            
+            .everyStatus {
+                display: inline-block;
+                padding: 4px 12px;
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: bold;
+            }
+            
+            .everyStatus.listed {
+                background-color: #DCFCE7;
+                color: #166534;
+            }
+            
+            .everyStatus.sold {
+                background-color: #F1F5F9;
+                color: #64748B;
+            }
+            
+            .everyStatus.flagged {
+                background-color: #FEE2E2;
+                color: #991B1B;
+            }
+            
+            .changeButtons {
+                display: flex;
+                gap: 6px;
+            }
+            
+            .editButton {
+                border: none;
+                padding: 6px 14px;
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: bold;
+                cursor: pointer;
+                color: white;
+                background-color: #2563EB;
+            }
+            
+            .editButton:hover {
+                background-color: #1E40AF;
+            }
+            
+            .deleteButton {
+                border: none;
+                padding: 6px 14px;
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: bold;
+                cursor: pointer;
+                color: white;
+                background-color: #EF4444;
+            }
+            
+            .deleteButton:hover {
+                background-color: #B91C1C;
+            }
+            
+            .lastPartButtons {
+                display: flex;
+                justify-content: center;
+                gap: 8px;
+                margin: 24px 32px 32px 32px;
+            }
+            
+            .lastPartButton {
+                padding: 8px 14px;
+                border-radius: 8px;
+                background: white;
+                border: 1px solid #E2E8F0;
+                color: #0F172A;
+                text-decoration: none;
+                font-size: 14px;
+            }
+            
+            .lastPartButton:hover {
+                background-color: #F0F4FF;
+            }
+            
+            .lastPartButton.pageActive {
+                background-color: #2563EB;
+                color: white;
+                border-color: #2563EB;
+            }
