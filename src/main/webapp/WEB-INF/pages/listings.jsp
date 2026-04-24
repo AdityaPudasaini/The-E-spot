@@ -42,6 +42,16 @@
                     <option>Flagged</option>
                 </select>
             </div>
+            
+			<div class="lastPartButtons">
+                <a href="#" class="lastPartButton">Previous</a>
+                <a href="#" class="lastPartButton pageActive">1</a>
+                <a href="#" class="lastPartButton">2</a>
+                <a href="#" class="lastPartButton">3</a>
+                <a href="#" class="lastPartButton">Next</a>
+            </div>
+
+        </div>
 		
 		
 		
