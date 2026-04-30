@@ -32,7 +32,7 @@
             <div class="putOver"></div>
             <div class="insideContent">
                 <h1 class="slogan">Buy, sell and <em class="discover" style="color: rgb(79, 231, 255);">discover</em> something new</h1>
-                 <p class="underText">Thousands of listings updated daily. Find great deals or reach buyers across the country — all in one place.</p>
+                 <p class="underText">Thousands of listings updated daily. Find great deals or reach buyers across the country all in one place.</p>
 
                 <div class="someButtons">
                     <button class="sellingButton">Start Selling</button>

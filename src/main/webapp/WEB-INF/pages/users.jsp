@@ -13,7 +13,29 @@
 	
 		<%@ include file="/WEB-INF/pages/adminSidebar.jsp" %>
 		
-		
+		<div style="display: flex; flex-direction: column;margin-left: 250px; width: calc(100% - 250px);">
+
+	        <div class="topPart">
+                <p class="dashboardHeading"><b>Users</b></p>
+
+                <input type="text" class="searchbar" placeholder="Search everything">
+
+                <div class="adminPhoto" style="margin-top: 0px; margin-left: 45px">A</div>
+            </div>
+	
+	        <div class="categoriesSelect">
+	            <input type="text" class="searchInput" placeholder="Search users...">
+	            <select class="categories">
+	                <option>All Status</option>
+	                <option>Active</option>
+	                <option>Banned</option>
+	                <option>Suspended</option>
+	            </select>
+	        </div>
+	
+	       
+	
+	    </div>
 		
 		<%@ include file="/WEB-INF/pages/adminFooter.jsp" %>
 	</body>
