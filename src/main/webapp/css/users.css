@@ -1,1 +1,118 @@
 @charset "UTF-8";
+
+body {
+                margin: 0;
+                padding: 0;
+                background-color: #F0F4FF;
+                color: #0F172A;
+            }
+
+            .topPart {
+                border: none;
+			    border-bottom: 1px solid rgb(208, 208, 208);
+			    width: 100%;
+			    height: 74px;
+			    display: flex;
+			    align-items: center;
+			    flex-shrink: 0;
+			    background-color: white;
+            }
+            
+            .dashboardHeading {
+                font-size: 30px;
+				padding-left: 50px;
+				margin: 0;
+            }
+            
+            .searchbar {
+                margin-left: 690px;
+				width: 320px;
+				height: 30px;
+				background-color: rgb(255, 255, 255);
+				border-radius: 5px;
+				margin-top: 0px;
+				border: 1px solid #c8e4ea;
+				padding-left: 15px;
+				padding-right: 0px;
+				
+            }
+            
+            .adminPhoto {
+                width: 34px;
+			    height: 34px;
+			    border-radius: 50%;
+			    background-color: #000000;
+			    color: #ffffff;
+			    display: flex;
+			    align-items: center;
+			    justify-content: center;
+			    font-size: 12px;
+			    font-weight: 700;
+			    flex-shrink: 0;
+            }
+
+        .categoriesSelect {
+            display: flex;
+            gap: 12px;
+            padding: 24px 32px 0px 32px;
+            flex-wrap: wrap;
+        }
+
+        .searchInput {
+            flex: 1;
+            min-width: 240px;
+            padding: 10px 14px;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            background: #fff;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+        }
+
+        .categories {
+            padding: 10px 14px;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            background: #fff;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+        }
+
+        .tableBox {
+            margin: 24px 32px 0px 32px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .listingTable {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .tableHead {
+            text-align: left;
+            padding: 14px 18px;
+            font-size: 13px;
+            font-weight: bold;
+            color: #475569;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: #F8FAFF;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .tableRow:hover {
+            background-color: #F0F4FF;
+        }
+
+        .tableRowListing {
+            padding: 14px 18px;
+            font-size: 14px;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .tableRow:last-child .tableRowListing {
+            border-bottom: none;
+        }
