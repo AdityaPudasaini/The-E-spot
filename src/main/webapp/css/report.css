@@ -94,4 +94,95 @@ body {
 	            font-weight: 600;
 	        }
 	
+	        .tableBox {
+	            background: #fff;
+	            border-radius: 12px;
+	            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+	            margin: 24px 32px;
+	            padding: 24px;
+	        }
 	
+	        .tableTitle {
+	            font-size: 18px;
+	            font-weight: 700;
+	            margin-bottom: 16px;
+	            color: #0F172A;
+	        }
+	
+	        .listingTable {
+	            width: 100%;
+	            border-collapse: collapse;
+	        }
+	
+	        .tableHead {
+	            background: #F8FAFF;
+	            text-align: left;
+	            padding: 12px 16px;
+	            font-size: 12px;
+	            font-weight: 700;
+	            color: #64748B;
+	            text-transform: uppercase;
+	            letter-spacing: 0.5px;
+	        }
+	
+	        .tableRow:hover { 
+	          background: #F0F4FF; 
+	        }
+	
+	        .tableRowListing {
+	            padding: 14px 16px;
+	            border-bottom: 1px solid #F1F5F9;
+	            font-size: 14px;
+	            color: #0F172A;
+	        }
+	
+	        .everyStatus {
+	            display: inline-block;
+	            padding: 4px 12px;
+	            border-radius: 20px;
+	            font-size: 12px;
+	            font-weight: 600;
+	        }
+	
+	        .formatBadge {
+	            display: inline-block;
+	            padding: 4px 12px;
+	            border-radius: 20px;
+	            font-size: 12px;
+	            font-weight: 700;
+	        }
+	
+	        .changeButtons {
+	            display: flex;
+	            gap: 8px;
+	        }
+	
+	        .downloadButton {
+	            background: #3B82F6;
+	            color: #fff;
+	            border: none;
+	            padding: 6px 16px;
+	            border-radius: 20px;
+	            font-size: 12px;
+	            font-weight: 600;
+	            cursor: pointer;
+	        }
+	
+	        .downloadButton:hover { 
+	          background: #2563EB; 
+	        }
+	
+	        .scheduleButton {
+	            background: #E2E8F0;
+	            color: #475569;
+	            border: none;
+	            padding: 6px 16px;
+	            border-radius: 20px;
+	            font-size: 12px;
+	            font-weight: 600;
+	            cursor: pointer;
+	        }
+	
+	        .scheduleButton:hover { 
+	          background: #CBD5E1; 
+	        }
