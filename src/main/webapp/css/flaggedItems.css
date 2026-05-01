@@ -120,4 +120,120 @@ body {
 	            font-size: 14px;
 	        }
 	
-	       
+	        .tableBox {
+	            background: #fff;
+	            border-radius: 12px;
+	            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+	            margin: 24px 32px;
+	            padding: 24px;
+	        }
+	
+	        .tableTitle {
+	            font-size: 18px;
+	            font-weight: 700;
+	            margin-bottom: 16px;
+	            color: #0F172A;
+	        }
+	
+	        .listingTable {
+	            width: 100%;
+	            border-collapse: collapse;
+	        }
+	
+	        .tableHead {
+	            background: #F8FAFF;
+	            text-align: left;
+	            padding: 12px 16px;
+	            font-size: 12px;
+	            font-weight: 700;
+	            color: #64748B;
+	            text-transform: uppercase;
+	            letter-spacing: 0.5px;
+	        }
+	
+	        .tableRow:hover { 
+	         	 background: #F0F4FF; 
+	        }
+	
+	        .tableRowListing {
+	            padding: 14px 16px;
+	            border-bottom: 1px solid #F1F5F9;
+	            font-size: 14px;
+	            color: #0F172A;
+	        }
+	
+	        .everyStatus {
+	            display: inline-block;
+	            padding: 4px 12px;
+	            border-radius: 20px;
+	            font-size: 12px;
+	            font-weight: 600;
+	        }
+	
+	        .changeButtons {
+	            display: flex;
+	            gap: 8px;
+	        }
+	
+	        .viewButton {
+	            background: #3B82F6;
+	            color: #fff;
+	            border: none;
+	            padding: 6px 16px;
+	            border-radius: 20px;
+	            font-size: 12px;
+	            font-weight: 600;
+	            cursor: pointer;
+	        }
+	
+	        .viewButton:hover { 
+	          	background: #2563EB; 
+	        }
+	
+	        .resolveButton {
+	            background: #16A34A;
+	            color: #fff;
+	            border: none;
+	            padding: 6px 16px;
+	            border-radius: 20px;
+	            font-size: 12px;
+	            font-weight: 600;
+	            cursor: pointer;
+	        }
+	
+	        .resolveButton:hover { 
+	         	background: #15803D; 
+	        }
+	
+	        .lastPartButtons {
+	            display: flex;
+	            justify-content: center;
+	            gap: 8px;
+	            margin: 24px 32px 32px;
+	        }
+	
+	        .lastPartButton {
+	            padding: 8px 14px;
+	            border-radius: 8px;
+	            background: #fff;
+	            border: 1px solid #E2E8F0;
+	            color: #0F172A;
+	            font-size: 13px;
+	            font-weight: 600;
+	            cursor: pointer;
+	            text-decoration: none;
+	        }
+	
+	        .lastPartButton:hover { 
+	         	background: #F0F4FF; 
+	        }
+	
+	        .pageActive {
+	            background: #2563EB;
+	            color: #fff;
+	            border-color: #2563EB;
+	        }
+	
+	        .pageActive:hover { 
+	         	background: #1E40AF; 
+	        }
