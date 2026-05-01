@@ -56,7 +56,7 @@
                     <img src="${pageContext.request.contextPath}/Images/people visited.png" class="dollarImage">
                     <p class="smallText"> Total Website Visitors</p>
                     <p class="money"><b>15,000,000</b></p>
-                    <div class="smallStat" style="background-color: #ff4040ca; color: white; width: 170px;">   🠋  +0.09% from last year</div>
+                    <div class="smallStat" style="background: #FEE2E2; color: #991B1B; width: 170px;">   🠋  +0.09% from last year</div>
                 </div>
             </div>
 

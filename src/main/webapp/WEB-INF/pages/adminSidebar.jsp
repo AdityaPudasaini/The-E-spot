@@ -30,7 +30,7 @@
 			</a>
             <br>
 
-			<a href="#" style="text-decoration: none;">
+			<a href="${pageContext.request.contextPath}/revenue" style="text-decoration: none;">
 			    <span class="rectangle ${currentPage == 'revenue' ? 'active' : ''}">Revenue</span>
 			</a>
             <br>
@@ -49,10 +49,6 @@
 			    <span class="rectangle ${currentPage == 'reports' ? 'active' : ''}">Reports</span>
 			</a>   
             <br>
-
-			<a href="#" style="text-decoration: none;">
-			    <span class="rectangle ${currentPage == 'settings' ? 'active' : ''}">Settings</span>
-			</a>
 
             <div class="sideShow">
                 <div class="sideInfo">

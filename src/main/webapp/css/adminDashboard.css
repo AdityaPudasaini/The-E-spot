@@ -15,7 +15,6 @@ body {
     justify-content: center;
     font-size: 12px;
     font-weight: 700;
-    flex-shrink: 0;
 }
 
 .topPart {
@@ -219,13 +218,13 @@ body {
 
 .smallStat {
 	width: 160px;
-    background-color: rgba(157, 255, 157, 0.559);
+    background: #DCFCE7; 
+    color: #166534;
     height: 25px;
     border-radius: 10px;
     margin-left: 25px;
     align-content: center;
     padding-left: 15px;
     padding-top: 0;
-    color: green;
     font-size: 15px;
 }

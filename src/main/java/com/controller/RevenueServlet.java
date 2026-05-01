@@ -8,16 +8,16 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Servlet implementation class users
+ * Servlet implementation class RevenueServlet
  */
-@WebServlet("/users")
-public class users extends HttpServlet {
+@WebServlet("/revenue")
+public class RevenueServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public users() {
+    public RevenueServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,8 +27,10 @@ public class users extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setAttribute("currentPage", "users");
-		request.getRequestDispatcher("/WEB-INF/pages/users.jsp").forward(request, response);
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		request.setAttribute("currentPage", "revenue");
+		request.getRequestDispatcher("/WEB-INF/pages/revenue.jsp").forward(request, response);
 	}
 
 	/**

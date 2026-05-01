@@ -48,7 +48,6 @@ body {
 			    justify-content: center;
 			    font-size: 12px;
 			    font-weight: 700;
-			    flex-shrink: 0;
             }
 
             .categoriesSelect {
