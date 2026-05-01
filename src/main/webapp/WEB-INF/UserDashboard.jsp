@@ -275,6 +275,25 @@ body {
   margin: 24px 32px;
   border-radius: 12px;
 }
+.update-profile {
+    margin-top: 20px;
+    background-color: #fff;
+    color: #0C2C55;
+    border: 1.5px solid #0C2C55;
+    padding: 10px 0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    font-family: "Inter", Arial, sans-serif;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.update-profile:hover {
+    background-color: #0C2C55;
+    color: #fff;
+}
 </style>
 </head>
 <body>
@@ -303,6 +322,8 @@ body {
 							class="profile-text">jasun@email.com</span>
 					</div>
 				</div>
+				<br>
+				<a href="update-profile"class="update-profile">Update Profile</a>
 			</div>
 		</div>
 

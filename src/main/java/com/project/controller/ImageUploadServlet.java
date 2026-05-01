@@ -17,7 +17,7 @@ import com.project.utils.SessionUtil;
 /**
  * Servlet implementation class ImageUploadServlet
  */
-@WebServlet("/register")
+@WebServlet("/upload-image")
 @MultipartConfig
 public class ImageUploadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
