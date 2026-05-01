@@ -45,7 +45,7 @@
 			</a>
             <br>
 
-			<a href="#" style="text-decoration: none;">
+			<a href="${pageContext.request.contextPath}/report" style="text-decoration: none;">
 			    <span class="rectangle ${currentPage == 'reports' ? 'active' : ''}">Reports</span>
 			</a>   
             <br>

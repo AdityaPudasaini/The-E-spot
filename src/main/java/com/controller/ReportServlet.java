@@ -8,16 +8,16 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Servlet implementation class RevenueServlet
+ * Servlet implementation class ReportServlet
  */
-@WebServlet("/revenue")
-public class RevenueServlet extends HttpServlet {
+@WebServlet(asyncSupported = true, urlPatterns = { "/report" })
+public class ReportServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RevenueServlet() {
+    public ReportServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,9 +28,8 @@ public class RevenueServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		
-		request.setAttribute("currentPage", "revenue");
-		request.getRequestDispatcher("/WEB-INF/pages/revenue.jsp").forward(request, response);
+		request.setAttribute("currentPage", "reports");
+		request.getRequestDispatcher("/WEB-INF/pages/report.jsp").forward(request, response);
 	}
 
 	/**
