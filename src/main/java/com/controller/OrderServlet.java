@@ -29,7 +29,7 @@ public class OrderServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		request.setAttribute("currentPage", "orders");
-		request.getRequestDispatcher("/WEB-INF/pages/order.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/pages/orders.jsp").forward(request, response);
 	}
 
 	/**
