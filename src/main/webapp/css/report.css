@@ -186,3 +186,36 @@ body {
 	        .scheduleButton:hover { 
 	          background: #CBD5E1; 
 	        }
+	
+	        .lastPartButtons {
+	            display: flex;
+	            justify-content: center;
+	            gap: 8px;
+	            margin: 24px 32px 32px;
+	        }
+	
+	        .lastPartButton {
+	            padding: 8px 14px;
+	            border-radius: 8px;
+	            background: #fff;
+	            border: 1px solid #E2E8F0;
+	            color: #0F172A;
+	            font-size: 13px;
+	            font-weight: 600;
+	            cursor: pointer;
+	            text-decoration: none;
+	        }
+	
+	        .lastPartButton:hover { 
+	          background: #F0F4FF; 
+	        }
+	
+	        .pageActive {
+	            background: #2563EB;
+	            color: #fff;
+	            border-color: #2563EB;
+	        }
+	
+	        .pageActive:hover { 
+	          background: #1E40AF; 
+	        }
