@@ -102,7 +102,7 @@
 	                        <td class="tableRowListing"><div class="changeButtons"><button class="downloadButton">Download</button><button class="scheduleButton">Schedule</button></div></td>
 	                    </tr>
 	                    <tr class="tableRow">
-	                        <td class="tableRowListing">Refund & Returns Report</td>
+	                        <td class="tableRowListing">Refund and Returns Report</td>
 	                        <td class="tableRowListing">Orders</td>
 	                        <td class="tableRowListing">Refunded and returned orders detail</td>
 	                        <td class="tableRowListing">Apr 18, 2025</td>
@@ -137,7 +137,7 @@
 	                        <th class="tableHead">Export ID</th>
 	                        <th class="tableHead">Report Name</th>
 	                        <th class="tableHead">Exported By</th>
-	                        <th class="tableHead">Date & Time</th>
+	                        <th class="tableHead">Date and Time</th>
 	                        <th class="tableHead">Format</th>
 	                        <th class="tableHead">Status</th>
 	                    </tr>

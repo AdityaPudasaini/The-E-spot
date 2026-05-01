@@ -52,7 +52,7 @@
 	                        <td class="tableRowListing">Michael Johnson</td>
 	                        <td class="tableRowListing">michael@gmail.com</td>
 	                        <td class="tableRowListing">12</td>
-	                        <td class="tableRowListing"><span class="active">Active</span></td>
+	                        <td class="tableRowListing"><span class="actived">Active</span></td>
 	                        <td class="tableRowListing">Jan 03, 2025</td>
 	                        <td class="tableRowListing">
 	                            <div class="changeButtons">
@@ -80,7 +80,7 @@
 	                        <td class="tableRowListing">David Kim</td>
 	                        <td class="tableRowListing">david.kim@gmail.com</td>
 	                        <td class="tableRowListing">34</td>
-	                        <td class="tableRowListing"><span class="active">Active</span></td>
+	                        <td class="tableRowListing"><span class="actived">Active</span></td>
 	                        <td class="tableRowListing">Feb 02, 2025</td>
 	                        <td class="tableRowListing">
 	                            <div class="changeButtons">
@@ -108,7 +108,7 @@
 	                        <td class="tableRowListing">James Carter</td>
 	                        <td class="tableRowListing">james.c@gmail.com</td>
 	                        <td class="tableRowListing">8</td>
-	                        <td class="tableRowListing"><span class="active">Active</span></td>
+	                        <td class="tableRowListing"><span class="actived">Active</span></td>
 	                        <td class="tableRowListing">Mar 01, 2025</td>
 	                        <td class="tableRowListing">
 	                            <div class="changeButtons">
@@ -122,7 +122,7 @@
 	                        <td class="tableRowListing">Aisha Patel</td>
 	                        <td class="tableRowListing">aisha.patel@gmail.com</td>
 	                        <td class="tableRowListing">21</td>
-	                        <td class="tableRowListing"><span class="active">Active</span></td>
+	                        <td class="tableRowListing"><span class="actived">Active</span></td>
 	                        <td class="tableRowListing">Mar 22, 2025</td>
 	                        <td class="tableRowListing">
 	                            <div class="changeButtons">

@@ -16,7 +16,7 @@
 	
 	        <div class="topPart">
 	            <p class="dashboardHeading"><b>Flagged Items</b></p>
-	            <input type="text" class="searchbar" placeholder="Search everything">
+	            <input type="text" class="searchbar" placeholder="Search everything" style="margin-left: 600px">
 	            <div class="adminPhoto">A</div>
 	        </div>
 	
