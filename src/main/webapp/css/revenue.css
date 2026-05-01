@@ -146,32 +146,27 @@ body {
 	
 	        .lastPartButtons {
 	            display: flex;
-	            justify-content: flex-end;
+	            justify-content: center;
 	            gap: 8px;
-	            margin: 24px 32px 32px;
+	            margin: 24px 32px 32px 32px;
 	        }
-	
+
 	        .lastPartButton {
 	            padding: 8px 14px;
 	            border-radius: 8px;
-	            background: #fff;
+	            background: white;
 	            border: 1px solid #E2E8F0;
 	            color: #0F172A;
-	            font-size: 13px;
-	            font-weight: 600;
-	            cursor: pointer;
 	            text-decoration: none;
+	            font-size: 14px;
 	        }
 	
 	        .lastPartButton:hover { 
-	          background: #F0F4FF; 
+	        	background-color: #F0F4FF; 
 	        }
-	
-	        .pageActive {
-	            background: #2563EB;
-	            color: #fff;
+
+	        .lastPartButton.pageActive {
+	            background-color: #2563EB;
+	            color: white;
 	            border-color: #2563EB;
-	        }
-	        .pageActive:hover { 
-	          background: #1E40AF; 
 	        }

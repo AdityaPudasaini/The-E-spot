@@ -183,7 +183,9 @@ body {
             background-color: #EF4444;
         }
 
-        .deleteButton:hover { background-color: #B91C1C; }
+        .deleteButton:hover { 
+        background-color: #B91C1C; 
+        }
 
         .lastPartButtons {
             display: flex;
@@ -202,7 +204,9 @@ body {
             font-size: 14px;
         }
 
-        .lastPartButton:hover { background-color: #F0F4FF; }
+        .lastPartButton:hover { 
+        background-color: #F0F4FF; 
+        }
 
         .lastPartButton.pageActive {
             background-color: #2563EB;
