@@ -40,7 +40,7 @@
 			</a>
             <br>
 
-			<a href="#" style="text-decoration: none;">
+			<a href="${pageContext.request.contextPath}/flagged" style="text-decoration: none;">
 			    <span class="rectangle ${currentPage == 'flagged' ? 'active' : ''}">Flagged Items</span>
 			</a>
             <br>
