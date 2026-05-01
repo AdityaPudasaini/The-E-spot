@@ -1,7 +1,6 @@
 @charset "UTF-8";
 
     body {
-      font-family: sans-serif;
       background: #f4f4f4;
       display: flex;
       justify-content: center;
