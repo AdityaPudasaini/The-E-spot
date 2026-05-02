@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
+import com.dao.AdminDashboardDAO;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;	
@@ -27,6 +28,20 @@ public class AdminDashboardServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		try {
+	        AdminDashboardDAO adminDao = new AdminDashboardDAO();
+	        
+	        request.setAttribute("revenue", adminDao.totalRevenue());
+	        request.setAttribute("sold", adminDao.totalProductSOld());
+	        request.setAttribute("listed", adminDao.totalProductListed());
+	        request.setAttribute("flagged", adminDao.flaggedProducts());
+	        request.setAttribute("recent", adminDao.recentListings());
+	        
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+        
 		request.setAttribute("currentPage", "dashboard");
 		request.getRequestDispatcher("/WEB-INF/pages/adminDashboard.jsp").forward(request, response);
 	}

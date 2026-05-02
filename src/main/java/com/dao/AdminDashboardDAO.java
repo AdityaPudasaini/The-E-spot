@@ -10,12 +10,12 @@ import com.utils.DBConfig;
 
 public class AdminDashboardDAO {
 	
-	public void totalRevenue() throws SQLException {
+	public AdminDashboardModel totalRevenue() throws SQLException {
 		AdminDashboardModel total = new AdminDashboardModel();
 		
 		Connection conn = DBConfig.getConnection();
 		
-		String revenue = "SELECT SUM(Payment_Amount) AS TotalRevenue FROM payment WHERE Payment_Status = Completed";
+		String revenue = "SELECT SUM(Payment_Amount) AS TotalRevenue FROM payment WHERE Payment_Status = 'Completed'";
 		PreparedStatement pst = conn.prepareStatement(revenue);
 		ResultSet rs = pst.executeQuery();
 		
@@ -26,9 +26,11 @@ public class AdminDashboardDAO {
         rs.close();
         pst.close();
         conn.close();
+        
+        return total;
 	}
 	
-	public void totalProductSOld() throws SQLException {
+	public AdminDashboardModel totalProductSOld() throws SQLException {
 		AdminDashboardModel total = new AdminDashboardModel();
 		
 		Connection conn = DBConfig.getConnection();
@@ -46,9 +48,11 @@ public class AdminDashboardDAO {
         rs.close();
         pst.close();
         conn.close();
+        
+        return total;
 	}
 	
-	public void totalProductListed() throws SQLException {
+	public AdminDashboardModel totalProductListed() throws SQLException {
 		AdminDashboardModel total = new AdminDashboardModel();
 		
 		Connection conn = DBConfig.getConnection();
@@ -64,9 +68,11 @@ public class AdminDashboardDAO {
         rs.close();
         pst.close();
         conn.close();
+        
+        return total;
 	}
 	
-	public void flaggedProducts() throws SQLException {
+	public AdminDashboardModel flaggedProducts() throws SQLException {
 		AdminDashboardModel total = new AdminDashboardModel();
 		
 		Connection conn = DBConfig.getConnection();
@@ -95,9 +101,11 @@ public class AdminDashboardDAO {
 	     rs.close();
 	     pst.close();
 	     conn.close();
+	     
+	     return total;
 	}
 	
-	public void recentListings() throws SQLException {
+	public AdminDashboardModel recentListings() throws SQLException {
 		AdminDashboardModel total = new AdminDashboardModel();
 		
 		Connection conn = DBConfig.getConnection();
@@ -130,11 +138,13 @@ public class AdminDashboardDAO {
                 total.setRecentSeller3(rs.getString("Member_Name"));
                 total.setRecentPrice3(rs.getDouble("Product_Price"));
             }
+            
             i++;
         }
 		
         rs.close();
         pst.close();
         conn.close();
-	}
+        
+        return total;	}
 }
