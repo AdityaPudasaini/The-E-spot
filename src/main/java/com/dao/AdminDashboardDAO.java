@@ -46,5 +46,20 @@ public class AdminDashboardDAO {
         pst.close();
 	}
 	
-	
+	public void getTotalProductListed() throws SQLException {
+		AdminDashboardModel total = new AdminDashboardModel();
+		
+		Connection conn = DBConfig.getConnection();
+		
+		String totalSold = "SELECT COUNT(*) AS totalListed FROM product WHERE Active_Status = 'Active'";
+		PreparedStatement pst = conn.prepareStatement(totalSold);
+		ResultSet rs = pst.executeQuery();
+		
+        if (rs.next())
+        {
+            total.setTotalListed(rs.getInt("totalListed"));
+        }
+        rs.close();
+        pst.close();
+	}
 }
