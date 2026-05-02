@@ -37,6 +37,7 @@ public class AdminDashboardServlet extends HttpServlet {
 	        request.setAttribute("listed", adminDao.totalProductListed());
 	        request.setAttribute("flagged", adminDao.flaggedProducts());
 	        request.setAttribute("recent", adminDao.recentListings());
+	        request.setAttribute("visitors", adminDao.totalVisitors());
 	        
 	    } catch (Exception e) {
 	        e.printStackTrace();

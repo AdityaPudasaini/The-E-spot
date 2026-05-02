@@ -146,5 +146,25 @@ public class AdminDashboardDAO {
         pst.close();
         conn.close();
         
-        return total;	}
+        return total;	
+	}
+	
+	public AdminDashboardModel totalVisitors() throws SQLException {
+	    AdminDashboardModel total = new AdminDashboardModel();
+	    
+	    Connection conn = DBConfig.getConnection();
+	    String sql = "SELECT COUNT(*) AS totalVisitors FROM member";
+	    PreparedStatement pst = conn.prepareStatement(sql);
+	    ResultSet rs = pst.executeQuery();
+	    
+	    if (rs.next()) 
+	    {
+	        total.setTotalVisitors(rs.getInt("totalVisitors"));
+	    }
+	    
+	    rs.close();
+	    pst.close();
+	    conn.close();
+	    return total;
+	}
 }

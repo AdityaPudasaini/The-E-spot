@@ -18,6 +18,7 @@ public class AdminDashboardModel {
     private String recentProduct3;
     private String recentSeller3;
     private double recentPrice3;
+    private int totalVisitors;
 
     public double getTotalRevenue() { 
     	return totalRevenue; 
@@ -145,5 +146,13 @@ public class AdminDashboardModel {
     
     public void setRecentPrice3(double recentPrice3) { 
     	this.recentPrice3 = recentPrice3; 
+    }
+    
+    public int getTotalVisitors() { 
+    	return totalVisitors; 
+    }
+    
+    public void setTotalVisitors(int totalVisitors) { 
+    	this.totalVisitors = totalVisitors; 
     }
 }

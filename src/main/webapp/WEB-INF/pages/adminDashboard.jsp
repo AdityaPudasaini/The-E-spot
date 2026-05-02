@@ -27,7 +27,7 @@
                     <p style="color:white; margin-left: 50px">Let us continue to check and moniter the website</p>
                 </div> 
 
-                <a href="#" class="buttonRectangle" style="text-decoration: none;">
+                <a href="${pageContext.request.contextPath}/report" class="buttonRectangle" style="text-decoration: none;">
                     <span class="report">View Report</span>
                 </a>
             </div>
@@ -36,29 +36,25 @@
                 <div class="smallBox">
                     <img src="${pageContext.request.contextPath}/Images/dollar.png" class="dollarImage">
                     <p class="smallText"> Total Revenue Generated</p>
-                    <p class="money"><b>$10,000,000</b></p>
-                    <div class="smallStat">   🠉  +5% from last year</div>
+                    <p class="money"><b>$${dashboardData.totalRevenue}</b></p>
                 </div>
                 
                 <div class="smallBox">
                     <img src="${pageContext.request.contextPath}/Images/product Sold.png" class="dollarImage">
                     <p class="smallText"> Total Product Sold</p>
-                    <p class="money"><b>10,000</b></p>
-                    <div class="smallStat">   🠉  +1% from last year</div>
+                    <p class="money"><b>${dashboardData.totalSold}</b></p>
                 </div>
 
                 <div class="smallBox">
                     <img src="${pageContext.request.contextPath}/Images/Product Listed.png" class="dollarImage">
                     <p class="smallText"> Total Product Listed</p>
-                    <p class="money"><b>19,000</b></p>
-                    <div class="smallStat">   🠉  +0.5% from last year</div>
+                    <p class="money"><b>${dashboardData.totalListed}</b></p>
                 </div>
 
                 <div class="smallBox">
                     <img src="${pageContext.request.contextPath}/Images/people visited.png" class="dollarImage">
                     <p class="smallText"> Total Website Visitors</p>
-                    <p class="money"><b>15,000,000</b></p>
-                    <div class="smallStat" style="background: #FEE2E2; color: #991B1B; width: 170px;">   🠋  +0.09% from last year</div>
+                    <p class="money"><b>${visitors.totalVisitors}</b></p>
                 </div>
             </div>
 
@@ -66,60 +62,56 @@
                 <div class="lastBox">
                     <div style="display: flex;">
                         <p class="invalidListingText"><b>Invalid Listings</b></p>
-
-                        <a href="#" class="sideText">See More </a>
+                        <a href="#" class="sideText">See More</a>
                     </div>
 
-                    <div class="invalidItem">
-                        <p class="invalidItemName">MacBook Pro M3 — possibly counterfeit</p>
-                        <p class="invalidItemDesc">Reported by 2 users · Listed 3h ago</p>
-
-                        <div class="buttionsHere">
-                            <button class="removebutton">Remove</button>
-                            <button class="keepButton">Keep</button>
-                        </div>
+                    <div class="invalidItem" style="${empty flagged.flaggedProductName ? 'display:none;' : ''}">
+                        <p class="invalidItemName">${flagged.flaggedProductName}</p>
+						<p class="invalidItemDesc" style="${empty flagged.flaggedProductName ? 'display:none;' : ''}">Listed on ${flagged.flaggedProductDate}</p>
+						<div class="buttionsHere" style="${empty flagged.flaggedProductName ? 'display:none;' : ''}">
+						    <button class="removebutton">Remove</button>
+						    <button class="keepButton">Keep</button>
+						</div>
                     </div>
 
-                    <div class="invalidItem" style="border: none;">
-                        <p class="invalidItemName">Air Jordan — Too damaged</p>
-                        <p class="invalidItemDesc">Reported by 1 user · Listed 20h ago</p>
-
-                        <div class="buttionsHere">
-                            <button class="removebutton">Remove</button>
-                            <button class="keepButton">Keep</button>
-                        </div>
+                    <div class="invalidItem" style="border: none;" style="${empty flagged.flaggedProductName ? 'display:none;' : ''}">
+						<p class="invalidItemName">${flagged.flaggedProductName}</p>
+						<p class="invalidItemDesc" style="${empty flagged.flaggedProductName ? 'display:none;' : ''}">Listed on ${flagged.flaggedProductDate}</p>
+						<div class="buttionsHere" style="${empty flagged.flaggedProductName ? 'display:none;' : ''}">
+						    <button class="removebutton">Remove</button>
+						    <button class="keepButton">Keep</button>
+						</div>
                     </div>
                 </div>
 
                 <div class="lastBox">
                     <div style="display: flex;">
                         <p class="recentListingText">Recent Listings</p>
-
-                        <a href="#" class="sideText" style="padding-left: 295px;">See More </a>
+                        <a href="#" class="sideText" style="padding-left: 295px;">See More</a>
                     </div>
 
-                    <div class="listedItem">
+                    <div class="listedItem" style="${empty dashboardData.recentProduct1 ? 'display:none;' : ''}">
                         <div class="listedItemInfo">
-                            <p class="listedItemName">Nike Air Max 270</p>
-                            <p class="listedItemSellerName">by Michael</p>
+                            <p class="listedItemName">${dashboardData.recentProduct1}</p>
+                            <p class="listedItemSellerName">by ${dashboardData.recentSeller1}</p>
                         </div>
-                        <span class="listedItemPrice">$129</span>
+                        <span class="listedItemPrice">$${dashboardData.recentPrice1}</span>
                     </div>
 
-                    <div class="listedItem">
+                    <div class="listedItem" style="${empty dashboardData.recentProduct2 ? 'display:none;' : ''}">
                         <div class="listedItemInfo">
-                            <p class="listedItemName">60% Mechanic Keyboard</p>
-                            <p class="listedItemSellerName">by Sam</p>
+                            <p class="listedItemName">${dashboardData.recentProduct2}</p>
+                            <p class="listedItemSellerName">by ${dashboardData.recentSeller2}</p>
                         </div>
-                        <span class="listedItemPrice">$99.99</span>
+                        <span class="listedItemPrice">$${dashboardData.recentPrice2}</span>
                     </div>
 
-                    <div class="listedItem" style="border: none;">
+                    <div class="listedItem" style="border: none; ${empty dashboardData.recentProduct1 ? 'display:none;' : ''}">
                         <div class="listedItemInfo">
-                            <p class="listedItemName">Omega Seamaster,</p>
-                            <p class="listedItemSellerName">by Andrew</p>
+                            <p class="listedItemName">${dashboardData.recentProduct3}</p>
+                            <p class="listedItemSellerName">by ${dashboardData.recentSeller3}</p>
                         </div>
-                        <span class="listedItemPrice">$5000</span>
+                        <span class="listedItemPrice">$${dashboardData.recentPrice3}</span>
                     </div>
                 </div>
             </div>
