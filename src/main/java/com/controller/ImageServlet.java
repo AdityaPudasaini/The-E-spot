@@ -13,7 +13,7 @@ import java.nio.file.Files;
 /**
  * Servlet implementation class ImageServlet
  */
-@WebServlet("/ImageServlet")
+@WebServlet(asyncSupported = true, urlPatterns = { "/image" })
 public class ImageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String UPLOAD_DIR = System.getProperty("user.home") + File.separator + "webapp_uploads";
