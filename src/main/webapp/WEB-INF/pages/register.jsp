@@ -18,7 +18,7 @@
 		<div class="form-card">
 		    <h2>Member registration</h2>
 		
-		    <form action="${pageContext.request.contextPath}/register" method="post">
+		    <form action="${pageContext.request.contextPath}/register" method="post" enctype="multipart/form-data">
 		
 		        <input type="hidden" name="createdDate" value="${java.time.LocalDate.now()}" />
 		        <input type="hidden" name="accountStatus" value="Active" />
@@ -52,6 +52,11 @@
 			      <label>Password</label>
 			      <input type="password" id="password" name="Password" placeholder="Create a password" />
 			    </div> 
+			    
+			    <div class="field">
+				    <label>Profile Photo</label>
+				    <input type="file" id="photo" name="Photo" accept="image/*" />
+				</div>
 			    
 			    <button type="submit" class="button">Register</button>
 			</form>
