@@ -1,24 +1,35 @@
 package com.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 
 import com.service.RegisterService;
 import com.utils.CookieUtil;
+import com.utils.FileUploadUtil;
 import com.utils.SessionUtil;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;	
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
 
 /**
  * Servlet implementation class RegisterServlet
  */
 @WebServlet(asyncSupported = true, urlPatterns = { "/register" })
+@MultipartConfig(
+	    fileSizeThreshold = 1024 * 1024 * 2,
+	    maxFileSize = 1024 * 1024 * 10,
+	    maxRequestSize = 1024 * 1024 * 50
+	)
+
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final String UPLOAD_DIR = System.getProperty("user.home") + File.separator + "webapp_uploads";
 
     /**
      * Default constructor. 
@@ -63,6 +74,15 @@ public class RegisterServlet extends HttpServlet {
 	            			
 	            			RegisterService service = new RegisterService();
 	                        service.addStudent(name, username, dob, email, number, password, currentDate, accountStatus);
+	                        
+	                        Part filePart = request.getPart("Photo");
+	                        
+	                        if (filePart != null && filePart.getSize() > 0) 
+	                        {
+	                            String extension = FileUploadUtil.getFileExtension(filePart.getSubmittedFileName());
+	                            String fileName = username + extension;
+	                            FileUploadUtil.saveFile(filePart, UPLOAD_DIR, fileName);
+	                        }
 	                        
 	                        SessionUtil.setAttribute(request, "username", username, 60 * 30);
 	            			

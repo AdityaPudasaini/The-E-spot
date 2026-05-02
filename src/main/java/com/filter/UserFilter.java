@@ -56,7 +56,7 @@ public class UserFilter extends HttpFilter implements Filter {
 
         if (isLoggedIn) 
         {
-        	if (userType.equals("admin")) 
+        	if ("admin".equals(userType)) 
         	{
                 httpResponse.sendRedirect(httpRequest.getContextPath() + "/dashboard");
             } 

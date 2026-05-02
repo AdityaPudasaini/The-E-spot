@@ -55,7 +55,7 @@
 			    
 			    <div class="field">
 				    <label>Profile Photo</label>
-				    <input type="file" id="photo" name="Photo" accept="image/*" />
+				    <input type="file" id="photo" name="Photo" accept="image/*" onchange="previewFile()">
 				</div>
 			    
 			    <button type="submit" class="button">Register</button>
