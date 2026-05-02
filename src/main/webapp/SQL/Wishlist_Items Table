@@ -1,0 +1,8 @@
+CREATE TABLE wishlist_item (
+    Wishlist_Item_ID INT(11) PRIMARY KEY AUTO_INCREMENT,
+    Wishlist_ID INT(11),
+    Product_ID INT(11),
+    Added_Date DATETIME,
+    FOREIGN KEY (Wishlist_ID) REFERENCES wishlist(Wishlist_ID),
+    FOREIGN KEY (Product_ID) REFERENCES product(Product_ID)
+);
