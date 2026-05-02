@@ -10,7 +10,7 @@ import com.utils.DBConfig;
 
 public class AdminDashboardDAO {
 	
-	public void getTotalRevenue() throws SQLException {
+	public void totalRevenue() throws SQLException {
 		AdminDashboardModel total = new AdminDashboardModel();
 		
 		Connection conn = DBConfig.getConnection();
@@ -27,7 +27,7 @@ public class AdminDashboardDAO {
         pst.close();
 	}
 	
-	public void getTotalProductSOld() throws SQLException {
+	public void totalProductSOld() throws SQLException {
 		AdminDashboardModel total = new AdminDashboardModel();
 		
 		Connection conn = DBConfig.getConnection();
@@ -46,7 +46,7 @@ public class AdminDashboardDAO {
         pst.close();
 	}
 	
-	public void getTotalProductListed() throws SQLException {
+	public void totalProductListed() throws SQLException {
 		AdminDashboardModel total = new AdminDashboardModel();
 		
 		Connection conn = DBConfig.getConnection();
@@ -62,4 +62,8 @@ public class AdminDashboardDAO {
         rs.close();
         pst.close();
 	}
+	
+	
+	
+	
 }
