@@ -43,7 +43,7 @@ public class MemberDAO {
 		ArrayList <MemberModel> member = new ArrayList<> ();
 		Connection con = DBConfig.getConnection();
         
-        String sql = "SELECT * FROM member where Member_Email = ?";
+        String sql = "SELECT * FROM member";
         PreparedStatement pst = con.prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
 

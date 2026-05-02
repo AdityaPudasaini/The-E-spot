@@ -90,13 +90,6 @@ public class RegisterServlet extends HttpServlet {
             	request.getRequestDispatcher("/WEB-INF/pages/register.jsp").forward(request, response);
                 return;
             }
-
-            // Call service to add student
-//            RegisterService service = new RegisterService();
-//            service.addStudent(firstName, lastName, username, dob, email, number, password);
-            
-            // Redirect to login page after successful registration 
-//            response.sendRedirect(request.getContextPath() + "/dashboard");
             
         } catch (Exception e) {
             e.printStackTrace();

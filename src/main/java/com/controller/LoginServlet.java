@@ -3,6 +3,7 @@ package com.controller;
 import java.io.IOException;
 
 import com.service.LoginService;
+import com.dao.AdminDAO;
 import com.dao.MemberDAO;
 
 import jakarta.servlet.ServletException;
@@ -60,11 +61,29 @@ public class LoginServlet extends HttpServlet {
                 e.printStackTrace();
             }
             
+            response.sendRedirect(request.getContextPath() + "/memberDashboard");
+        }
+        
+        else if ("Admin".equals(status)) {
+
+            AdminDAO admin = new AdminDAO();
+            
+            HttpSession session = request.getSession();
+            
+            try {
+                session.setAttribute("email", admin.getAdminRecord());
+            } 
+            
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+            
             response.sendRedirect(request.getContextPath() + "/dashboard");
         }
+        
         else {
             // Set error and forward it to login page
-            request.setAttribute("error", status);
+        	request.setAttribute("error", status);
             request.setAttribute("typedUser", email); // To keep the username in the box
             request.setAttribute("errorMessage", "Invalid login credentials.");
             request.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(request, response);

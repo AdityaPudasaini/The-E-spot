@@ -1,24 +1,24 @@
 package com.controller;
 
-import java.io.IOException;
-
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;	
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
- * Servlet implementation class dashboardServlet
+ * Servlet implementation class MemberDashboard
  */
-@WebServlet(asyncSupported = true, urlPatterns = { "/dashboard" })
-public class dashboardServlet extends HttpServlet {
+@WebServlet(asyncSupported = true, urlPatterns = { "/memberDashboard" })
+public class MemberDashboardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public dashboardServlet() {
+    public MemberDashboardServlet() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
@@ -27,8 +27,7 @@ public class dashboardServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setAttribute("currentPage", "dashboard");
-		request.getRequestDispatcher("/WEB-INF/pages/adminDashboard.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/pages/dashboard.jsp").forward(request, response);
 	}
 
 	/**
@@ -36,7 +35,7 @@ public class dashboardServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		doGet(request, response);
 	}
 
 }

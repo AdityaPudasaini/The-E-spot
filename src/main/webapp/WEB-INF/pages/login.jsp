@@ -11,6 +11,8 @@
 	<body>
 		<div class="form-card">
 		    <h2>Login</h2>
+		    
+		    <div style="color:red; margin-bottom:10px; ${empty error ? 'display:none;' : ''}">${error}</div>
 		
 			<form action="<%=request.getContextPath()%>/login" method="post">
 			    <div class="field">

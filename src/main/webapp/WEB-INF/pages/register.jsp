@@ -13,23 +13,15 @@
 	
 	<body>
 		
-		<% String errorMessage = (String) request.getAttribute("errorMessage"); %>
-		
-		<% if (errorMessage != null) { %>
-		    <p style="color: red; font-size: 10px; justify-content: center"><%= errorMessage %></p>
-		<% } %>
-		
-		<%@ page import="java.time.LocalDate" %>
-		<% LocalDate createdDate = LocalDate.now(); %>
-		<% String accountStatus = "Active"; %>
-		
+		<p style="color: red; font-size: 10px; justify-content: center; ${empty errorMessage ? 'display:none;' : ''}">${errorMessage}</p>
+
 		<div class="form-card">
 		    <h2>Member registration</h2>
-		    
-		    <form action="<%=request.getContextPath()%>/register" method="post">
-				
-				<input type="hidden" name="createdDate" value="<%= createdDate %>" />
-    			<input type="hidden" name="accountStatus" value="<%= accountStatus %>" />
+		
+		    <form action="${pageContext.request.contextPath}/register" method="post">
+		
+		        <input type="hidden" name="createdDate" value="${java.time.LocalDate.now()}" />
+		        <input type="hidden" name="accountStatus" value="Active" />
     
 			    <div class="field">
 			      <label>Full Name</label>
@@ -57,7 +49,7 @@
 			    </div>
 			
 			    <div class="field">
-			      <label for="password">Password</label>
+			      <label>Password</label>
 			      <input type="password" id="password" name="Password" placeholder="Create a password" />
 			    </div>
 			    
