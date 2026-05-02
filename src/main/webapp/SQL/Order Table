@@ -1,0 +1,6 @@
+CREATE TABLE `order` (
+    Order_ID INT(11) PRIMARY KEY AUTO_INCREMENT,
+    Member_ID INT(11),
+    Order_Date DATETIME,
+    Order_Status VARCHAR(30),
+    FOREIGN KEY (Member_ID) REFERENCES member(Member_ID)
