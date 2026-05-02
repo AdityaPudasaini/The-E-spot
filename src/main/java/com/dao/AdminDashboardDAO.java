@@ -27,5 +27,24 @@ public class AdminDashboardDAO {
         pst.close();
 	}
 	
+	public void getTotalProductSOld() throws SQLException {
+		AdminDashboardModel total = new AdminDashboardModel();
+		
+		Connection conn = DBConfig.getConnection();
+		
+		String productSold = "SELECT SUM(ordItm.Item_Quantity) AS totalSold FROM order_item ordItm JOIN `order` ord ON ordItm.Order_ID = ord.Order_ID WHERE ord.Order_Status = 'Completed'";
+		PreparedStatement pst = conn.prepareStatement(productSold);
+		ResultSet rs = pst.executeQuery();
+		pst = conn.prepareStatement(productSold);
+        rs = pst.executeQuery();
+        
+        if (rs.next()) 
+        {
+        	total.setTotalSold(rs.getInt("totalSold"));
+        }
+        rs.close();
+        pst.close();
+	}
+	
 	
 }
