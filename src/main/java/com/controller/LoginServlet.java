@@ -2,6 +2,7 @@ package com.controller;
 
 import java.io.IOException;
 
+
 import com.service.LoginService;
 import com.utils.CookieUtil;
 import com.utils.SessionUtil;
@@ -15,7 +16,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class LoginServlet
@@ -53,24 +53,46 @@ public class LoginServlet extends HttpServlet {
 
         if ("Success".equals(status)) {
         	
-            MemberModel model = new MemberModel();
+        	MemberDAO memberDAO = new MemberDAO();
+            MemberModel model;
             
-            SessionUtil.setAttribute(request, "username", model.getUserName(), 60 * 30);
-			
-			CookieUtil.addCookie(response, "username", model.getUserName(), 60 * 60 * 24 * 30);
-            
-            response.sendRedirect(request.getContextPath() + "/memberDashboard");
+			try {
+				model = memberDAO.getMemberRecordByEmail(email);
+				
+				SessionUtil.setAttribute(request, "username", model.getUserName(), 60 * 30);
+				
+				CookieUtil.addCookie(response, "username", model.getUserName(), 60 * 60 * 24 * 30);
+	            
+	            response.sendRedirect(request.getContextPath() + "/memberDashboard");
+			} 
+			catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
         }
         
         else if ("Admin".equals(status)) {
 
-        	AdminModel admin = new AdminModel();
+        	AdminDAO adminDAO = new AdminDAO();
+            AdminModel admin;
             
-            SessionUtil.setAttribute(request, "username", admin.getUserName(), 60 * 30);
+			try 
+			{
+				admin = adminDAO.getAdminRecord();
+				
+				SessionUtil.setAttribute(request, "username", admin.getUserName(), 60 * 30);
+				
+				CookieUtil.addCookie(response, "username", admin.getUserName(), 60 * 60 * 24 * 30);
+	            
+	            response.sendRedirect(request.getContextPath() + "/dashboard");
+				
+			} 
 			
-			CookieUtil.addCookie(response, "username", admin.getUserName(), 60 * 60 * 24 * 30);
+			catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
             
-            response.sendRedirect(request.getContextPath() + "/dashboard");
         }
         
         else {
