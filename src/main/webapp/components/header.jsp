@@ -10,6 +10,6 @@
     <a href="">Home</a>
     <a href="">Orders</a>
     <a href="">Wishlist</a>
-    <a href="">Profile</a>
+    <a href="user">Profile</a>
   </div>
 </div>
