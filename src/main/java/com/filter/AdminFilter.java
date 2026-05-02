@@ -1,6 +1,7 @@
 package com.filter;
 
 import jakarta.servlet.Filter;
+
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.FilterConfig;
 import jakarta.servlet.ServletException;
@@ -8,12 +9,17 @@ import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpFilter;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
+
+import com.utils.SessionUtil;
 
 /**
  * Servlet Filter implementation class AdminFilter
  */
-@WebFilter(urlPatterns = {"/memberDashboard", "/flagged", "/listing", "/order", "/report", "/revenue", "/user"})
+@WebFilter(urlPatterns = {"/dashboard", "/flagged", "/listing", "/order", "/report", "/revenue", "/user"})
 public class AdminFilter extends HttpFilter implements Filter {
        
     /**
@@ -41,10 +47,20 @@ public class AdminFilter extends HttpFilter implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
-		// place your code here
-
-		// pass the request along the filter chain
-		chain.doFilter(request, response);
+		HttpServletRequest httpRequest = (HttpServletRequest) request;
+		HttpServletResponse httpResponse = (HttpServletResponse) response;
+		
+		String userType = (String) SessionUtil.getAttribute(httpRequest, "userType");
+		
+		if (userType == "admin") 
+    	{
+            chain.doFilter(request, response);
+        } 
+    	
+    	else 
+    	{
+            httpResponse.sendRedirect(httpRequest.getContextPath() + "/memberDashboard");
+        }
 	}
 
 	/**

@@ -19,7 +19,7 @@ import com.utils.SessionUtil;
 /**
  * Servlet Filter implementation class UserFilter
  */
-@WebFilter(urlPatterns = {"/login", "/register"})
+@WebFilter(urlPatterns = {"/login", "/register", "/memberDashboard"})
 public class UserFilter extends HttpFilter implements Filter {
        
     /**
@@ -52,17 +52,26 @@ public class UserFilter extends HttpFilter implements Filter {
 		
 		boolean isLoggedIn = SessionUtil.getAttribute(httpRequest, "username") != null;
 		String userType = (String) SessionUtil.getAttribute(httpRequest, "userType");
+		String urlPath = httpRequest.getServletPath();
 
         if (isLoggedIn) 
         {
-        	if (userType == "admin") 
+        	if (userType.equals("admin")) 
         	{
                 httpResponse.sendRedirect(httpRequest.getContextPath() + "/dashboard");
             } 
         	
         	else 
         	{
-                httpResponse.sendRedirect(httpRequest.getContextPath() + "/memberDashboard");
+        		if (urlPath.equals("/memberDashboard")) 
+        		{
+                    chain.doFilter(request, response);
+                } 
+        		
+        		else 
+        		{
+                    httpResponse.sendRedirect(httpRequest.getContextPath() + "/memberDashboard");
+                }
             }
         } 
         
