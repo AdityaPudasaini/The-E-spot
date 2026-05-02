@@ -5,6 +5,7 @@ public class AdminModel {
     private String email;
     private String password;
     private String permission;
+    private String username;
 
     
     public String getName() 
@@ -15,6 +16,16 @@ public class AdminModel {
     public void setName(String name) 
     { 
     	this.name = name; 
+    }
+    
+    public String getUserName()
+    {
+    	return username;
+    }
+    
+    public void setUserName(String username)
+    {
+    	this.username = username;
     }
 
     public String getEmail() 

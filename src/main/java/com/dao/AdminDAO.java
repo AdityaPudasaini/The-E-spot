@@ -22,6 +22,7 @@ public class AdminDAO {
         	admin.setEmail(rs.getString("Admin_Email"));
         	admin.setPassword(rs.getString("Admin_Password"));
         	admin.setPermission(rs.getString("Admin_Permission"));
+        	admin.setUserName(rs.getString("Admin_Username"));
         }
 
         rs.close();

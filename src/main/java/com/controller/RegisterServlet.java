@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 import com.service.RegisterService;
+import com.utils.CookieUtil;
+import com.utils.SessionUtil;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;	
@@ -61,6 +63,10 @@ public class RegisterServlet extends HttpServlet {
 	            			
 	            			RegisterService service = new RegisterService();
 	                        service.addStudent(name, username, dob, email, number, password, currentDate, accountStatus);
+	                        
+	                        SessionUtil.setAttribute(request, "username", username, 60 * 30);
+	            			
+	            			CookieUtil.addCookie(response, "username", username, 60 * 60 * 24 * 30);
 	            			response.sendRedirect(request.getContextPath() + "/memberDashboard");
 	            		}
 	            		

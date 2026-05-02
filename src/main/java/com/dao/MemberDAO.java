@@ -29,7 +29,7 @@ public class MemberDAO {
 			
 			Connection con = DBConfig.getConnection();
 			
-			String sql = "INSERT INTO member (Member_Name, Member_Email, Member_Password, Member_DOB, Member_Phone, Account_Status, Created_At) "
+			String sql = "INSERT INTO member (Member_Name, Member_Email, Member_Password, Member_DOB, Member_Phone, Account_Status, Created_At, Member_Username) "
 			+ "VALUES (?, ?, ?, ?, ?, ?, ?)";
 			PreparedStatement pst = con.prepareStatement(sql);
 			
@@ -40,7 +40,7 @@ public class MemberDAO {
 			pst.setString(5, number);
 			pst.setString(6, accountStatus);
 			pst.setDate(7, currentDate);	
-			
+			pst.setString(8, username);			
 			pst.executeUpdate();
 			pst.close();
 			con.close();
@@ -64,6 +64,7 @@ public class MemberDAO {
             singleMemberRecord.setNumber(rs.getString("Member_Phone"));
             singleMemberRecord.setAccountStatus(rs.getString("Account_Status"));
             singleMemberRecord.setCreatedDate(rs.getDate("Created_At"));
+            singleMemberRecord.setUserName(rs.getString("Member_Username"));
             
             member.add(singleMemberRecord);
         }
@@ -93,6 +94,7 @@ public class MemberDAO {
         	uniqueMember.setNumber(rs.getString("Member_Phone"));
         	uniqueMember.setAccountStatus(rs.getString("Account_Status"));
         	uniqueMember.setCreatedDate(rs.getDate("Created_At"));
+        	uniqueMember.setUserName(rs.getString("Member_Username"));
         }
 
         rs.close();
@@ -120,6 +122,35 @@ public class MemberDAO {
         	uniqueMember.setNumber(rs.getString("Member_Phone"));
         	uniqueMember.setAccountStatus(rs.getString("Account_Status"));
         	uniqueMember.setCreatedDate(rs.getDate("Created_At"));
+        	uniqueMember.setUserName(rs.getString("Member_Username"));
+        }
+
+        rs.close();
+        pst.close();
+        con.close();
+        return uniqueMember;
+    }
+	
+	public MemberModel getMemberRecordByUsername(String username) throws Exception {
+		MemberModel uniqueMember = null;
+        Connection con = DBConfig.getConnection();
+        
+        String sql = "SELECT * FROM member WHERE Member_Username = ?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setString(1, username);
+        
+        ResultSet rs = pst.executeQuery();
+
+        if (rs.next()) {
+        	uniqueMember = new MemberModel();
+        	uniqueMember.setName(rs.getString("Member_Name"));
+        	uniqueMember.setEmail(rs.getString("Member_Email"));
+        	uniqueMember.setPassword(rs.getString("Member_Password"));
+        	uniqueMember.setDob(rs.getDate("Member_DOB"));
+        	uniqueMember.setNumber(rs.getString("Member_Phone"));
+        	uniqueMember.setAccountStatus(rs.getString("Account_Status"));
+        	uniqueMember.setCreatedDate(rs.getDate("Created_At"));
+        	uniqueMember.setUserName(rs.getString("Member_Username"));
         }
 
         rs.close();

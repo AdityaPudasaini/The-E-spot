@@ -3,8 +3,12 @@ package com.controller;
 import java.io.IOException;
 
 import com.service.LoginService;
+import com.utils.CookieUtil;
+import com.utils.SessionUtil;
 import com.dao.AdminDAO;
 import com.dao.MemberDAO;
+import com.model.AdminModel;
+import com.model.MemberModel;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;	
@@ -48,35 +52,23 @@ public class LoginServlet extends HttpServlet {
 
 
         if ("Success".equals(status)) {
-
-            MemberDAO member=new MemberDAO();
+        	
+            MemberModel model = new MemberModel();
             
-            HttpSession session = request.getSession();
-            
-            try {
-                session.setAttribute("email", member.getMemberRecordByEmail(email));
-            } 
-            
-            catch (Exception e) {
-                e.printStackTrace();
-            }
+            SessionUtil.setAttribute(request, "username", model.getUserName(), 60 * 30);
+			
+			CookieUtil.addCookie(response, "username", model.getUserName(), 60 * 60 * 24 * 30);
             
             response.sendRedirect(request.getContextPath() + "/memberDashboard");
         }
         
         else if ("Admin".equals(status)) {
 
-            AdminDAO admin = new AdminDAO();
+        	AdminModel admin = new AdminModel();
             
-            HttpSession session = request.getSession();
-            
-            try {
-                session.setAttribute("email", admin.getAdminRecord());
-            } 
-            
-            catch (Exception e) {
-                e.printStackTrace();
-            }
+            SessionUtil.setAttribute(request, "username", admin.getUserName(), 60 * 30);
+			
+			CookieUtil.addCookie(response, "username", admin.getUserName(), 60 * 60 * 24 * 30);
             
             response.sendRedirect(request.getContextPath() + "/dashboard");
         }
