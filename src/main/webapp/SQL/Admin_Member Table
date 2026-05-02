@@ -1,0 +1,7 @@
+CREATE TABLE admin_member (
+    Admin_ID INT(11),
+    Member_ID INT(11),
+    PRIMARY KEY (Admin_ID, Member_ID),
+    FOREIGN KEY (Admin_ID) REFERENCES admin(Admin_ID),
+    FOREIGN KEY (Member_ID) REFERENCES member(Member_ID)
+);
