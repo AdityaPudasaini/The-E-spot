@@ -52,7 +52,9 @@
 
             <div class="sideShow">
                 <div class="sideInfo">
-                    <button class="logout">Logout</button>
+                    <a href="${pageContext.request.contextPath}/logout" style="text-decoration: none;">
+			            <button class="logout">Logout</button>
+			        </a>
                 </div>
             </div>
         </div>
