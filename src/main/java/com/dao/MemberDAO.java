@@ -15,28 +15,36 @@ public class MemberDAO {
 	
 	public void insertMember(String name, String username, String dob,
             String email, String number, String password, java.sql.Date currentDate, String accountStatus) throws Exception {
-
-		LocalDate localDate = LocalDate.parse(dob); 
-		Date sqlDate = Date.valueOf(localDate);
-		
-		Connection con = DBConfig.getConnection();
-		
-		String sql = "INSERT INTO member (Member_Name, Member_Email, Member_Password, Member_DOB, Member_Phone, Account_Status, Created_At) "
-		 + "VALUES (?, ?, ?, ?, ?, ?, ?)";
-		PreparedStatement pst = con.prepareStatement(sql);
-		
-		pst.setString(1, name);
-		pst.setString(2, email);
-		pst.setString(3, password);
-		pst.setDate(4, sqlDate);
-		pst.setString(5, number);
-		pst.setString(6, accountStatus);
-		pst.setDate(7, currentDate);	
-		
-		pst.executeUpdate();
-		pst.close();
-		con.close();
-	}
+			
+			if(getMemberRecordByEmail(email) != null) {
+		        throw new Exception("Email is already in use.");
+		    }
+		    
+		    if(getMemberRecordByPhone(number) != null) {
+		        throw new Exception("Phone number is already in use.");
+		    }
+		    
+			LocalDate localDate = LocalDate.parse(dob); 
+			Date sqlDate = Date.valueOf(localDate);
+			
+			Connection con = DBConfig.getConnection();
+			
+			String sql = "INSERT INTO member (Member_Name, Member_Email, Member_Password, Member_DOB, Member_Phone, Account_Status, Created_At) "
+			+ "VALUES (?, ?, ?, ?, ?, ?, ?)";
+			PreparedStatement pst = con.prepareStatement(sql);
+			
+			pst.setString(1, name);
+			pst.setString(2, email);
+			pst.setString(3, password);
+			pst.setDate(4, sqlDate);
+			pst.setString(5, number);
+			pst.setString(6, accountStatus);
+			pst.setDate(7, currentDate);	
+			
+			pst.executeUpdate();
+			pst.close();
+			con.close();
+		}
 	
 	public ArrayList <MemberModel> getMemberRecords() throws SQLException {
 		
@@ -73,6 +81,33 @@ public class MemberDAO {
         String sql = "SELECT * FROM member WHERE Member_Email = ?";
         PreparedStatement pst = con.prepareStatement(sql);
         pst.setString(1, email);
+        
+        ResultSet rs = pst.executeQuery();
+
+        if (rs.next()) {
+        	uniqueMember = new MemberModel();
+        	uniqueMember.setName(rs.getString("Member_Name"));
+        	uniqueMember.setEmail(rs.getString("Member_Email"));
+        	uniqueMember.setPassword(rs.getString("Member_Password"));
+        	uniqueMember.setDob(rs.getDate("Member_DOB"));
+        	uniqueMember.setNumber(rs.getString("Member_Phone"));
+        	uniqueMember.setAccountStatus(rs.getString("Account_Status"));
+        	uniqueMember.setCreatedDate(rs.getDate("Created_At"));
+        }
+
+        rs.close();
+        pst.close();
+        con.close();
+        return uniqueMember;
+    }
+	
+	public MemberModel getMemberRecordByPhone(String number) throws Exception {
+		MemberModel uniqueMember = null;
+        Connection con = DBConfig.getConnection();
+        
+        String sql = "SELECT * FROM member WHERE Member_Phone = ?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setString(1, number);
         
         ResultSet rs = pst.executeQuery();
 

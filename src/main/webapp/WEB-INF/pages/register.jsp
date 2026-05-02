@@ -51,7 +51,7 @@
 			    <div class="field">
 			      <label>Password</label>
 			      <input type="password" id="password" name="Password" placeholder="Create a password" />
-			    </div>
+			    </div> 
 			    
 			    <button type="submit" class="button">Register</button>
 			</form>

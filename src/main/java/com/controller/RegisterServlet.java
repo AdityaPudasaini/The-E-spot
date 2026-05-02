@@ -61,7 +61,7 @@ public class RegisterServlet extends HttpServlet {
 	            			
 	            			RegisterService service = new RegisterService();
 	                        service.addStudent(name, username, dob, email, number, password, currentDate, accountStatus);
-	            			response.sendRedirect(request.getContextPath() + "/dashboard");
+	            			response.sendRedirect(request.getContextPath() + "/memberDashboard");
 	            		}
 	            		
 	            		else {
@@ -93,7 +93,8 @@ public class RegisterServlet extends HttpServlet {
             
         } catch (Exception e) {
             e.printStackTrace();
-            response.getWriter().println("Error: " + e.getMessage());
+            request.setAttribute("errorMessage", e.getMessage());
+            request.getRequestDispatcher("/WEB-INF/pages/register.jsp").forward(request, response);
         }
 	}
 }
