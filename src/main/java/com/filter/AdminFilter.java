@@ -1,7 +1,6 @@
 package com.filter;
 
 import jakarta.servlet.Filter;
-
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.FilterConfig;
 import jakarta.servlet.ServletException;
@@ -9,18 +8,13 @@ import jakarta.servlet.ServletRequest;
 import jakarta.servlet.ServletResponse;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpFilter;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
 
-import com.utils.SessionUtil;
-
 /**
- * Servlet Filter implementation class UserFilter
+ * Servlet Filter implementation class AdminFilter
  */
-@WebFilter(urlPatterns = {"/login", "/register"})
-public class UserFilter extends HttpFilter implements Filter {
+@WebFilter(urlPatterns = {"/memberDashboard", "/flagged", "/listing", "/order", "/report", "/revenue", "/user"})
+public class AdminFilter extends HttpFilter implements Filter {
        
     /**
 	 * 
@@ -30,7 +24,7 @@ public class UserFilter extends HttpFilter implements Filter {
 	/**
      * @see HttpFilter#HttpFilter()
      */
-    public UserFilter() {
+    public AdminFilter() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -47,29 +41,10 @@ public class UserFilter extends HttpFilter implements Filter {
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
-		HttpServletRequest httpRequest = (HttpServletRequest) request;
-		HttpServletResponse httpResponse = (HttpServletResponse) response;
-		
-		boolean isLoggedIn = SessionUtil.getAttribute(httpRequest, "username") != null;
-		String userType = (String) SessionUtil.getAttribute(httpRequest, "userType");
+		// place your code here
 
-        if (isLoggedIn) 
-        {
-        	if (userType == "admin") 
-        	{
-                httpResponse.sendRedirect(httpRequest.getContextPath() + "/dashboard");
-            } 
-        	
-        	else 
-        	{
-                httpResponse.sendRedirect(httpRequest.getContextPath() + "/memberDashboard");
-            }
-        } 
-        
-        else 
-        {
-            chain.doFilter(request, response);
-        }
+		// pass the request along the filter chain
+		chain.doFilter(request, response);
 	}
 
 	/**

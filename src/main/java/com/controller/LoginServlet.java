@@ -60,6 +60,7 @@ public class LoginServlet extends HttpServlet {
 				model = memberDAO.getMemberRecordByEmail(email);
 				
 				SessionUtil.setAttribute(request, "username", model.getUserName(), 60 * 30);
+				SessionUtil.setAttribute(request, "userType", "member", 60*30);
 				
 				CookieUtil.addCookie(response, "username", model.getUserName(), 60 * 60 * 24 * 30);
 	            
@@ -81,6 +82,7 @@ public class LoginServlet extends HttpServlet {
 				admin = adminDAO.getAdminRecord();
 				
 				SessionUtil.setAttribute(request, "username", admin.getUserName(), 60 * 30);
+				SessionUtil.setAttribute(request, "userType", "admin", 60*30);
 				
 				CookieUtil.addCookie(response, "username", admin.getUserName(), 60 * 60 * 24 * 30);
 	            
