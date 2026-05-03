@@ -62,15 +62,17 @@
                 <div class="lastBox">
                     <div style="display: flex;">
                         <p class="invalidListingText"><b>Invalid Listings</b></p>
-                        <a href="#" class="sideText">See More</a>
+                        <a href="${pageContext.request.contextPath}/flagged }" class="sideText">See More</a>
                     </div>
 
                     <div class="invalidItem" style="${empty flagged.flaggedProductName ? 'display:none;' : ''}">
                         <p class="invalidItemName">${flagged.flaggedProductName}</p>
 						<p class="invalidItemDesc" style="${empty flagged.flaggedProductName ? 'display:none;' : ''}">Listed on ${flagged.flaggedProductDate}</p>
 						<div class="buttionsHere" style="${empty flagged.flaggedProductName ? 'display:none;' : ''}">
-						    <button class="removebutton">Remove</button>
-						    <button class="keepButton">Keep</button>
+						    <div class="buttonPart">
+							    <button class="removebutton">Remove</button>
+							    <button class="keepButton">Keep</button>
+							</div>
 						</div>
                     </div>
 
@@ -78,8 +80,10 @@
 						<p class="invalidItemName">${flagged.flaggedProductName}</p>
 						<p class="invalidItemDesc" style="${empty flagged.flaggedProductName ? 'display:none;' : ''}">Listed on ${flagged.flaggedProductDate}</p>
 						<div class="buttionsHere" style="${empty flagged.flaggedProductName ? 'display:none;' : ''}">
-						    <button class="removebutton">Remove</button>
-						    <button class="keepButton">Keep</button>
+						    <div class="buttonPart">
+							    <button class="removebutton">Remove</button>
+							    <button class="keepButton">Keep</button>
+							</div>
 						</div>
                     </div>
                 </div>
@@ -87,7 +91,7 @@
                 <div class="lastBox">
                     <div style="display: flex;">
                         <p class="recentListingText">Recent Listings</p>
-                        <a href="#" class="sideText" style="padding-left: 295px;">See More</a>
+                        <a href="${pageContext.request.contextPath}/listing" class="sideText" style="padding-left: 295px;">See More</a>
                     </div>
 
                     <div class="listedItem" style="${empty dashboardData.recentProduct1 ? 'display:none;' : ''}">

@@ -14,7 +14,7 @@
 		<p style="color: red; font-size: 10px; justify-content: center; ${empty errorMessage ? 'display:none;' : ''}">${errorMessage}</p>
 
 		<div class="formCard">
-		    <h2>Member registration</h2>
+		z    <h2>Member registration</h2>
 
 		    <form action="${pageContext.request.contextPath}/register" method="post" enctype="multipart/form-data">
 
