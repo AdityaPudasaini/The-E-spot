@@ -1,4 +1,4 @@
-CREATE TABLE `order` (
+CREATE TABLE order (
     Order_ID INT(11) PRIMARY KEY AUTO_INCREMENT,
     Member_ID INT(11),
     Order_Date DATETIME,
