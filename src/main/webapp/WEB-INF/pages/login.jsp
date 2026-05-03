@@ -23,7 +23,6 @@
 			    <div class="field">
 			      <label>Password</label>
 			      <input type="password" id="password" name="Password" placeholder="Enter your password" />
-			      <div class="forgot"><a href="#">Forgot password?</a></div>
 			    </div>
 			
 			    <button class="button" type="submit">Login</button>

@@ -70,11 +70,10 @@
 						<p class="invalidItemDesc" style="${empty flagged.flaggedProductName ? 'display:none;' : ''}">Listed on ${flagged.flaggedProductDate}</p>
 						<div class="buttionsHere" style="${empty flagged.flaggedProductName ? 'display:none;' : ''}">
 						    <div class="buttonPart">
-						    	<a href="${pageContext.request}" style="text-decoration: none">
-								    <button class="removebutton" name="remove">Remove</button>
-								</a>
-								    <button class="keepButton">Keep</button>
-								
+						    	<form action="${pageContext.request.contextPath}/flagged" method="post">
+								    <button class="removebutton" name="remove" type="submit">Remove</button>
+								    <button class="keepButton" name="keep" type="submit">Keep</button>
+								</form>
 							</div>
 						</div>
                     </div>
@@ -84,8 +83,10 @@
 						<p class="invalidItemDesc" style="${empty flagged.flaggedProductName ? 'display:none;' : ''}">Listed on ${flagged.flaggedProductDate}</p>
 						<div class="buttionsHere" style="${empty flagged.flaggedProductName ? 'display:none;' : ''}">
 						    <div class="buttonPart">
-							    <button class="removebutton">Remove</button>
-							    <button class="keepButton">Keep</button>
+							    <form action="${pageContext.request.contextPath}/flagged" method="post">
+								    <button class="removebutton" name="remove" type="submit">Remove</button>
+								    <button class="keepButton" name="keep" type="submit">Keep</button>
+								</form>
 							</div>
 						</div>
                     </div>
