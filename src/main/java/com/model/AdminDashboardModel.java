@@ -5,6 +5,8 @@ public class AdminDashboardModel {
     private double totalRevenue;
     private int totalSold;
     private int totalListed;
+    private int flaggedProductId;
+    private int flaggedProductId2;
     private String flaggedProductName;
     private String flaggedProductDate;
     private String flaggedProductName2;
@@ -42,6 +44,22 @@ public class AdminDashboardModel {
     
     public void setTotalListed(int totalListed) { 
     	this.totalListed = totalListed; 
+    }
+    
+    public int getFlaggedProductId() { 
+    	return flaggedProductId; 
+    }
+    
+    public void setFlaggedProductId(int flaggedProductId) { 
+    	this.flaggedProductId = flaggedProductId; 
+    }
+
+    public int getFlaggedProductId2() { 
+    	return flaggedProductId2; 
+    }
+    
+    public void setFlaggedProductId2(int flaggedProductId2) { 
+    	this.flaggedProductId2 = flaggedProductId2; 
     }
 
     public String getFlaggedProductName() { 
