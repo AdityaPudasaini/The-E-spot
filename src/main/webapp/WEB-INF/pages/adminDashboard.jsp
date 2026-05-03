@@ -70,8 +70,11 @@
 						<p class="invalidItemDesc" style="${empty flagged.flaggedProductName ? 'display:none;' : ''}">Listed on ${flagged.flaggedProductDate}</p>
 						<div class="buttionsHere" style="${empty flagged.flaggedProductName ? 'display:none;' : ''}">
 						    <div class="buttonPart">
-							    <button class="removebutton">Remove</button>
-							    <button class="keepButton">Keep</button>
+						    	<a href="${pageContext.request}" style="text-decoration: none">
+								    <button class="removebutton" name="remove">Remove</button>
+								</a>
+								    <button class="keepButton">Keep</button>
+								
 							</div>
 						</div>
                     </div>
