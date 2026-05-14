@@ -38,8 +38,6 @@ public class AdminDashboardDAO {
 		String productSold = "SELECT SUM(ordItm.Item_Quantity) AS totalSold FROM order_item ordItm JOIN `order` ord ON ordItm.Order_ID = ord.Order_ID WHERE ord.Order_Status = 'Completed'";
 		PreparedStatement pst = conn.prepareStatement(productSold);
 		ResultSet rs = pst.executeQuery();
-		pst = conn.prepareStatement(productSold);
-        rs = pst.executeQuery();
         
         if (rs.next()) 
         {
@@ -71,7 +69,7 @@ public class AdminDashboardDAO {
         
         return total;
 	}
-	
+
 	public AdminDashboardModel totalVisitors() throws SQLException {
 	    AdminDashboardModel total = new AdminDashboardModel();
 	    
@@ -89,30 +87,6 @@ public class AdminDashboardDAO {
 	    pst.close();
 	    conn.close();
 	    return total;
-	}
-	
-	public void removeProduct(int flaggedProductId) throws SQLException {
-		Connection conn = DBConfig.getConnection();
-		
-		String removeProduct = "UPDATE product SET Active_Status = 'Banned' WHERE Product_ID = ?";
-		PreparedStatement pst = conn.prepareStatement(removeProduct);
-		pst.setInt(1, flaggedProductId);
-		pst.executeUpdate();
-		
-		pst.close();
-		conn.close();
-	}
-	
-	public void keepProduct(int flaggedProductId) throws SQLException {
-		Connection conn = DBConfig.getConnection();
-		
-		String keepProduct = "UPDATE product SET isFlagged = false, Active_Status = 'Active' WHERE Product_ID = ?";
-		PreparedStatement pst = conn.prepareStatement(keepProduct);
-		pst.setInt(1, flaggedProductId);
-		pst.executeUpdate();
-		
-		pst.close();
-		conn.close();
 	}
 	
 	public AdminDashboardModel flaggedProducts() throws SQLException {
@@ -148,6 +122,30 @@ public class AdminDashboardDAO {
 	    conn.close();
 	     
 	    return total;
+	}
+	
+	public void removeProduct(int flaggedProductId) throws SQLException {
+		Connection conn = DBConfig.getConnection();
+		
+		String removeProduct = "UPDATE product SET Active_Status = 'Banned' WHERE Product_ID = ?";
+		PreparedStatement pst = conn.prepareStatement(removeProduct);
+		pst.setInt(1, flaggedProductId);
+		pst.executeUpdate();
+		
+		pst.close();
+		conn.close();
+	}
+	
+	public void keepProduct(int flaggedProductId) throws SQLException {
+		Connection conn = DBConfig.getConnection();
+		
+		String keepProduct = "UPDATE product SET isFlagged = false, Active_Status = 'Active' WHERE Product_ID = ?";
+		PreparedStatement pst = conn.prepareStatement(keepProduct);
+		pst.setInt(1, flaggedProductId);
+		pst.executeUpdate();
+		
+		pst.close();
+		conn.close();
 	}
 	
 	public AdminDashboardModel recentListings() throws SQLException {
