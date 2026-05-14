@@ -2,6 +2,7 @@ package com.controller;
 
 import java.io.IOException;
 import com.dao.AdminDashboardDAO;
+import com.model.AdminDashboardModel;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;	
@@ -32,11 +33,24 @@ public class AdminDashboardServlet extends HttpServlet {
 		try {
 	        AdminDashboardDAO adminDao = new AdminDashboardDAO();
 	        
-	        request.setAttribute("revenue", adminDao.totalRevenue());
-	        request.setAttribute("sold", adminDao.totalProductSOld());
-	        request.setAttribute("listed", adminDao.totalProductListed());
+	        AdminDashboardModel dashboardData = new AdminDashboardModel();
+	        dashboardData.setTotalRevenue(adminDao.totalRevenue().getTotalRevenue());
+	        dashboardData.setTotalSold(adminDao.totalProductSOld().getTotalSold());
+	        dashboardData.setTotalListed(adminDao.totalProductListed().getTotalListed());
+	        
+	        AdminDashboardModel recentData = adminDao.recentListings();
+	        dashboardData.setRecentProduct1(recentData.getRecentProduct1());
+	        dashboardData.setRecentSeller1(recentData.getRecentSeller1());
+	        dashboardData.setRecentPrice1(recentData.getRecentPrice1());
+	        dashboardData.setRecentProduct2(recentData.getRecentProduct2());
+	        dashboardData.setRecentSeller2(recentData.getRecentSeller2());
+	        dashboardData.setRecentPrice2(recentData.getRecentPrice2());
+	        dashboardData.setRecentProduct3(recentData.getRecentProduct3());
+	        dashboardData.setRecentSeller3(recentData.getRecentSeller3());
+	        dashboardData.setRecentPrice3(recentData.getRecentPrice3());
+	        
+	        request.setAttribute("dashboardData", dashboardData);
 	        request.setAttribute("flagged", adminDao.flaggedProducts());
-	        request.setAttribute("recent", adminDao.recentListings());
 	        request.setAttribute("visitors", adminDao.totalVisitors());
 	        
 	    } catch (Exception e) {
@@ -52,6 +66,7 @@ public class AdminDashboardServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		
 	}
 
