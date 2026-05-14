@@ -14,7 +14,7 @@
             <div class="topPart">
                 <p class="dashboardHeading"><b>Dashboard</b></p>
 
-                <div class="adminPhoto" style="margin-top: 0px; margin-left: 45px">
+                <div class="adminPhoto" style="margin-top: 0px; margin-left: 60px">
 					<img src="${pageContext.request.contextPath}/image?name=${sessionScope.username}" style="width: 100%; height: 100%; border-radius: 50%;" />                
 				</div>
             </div>
@@ -60,7 +60,7 @@
                 <div class="lastBox">
                     <div style="display: flex;">
                         <p class="invalidListingText"><b>Invalid Listings</b></p>
-                        <a href="${pageContext.request.contextPath}/flagged }" class="sideText">See More</a>
+                        <a href="${pageContext.request.contextPath}/flagged" class="sideText">See More</a>
                     </div>
 
                     <div class="invalidItem" style="${empty flagged.flaggedProductName ? 'display:none;' : ''}">

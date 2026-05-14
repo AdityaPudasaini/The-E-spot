@@ -16,8 +16,7 @@
 	
 	        <div class="topPart">
 	            <p class="dashboardHeading"><b>Flagged Items</b></p>
-	            <input type="text" class="searchbar" placeholder="Search everything" style="margin-left: 600px">
-	            <div class="adminPhoto" style="margin-top: 0px; margin-left: 45px">
+	            <div class="adminPhoto" style="margin-top: 0px; margin-left: 50px">
 					<img src="${pageContext.request.contextPath}/image?name=${sessionScope.username}" style="width: 100%; height: 100%; border-radius: 50%;" />                
 				</div>
 	        </div>
