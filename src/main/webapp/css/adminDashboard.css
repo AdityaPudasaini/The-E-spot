@@ -8,8 +8,6 @@ body {
 	width: 34px;
     height: 34px;
     border-radius: 50%;
-    background-color: #000000;
-    color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,18 +30,7 @@ body {
 	font-size: 30px;
     padding-left: 50px;
     margin: 0;
-}
-
-.searchbar {
-	margin-left: 625px;
-	width: 350px;
-	height: 30px;
-	background-color: rgb(255, 255, 255);
-	border-radius: 5px;
-	margin-top: 0px;
-	border: 1px solid #c8e4ea;
-	padding-left: 10px;
-	padding-right: 0px;
+    margin-right: 920px;
 }
 
 .adminWelcome {

@@ -22,19 +22,7 @@ body {
                 font-size: 30px;
 				padding-left: 50px;
 				margin: 0;
-            }
-            
-            .searchbar {
-                margin-left: 700px;
-				width: 320px;
-				height: 30px;
-				background-color: rgb(255, 255, 255);
-				border-radius: 5px;
-				margin-top: 0px;
-				border: 1px solid #c8e4ea;
-				padding-left: 15px;
-				padding-right: 0px;
-				
+				margin-right: 920px;
             }
             
             .adminPhoto {
