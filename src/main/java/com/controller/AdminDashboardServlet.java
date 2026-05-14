@@ -1,8 +1,8 @@
 package com.controller;
 
 import java.io.IOException;
+
 import com.dao.AdminDashboardDAO;
-import com.model.AdminDashboardModel;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;	
