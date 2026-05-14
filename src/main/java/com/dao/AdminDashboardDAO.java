@@ -150,5 +150,47 @@ public class AdminDashboardDAO {
 	    return total;
 	}
 	
-	
+	public AdminDashboardModel recentListings() throws SQLException {
+		AdminDashboardModel total = new AdminDashboardModel();
+		
+		Connection conn = DBConfig.getConnection();
+		
+		String recent = "SELECT p.Product_Name, m.Member_Name, p.Product_Price FROM product p JOIN member m ON p.Seller_ID = m.Member_ID WHERE p.Active_Status = 'Active' ORDER BY p.Listed_Date DESC LIMIT 3";
+		PreparedStatement pst = conn.prepareStatement(recent);
+		ResultSet rs = pst.executeQuery();
+		
+		int i = 0;
+		
+        while (rs.next() && i < 3) 
+        {
+            if (i == 0) 
+            {
+            	total.setRecentProduct1(rs.getString("Product_Name"));
+            	total.setRecentSeller1(rs.getString("Member_Name"));
+            	total.setRecentPrice1(rs.getDouble("Product_Price"));
+            } 
+            
+            else if (i == 1) 
+            {
+            	total.setRecentProduct2(rs.getString("Product_Name"));
+                total.setRecentSeller2(rs.getString("Member_Name"));
+                total.setRecentPrice2(rs.getDouble("Product_Price"));
+            } 
+            
+            else 
+            {
+            	total.setRecentProduct3(rs.getString("Product_Name"));
+                total.setRecentSeller3(rs.getString("Member_Name"));
+                total.setRecentPrice3(rs.getDouble("Product_Price"));
+            }
+            
+            i++;
+        }
+		
+        rs.close();
+        pst.close();
+        conn.close();
+        
+        return total;	
+	}
 }
