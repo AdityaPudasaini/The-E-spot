@@ -21,7 +21,7 @@ public class AdminDashboardDAO {
 		
         if (rs.next())
         {
-            total.setTotalRevenue(rs.getDouble("totalRevenue"));
+            total.setTotalRevenue(String.format("%.2f", rs.getDouble("totalRevenue")));
         }
         rs.close();
         pst.close();
@@ -69,7 +69,7 @@ public class AdminDashboardDAO {
         
         return total;
 	}
-
+	
 	public AdminDashboardModel totalVisitors() throws SQLException {
 	    AdminDashboardModel total = new AdminDashboardModel();
 	    
@@ -165,21 +165,21 @@ public class AdminDashboardDAO {
             {
             	total.setRecentProduct1(rs.getString("Product_Name"));
             	total.setRecentSeller1(rs.getString("Member_Name"));
-            	total.setRecentPrice1(rs.getDouble("Product_Price"));
+            	total.setRecentPrice1(String.format("%.2f", rs.getDouble("Product_Price")));
             } 
             
             else if (i == 1) 
             {
             	total.setRecentProduct2(rs.getString("Product_Name"));
                 total.setRecentSeller2(rs.getString("Member_Name"));
-                total.setRecentPrice2(rs.getDouble("Product_Price"));
+                total.setRecentPrice2(String.format("%.2f", rs.getDouble("Product_Price")));
             } 
             
             else 
             {
             	total.setRecentProduct3(rs.getString("Product_Name"));
                 total.setRecentSeller3(rs.getString("Member_Name"));
-                total.setRecentPrice3(rs.getDouble("Product_Price"));
+                total.setRecentPrice3(String.format("%.2f", rs.getDouble("Product_Price")));
             }
             
             i++;

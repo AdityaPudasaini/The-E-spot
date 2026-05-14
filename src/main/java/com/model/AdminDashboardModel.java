@@ -2,7 +2,7 @@ package com.model;
 
 public class AdminDashboardModel {
 	
-    private double totalRevenue;
+    private String totalRevenue;
     private int totalSold;
     private int totalListed;
     private int flaggedProductId;
@@ -13,20 +13,20 @@ public class AdminDashboardModel {
     private String flaggedProductDate2;
     private String recentProduct1;
     private String recentSeller1;
-    private double recentPrice1;
+    private String recentPrice1;
     private String recentProduct2;
     private String recentSeller2;
-    private double recentPrice2;
+    private String recentPrice2;
     private String recentProduct3;
     private String recentSeller3;
-    private double recentPrice3;
+    private String recentPrice3;
     private int totalVisitors;
 
-    public double getTotalRevenue() { 
+    public String getTotalRevenue() { 
     	return totalRevenue; 
     }
     
-    public void setTotalRevenue(double totalRevenue) { 
+    public void setTotalRevenue(String totalRevenue) { 
     	this.totalRevenue = totalRevenue; 
     }
 
@@ -110,11 +110,11 @@ public class AdminDashboardModel {
     	this.recentSeller1 = recentSeller1; 
     }
 
-    public double getRecentPrice1() { 
+    public String getRecentPrice1() { 
     	return recentPrice1; 
     }
     
-    public void setRecentPrice1(double recentPrice1) { 
+    public void setRecentPrice1(String recentPrice1) { 
     	this.recentPrice1 = recentPrice1; 
     }
 
@@ -134,11 +134,11 @@ public class AdminDashboardModel {
     	this.recentSeller2 = recentSeller2; 
     }
 
-    public double getRecentPrice2() { 
+    public String getRecentPrice2() { 
     	return recentPrice2; 
     }
     
-    public void setRecentPrice2(double recentPrice2) {
+    public void setRecentPrice2(String recentPrice2) {
     	this.recentPrice2 = recentPrice2; 
     }
 
@@ -158,11 +158,11 @@ public class AdminDashboardModel {
     	this.recentSeller3 = recentSeller3; 
     }
 
-    public double getRecentPrice3() { 
+    public String getRecentPrice3() { 
     	return recentPrice3; 
     }
     
-    public void setRecentPrice3(double recentPrice3) { 
+    public void setRecentPrice3(String recentPrice3) { 
     	this.recentPrice3 = recentPrice3; 
     }
     

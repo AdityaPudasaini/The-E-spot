@@ -36,19 +36,19 @@
                 <div class="smallBox">
                     <img src="${pageContext.request.contextPath}/Images/dollar.png" class="dollarImage">
                     <p class="smallText"> Total Revenue Generated</p>
-                    <p class="money"><b>$${dashboardData.totalRevenue}</b></p>
+                    <p class="money"><b>$${revenue.totalRevenue}</b></p>
                 </div>
                 
                 <div class="smallBox">
                     <img src="${pageContext.request.contextPath}/Images/product Sold.png" class="dollarImage">
                     <p class="smallText"> Total Product Sold</p>
-                    <p class="money"><b>${dashboardData.totalSold}</b></p>
+                    <p class="money"><b>${sold.totalSold}</b></p>
                 </div>
 
                 <div class="smallBox">
                     <img src="${pageContext.request.contextPath}/Images/Product Listed.png" class="dollarImage">
                     <p class="smallText"> Total Product Listed</p>
-                    <p class="money"><b>${dashboardData.totalListed}</b></p>
+                    <p class="money"><b>${listed.totalListed}</b></p>
                 </div>
 
                 <div class="smallBox">
