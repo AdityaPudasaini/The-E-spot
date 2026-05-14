@@ -11,7 +11,7 @@
 	</head>
 	
 	<body>
-		<%@ include file="/WEB-INF/pages/adminSidebar.jsp" %>
+		<%@ include file="/Component/adminSidebar.jsp" %>
 		
 		<div style="display: flex; flex-direction: column; margin-left: 250px; width: calc(100% - 250px);">
 
@@ -164,6 +164,6 @@
 		
 		
 		
-		<%@ include file="/WEB-INF/pages/adminFooter.jsp" %>
+		<%@ include file="/Component/adminFooter.jsp" %>
 	</body>
 </html>

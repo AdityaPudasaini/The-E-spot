@@ -24,6 +24,10 @@ public class MemberDAO {
 		        throw new Exception("Phone number is already in use.");
 		    }
 		    
+		    if(getMemberRecordByUsername(username) != null) {
+		        throw new Exception("Username is already in use.");
+		    }
+		    
 			LocalDate localDate = LocalDate.parse(dob); 
 			Date sqlDate = Date.valueOf(localDate);
 			

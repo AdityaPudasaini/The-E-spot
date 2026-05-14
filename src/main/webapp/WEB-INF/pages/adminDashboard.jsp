@@ -8,7 +8,7 @@
     </head>
 
 	<body>
-		<%@ include file="/WEB-INF/pages/adminSidebar.jsp" %>
+		<%@ include file="/Component/adminSidebar.jsp" %>
         
         <div style="display: flex; flex-direction: column; margin-left: 250px; width: calc(100% - 250px);">
             <div class="topPart">
@@ -36,19 +36,19 @@
                 <div class="smallBox">
                     <img src="${pageContext.request.contextPath}/Images/dollar.png" class="dollarImage">
                     <p class="smallText"> Total Revenue Generated</p>
-                    <p class="money"><b>$${dashboardData.totalRevenue}</b></p>
+                    <p class="money"><b>$${revenue.totalRevenue}</b></p>
                 </div>
                 
                 <div class="smallBox">
                     <img src="${pageContext.request.contextPath}/Images/product Sold.png" class="dollarImage">
                     <p class="smallText"> Total Product Sold</p>
-                    <p class="money"><b>${dashboardData.totalSold}</b></p>
+                    <p class="money"><b>${sold.totalSold}</b></p>
                 </div>
 
                 <div class="smallBox">
                     <img src="${pageContext.request.contextPath}/Images/Product Listed.png" class="dollarImage">
                     <p class="smallText"> Total Product Listed</p>
-                    <p class="money"><b>${dashboardData.totalListed}</b></p>
+                    <p class="money"><b>${listed.totalListed}</b></p>
                 </div>
 
                 <div class="smallBox">
@@ -125,6 +125,6 @@
             </div>
         </div>
         
-        <%@ include file="/WEB-INF/pages/adminFooter.jsp" %>
+        <%@ include file="/Component/adminFooter.jsp" %>
     </body>
 </html>

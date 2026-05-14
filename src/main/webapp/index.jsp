@@ -1,5 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
-	<head>
+<head>
+    <meta charset="UTF-8">
 		<title>The E-spot</title>
 
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/index.css">
@@ -7,7 +10,7 @@
 	
 	<body>
 		<nav> 
-			<div class="Logo"><b>The E-sopt</b></div>
+			<div class="Logo" style="font-size: 22px;color: white;"><b>The E-sopt</b></div>
 
 			<div class="linksToNavigate">
 				<a href="#">Browse</a> 
@@ -17,7 +20,7 @@
 
             <div style="display: flex;">
                 <form action="<%=request.getContextPath()%>/register" method="get">
-                    <button type="submit" class="signUpButton" style="margin-right: 50px;">Sign Up</button>
+                    <button type="submit" class="signUpButtoned" style="margin-right: 50px;  background: white;color: rgb(92, 104, 175);padding: 9px 22px;border-radius: 8px;font-size: 14px;cursor: pointer;border: none;">Sign Up</button>
                 </form>
 
                 <form action="<%=request.getContextPath()%>/login" method="get">
@@ -67,24 +70,24 @@
             </div>
             <div class="reviewsContainer">
                 <div class="reviewCard">
-                    <div class="reviewStars">★★★★★</div>
+                    <div class="reviewStars">5.0/5.0</div>
                     <p class="reviewText">Sold my laptop within a day of listing. The process was smooth and the buyer was genuine. Highly recommend.</p>
                     <div class="reviewPerson">
                         <div class="reviewLogo">P</div>
                         <div>
                             <p class="reviewName">Priya S.</p>
-                            <p class="reviewRole">Seller · Kathmandu</p>
+                            <p class="reviewRole">Seller, Kathmandu</p>
                         </div>
                     </div>
                 </div>
                 <div class="reviewCard">
-                    <div class="reviewStars">★★★★★</div>
+                    <div class="reviewStars">4.5/5.0</div>
                     <p class="reviewText">Found a great deal on a camera I'd been looking for months. Fast communication, easy checkout.</p>
                     <div class="reviewPerson">
                         <div class="reviewLogo">R</div>
                         <div>
                             <p class="reviewName">Rajan T.</p>
-                            <p class="reviewRole">Buyer · Pokhara</p>
+                            <p class="reviewRole">Buyer, Pokhara</p>
                         </div>
                     </div>
                 </div>
@@ -120,7 +123,7 @@
                 
             </div>
             <div class="footerBottom">
-                <span class="footerText">The E-spot ©; 2026 · All rights reserved</span>
+                <span class="footerText">The E-spot ©; 2026 All rights reserved</span>
             </div>
         </footer>
 	</body>
