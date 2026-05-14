@@ -115,5 +115,40 @@ public class AdminDashboardDAO {
 		conn.close();
 	}
 	
+	public AdminDashboardModel flaggedProducts() throws SQLException {
+		AdminDashboardModel total = new AdminDashboardModel();
+		
+		Connection conn = DBConfig.getConnection();
+		
+		String flaggedProducts = "SELECT Product_ID, Product_Name, Listed_Date FROM product WHERE isFlagged = true AND Active_Status != 'Banned' LIMIT 2";
+		PreparedStatement pst = conn.prepareStatement(flaggedProducts);
+		ResultSet rs = pst.executeQuery();
+		 
+	    int count = 0;
+	     
+	    while (rs.next() && count < 2) 
+	    {
+	    	if (count == 0) 
+	    	{
+	    		total.setFlaggedProductId(rs.getInt("Product_ID"));
+	    		total.setFlaggedProductName(rs.getString("Product_Name"));
+	    		total.setFlaggedProductDate(rs.getString("Listed_Date"));
+	        } 
+	    	
+	    	else 
+	    	{
+	    		total.setFlaggedProductId2(rs.getInt("Product_ID"));
+	    		total.setFlaggedProductName2(rs.getString("Product_Name"));
+	    		total.setFlaggedProductDate2(rs.getString("Listed_Date"));
+	        }
+	        count++;
+	    }
+	    rs.close();
+	    pst.close();
+	    conn.close();
+	     
+	    return total;
+	}
+	
 	
 }
