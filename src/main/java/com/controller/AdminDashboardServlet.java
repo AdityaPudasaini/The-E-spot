@@ -67,7 +67,30 @@ public class AdminDashboardServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		AdminDashboardDAO adminDao = new AdminDashboardDAO();
 		
+		String flaggedProductIdString = request.getParameter("flaggedProductId");
+		
+		if (flaggedProductIdString != null && !flaggedProductIdString.isEmpty()) {
+			
+			int flaggedProductId = Integer.parseInt(flaggedProductIdString);
+			
+			try {
+				
+				if (request.getParameter("remove") != null) {
+					adminDao.removeProduct(flaggedProductId);
+				} 
+				
+				else if (request.getParameter("keep") != null) {
+					adminDao.keepProduct(flaggedProductId);
+				}
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		response.sendRedirect(request.getContextPath() + "/dashboard");
 	}
 
 }
