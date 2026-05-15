@@ -10,7 +10,7 @@ import com.utils.DBConfig;
 
 public class AdminListingDAO {
 	
-	public ArrayList <AdminListingModel> getAllListings() throws SQLException {
+	public ArrayList <AdminListingModel> allListings() throws SQLException {
 	    ArrayList <AdminListingModel> listings = new ArrayList<>();
 	    
 	    Connection conn = DBConfig.getConnection();

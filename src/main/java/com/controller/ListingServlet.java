@@ -7,6 +7,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import com.dao.AdminListingDAO;
+
 /**
  * Servlet implementation class ListingServlet
  */
@@ -28,6 +30,14 @@ public class ListingServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		 try {
+		        AdminListingDAO adminListingDao = new AdminListingDAO();
+		        request.setAttribute("listings", adminListingDao.allListings());
+		    } 
+		 
+		 catch (Exception e) {
+		        e.printStackTrace();
+		    }
 		
 		request.setAttribute("currentPage", "listing");
 		request.getRequestDispatcher("/WEB-INF/pages/listings.jsp").forward(request, response);
