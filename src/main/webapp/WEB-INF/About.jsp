@@ -28,7 +28,7 @@
 
     /* HERO */
     .hero-section {
-      background: #16a34a;
+      background: #0C2C55;
       color: #ffffff;
       padding: 96px 0;
       text-align: center;
@@ -71,7 +71,7 @@
     .card h2 {
       font-size: 22px;
       font-weight: 700;
-      color: #16a34a;
+      color: #0C2C55;
       margin-bottom: 16px;
     }
     .card p {
@@ -88,7 +88,7 @@
     .section-title {
       font-size: 36px;
       font-weight: 800;
-      color: #16a34a;
+      color: #0C2C55;
       text-align: center;
       margin-bottom: 48px;
     }
@@ -125,7 +125,7 @@
     .feature-text h3 {
       font-size: 16px;
       font-weight: 600;
-      color: #16a34a;
+      color: #0C2C55;
       margin-bottom: 8px;
     }
     .feature-text p {
@@ -146,7 +146,7 @@
     .story-inner h2 {
       font-size: 36px;
       font-weight: 800;
-      color: #16a34a;
+      color: #0C2C55;
       text-align: center;
       margin-bottom: 32px;
     }
@@ -204,7 +204,7 @@
 
     /* CTA */
     .cta-section {
-      background: #16a34a;
+      background: #0C2C55;
       color: #ffffff;
       padding: 96px 0;
       text-align: center;
