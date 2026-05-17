@@ -87,4 +87,17 @@ public class AdminUserModel {
     { 
     	this.totalOrders = totalOrders; 
     }
+    
+    public String getFirstLetter() 
+    {
+        if (memberName != null) 
+        {
+            return memberName.substring(0, 1).toUpperCase();
+        } 
+        
+        else 
+        {
+            return "?";
+        }
+    }
 }

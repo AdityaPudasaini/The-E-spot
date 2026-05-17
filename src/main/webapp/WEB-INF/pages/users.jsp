@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
 <!DOCTYPE html>
 <html>
@@ -13,7 +14,7 @@
 	
 		<%@ include file="/Component/adminSidebar.jsp" %>
 		
-		<div style="display: flex; flex-direction: column;margin-left: 250px; width: calc(100% - 250px);">
+		<div style="display: flex; flex-direction: column;margin-left: 250px; width: calc(100% - 250px); min-height: 700px;"">
 
 	        <div class="topPart">
                 <p class="dashboardHeading"><b>Users</b></p>
@@ -23,15 +24,20 @@
 				</div>
             </div>
 	
-	        <div class="categoriesSelect">
-	            <input type="text" class="searchInput" placeholder="Search users...">
-	            <select class="categories">
-	                <option>All Status</option>
-	                <option>Active</option>
-	                <option>Banned</option>
-	                <option>Suspended</option>
-	            </select>
-	        </div>
+	        <form method="get" action="${pageContext.request.contextPath}/users">
+	        
+                <div class="categoriesSelect">
+                
+                    <input type="text" class="searchInput" placeholder="Search users..." name="search" value="${selectedSearch}">
+                    <select class="categories" name="status" onchange="this.form.submit()">
+                        <option value="" ${empty selectedStatus ? 'selected' : ''}>All Status</option>
+                        <option value="Active" ${selectedStatus == 'Active' ? 'selected' : ''}>Active</option>
+                        <option value="Banned" ${selectedStatus == 'Banned' ? 'selected' : ''}>Banned</option>
+                        <option value="Suspended" ${selectedStatus == 'Suspended' ? 'selected' : ''}>Suspended</option>
+                    </select>
+                </div>
+                
+            </form>
 	
 	        <div class="tableBox">
 	            <table class="listingTable">
@@ -47,90 +53,66 @@
 	                    </tr>
 	                </thead>
 	                <tbody>
-	                    <tr class="tableRow">
-	                        <td class="tableRowListing"><div class="userAvatar" style="background:#2563EB">M</div></td>
-	                        <td class="tableRowListing">Michael Johnson</td>
-	                        <td class="tableRowListing">michael@gmail.com</td>
-	                        <td class="tableRowListing">12</td>
-	                        <td class="tableRowListing"><span class="actived">Active</span></td>
-	                        <td class="tableRowListing">Jan 03, 2025</td>
-	                        <td class="tableRowListing">
-	                            <div class="changeButtons">
-	                                <button class="editButton">View</button>
-	                                <button class="deleteButton">Ban</button>
-	                            </div>
-	                        </td>
-	                    </tr>
-	                    <tr class="tableRow">
-	                        <td class="tableRowListing"><div class="userAvatar" style="background:#7C3AED">S</div></td>
-	                        <td class="tableRowListing">Sarah Lee</td>
-	                        <td class="tableRowListing">sarah.lee@gmail.com</td>
-	                        <td class="tableRowListing">5</td>
-	                        <td class="tableRowListing"><span class="suspended">Suspended</span></td>
-	                        <td class="tableRowListing">Jan 18, 2025</td>
-	                        <td class="tableRowListing">
-	                            <div class="changeButtons">
-	                                <button class="editButton">View</button>
-	                                <button class="deleteButton">Ban</button>
-	                            </div>
-	                        </td>
-	                    </tr>
-	                    <tr class="tableRow">
-	                        <td class="tableRowListing"><div class="userAvatar" style="background:#16A34A">D</div></td>
-	                        <td class="tableRowListing">David Kim</td>
-	                        <td class="tableRowListing">david.kim@gmail.com</td>
-	                        <td class="tableRowListing">34</td>
-	                        <td class="tableRowListing"><span class="actived">Active</span></td>
-	                        <td class="tableRowListing">Feb 02, 2025</td>
-	                        <td class="tableRowListing">
-	                            <div class="changeButtons">
-	                                <button class="editButton">View</button>
-	                                <button class="deleteButton">Ban</button>
-	                            </div>
-	                        </td>
-	                    </tr>
-	                    <tr class="tableRow">
-	                        <td class="tableRowListing"><div class="userAvatar" style="background:#DB2777">E</div></td>
-	                        <td class="tableRowListing">Emma Brown</td>
-	                        <td class="tableRowListing">emma.brown@gmail.com</td>
-	                        <td class="tableRowListing">0</td>
-	                        <td class="tableRowListing"><span class="banned">Banned</span></td>
-	                        <td class="tableRowListing">Feb 14, 2025</td>
-	                        <td class="tableRowListing">
-	                            <div class="changeButtons">
-	                                <button class="editButton">View</button>
-	                                <button class="deleteButton">Ban</button>
-	                            </div>
-	                        </td>
-	                    </tr>
-	                    <tr class="tableRow">
-	                        <td class="tableRowListing"><div class="userAvatar" style="background:#F59E0B">J</div></td>
-	                        <td class="tableRowListing">James Carter</td>
-	                        <td class="tableRowListing">james.c@gmail.com</td>
-	                        <td class="tableRowListing">8</td>
-	                        <td class="tableRowListing"><span class="actived">Active</span></td>
-	                        <td class="tableRowListing">Mar 01, 2025</td>
-	                        <td class="tableRowListing">
-	                            <div class="changeButtons">
-	                                <button class="editButton">View</button>
-	                                <button class="deleteButton">Ban</button>
-	                            </div>
-	                        </td>
-	                    </tr>
-	                    <tr class="tableRow">
-	                        <td class="tableRowListing"><div class="userAvatar" style="background:#0EA5E9">A</div></td>
-	                        <td class="tableRowListing">Aisha Patel</td>
-	                        <td class="tableRowListing">aisha.patel@gmail.com</td>
-	                        <td class="tableRowListing">21</td>
-	                        <td class="tableRowListing"><span class="actived">Active</span></td>
-	                        <td class="tableRowListing">Mar 22, 2025</td>
-	                        <td class="tableRowListing">
-	                            <div class="changeButtons">
-	                                <button class="editButton">View</button>
-	                                <button class="deleteButton">Ban</button>
-	                            </div>
-	                        </td>
-	                    </tr>
+	                
+	                    <c:forEach var="user" items="${users}">
+	                    
+                            <tr class="tableRow">
+                            
+                                <td class="tableRowListing">
+                                    <div class="userAvatar">${user.firstLetter}</div>
+                                </td>
+                                
+                                <td class="tableRowListing">${user.memberName}</td>
+                                <td class="tableRowListing">${user.memberEmail}</td>
+                                <td class="tableRowListing">${user.totalOrders}</td>
+                                
+                                <td class="tableRowListing">
+                                
+                                    <c:choose>
+                                    
+                                        <c:when test="${user.accountStatus == 'Active'}">
+                                            <span class="actived">Active</span>
+                                        </c:when>
+                                        
+                                        <c:when test="${user.accountStatus == 'Banned'}">
+                                            <span class="banned">Banned</span>
+                                        </c:when>
+                                        
+                                        <c:otherwise>
+                                            <span class="suspended">${user.accountStatus}</span>
+                                        </c:otherwise>
+                                        
+                                    </c:choose>
+                                </td>
+                                
+                                <td class="tableRowListing">${user.createdAt}</td>
+                                
+                                <td class="tableRowListing">
+                                    <div class="changeButtons">
+                                    
+                                        <c:choose>
+                                        
+                                            <c:when test="${user.accountStatus == 'Banned'}">
+                                            
+                                                <form action="${pageContext.request.contextPath}/users" method="post">
+                                                    <input type="hidden" name="memberId" value="${user.memberId}" />
+                                                    <button class="editButton" name="unban" type="submit">Unban</button>
+                                                </form>
+                                            </c:when>
+                                            
+                                            <c:otherwise>
+                                            
+                                                <form action="${pageContext.request.contextPath}/users" method="post">
+                                                    <input type="hidden" name="memberId" value="${user.memberId}" />
+                                                    <button class="deleteButton" name="ban" type="submit">Ban</button>
+                                                </form>
+                                                
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </div>
+                                </td>
+                            </tr>
+                        </c:forEach>
 	                </tbody>
 	            </table>
 	        </div>
