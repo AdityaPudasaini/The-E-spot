@@ -35,6 +35,12 @@ public class ListingServlet extends HttpServlet {
 		 try {
 			 AdminListingDAO adminListingDao = new AdminListingDAO();
 			 
+			 String searched = request.getParameter("search");
+			 
+			 if (searched == null) {
+				 searched = "";
+			 }
+			 
 			 String selectedCategory = request.getParameter("category");
 			 String selectedStatus = request.getParameter("status");
 
@@ -55,7 +61,7 @@ public class ListingServlet extends HttpServlet {
 		    	 page = Integer.parseInt(pageString);
 		     }
 		     
-		     ArrayList<AdminListingModel> allListings = adminListingDao.allListings(selectedCategory, selectedStatus);
+		     ArrayList<AdminListingModel> allListings = adminListingDao.allListings(selectedCategory, selectedStatus, searched);
 		     
 		     int totalCount = allListings.size();
 		     int totalPages = (totalCount + pageSize - 1) / pageSize;
@@ -79,6 +85,7 @@ public class ListingServlet extends HttpServlet {
 		     request.setAttribute("totalPages", totalPages);    
 		     request.setAttribute("selectedCategory", selectedCategory);
 		     request.setAttribute("selectedStatus", selectedStatus);
+		     request.setAttribute("selectedSearch", searched);
 		 } 
 		 
 		 catch (Exception e) {

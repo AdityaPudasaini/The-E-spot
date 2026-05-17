@@ -10,7 +10,7 @@ import com.utils.DBConfig;
 
 public class AdminListingDAO {
 	
-	public ArrayList<AdminListingModel> allListings(String category, String status) throws SQLException {
+	public ArrayList<AdminListingModel> allListings(String category, String status, String search) throws SQLException {
 	    ArrayList<AdminListingModel> listings = new ArrayList<>();
 	    
 	    Connection conn = DBConfig.getConnection();
@@ -30,6 +30,10 @@ public class AdminListingDAO {
 	        else {
 	        	sqlCode += " AND p.Active_Status = '" + status + "' AND p.isFlagged = false";
 	        }
+	    }
+	    
+	    if (search != null && !search.isEmpty()) {
+	    	sqlCode += " AND p.Product_Name LIKE '%" + search + "%'";
 	    }
 	    
 	    sqlCode += " ORDER BY p.Listed_Date DESC";

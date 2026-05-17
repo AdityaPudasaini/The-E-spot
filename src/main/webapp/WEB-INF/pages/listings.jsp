@@ -14,7 +14,7 @@
 	<body>
 		<%@ include file="/Component/adminSidebar.jsp" %>
 		
-		<div style="display: flex; flex-direction: column; margin-left: 250px; width: calc(100% - 250px); min-height: 680px;">
+		<div style="display: flex; flex-direction: column; margin-left: 250px; width: calc(100% - 250px); min-height: 700px;">
 
             <div class="topPart">
                 <p class="dashboardHeading" style="margin-right: 920px;"><b>Listings</b></p>
@@ -26,7 +26,7 @@
 
 			<form method="get" action="${pageContext.request.contextPath}/listing">
 	            <div class="categoriesSelect">
-				    <input type="text" class="searchInput" placeholder="Search listings">
+				    <input type="text" class="searchInput" placeholder="Search listings" name="search" value="${selectedSearch}">
 				    
 				    <select class="categories" onchange="this.form.submit()" name="category">
 				    
