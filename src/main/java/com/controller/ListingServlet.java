@@ -64,7 +64,7 @@ public class ListingServlet extends HttpServlet {
 		        
 		     request.setAttribute("listings", pagedListings);
 		     request.setAttribute("categories", adminListingDao.categories());
-		     request.setAttribute("currentPage", page);
+		     request.setAttribute("currentPageInListing", page);
 		     request.setAttribute("totalPages", totalPages);    
 		 } 
 		 

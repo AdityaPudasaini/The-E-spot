@@ -27,24 +27,24 @@
             <div class="categoriesSelect">
 			    <input type="text" class="searchInput" placeholder="Search listings">
 			    
-			    <select class="categories">
+			    <<select class="categories" onchange="this.form.submit()" name="category">
 			    
-			        <option>All Categories</option>
-			        
-			        <c:forEach var="category" items="${categories}">
-			            <option>${category}</option>
-			        </c:forEach>
-			        
-			    </select>
-			    
-			    <select class="categories">
-			    
-			        <option>All Status</option>
-			        <option>Active</option>
-			        <option>Sold</option>
-			        <option>Flagged</option>
-			        
-			    </select>
+				    <option value="">All Categories</option>
+				    
+				    <c:forEach var="category" items="${categories}">
+				        <option value="${category}" ${category == selectedCategory ? 'selected' : ''}>${category}</option>
+				    </c:forEach>
+				    
+				</select>
+				
+				<select class="categories" onchange="this.form.submit()" name="status">
+				
+				    <option value="">All Status</option>
+				    <option value="Active" ${selectedStatus == 'Active' ? 'selected' : ''}>Active</option>
+				    <option value="Sold" ${selectedStatus == 'Sold' ? 'selected' : ''}>Sold</option>
+				    <option value="Flagged" ${selectedStatus == 'Flagged' ? 'selected' : ''}>Flagged</option>
+				    
+				</select>
 			</div>
             
             <div class="tableBox">
@@ -64,7 +64,7 @@
                     <tbody>
                         <c:forEach var="listing" items="${listings}">
 						    <tr class="tableRow">
-								<td class="tableRowListing"><img src="${pageContext.request.contextPath}/image?name=product(${listing.productId})" class="productImage"></td>						        <td class="tableRowListing">${listing.productName}</td>
+								<td class="tableRowListing"><img src="${pageContext.request.contextPath}/image?name=product${listing.productId}" class="productImage"></td>						        <td class="tableRowListing">${listing.productName}</td>
 						        <td class="tableRowListing">${listing.categoryName}</td>
 						        <td class="tableRowListing">$${listing.productPrice}</td>
 						        <td class="tableRowListing">${listing.stockQuantity}</td>
@@ -111,222 +111,6 @@
 								        </c:choose>
 								    </div>
 								</td>
-						    </tr>
-						</c:forEach>
-						
-                        <c:forEach var="listing" items="${listings}">
-						    <tr class="tableRow">
-								<td class="tableRowListing"><img src="${pageContext.request.contextPath}/image?name=product(${listing.productId})" class="productImage"></td>						        <td class="tableRowListing">${listing.productName}</td>
-						        <td class="tableRowListing">${listing.categoryName}</td>
-						        <td class="tableRowListing">$${listing.productPrice}</td>
-						        <td class="tableRowListing">${listing.stockQuantity}</td>
-						        <td class="tableRowListing">
-						        
-						            <c:choose>
-						            
-						                <c:when test="${listing.isFlagged}">
-						                    <span class="everyStatus flagged">Flagged</span>
-						                </c:when>
-						                
-						                <c:when test="${listing.activeStatus == 'Active'}">
-						                    <span class="everyStatus listed">Listed</span>
-						                </c:when>
-						                
-						                <c:otherwise>
-						                    <span class="everyStatus sold">${listing.activeStatus}</span>
-						                </c:otherwise>
-						                
-						            </c:choose>
-						        </td>
-						        
-						        <td class="tableRowListing">${listing.listedDate}</td>
-						        
-						        <td class="tableRowListing"> 
-								    <div class="changeButtons">
-								        <c:choose>
-								            <c:when test="${listing.isFlagged}">
-								            
-								                <form action="${pageContext.request.contextPath}/listing" method="post">
-								                    <input type="hidden" name="productId" value="${listing.productId}"/>
-								                    <button class="editButton" name="keep" type="submit">Keep</button>
-								                </form>
-								                
-								            </c:when>
-								            
-								            <c:otherwise>
-								            
-								                <form action="${pageContext.request.contextPath}/listing" method="post">
-								                    <input type="hidden" name="productId" value="${listing.productId}"/>
-								                    <button class="deleteButton" name="flag" type="submit">Flag</button>
-								                </form>
-								                
-								            </c:otherwise>
-								        </c:choose>
-								    </div>
-								</td>
-								
-						    </tr>
-						</c:forEach>
-						
-                        <c:forEach var="listing" items="${listings}">
-						    <tr class="tableRow">
-								<td class="tableRowListing"><img src="${pageContext.request.contextPath}/image?name=product(${listing.productId})" class="productImage"></td>						        <td class="tableRowListing">${listing.productName}</td>
-						        <td class="tableRowListing">${listing.categoryName}</td>
-						        <td class="tableRowListing">$${listing.productPrice}</td>
-						        <td class="tableRowListing">${listing.stockQuantity}</td>
-						        <td class="tableRowListing">
-						        
-						            <c:choose>
-						            
-						                <c:when test="${listing.isFlagged}">
-						                    <span class="everyStatus flagged">Flagged</span>
-						                </c:when>
-						                
-						                <c:when test="${listing.activeStatus == 'Active'}">
-						                    <span class="everyStatus listed">Listed</span>
-						                </c:when>
-						                
-						                <c:otherwise>
-						                    <span class="everyStatus sold">${listing.activeStatus}</span>
-						                </c:otherwise>
-						                
-						            </c:choose>
-						        </td>
-						        
-						        <td class="tableRowListing">${listing.listedDate}</td>
-						        
-						        <td class="tableRowListing"> 
-								    <div class="changeButtons">
-								        <c:choose>
-								            <c:when test="${listing.isFlagged}">
-								            
-								                <form action="${pageContext.request.contextPath}/listing" method="post">
-								                    <input type="hidden" name="productId" value="${listing.productId}"/>
-								                    <button class="editButton" name="keep" type="submit">Keep</button>
-								                </form>
-								                
-								            </c:when>
-								            
-								            <c:otherwise>
-								            
-								                <form action="${pageContext.request.contextPath}/listing" method="post">
-								                    <input type="hidden" name="productId" value="${listing.productId}"/>
-								                    <button class="deleteButton" name="flag" type="submit">Flag</button>
-								                </form>
-								                
-								            </c:otherwise>
-								        </c:choose>
-								    </div>
-								</td>
-								
-						    </tr>
-						</c:forEach>
-						
-                        <c:forEach var="listing" items="${listings}">
-						    <tr class="tableRow">
-								<td class="tableRowListing"><img src="${pageContext.request.contextPath}/image?name=product(${listing.productId})" class="productImage"></td>						        <td class="tableRowListing">${listing.productName}</td>
-						        <td class="tableRowListing">${listing.categoryName}</td>
-						        <td class="tableRowListing">$${listing.productPrice}</td>
-						        <td class="tableRowListing">${listing.stockQuantity}</td>
-						        <td class="tableRowListing">
-						        
-						            <c:choose>
-						            
-						                <c:when test="${listing.isFlagged}">
-						                    <span class="everyStatus flagged">Flagged</span>
-						                </c:when>
-						                
-						                <c:when test="${listing.activeStatus == 'Active'}">
-						                    <span class="everyStatus listed">Listed</span>
-						                </c:when>
-						                
-						                <c:otherwise>
-						                    <span class="everyStatus sold">${listing.activeStatus}</span>
-						                </c:otherwise>
-						                
-						            </c:choose>
-						        </td>
-						        
-						        <td class="tableRowListing">${listing.listedDate}</td>
-						        
-						        <td class="tableRowListing"> 
-								    <div class="changeButtons">
-								        <c:choose>
-								            <c:when test="${listing.isFlagged}">
-								            
-								                <form action="${pageContext.request.contextPath}/listing" method="post">
-								                    <input type="hidden" name="productId" value="${listing.productId}"/>
-								                    <button class="editButton" name="keep" type="submit">Keep</button>
-								                </form>
-								                
-								            </c:when>
-								            
-								            <c:otherwise>
-								            
-								                <form action="${pageContext.request.contextPath}/listing" method="post">
-								                    <input type="hidden" name="productId" value="${listing.productId}"/>
-								                    <button class="deleteButton" name="flag" type="submit">Flag</button>
-								                </form>
-								                
-								            </c:otherwise>
-								        </c:choose>
-								    </div>
-								</td>
-								
-						    </tr>
-						</c:forEach>
-						
-                        <c:forEach var="listing" items="${listings}">
-						    <tr class="tableRow">
-								<td class="tableRowListing"><img src="${pageContext.request.contextPath}/image?name=product(${listing.productId})" class="productImage"></td>						        <td class="tableRowListing">${listing.productName}</td>
-						        <td class="tableRowListing">${listing.categoryName}</td>
-						        <td class="tableRowListing">$${listing.productPrice}</td>
-						        <td class="tableRowListing">${listing.stockQuantity}</td>
-						        <td class="tableRowListing">
-						        
-						            <c:choose>
-						            
-						                <c:when test="${listing.isFlagged}">
-						                    <span class="everyStatus flagged">Flagged</span>
-						                </c:when>
-						                
-						                <c:when test="${listing.activeStatus == 'Active'}">
-						                    <span class="everyStatus listed">Listed</span>
-						                </c:when>
-						                
-						                <c:otherwise>
-						                    <span class="everyStatus sold">${listing.activeStatus}</span>
-						                </c:otherwise>
-						                
-						            </c:choose>
-						        </td>
-						        
-						        <td class="tableRowListing">${listing.listedDate}</td>
-						        
-						        <td class="tableRowListing"> 
-								    <div class="changeButtons">
-								        <c:choose>
-								            <c:when test="${listing.isFlagged}">
-								            
-								                <form action="${pageContext.request.contextPath}/listing" method="post">
-								                    <input type="hidden" name="productId" value="${listing.productId}"/>
-								                    <button class="editButton" name="keep" type="submit">Keep</button>
-								                </form>
-								                
-								            </c:when>
-								            
-								            <c:otherwise>
-								            
-								                <form action="${pageContext.request.contextPath}/listing" method="post">
-								                    <input type="hidden" name="productId" value="${listing.productId}"/>
-								                    <button class="deleteButton" name="flag" type="submit">Flag</button>
-								                </form>
-								                
-								            </c:otherwise>
-								        </c:choose>
-								    </div>
-								</td>
-								
 						    </tr>
 						</c:forEach>
                     </tbody>
@@ -337,8 +121,8 @@
 			
 			    <c:choose>
 			    
-			        <c:when test="${currentPage > 1}">
-			            <a href="${pageContext.request.contextPath}/listing?page=${currentPage - 1}" class="lastPartButton">Previous</a>
+			        <c:when test="${currentPageInListing > 1}">
+			            <a href="${pageContext.request.contextPath}/listing?page=${currentPageInListing - 1}" class="lastPartButton">Previous</a>
 			        </c:when>
 			        
 			        <c:otherwise>
@@ -348,13 +132,13 @@
 			    </c:choose>
 			
 			    <c:forEach begin="1" end="${totalPages}" var="i">
-			        <a href="${pageContext.request.contextPath}/listing?page=${i}" class="lastPartButton ${i == currentPage ? 'pageActive' : ''}">${i}</a>
+			        <a href="${pageContext.request.contextPath}/listing?page=${i}" class="lastPartButton ${i == currentPageInListing ? 'pageActive' : ''}">${i}</a>
 			    </c:forEach>
 			
 			    <c:choose>
 			    
-			        <c:when test="${currentPage < totalPages}">
-			            <a href="${pageContext.request.contextPath}/listing?page=${currentPage + 1}" class="lastPartButton">Next</a>
+			        <c:when test="${currentPageInListing < totalPages}">
+			            <a href="${pageContext.request.contextPath}/listing?page=${currentPageInListing + 1}" class="lastPartButton">Next</a>
 			        </c:when>
 			        
 			        <c:otherwise>
