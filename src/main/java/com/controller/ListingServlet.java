@@ -33,48 +33,47 @@ public class ListingServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		 try {
-		        AdminListingDAO adminListingDao = new AdminListingDAO();
+			 AdminListingDAO adminListingDao = new AdminListingDAO();
 		        
-		        int pageSize = 10;
-		        int page = 1;
+		     int pageSize = 10;
+		     int page = 1;
+		     
+		     String pageString= request.getParameter("page");
+		     
+		     if (pageString != null && !pageString.isEmpty()) {
+		    	 page = Integer.parseInt(pageString);
+		     }
+		     
+		     ArrayList<AdminListingModel> allListings = adminListingDao.allListings();
+		     
+		     int totalCount = allListings.size();
+		     int totalPages = (totalCount + pageSize - 1) / pageSize;
+		     
+		     int startFrom = (page - 1) * pageSize;
+		     int endWith;
+		     
+		     if (startFrom + pageSize > totalCount) {
+		    	 endWith = totalCount;
+		     } 
 		        
-		        String pageString= request.getParameter("page");
+		     else {
+		    	 endWith = startFrom + pageSize;
+		     }
 		        
-		        if (pageString != null && !pageString.isEmpty()) {
-		            page = Integer.parseInt(pageString);
-		        }
+		     ArrayList<AdminListingModel> pagedListings = new ArrayList<>(allListings.subList(startFrom, endWith));
 		        
-		        ArrayList<AdminListingModel> allListings = adminListingDao.allListings();
-		        
-		        int totalCount = allListings.size();
-		        int totalPages = (totalCount + pageSize - 1) / pageSize;
-		        
-		        int startFrom = (page - 1) * pageSize;
-		        int endWith;
-		        
-		        if (startFrom + pageSize > totalCount) {
-		            endWith = totalCount;
-		        } 
-		        
-		        else {
-		            endWith = startFrom + pageSize;
-		        }
-		        
-		        ArrayList<AdminListingModel> pagedListings = new ArrayList<>(allListings.subList(startFrom, endWith));
-		        
-		        request.setAttribute("listings", pagedListings);
-		        request.setAttribute("categories", adminListingDao.categories());
-		        request.setAttribute("currentPage", page);
-		        request.setAttribute("totalPages", totalPages);
-		        
+		     request.setAttribute("listings", pagedListings);
+		     request.setAttribute("categories", adminListingDao.categories());
+		     request.setAttribute("currentPage", page);
+		     request.setAttribute("totalPages", totalPages);    
 		 } 
 		 
 		 catch (Exception e) {
-		        e.printStackTrace();
-		    }
+			 e.printStackTrace();
+		 }
 		    
-		    request.setAttribute("currentPage", "listing");
-		    request.getRequestDispatcher("/WEB-INF/pages/listings.jsp").forward(request, response);
+		 request.setAttribute("currentPage", "listing");
+		 request.getRequestDispatcher("/WEB-INF/pages/listings.jsp").forward(request, response);
 	}
 
 	/**

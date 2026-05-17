@@ -334,17 +334,37 @@
             </div>
             
 			<div class="lastPartButtons">
-                <a href="#" class="lastPartButton">Previous</a>
-                <a href="#" class="lastPartButton pageActive">1</a>
-                <a href="#" class="lastPartButton">2</a>
-                <a href="#" class="lastPartButton">3</a>
-                <a href="#" class="lastPartButton">Next</a>
-            </div>
-
+			
+			    <c:choose>
+			    
+			        <c:when test="${currentPage > 1}">
+			            <a href="${pageContext.request.contextPath}/listing?page=${currentPage - 1}" class="lastPartButton">Previous</a>
+			        </c:when>
+			        
+			        <c:otherwise>
+			            <a class="lastPartButton" style="opacity: 0.4; pointer-events: none;">Previous</a>
+			        </c:otherwise>
+			        
+			    </c:choose>
+			
+			    <c:forEach begin="1" end="${totalPages}" var="i">
+			        <a href="${pageContext.request.contextPath}/listing?page=${i}" class="lastPartButton ${i == currentPage ? 'pageActive' : ''}">${i}</a>
+			    </c:forEach>
+			
+			    <c:choose>
+			    
+			        <c:when test="${currentPage < totalPages}">
+			            <a href="${pageContext.request.contextPath}/listing?page=${currentPage + 1}" class="lastPartButton">Next</a>
+			        </c:when>
+			        
+			        <c:otherwise>
+			            <a class="lastPartButton" style="opacity: 0.4; pointer-events: none;">Next</a>
+			        </c:otherwise>
+			        
+			    </c:choose>
+			</div>
         </div>
-		
-		
-		
+        
 		<%@ include file="/Component/adminFooter.jsp" %>
 	</body>
 </html>
