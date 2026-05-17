@@ -15,8 +15,8 @@ public class AdminListingDAO {
 	    
 	    Connection conn = DBConfig.getConnection();
 	    
-	    String query = "SELECT p.Product_ID, p.Product_Name, c.Category_Name, p.Product_Price, p.Stock_Quantity, p.Active_Status, p.isFlagged, p.Listed_Date FROM product p JOIN category c ON p.Category_ID = c.Category_ID WHERE p.Active_Status != 'Banned'";
-	    PreparedStatement pst = conn.prepareStatement(query);
+	    String sqlCOde = "SELECT p.Product_ID, p.Product_Name, c.Category_Name, p.Product_Price, p.Stock_Quantity, p.Active_Status, p.isFlagged, p.Listed_Date FROM product p JOIN category c ON p.Category_ID = c.Category_ID WHERE p.Active_Status != 'Banned'";
+	    PreparedStatement pst = conn.prepareStatement(sqlCOde);
 	    ResultSet rs = pst.executeQuery();
 	    
 	    while (rs.next()) {
@@ -39,4 +39,20 @@ public class AdminListingDAO {
 	    
 	    return listings;
 	}
+	
+	public void flagProduct(int productId) throws SQLException {
+		
+	    Connection conn = DBConfig.getConnection();
+	    
+	    String sqlCOde = "UPDATE product SET isFlagged = true WHERE Product_ID = ?";
+	    PreparedStatement pst = conn.prepareStatement(sqlCOde);
+	    
+	    pst.setInt(1, productId);
+	    pst.executeUpdate();
+	    
+	    pst.close();
+	    conn.close();
+	}
+
+	
 }
