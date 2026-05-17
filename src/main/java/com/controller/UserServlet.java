@@ -93,7 +93,32 @@ public class UserServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		AdminUserDAO adminUserDao = new AdminUserDAO();
+
+        String memberIdString = request.getParameter("memberId");
+
+        if (memberIdString != null && !memberIdString.isEmpty()) {
+        	
+            int memberId = Integer.parseInt(memberIdString);
+
+            try {
+            	
+                if (request.getParameter("ban") != null) {
+                    adminUserDao.banUser(memberId);
+                } 
+                
+                else if (request.getParameter("unban") != null) {
+                    adminUserDao.unbanUser(memberId);
+                }
+                
+            } 
+            
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        response.sendRedirect(request.getContextPath() + "/users");
 	}
 
 }
