@@ -48,7 +48,33 @@ public class ListingServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		AdminListingDAO adminListingDao = new AdminListingDAO();
+	    
+	    String productIdString = request.getParameter("productId");
+	    
+	    
+	    if (productIdString != null && !productIdString.isEmpty()) {
+	    	
+	        int productId = Integer.parseInt(productIdString);
+	        
+	        try {
+	        	
+	            if (request.getParameter("flag") != null) {
+	                adminListingDao.flagProduct(productId);
+	            } 
+	            
+	            else if (request.getParameter("keep") != null) {
+	                adminListingDao.keepProduct(productId);
+	            }
+	            
+	        } 
+	        
+	        catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
+	    
+	    response.sendRedirect(request.getContextPath() + "/listing");
 	}
 
 }
