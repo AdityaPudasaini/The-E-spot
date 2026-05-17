@@ -26,7 +26,7 @@ body {
             }
             
             .adminPhoto {
-                width: 34px;
+			    width: 34px;
 			    height: 34px;
 			    border-radius: 50%;
 			    background-color: #000000;
@@ -36,7 +36,8 @@ body {
 			    justify-content: center;
 			    font-size: 12px;
 			    font-weight: 700;
-            }
+			    flex-shrink: 0;
+			}
 
             .categoriesSelect {
                 display: flex;

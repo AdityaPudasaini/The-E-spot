@@ -45,8 +45,8 @@ public class ListingServlet extends HttpServlet {
 			 if (selectedStatus == null) {
 				 selectedStatus = "";
 			 }
-		        
-		     int pageSize = 10;
+			 
+			 int pageSize = 10;
 		     int page = 1;
 		     
 		     String pageString= request.getParameter("page");
@@ -77,6 +77,8 @@ public class ListingServlet extends HttpServlet {
 		     request.setAttribute("categories", adminListingDao.categories());
 		     request.setAttribute("currentPageInListing", page);
 		     request.setAttribute("totalPages", totalPages);    
+		     request.setAttribute("selectedCategory", selectedCategory);
+		     request.setAttribute("selectedStatus", selectedStatus);
 		 } 
 		 
 		 catch (Exception e) {
