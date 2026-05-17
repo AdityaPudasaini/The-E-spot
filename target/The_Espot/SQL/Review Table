@@ -1,0 +1,10 @@
+CREATE TABLE review (
+    Review_ID INT(11) PRIMARY KEY AUTO_INCREMENT,
+    Product_ID INT(11),
+    Member_ID INT(11),
+    Review_Rating TINYINT(4),
+    Review_Comment TEXT,
+    Review_Date DATETIME,
+    FOREIGN KEY (Product_ID) REFERENCES product(Product_ID),
+    FOREIGN KEY (Member_ID) REFERENCES member(Member_ID)
+);

@@ -1,0 +1,9 @@
+CREATE TABLE payment (
+    Payment_ID INT(11) PRIMARY KEY AUTO_INCREMENT,
+    Order_ID INT(11),
+    Payment_Method VARCHAR(50),
+    Payment_Date DATETIME,
+    Payment_Amount DECIMAL(12,2),
+    Payment_Status VARCHAR(30),
+    FOREIGN KEY (Order_ID) REFERENCES `order`(Order_ID)
+);

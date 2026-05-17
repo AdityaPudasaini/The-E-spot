@@ -53,7 +53,7 @@
                             <th class="tableHead">Stock</th>
                             <th class="tableHead">Status</th>
                             <th class="tableHead">Date Added</th>
-                            <th class="tableHead">Actions</th> 
+                            <th class="tableHead">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -81,7 +81,7 @@
 					        <td class="tableRowListing">
 					            <div class="changeButtons">
 					                <button class="editButton">Edit</button>
-					                <button class="deleteButton">Flag</button>
+					                <button class="deleteButton">Delete</button>
 					            </div>
 					        </td>
 					    </tr>
