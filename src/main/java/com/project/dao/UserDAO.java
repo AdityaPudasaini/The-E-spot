@@ -19,11 +19,7 @@ public class UserDAO {
 		Date sqlDate = Date.valueOf(localDate);
 		Connection con = DBconfig.getConnection();
 
-<<<<<<< HEAD
         String sql = "INSERT INTO member (Member_Name, Member_DOB, Member_Email, Member_Phone, Member_Password) "
-=======
-        String sql = "INSERT INTO students (full_name, dob, email, phoneNumber, password) "
->>>>>>> a438b32c1e5392544b324168b7c11f9b11fdb41d
                    + "VALUES (?,?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement pst = con.prepareStatement(sql);
 		

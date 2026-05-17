@@ -1,29 +1,23 @@
 package com.project.controller;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.Part;
-
 import java.io.IOException;
 
-import com.project.service.RegisterService;
-
 /**
- * Servlet implementation class RegisterServlet
+ * Servlet implementation class AboutServlet
  */
-@WebServlet(asyncSupported = true, urlPatterns = { "/register" })
-@MultipartConfig
-public class RegisterServlet extends HttpServlet {
+@WebServlet("/aboutus")
+public class AboutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegisterServlet() {
+    public AboutServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,24 +27,15 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("/WEB-INF/Register.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/About.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String firstName = request.getParameter("first-name");
-		String lastName = request.getParameter("last-name");
-		String fullName = firstName+lastName;
-		String dob = request.getParameter("dob");
-		String email = request.getParameter("email");
-		String phoneNumber = request.getParameter("phone");
-		String password = request.getParameter("password");
-		String confirm = request.getParameter("confirm-password");
-		
-		
-		
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

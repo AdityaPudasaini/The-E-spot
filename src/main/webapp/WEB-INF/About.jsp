@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About – The E-Spot</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.383.0/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css" type="text/css">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -16,29 +17,7 @@
       background: #ffffff;
     }
 
-    /* HEADER */
-    header {
-      background: #ffffff;
-      border-bottom: 1px solid #e5e7eb;
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    header .logo {
-      font-size: 20px;
-      font-weight: 700;
-      color: #16a34a;
-      text-decoration: none;
-    }
-    header nav a {
-      margin-left: 24px;
-      text-decoration: none;
-      color: #374151;
-      font-size: 15px;
-    }
-    header nav a:hover { color: #16a34a; }
-
+    
     /* CONTAINER */
     .container {
       width: 100%;
@@ -266,17 +245,7 @@
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <a href="#" class="logo">The E-Spot</a>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Shop</a>
-      <a href="#">Sell</a>
-      <a href="#">About</a>
-    </nav>
-  </header>
-
+<%@ include file="../components/header.jsp"%>
   <!-- HERO -->
   <section class="hero-section">
     <div class="container">
