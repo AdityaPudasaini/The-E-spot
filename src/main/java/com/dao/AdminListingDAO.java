@@ -15,7 +15,7 @@ public class AdminListingDAO {
 	    
 	    Connection conn = DBConfig.getConnection();
 	    
-	    String sqlCOde = "SELECT p.Product_ID, p.Product_Name, c.Category_Name, p.Product_Price, p.Stock_Quantity, p.Active_Status, p.isFlagged, p.Listed_Date FROM product p JOIN category c ON p.Category_ID = c.Category_ID WHERE p.Active_Status != 'Banned'";
+	    String sqlCOde = "SELECT p.Product_ID, p.Product_Name, c.Category_Name, p.Product_Price, p.Stock_Quantity, p.Active_Status, p.isFlagged, p.Listed_Date FROM product p JOIN category c ON p.Category_ID = c.Category_ID WHERE p.Active_Status != 'Banned' ORDER BY p.Listed_Date DESC";	    
 	    PreparedStatement pst = conn.prepareStatement(sqlCOde);
 	    ResultSet rs = pst.executeQuery();
 	    
@@ -55,6 +55,7 @@ public class AdminListingDAO {
 	}
 
 	public void keepProduct(int productId) throws SQLException {
+		
 	    Connection conn = DBConfig.getConnection();
 	    
 	    String sqlCOde = "UPDATE product SET isFlagged = false, Active_Status = 'Active' WHERE Product_ID = ?";
