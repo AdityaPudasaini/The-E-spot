@@ -58,109 +58,154 @@
                     </thead>
                     <tbody>
                         <c:forEach var="listing" items="${listings}">
-					    <tr class="tableRow">
-					        <td class="tableRowListing"><img src="${pageContext.request.contextPath}/Images/placeholderForNow.png" class="productImage" alt=""></td>
-					        <td class="tableRowListing">${listing.productName}</td>
-					        <td class="tableRowListing">${listing.categoryName}</td>
-					        <td class="tableRowListing">$${listing.productPrice}</td>
-					        <td class="tableRowListing">${listing.stockQuantity}</td>
-					        <td class="tableRowListing">
-					            <c:choose>
-					                <c:when test="${listing.isFlagged}">
-					                    <span class="everyStatus flagged">Flagged</span>
-					                </c:when>
-					                <c:when test="${listing.activeStatus == 'Active'}">
-					                    <span class="everyStatus listed">Listed</span>
-					                </c:when>
-					                <c:otherwise>
-					                    <span class="everyStatus sold">${listing.activeStatus}</span>
-					                </c:otherwise>
-					            </c:choose>
-					        </td>
-					        <td class="tableRowListing">${listing.listedDate}</td>
-					        <td class="tableRowListing">
-					            <div class="changeButtons">
-					                <button class="editButton">Edit</button>
-					                <button class="deleteButton">Flag</button>
-					            </div>
-					        </td>
-					    </tr>
-					</c:forEach>
-                        <tr class="tableRow">
-                            <td class="tableRowListing"><img src="${pageContext.request.contextPath}/Images/placeholderForNow.png" class="productImage" alt=""></td>
-                            <td class="tableRowListing">MacBook Pro M3</td>
-                            <td class="tableRowListing">Electronics</td>
-                            <td class="tableRowListing">$2,499</td>
-                            <td class="tableRowListing">5</td>
-                            <td class="tableRowListing"><span class="everyStatus flagged">Flagged</span></td>
-                            <td class="tableRowListing">Apr 10, 2025</td>
-                            <td class="tableRowListing">
-                                <div class="changeButtons">
-                                    <button class="editButton">Edit</button>
-                                    <button class="deleteButton">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="tableRow">
-                            <td class="tableRowListing"><img src="${pageContext.request.contextPath}/Images/placeholderForNow.png" class="productImage" alt=""></td>
-                            <td class="tableRowListing">Sony WH-1000XM5</td>
-                            <td class="tableRowListing">Audio</td>
-                            <td class="tableRowListing">$349</td>
-                            <td class="tableRowListing">120</td>
-                            <td class="tableRowListing"><span class="everyStatus listed">Listed</span></td>
-                            <td class="tableRowListing">Apr 08, 2025</td>
-                            <td class="tableRowListing">
-                                <div class="changeButtons">
-                                    <button class="editButton">Edit</button>
-                                    <button class="deleteButton">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="tableRow">
-                            <td class="tableRowListing"><img src="${pageContext.request.contextPath}/Images/placeholderForNow.png" class="productImage" alt=""></td>
-                            <td class="tableRowListing">Apple Watch Series 9</td>
-                            <td class="tableRowListing">Wearables</td>
-                            <td class="tableRowListing">$399</td>
-                            <td class="tableRowListing">52</td>
-                            <td class="tableRowListing"><span class="everyStatus sold">sold</span></td>
-                            <td class="tableRowListing">Apr 05, 2025</td>
-                            <td class="tableRowListing">
-                                <div class="changeButtons">
-                                    <button class="editButton">Edit</button>
-                                    <button class="deleteButton">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="tableRow">
-                            <td class="tableRowListing"><img src="${pageContext.request.contextPath}/Images/placeholderForNow.png" class="productImage" alt=""></td>
-                            <td class="tableRowListing">Logitech MX Master 3S</td>
-                            <td class="tableRowListing">Accessories</td>
-                            <td class="tableRowListing">$99</td>
-                            <td class="tableRowListing">200</td>
-                            <td class="tableRowListing"><span class="everyStatus listed">listed</span></td>
-                            <td class="tableRowListing">Apr 02, 2025</td>
-                            <td class="tableRowListing">
-                                <div class="changeButtons">
-                                    <button class="editButton">Edit</button>
-                                    <button class="deleteButton">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="tableRow">
-                            <td class="tableRowListing"><img src="${pageContext.request.contextPath}/Images/placeholderForNow.png" class="productImage" alt=""></td>
-                            <td class="tableRowListing">Samsung Galaxy S24 Ultra</td>
-                            <td class="tableRowListing">Electronics</td>
-                            <td class="tableRowListing">$1,199</td>
-                            <td class="tableRowListing">18</td>
-                            <td class="tableRowListing"><span class="everyStatus flagged">Flagged</span></td>
-                            <td class="tableRowListing">Mar 28, 2025</td>
-                            <td class="tableRowListing">
-                                <div class="changeButtons">
-                                    <button class="editButton">Edit</button>
-                                    <button class="deleteButton">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
+						    <tr class="tableRow">
+						        <td class="tableRowListing"><img src="${pageContext.request.contextPath}/Images/placeholderForNow.png" class="productImage" alt=""></td>
+						        <td class="tableRowListing">${listing.productName}</td>
+						        <td class="tableRowListing">${listing.categoryName}</td>
+						        <td class="tableRowListing">$${listing.productPrice}</td>
+						        <td class="tableRowListing">${listing.stockQuantity}</td>
+						        <td class="tableRowListing">
+						            <c:choose>
+						                <c:when test="${listing.isFlagged}">
+						                    <span class="everyStatus flagged">Flagged</span>
+						                </c:when>
+						                <c:when test="${listing.activeStatus == 'Active'}">
+						                    <span class="everyStatus listed">Listed</span>
+						                </c:when>
+						                <c:otherwise>
+						                    <span class="everyStatus sold">${listing.activeStatus}</span>
+						                </c:otherwise>
+						            </c:choose>
+						        </td>
+						        <td class="tableRowListing">${listing.listedDate}</td>
+						        <td class="tableRowListing">
+						            <div class="changeButtons">
+						                <button class="editButton">Edit</button>
+						                <button class="deleteButton">Flag</button>
+						            </div>
+						        </td>
+						    </tr>
+						</c:forEach>
+						
+                        <c:forEach var="listing" items="${listings}">
+						    <tr class="tableRow">
+						        <td class="tableRowListing"><img src="${pageContext.request.contextPath}/Images/placeholderForNow.png" class="productImage" alt=""></td>
+						        <td class="tableRowListing">${listing.productName}</td>
+						        <td class="tableRowListing">${listing.categoryName}</td>
+						        <td class="tableRowListing">$${listing.productPrice}</td>
+						        <td class="tableRowListing">${listing.stockQuantity}</td>
+						        <td class="tableRowListing">
+						            <c:choose>
+						                <c:when test="${listing.isFlagged}">
+						                    <span class="everyStatus flagged">Flagged</span>
+						                </c:when>
+						                <c:when test="${listing.activeStatus == 'Active'}">
+						                    <span class="everyStatus listed">Listed</span>
+						                </c:when>
+						                <c:otherwise>
+						                    <span class="everyStatus sold">${listing.activeStatus}</span>
+						                </c:otherwise>
+						            </c:choose>
+						        </td>
+						        <td class="tableRowListing">${listing.listedDate}</td>
+						        <td class="tableRowListing">
+						            <div class="changeButtons">
+						                <button class="editButton">Edit</button>
+						                <button class="deleteButton">Flag</button>
+						            </div>
+						        </td>
+						    </tr>
+						</c:forEach>
+						
+                        <c:forEach var="listing" items="${listings}">
+						    <tr class="tableRow">
+						        <td class="tableRowListing"><img src="${pageContext.request.contextPath}/Images/placeholderForNow.png" class="productImage" alt=""></td>
+						        <td class="tableRowListing">${listing.productName}</td>
+						        <td class="tableRowListing">${listing.categoryName}</td>
+						        <td class="tableRowListing">$${listing.productPrice}</td>
+						        <td class="tableRowListing">${listing.stockQuantity}</td>
+						        <td class="tableRowListing">
+						            <c:choose>
+						                <c:when test="${listing.isFlagged}">
+						                    <span class="everyStatus flagged">Flagged</span>
+						                </c:when>
+						                <c:when test="${listing.activeStatus == 'Active'}">
+						                    <span class="everyStatus listed">Listed</span>
+						                </c:when>
+						                <c:otherwise>
+						                    <span class="everyStatus sold">${listing.activeStatus}</span>
+						                </c:otherwise>
+						            </c:choose>
+						        </td>
+						        <td class="tableRowListing">${listing.listedDate}</td>
+						        <td class="tableRowListing">
+						            <div class="changeButtons">
+						                <button class="editButton">Edit</button>
+						                <button class="deleteButton">Flag</button>
+						            </div>
+						        </td>
+						    </tr>
+						</c:forEach>
+						
+                        <c:forEach var="listing" items="${listings}">
+						    <tr class="tableRow">
+						        <td class="tableRowListing"><img src="${pageContext.request.contextPath}/Images/placeholderForNow.png" class="productImage" alt=""></td>
+						        <td class="tableRowListing">${listing.productName}</td>
+						        <td class="tableRowListing">${listing.categoryName}</td>
+						        <td class="tableRowListing">$${listing.productPrice}</td>
+						        <td class="tableRowListing">${listing.stockQuantity}</td>
+						        <td class="tableRowListing">
+						            <c:choose>
+						                <c:when test="${listing.isFlagged}">
+						                    <span class="everyStatus flagged">Flagged</span>
+						                </c:when>
+						                <c:when test="${listing.activeStatus == 'Active'}">
+						                    <span class="everyStatus listed">Listed</span>
+						                </c:when>
+						                <c:otherwise>
+						                    <span class="everyStatus sold">${listing.activeStatus}</span>
+						                </c:otherwise>
+						            </c:choose>
+						        </td>
+						        <td class="tableRowListing">${listing.listedDate}</td>
+						        <td class="tableRowListing">
+						            <div class="changeButtons">
+						                <button class="editButton">Edit</button>
+						                <button class="deleteButton">Flag</button>
+						            </div>
+						        </td>
+						    </tr>
+						</c:forEach>
+						
+                        <c:forEach var="listing" items="${listings}">
+						    <tr class="tableRow">
+						        <td class="tableRowListing"><img src="${pageContext.request.contextPath}/Images/placeholderForNow.png" class="productImage" alt=""></td>
+						        <td class="tableRowListing">${listing.productName}</td>
+						        <td class="tableRowListing">${listing.categoryName}</td>
+						        <td class="tableRowListing">$${listing.productPrice}</td>
+						        <td class="tableRowListing">${listing.stockQuantity}</td>
+						        <td class="tableRowListing">
+						            <c:choose>
+						                <c:when test="${listing.isFlagged}">
+						                    <span class="everyStatus flagged">Flagged</span>
+						                </c:when>
+						                <c:when test="${listing.activeStatus == 'Active'}">
+						                    <span class="everyStatus listed">Listed</span>
+						                </c:when>
+						                <c:otherwise>
+						                    <span class="everyStatus sold">${listing.activeStatus}</span>
+						                </c:otherwise>
+						            </c:choose>
+						        </td>
+						        <td class="tableRowListing">${listing.listedDate}</td>
+						        <td class="tableRowListing">
+						            <div class="changeButtons">
+						                <button class="editButton">Edit</button>
+						                <button class="deleteButton">Flag</button>
+						            </div>
+						        </td>
+						    </tr>
+						</c:forEach>
                     </tbody>
                 </table>
             </div>
