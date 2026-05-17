@@ -283,25 +283,50 @@
 						        <td class="tableRowListing">$${listing.productPrice}</td>
 						        <td class="tableRowListing">${listing.stockQuantity}</td>
 						        <td class="tableRowListing">
+						        
 						            <c:choose>
+						            
 						                <c:when test="${listing.isFlagged}">
 						                    <span class="everyStatus flagged">Flagged</span>
 						                </c:when>
+						                
 						                <c:when test="${listing.activeStatus == 'Active'}">
 						                    <span class="everyStatus listed">Listed</span>
 						                </c:when>
+						                
 						                <c:otherwise>
 						                    <span class="everyStatus sold">${listing.activeStatus}</span>
 						                </c:otherwise>
+						                
 						            </c:choose>
 						        </td>
+						        
 						        <td class="tableRowListing">${listing.listedDate}</td>
-						        <td class="tableRowListing">
-						            <div class="changeButtons">
-						                <button class="editButton">Edit</button>
-						                <button class="deleteButton">Flag</button>
-						            </div>
-						        </td>
+						        
+						        <td class="tableRowListing"> 
+								    <div class="changeButtons">
+								        <c:choose>
+								            <c:when test="${listing.isFlagged}">
+								            
+								                <form action="${pageContext.request.contextPath}/listing" method="post">
+								                    <input type="hidden" name="productId" value="${listing.productId}"/>
+								                    <button class="editButton" name="keep" type="submit">Keep</button>
+								                </form>
+								                
+								            </c:when>
+								            
+								            <c:otherwise>
+								            
+								                <form action="${pageContext.request.contextPath}/listing" method="post">
+								                    <input type="hidden" name="productId" value="${listing.productId}"/>
+								                    <button class="deleteButton" name="flag" type="submit">Flag</button>
+								                </form>
+								                
+								            </c:otherwise>
+								        </c:choose>
+								    </div>
+								</td>
+								
 						    </tr>
 						</c:forEach>
                     </tbody>
