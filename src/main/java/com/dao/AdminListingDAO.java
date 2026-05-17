@@ -22,9 +22,12 @@ public class AdminListingDAO {
 	    }
 	    
 	    if (status != null && !status.isEmpty()) {
+	    	
 	        if (status.equals("Flagged")) {
 	        	sqlCode += " AND p.isFlagged = true";
-	        } else {
+	        } 
+	        
+	        else {
 	        	sqlCode += " AND p.Active_Status = '" + status + "' AND p.isFlagged = false";
 	        }
 	    }
