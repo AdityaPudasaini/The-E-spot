@@ -112,6 +112,7 @@
   <div class="load-more">
     <button>Load More Products</button>
   </div>
+  <%@ include file="../components/footer.jsp"%>
 
 </body>
 </html>
