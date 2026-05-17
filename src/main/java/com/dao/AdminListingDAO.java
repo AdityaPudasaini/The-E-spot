@@ -10,17 +10,31 @@ import com.utils.DBConfig;
 
 public class AdminListingDAO {
 	
-	public ArrayList <AdminListingModel> allListings() throws SQLException {
-	    ArrayList <AdminListingModel> listings = new ArrayList<>();
+	public ArrayList<AdminListingModel> allListings(String category, String status) throws SQLException {
+	    ArrayList<AdminListingModel> listings = new ArrayList<>();
 	    
 	    Connection conn = DBConfig.getConnection();
 	    
-	    String sqlCOde = "SELECT p.Product_ID, p.Product_Name, c.Category_Name, p.Product_Price, p.Stock_Quantity, p.Active_Status, p.isFlagged, p.Listed_Date FROM product p JOIN category c ON p.Category_ID = c.Category_ID WHERE p.Active_Status != 'Banned' ORDER BY p.Listed_Date DESC";	    
-	    PreparedStatement pst = conn.prepareStatement(sqlCOde);
+	    String sqlCode = "SELECT p.Product_ID, p.Product_Name, c.Category_Name, p.Product_Price, p.Stock_Quantity, p.Active_Status, p.isFlagged, p.Listed_Date FROM product p JOIN category c ON p.Category_ID = c.Category_ID WHERE p.Active_Status != 'Banned'";
+	    
+	    if (category != null && !category.isEmpty()) {
+	    	sqlCode += " AND c.Category_Name = '" + category + "'";
+	    }
+	    
+	    if (status != null && !status.isEmpty()) {
+	        if (status.equals("Flagged")) {
+	        	sqlCode += " AND p.isFlagged = true";
+	        } else {
+	        	sqlCode += " AND p.Active_Status = '" + status + "' AND p.isFlagged = false";
+	        }
+	    }
+	    
+	    sqlCode += " ORDER BY p.Listed_Date DESC";
+	    
+	    PreparedStatement pst = conn.prepareStatement(sqlCode);
 	    ResultSet rs = pst.executeQuery();
 	    
 	    while (rs.next()) {
-	    	
 	        AdminListingModel listing = new AdminListingModel();
 	        listing.setProductId(rs.getInt("Product_ID"));
 	        listing.setProductName(rs.getString("Product_Name"));

@@ -24,28 +24,30 @@
 				</div>
             </div>
 
-            <div class="categoriesSelect">
-			    <input type="text" class="searchInput" placeholder="Search listings">
-			    
-			    <<select class="categories" onchange="this.form.submit()" name="category">
-			    
-				    <option value="">All Categories</option>
+			<form method="get" action="${pageContext.request.contextPath}/listing">
+	            <div class="categoriesSelect">
+				    <input type="text" class="searchInput" placeholder="Search listings">
 				    
-				    <c:forEach var="category" items="${categories}">
-				        <option value="${category}" ${category == selectedCategory ? 'selected' : ''}>${category}</option>
-				    </c:forEach>
+				    <select class="categories" onchange="this.form.submit()" name="category">
 				    
-				</select>
-				
-				<select class="categories" onchange="this.form.submit()" name="status">
-				
-				    <option value="">All Status</option>
-				    <option value="Active" ${selectedStatus == 'Active' ? 'selected' : ''}>Active</option>
-				    <option value="Sold" ${selectedStatus == 'Sold' ? 'selected' : ''}>Sold</option>
-				    <option value="Flagged" ${selectedStatus == 'Flagged' ? 'selected' : ''}>Flagged</option>
-				    
-				</select>
-			</div>
+					    <option value="">All Categories</option>
+					    
+					    <c:forEach var="category" items="${categories}">
+					        <option value="${category}" ${category == selectedCategory ? 'selected' : ''}>${category}</option>
+					    </c:forEach>
+					    
+					</select>
+					
+					<select class="categories" onchange="this.form.submit()" name="status">
+					
+					    <option value="">All Status</option>
+					    <option value="Active" ${selectedStatus == 'Active' ? 'selected' : ''}>Active</option>
+					    <option value="Sold" ${selectedStatus == 'Sold' ? 'selected' : ''}>Sold</option>
+					    <option value="Flagged" ${selectedStatus == 'Flagged' ? 'selected' : ''}>Flagged</option>
+					    
+					</select>
+				</div>
+			</form>
             
             <div class="tableBox">
                 <table class="listingTable">
