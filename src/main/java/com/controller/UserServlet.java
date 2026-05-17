@@ -34,7 +34,41 @@ public class UserServlet extends HttpServlet {
 		try {
             AdminUserDAO adminUserDao = new AdminUserDAO();
 
+            String selectedStatus = request.getParameter("status");
+            String selectedSearch = request.getParameter("search");
 
+            if (selectedStatus == null) {
+            	selectedStatus = "";
+            }
+            
+            if (selectedSearch == null) {
+            	selectedSearch = "";
+            }
+
+            int pageSize = 10;
+            int page = 1;
+
+            String pageString = request.getParameter("page");
+             
+            if (pageString != null && !pageString.isEmpty()) {
+                page = Integer.parseInt(pageString);
+            }
+
+            ArrayList<AdminUserModel> allUsers = adminUserDao.allUsers(selectedStatus, selectedSearch);
+
+            int totalCount = allUsers.size();
+            int totalPages = (totalCount + pageSize - 1) / pageSize;
+
+            int startFrom = (page - 1) * pageSize;
+            int endWith;
+
+            if (startFrom + pageSize > totalCount) {
+                endWith = totalCount;
+            } 
+            
+            else {
+                endWith = startFrom + pageSize;
+            }
 
             ArrayList<AdminUserModel> pagedUsers = new ArrayList<>(allUsers.subList(startFrom, endWith));
 
