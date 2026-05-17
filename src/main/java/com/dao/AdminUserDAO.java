@@ -61,6 +61,20 @@ public class AdminUserDAO {
         
         pst.setInt(1, memberId);
         pst.executeUpdate();
+        	
+        pst.close();
+        conn.close();
+    }
+	
+	public void unbanUser(int memberId) throws SQLException {
+		
+        Connection conn = DBConfig.getConnection();
+        
+        String sqlCode = "UPDATE member SET Account_Status = 'Active' WHERE Member_ID = ?";
+        PreparedStatement pst = conn.prepareStatement(sqlCode);
+        
+        pst.setInt(1, memberId);
+        pst.executeUpdate();
         
         pst.close();
         conn.close();
