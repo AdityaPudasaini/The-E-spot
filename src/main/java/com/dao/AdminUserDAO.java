@@ -17,19 +17,19 @@ public class AdminUserDAO {
 
         Connection conn = DBConfig.getConnection();
 
-        String query = "SELECT m.Member_ID, m.Member_Name, m.Member_Email, m.Member_Username, m.Account_Status, m.Member_Role, m.Created_At, COUNT(o.Order_ID) AS totalOrders FROM member m LEFT JOIN `order` o ON m.Member_ID = o.Member_ID WHERE m.Member_Role != 'Admin'";
+        String sqlCode = "SELECT m.Member_ID, m.Member_Name, m.Member_Email, m.Member_Username, m.Account_Status, m.Member_Role, m.Created_At, COUNT(o.Order_ID) AS totalOrders FROM member m LEFT JOIN `order` o ON m.Member_ID = o.Member_ID WHERE m.Member_Role != 'Admin'";
 
         if (status != null && !status.isEmpty()) {
-            query += " AND m.Account_Status = '" + status + "'";
+        	sqlCode += " AND m.Account_Status = '" + status + "'";
         }
 
         if (search != null && !search.isEmpty()) {
-            query += " AND (m.Member_Name LIKE '%" + search + "%' OR m.Member_Email LIKE '%" + search + "%')";
+        	sqlCode += " AND (m.Member_Name LIKE '%" + search + "%' OR m.Member_Email LIKE '%" + search + "%')";
         }
 
-        query += " GROUP BY m.Member_ID ORDER BY m.Created_At DESC";
+        sqlCode += " GROUP BY m.Member_ID ORDER BY m.Member_ID DESC";
 
-        PreparedStatement pst = conn.prepareStatement(query);
+        PreparedStatement pst = conn.prepareStatement(sqlCode);
         ResultSet rs = pst.executeQuery();
 
         while (rs.next()) {
@@ -40,7 +40,7 @@ public class AdminUserDAO {
             user.setMemberUsername(rs.getString("Member_Username"));
             user.setAccountStatus(rs.getString("Account_Status"));
             user.setMemberRole(rs.getString("Member_Role"));
-            user.setCreatedAt(rs.getString("Created_At"));
+            user.setCreatedAt(rs.getString("Created_At").substring(0, 10));
             user.setTotalOrders(rs.getInt("totalOrders"));
             users.add(user);
         }

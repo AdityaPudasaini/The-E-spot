@@ -102,7 +102,6 @@ public class UserServlet extends HttpServlet {
             int memberId = Integer.parseInt(memberIdString);
 
             try {
-            	
                 if (request.getParameter("ban") != null) {
                     adminUserDao.banUser(memberId);
                 } 

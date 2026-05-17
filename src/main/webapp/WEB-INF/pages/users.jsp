@@ -59,7 +59,7 @@
                             <tr class="tableRow">
                             
                                 <td class="tableRowListing">
-								    <img src="${pageContext.request.contextPath}/image?name=${user.memberUsername}" class="productImage" style="border-radius: 50%;">
+								    <img src="${pageContext.request.contextPath}/image?name=${user.memberUsername}" class="productImage" style="border-radius: 50%; width: 50px; height: 50px;">
 								</td>
                                 
                                 <td class="tableRowListing">${user.memberName}</td>
