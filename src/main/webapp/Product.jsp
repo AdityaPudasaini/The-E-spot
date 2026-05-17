@@ -6,22 +6,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Browse Products</title>
-  <link rel="stylesheet" href="css/styles.css" type="text/css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: system-ui, sans-serif; background: #f9fafb; }
 
     /* Banner */
     .banner {
-      background: #0C2C55;
+      background: #16a34a;
       margin: 16px;
       border-radius: 8px;
-      padding: 32px 24px;
-      justify-content: center;
-      
+      padding: 16px 24px;
     }
-    .banner h1 { font-size: 28px; font-weight: 600; color: #fff; }
-    .banner p  { font-size: 22px; color: rgba(255,255,255,0.8); margin-top: 4px; }
+    .banner h1 { font-size: 22px; font-weight: 600; color: #fff; }
+    .banner p  { font-size: 14px; color: rgba(255,255,255,0.8); margin-top: 4px; }
 
     /* Products Grid */
     .products-section { padding: 32px 16px; }
@@ -53,7 +50,7 @@
     .load-more { padding: 0 16px 32px; display: flex; justify-content: center; }
     .load-more button {
       padding: 12px 32px;
-      background: #0C2C55;
+      background: #16a34a;
       color: #fff;
       border: none;
       border-radius: 8px;
@@ -61,11 +58,11 @@
       font-weight: 500;
       cursor: pointer;
     }
-    .load-more button:hover { background: #000; }
+    .load-more button:hover { background: #15803d; }
   </style>
 </head>
 <body>
-<%@ include file="../components/header.jsp"%>
+
   <!-- Banner -->
   <div class="banner">
     <h1>Browse Products</h1>
@@ -103,7 +100,14 @@
         </div>
       </div>
 
-     
+      <div class="card">
+        <img src="images/product4.jpg" alt="Product" />
+        <div class="card-body">
+          <h3>Product Name</h3>
+          <div class="price">Rs. 3,200</div>
+          <div class="condition">Good Condition</div>
+        </div>
+      </div>
 
     </div>
   </div>
