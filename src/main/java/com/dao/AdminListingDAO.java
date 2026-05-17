@@ -68,7 +68,7 @@ public class AdminListingDAO {
 	    conn.close();
 	}
 	
-	public ArrayList<String> getCategories() throws SQLException {
+	public ArrayList<String> categories() throws SQLException {
 		
 	    ArrayList<String> categories = new ArrayList<>();
 	    

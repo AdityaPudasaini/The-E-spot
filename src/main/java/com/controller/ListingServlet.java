@@ -33,6 +33,7 @@ public class ListingServlet extends HttpServlet {
 		 try {
 		        AdminListingDAO adminListingDao = new AdminListingDAO();
 		        request.setAttribute("listings", adminListingDao.allListings());
+		        request.setAttribute("categories", adminListingDao.categories());
 		    } 
 		 
 		 catch (Exception e) {
