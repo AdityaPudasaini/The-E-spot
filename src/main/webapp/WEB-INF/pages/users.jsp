@@ -59,8 +59,8 @@
                             <tr class="tableRow">
                             
                                 <td class="tableRowListing">
-                                    <div class="userAvatar">${user.firstLetter}</div>
-                                </td>
+								    <img src="${pageContext.request.contextPath}/image?name=${user.memberUsername}" class="productImage" style="border-radius: 50%;">
+								</td>
                                 
                                 <td class="tableRowListing">${user.memberName}</td>
                                 <td class="tableRowListing">${user.memberEmail}</td>
@@ -118,12 +118,35 @@
 	        </div>
 	
 	        <div class="lastPartButtons">
-	            <a href="#" class="lastPartButton">Previous</a>
-	            <a href="#" class="lastPartButton pageActive">1</a>
-	            <a href="#" class="lastPartButton">2</a>
-	            <a href="#" class="lastPartButton">3</a>
-	            <a href="#" class="lastPartButton">Next</a>
-	        </div>
+	        
+                <c:choose>
+                
+                    <c:when test="${currentPageInUsers > 1}">
+                        <a href="${pageContext.request.contextPath}/users?page=${currentPageInUsers - 1}&status=${selectedStatus}&search=${selectedSearch}" class="lastPartButton">Previous</a>
+                    </c:when>
+                    
+                    <c:otherwise>
+                        <a class="lastPartButton" style= "opacity: 0.4; pointer-events: none;">Previous</a>
+                    </c:otherwise>
+                    
+                </c:choose>
+
+                <c:forEach begin="1" end="${totalPages}" var="i">
+                    <a href="${pageContext.request.contextPath}/users?page=${i}&status=${selectedStatus}&search=${selectedSearch}" class="lastPartButton ${i == currentPageInUsers ? 'pageActive' : ''}">${i}</a>
+                </c:forEach>
+
+                <c:choose>
+                
+                    <c:when test="${currentPageInUsers < totalPages}">
+                        <a href="${pageContext.request.contextPath}/users?page=${currentPageInUsers + 1}&status=${selectedStatus}&search=${selectedSearch}" class="lastPartButton">Next</a>
+                    </c:when>
+                    
+                    <c:otherwise>
+                        <a class="lastPartButton" style= "opacity: 0.4; pointer-events: none;">Next</a>
+                    </c:otherwise>
+                    
+                </c:choose>
+            </div>
 	
 	    </div>
 		
