@@ -25,22 +25,27 @@
             </div>
 
             <div class="categoriesSelect">
-                <input type="text" class="searchInput" placeholder="Search listings">
-                <select class="categories">
-                    <option>All Categories</option>
-                    <option>Shoes</option>
-                    <option>Electronics</option>
-                    <option>Audio</option>
-                    <option>Accessories</option>
-                    <option>Wearables</option>
-                </select>
-                <select class="categories">
-                    <option>All Status</option>
-                    <option>listed</option>
-                    <option>sold</option>
-                    <option>Flagged</option>
-                </select>
-            </div>
+			    <input type="text" class="searchInput" placeholder="Search listings">
+			    
+			    <select class="categories">
+			    
+			        <option>All Categories</option>
+			        
+			        <c:forEach var="category" items="${categories}">
+			            <option>${category}</option>
+			        </c:forEach>
+			        
+			    </select>
+			    
+			    <select class="categories">
+			    
+			        <option>All Status</option>
+			        <option>Active</option>
+			        <option>Sold</option>
+			        <option>Flagged</option>
+			        
+			    </select>
+			</div>
             
             <div class="tableBox">
                 <table class="listingTable">
