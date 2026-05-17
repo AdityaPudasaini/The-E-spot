@@ -8,7 +8,10 @@ public class DBconfig {
 	private static final String USER = "root";
     private static final String PASSWORD = "";
     
+<<<<<<< HEAD
     
+=======
+>>>>>>> a438b32c1e5392544b324168b7c11f9b11fdb41d
     public static Connection getConnection() {
 
         Connection conn = null;

@@ -260,7 +260,11 @@ form {
         <div class="field-row">
           <div class="field-group">
             <label for="first-name">First name *</label>
+<<<<<<< HEAD
             <input id="first-name" name="first-name" type="text"  />
+=======
+            <input id="first-name" name="first-name" type="text" required />
+>>>>>>> a438b32c1e5392544b324168b7c11f9b11fdb41d
           </div>
           <div class="field-group">
             <label for="last-name">Last name</label>
@@ -270,7 +274,11 @@ form {
 
         <div class="field-group">
           <label for="email">Email Address *</label>
+<<<<<<< HEAD
           <input id="email" name="email" type="email"  />
+=======
+          <input id="email" name="email" type="email" required />
+>>>>>>> a438b32c1e5392544b324168b7c11f9b11fdb41d
         </div>
 
         <div class="field-row">
@@ -292,16 +300,28 @@ form {
 
         <div class="field-group">
           <label for="password">Password</label>
+<<<<<<< HEAD
           <input id="password" name="password" type="password"  />
+=======
+          <input id="password" name="password" type="password" required />
+>>>>>>> a438b32c1e5392544b324168b7c11f9b11fdb41d
         </div>
 
         <div class="field-group">
           <label for="confirm-password">Confirm Password</label>
+<<<<<<< HEAD
           <input id="confirm-password" name="confirm-password" type="password"  />
         </div>
         <div class="field-group">
         <label for="photo">Insert Photo</label>
         <input type="file" name="image" accept="image/+" >
+=======
+          <input id="confirm-password" name="confirm-password" type="password" required />
+        </div>
+        <div class="field-group">
+        <label for="photo">Insert Photo</label>
+        <input type="file" name="image" accept="image/+" required>
+>>>>>>> a438b32c1e5392544b324168b7c11f9b11fdb41d
         </div>
 
         <div class="submit-row">

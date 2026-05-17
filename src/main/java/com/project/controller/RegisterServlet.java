@@ -49,11 +49,15 @@ public class RegisterServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String confirm = request.getParameter("confirm-password");
 		
+<<<<<<< HEAD
 		if (firstName!=null || lastName!=null) {
 			if (email!=null||email.contains("@gmail.com")) {
 				if(phoneNumber)
 			}
 		}
+=======
+		
+>>>>>>> a438b32c1e5392544b324168b7c11f9b11fdb41d
 		if(confirm.equals(password)) {
 			RegisterService service = new RegisterService();
 			try {
