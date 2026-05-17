@@ -67,4 +67,25 @@ public class AdminListingDAO {
 	    pst.close();
 	    conn.close();
 	}
+	
+	public ArrayList<String> getCategories() throws SQLException {
+		
+	    ArrayList<String> categories = new ArrayList<>();
+	    
+	    Connection conn = DBConfig.getConnection();
+	    
+	    String sqlCode = "SELECT Category_Name FROM category ORDER BY Category_Name ASC";
+	    PreparedStatement pst = conn.prepareStatement(sqlCode);
+	    ResultSet rs = pst.executeQuery();
+	    
+	    while (rs.next()) {
+	        categories.add(rs.getString("Category_Name"));
+	    }
+	    
+	    rs.close();
+	    pst.close();
+	    conn.close();
+	    
+	    return categories;
+	}
 }
