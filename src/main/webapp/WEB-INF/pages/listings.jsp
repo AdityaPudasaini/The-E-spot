@@ -14,12 +14,12 @@
 	<body>
 		<%@ include file="/Component/adminSidebar.jsp" %>
 		
-		<div style="display: flex; flex-direction: column; margin-left: 250px; width: calc(100% - 250px);">
+		<div style="display: flex; flex-direction: column; margin-left: 250px; width: calc(100% - 250px); min-height: 680px;">
 
             <div class="topPart">
                 <p class="dashboardHeading" style="margin-right: 920px;"><b>Listings</b></p>
 
-                <div class="adminPhoto" style="margin-top: 0px; margin-left: 130px">
+                <div class="adminPhoto" style="margin-top: 0px; margin-left: 130px; flex-shrink: 0;">
 					<img src="${pageContext.request.contextPath}/image?name=${sessionScope.username}" style="width: 100%; height: 100%; border-radius: 50%;" />                
 				</div>
             </div>
