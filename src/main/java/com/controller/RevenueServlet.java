@@ -35,7 +35,16 @@ public class RevenueServlet extends HttpServlet {
 		try {
             AdminRevenueDAO adminRevenueDao = new AdminRevenueDAO();
 
-            
+            String selectedStatus = request.getParameter("status");
+            String selectedSearch = request.getParameter("search");
+
+            if (selectedStatus == null) {
+            	selectedStatus = "";
+            }
+            if (selectedSearch == null) {
+            	selectedSearch = "";
+            }
+
             int pageSize = 10;
             int page = 1;
 
