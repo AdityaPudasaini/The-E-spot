@@ -50,7 +50,22 @@
                 
             </div>
 	
+	        <form method="get" action="${pageContext.request.contextPath}/flagged">
 	        
+                <div class="categoriesSelect">
+                
+                    <input type="text" class="searchInput" placeholder="Search flagged items..." name="search" value="${selectedSearch}">
+                    
+                    <select class="categories" name="status" onchange="this.form.submit()">
+                        <option value="" ${empty selectedStatus ? 'selected' : ''}>All Status</option>
+                        <option value="Under Review" ${selectedStatus == 'Under Review' ? 'selected' : ''}>Under Review</option>
+                        <option value="Resolved" ${selectedStatus == 'Resolved' ? 'selected' : ''}>Resolved</option>
+                        <option value="Dismissed" ${selectedStatus == 'Dismissed' ? 'selected' : ''}>Dismissed</option>
+                    </select>
+                    
+                </div>
+                
+            </form>
 	
 	        <div class="tableBox">
 	            <div class="tableTitle">Flagged Items List</div>
