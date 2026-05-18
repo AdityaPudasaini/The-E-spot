@@ -96,14 +96,33 @@ public class AdminFlaggedDAO {
     	
         Connection conn = DBConfig.getConnection();
         
-        String sqlCode = "UPDATE product SET Active_Status = 'Banned' WHERE Product_ID = (SELECT Product_ID FROM flag_report WHERE Flag_ID = ?)";
+        updateFlagStatusRemoved(flagId);
         
-        PreparedStatement pst = conn.prepareStatement(sqlCode);
+        String updateProduct = "UPDATE product SET Active_Status = 'Banned' WHERE Product_ID = (SELECT Product_ID FROM flag_report WHERE Flag_ID = ?)";
+        
+        PreparedStatement pst = conn.prepareStatement(updateProduct);
         
         pst.setInt(1, flagId);
         pst.executeUpdate();
         
         pst.close();
+        
+        conn.close();
+    }
+    
+    public void updateFlagStatusRemoved(int flagId) throws SQLException{
+    	
+    	Connection conn = DBConfig.getConnection();
+
+    	String updateFlag = "UPDATE flag_report SET Flag_Status = 'Resolved' WHERE Flag_ID = ?";
+    	
+        PreparedStatement pst = conn.prepareStatement(updateFlag);
+        
+        pst.setInt(1, flagId);
+        pst.executeUpdate();
+        
+        pst.close();
+        
         conn.close();
     }
 
@@ -111,12 +130,12 @@ public class AdminFlaggedDAO {
         
     	Connection conn = DBConfig.getConnection();
     	
-    	updateFlagStatus(flagId);
+    	updateFlagStatusResolved(flagId);
 
-        String updateProduct = "UPDATE product SET isFlagged = false, Active_Status = 'Active' WHERE Product_ID = (SELECT Product_ID FROM flag_report WHERE Flag_ID = ?)";
+    	String updateProduct = "UPDATE product SET isFlagged = false, Active_Status = 'Active' WHERE Product_ID = (SELECT Product_ID FROM flag_report WHERE Flag_ID = ?)";
         
-        PreparedStatement pst = conn.prepareStatement(updateProduct);
-        
+    	PreparedStatement pst = conn.prepareStatement(updateProduct);
+    	
         pst.setInt(1, flagId);
         pst.executeUpdate();
         
@@ -125,12 +144,12 @@ public class AdminFlaggedDAO {
         conn.close();
     }
     
-    public void updateFlagStatus(int flagId) throws SQLException {
+    public void updateFlagStatusResolved(int flagId) throws SQLException {
     	
     	Connection conn = DBConfig.getConnection();
 
-        String updateFlag = "UPDATE flag_report SET Flag_Status = 'Resolved' WHERE Flag_ID = ?";
-        
+    	String updateFlag = "UPDATE flag_report SET Flag_Status = 'Dismissed' WHERE Flag_ID = ?";
+    	
         PreparedStatement pst = conn.prepareStatement(updateFlag);
         
         pst.setInt(1, flagId);

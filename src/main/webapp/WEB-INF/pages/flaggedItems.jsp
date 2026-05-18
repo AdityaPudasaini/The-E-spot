@@ -13,7 +13,7 @@
 	<body>
 		<%@ include file="/Component/adminSidebar.jsp" %>
 	
-		<div style="display: flex; flex-direction: column; margin-left: 250px; width: calc(100% - 250px);">
+		<div style="display: flex; flex-direction: column; margin-left: 250px; width: calc(100% - 250px); min-height: 800px;">
 	
 	        <div class="topPart">
 	            <p class="dashboardHeading"><b>Flagged Items</b></p>
@@ -113,13 +113,13 @@
                                 <td class="tableRowListing">
                                     <div class="changeButtons">
                                     
-                                        <form action="${pageContext.request.contextPath}/flagged" method="post">
+                                        <form action="${pageContext.request.contextPath}/flagged" method="post" style="display: flex; gap: 6px;">
                                         
-                                            <input type="hidden" name="flagId" value="${item.flagId}" />
-                                            <button class="editButton" name="unflag" type="submit">Unflag</button>
-                                            <button class="deleteButton" name="remove" type="submit">Remove</button>
-                                            
-                                        </form>
+										    <input type="hidden" name="flagId" value="${item.flagId}"/>
+										    <button style="border: none; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: bold; cursor: pointer; color: white; background-color: #2563EB;" name="unflag" type="submit">Unflag</button>
+											<button style="border: none; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: bold; cursor: pointer; color: white; background-color: #EF4444;" name="remove" type="submit">Remove</button>
+										    
+										</form>
                                     </div>
                                 </td>
                             </tr>

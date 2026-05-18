@@ -138,7 +138,7 @@
 			    <c:choose>
 			    
 			        <c:when test="${currentPageInListing < totalPages}">
-			            <a href="${pageContext.request.contextPath}/listing?page=${currentPageInListing + 1}" class="lastPartButton">Next</a>
+			            <a href="${pageContext.request.contextPath}/listing?page=${currentPageInListing + 1}" class="las">Next</a>
 			        </c:when>
 			        
 			        <c:otherwise>
