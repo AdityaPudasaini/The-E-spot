@@ -28,7 +28,7 @@ public class AdminRevenueDAO {
             sqlCode += " AND (m.Member_Name LIKE '%" + search + "%' OR p.Product_Name LIKE '%" + search + "%')";
         }
 
-        sqlCode += " ORDER BY o.Order_Date DESC";
+        sqlCode += " ORDER BY o.Order_ID DESC";
 
         PreparedStatement pst = conn.prepareStatement(sqlCode);
         ResultSet rs = pst.executeQuery();

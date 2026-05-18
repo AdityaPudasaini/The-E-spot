@@ -36,7 +36,7 @@ public class AdminListingDAO {
 	    	sqlCode += " AND p.Product_Name LIKE '%" + search + "%'";
 	    }
 	    
-	    sqlCode += " ORDER BY p.Listed_Date DESC";
+	    sqlCode += " ORDER BY p.Product_ID DESC";
 	    
 	    PreparedStatement pst = conn.prepareStatement(sqlCode);
 	    ResultSet rs = pst.executeQuery();
