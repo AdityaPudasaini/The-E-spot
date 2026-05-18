@@ -82,7 +82,7 @@
         <div class="cat-card">collectibles</div>
     </div>
 
-    <h2>Today's Picks</h2>
+    <h2>for Today's </h2>
     <br>
 
     <!-- Marketplace Grid -->
