@@ -94,5 +94,26 @@ public class AdminRevenueDAO {
         return total;
     }
 
+    public String revenueThisWeek() throws SQLException {
+        Connection conn = DBConfig.getConnection();
+        
+        String sqlCode = "SELECT SUM(Payment_Amount) AS weekRevenue FROM payment WHERE Payment_Status = 'Completed' AND YEARWEEK(Payment_Date) = YEARWEEK(CURDATE())";
+        
+        PreparedStatement pst = conn.prepareStatement(sqlCode);
+        ResultSet rs = pst.executeQuery();
+
+        String total = "0.00";
+        
+        if (rs.next()) {
+            total = String.format("%.2f", rs.getDouble("weekRevenue"));
+        }
+
+        rs.close();
+        pst.close();
+        conn.close();
+        
+        return total;
+    }
+
     
 }
