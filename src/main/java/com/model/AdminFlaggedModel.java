@@ -1,21 +1,22 @@
 package com.model;
 
 public class AdminFlaggedModel {
-    private int productId;
+    private int flagId;
     private String productName;
-    private String categoryName;
-    private String sellerName;
-    private String listedDate;
-    private String activeStatus;
+    private String reportedBy;
+    private String reason;
+    private String dateReported;
+    private String flagStatus;
+    private int productId;
 
-    public int getProductId() 
+    public int getFlagId() 
     { 
-    	return productId; 
+    	return flagId; 
     }
     
-    public void setProductId(int productId) 
+    public void setFlagId(int flagId) 
     { 
-    	this.productId = productId; 
+    	this.flagId = flagId; 
     }
 
     public String getProductName() 
@@ -24,47 +25,56 @@ public class AdminFlaggedModel {
     }
     
     public void setProductName(String productName) 
-    { 
+    {
     	this.productName = productName; 
     }
 
-    public String getCategoryName() 
+    public String getReportedBy() 
     { 
-    	return categoryName; 
+    	return reportedBy; 
     }
     
-    public void setCategoryName(String categoryName) 
+    public void setReportedBy(String reportedBy) 
     { 
-    	this.categoryName = categoryName; 
+    	this.reportedBy = reportedBy; 
     }
 
-    public String getSellerName() 
+    public String getReason() 
     { 
-    	return sellerName; 
+    	return reason; 
     }
     
-    public void setSellerName(String sellerName) 
+    public void setReason(String reason) 
     { 
-    	this.sellerName = sellerName; 
+    	this.reason = reason; 
     }
 
-    public String getListedDate() 
+    public String getDateReported() 
     { 
-    	return listedDate; 
+    	return dateReported; 
     }
     
-    public void setListedDate(String listedDate) 
+    public void setDateReported(String dateReported) 
     { 
-    	this.listedDate = listedDate; 
+    	this.dateReported = dateReported; 
     }
 
-    public String getActiveStatus() 
+    public String getFlagStatus() 
     { 
-    	return activeStatus; 
+    	return flagStatus; 
     }
     
-    public void setActiveStatus(String activeStatus) 
+    public void setFlagStatus(String flagStatus) 
     { 
-    	this.activeStatus = activeStatus; 
+    	this.flagStatus = flagStatus; 
+    }
+
+    public int getProductId() 
+    { 
+    	return productId; 
+    }
+    public void setProductId(int productId) 
+    { 
+    	this.productId = productId; 
     }
 }
