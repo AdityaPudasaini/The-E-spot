@@ -79,90 +79,41 @@
 	                        <th class="tableHead">Amount</th>
 	                        <th class="tableHead">Date</th>
 	                        <th class="tableHead">Status</th>
-	                        <th class="tableHead">Actions</th>
 	                    </tr>
 	                </thead>
 	                <tbody>
-	                    <tr class="tableRow">
-	                        <td class="tableRowListing" style="font-weight: 700; color: #2563EB;">#1001</td>
-	                        <td class="tableRowListing">Michael Johnson</td>
-	                        <td class="tableRowListing">Nike Air Max 270</td>
-	                        <td class="tableRowListing">Shoes</td>
-	                        <td class="tableRowListing">$129</td>
-	                        <td class="tableRowListing">Apr 01, 2025</td>
-	                        <td class="tableRowListing"><span class="everyStatus" style="background: #DCFCE7; color: #166534;">Completed</span></td>
-	                        <td class="tableRowListing"><div class="changeButtons"><button class="editButton">View</button></div></td>
-	                    </tr>
-	                    <tr class="tableRow">
-	                        <td class="tableRowListing" style="font-weight: 700; color: #2563EB;">#1002</td>
-	                        <td class="tableRowListing">Sarah Lee</td>
-	                        <td class="tableRowListing">MacBook Pro M3</td>
-	                        <td class="tableRowListing">Electronics</td>
-	                        <td class="tableRowListing">$2,499</td>
-	                        <td class="tableRowListing">Apr 03, 2025</td>
-	                        <td class="tableRowListing"><span class="everyStatus" style="background: #FEF9C3; color: #854D0E;">Pending</span></td>
-	                        <td class="tableRowListing"><div class="changeButtons"><button class="editButton">View</button></div></td>
-	                    </tr>
-	                    <tr class="tableRow">
-	                        <td class="tableRowListing" style="font-weight: 700; color: #2563EB;">#1003</td>
-	                        <td class="tableRowListing">David Kim</td>
-	                        <td class="tableRowListing">Sony WH-1000XM5</td>
-	                        <td class="tableRowListing">Audio</td>
-	                        <td class="tableRowListing">$349</td>
-	                        <td class="tableRowListing">Apr 05, 2025</td>
-	                        <td class="tableRowListing"><span class="everyStatus" style="background: #DCFCE7; color: #166534;">Completed</span></td>
-	                        <td class="tableRowListing"><div class="changeButtons"><button class="editButton">View</button></div></td>
-	                    </tr>
-	                    <tr class="tableRow">
-	                        <td class="tableRowListing" style="font-weight: 700; color: #2563EB;">#1004</td>
-	                        <td class="tableRowListing">Emma Brown</td>
-	                        <td class="tableRowListing">Apple Watch S9</td>
-	                        <td class="tableRowListing">Wearables</td>
-	                        <td class="tableRowListing">$399</td>
-	                        <td class="tableRowListing">Apr 08, 2025</td>
-	                        <td class="tableRowListing"><span class="everyStatus" style="background: #FEE2E2; color: #991B1B;">Refunded</span></td>
-	                        <td class="tableRowListing"><div class="changeButtons"><button class="editButton">View</button></div></td>
-	                    </tr>
-	                    <tr class="tableRow">
-	                        <td class="tableRowListing" style="font-weight: 700; color: #2563EB;">#1005</td>
-	                        <td class="tableRowListing">James Carter</td>
-	                        <td class="tableRowListing">Leather Wallet</td>
-	                        <td class="tableRowListing">Accessories</td>
-	                        <td class="tableRowListing">$49</td>
-	                        <td class="tableRowListing">Apr 10, 2025</td>
-	                        <td class="tableRowListing"><span class="everyStatus" style="background: #DCFCE7; color: #166534;">Completed</span></td>
-	                        <td class="tableRowListing"><div class="changeButtons"><button class="editButton">View</button></div></td>
-	                    </tr>
-	                    <tr class="tableRow">
-	                        <td class="tableRowListing" style="font-weight: 700; color: #2563EB;">#1006</td>
-	                        <td class="tableRowListing">Aisha Patel</td>
-	                        <td class="tableRowListing">iPad Pro 12.9</td>
-	                        <td class="tableRowListing">Electronics</td>
-	                        <td class="tableRowListing">$1,099</td>
-	                        <td class="tableRowListing">Apr 14, 2025</td>
-	                        <td class="tableRowListing"><span class="everyStatus" style="background: #F1F5F9; color: #475569;">Cancelled</span></td>
-	                        <td class="tableRowListing"><div class="changeButtons"><button class="editButton">View</button></div></td>
-	                    </tr>
-	                    <tr class="tableRow">
-	                        <td class="tableRowListing" style="font-weight: 700; color: #2563EB;">#1007</td>
-	                        <td class="tableRowListing">Carlos Mendez</td>
-	                        <td class="tableRowListing">Adidas Ultraboost</td>
-	                        <td class="tableRowListing">Shoes</td>
-	                        <td class="tableRowListing">$189</td>
-	                        <td class="tableRowListing">Apr 18, 2025</td>
-	                        <td class="tableRowListing"><span class="everyStatus" style="background: #FEF9C3; color: #854D0E;">Pending</span></td>
-	                        <td class="tableRowListing"><div class="changeButtons"><button class="editButton">View</button></div></td>
-	                    </tr>
-	                    <tr class="tableRow">
-	                        <td class="tableRowListing" style="font-weight: 700; color: #2563EB;">#1008</td>
-	                        <td class="tableRowListing">Lena Fischer</td>
-	                        <td class="tableRowListing">Ray-Ban Sunglasses</td>
-	                        <td class="tableRowListing">Accessories</td>
-	                        <td class="tableRowListing">$215</td>
-	                        <td class="tableRowListing">Apr 22, 2025</td>
-	                        <td class="tableRowListing"><span class="everyStatus" style="background: #DCFCE7; color: #166534;">Completed</span></td>
-	                        <td class="tableRowListing"><div class="changeButtons"><button class="editButton">View</button></div></td>
-	                    </tr>
+	                    <c:forEach var="order" items="${orders}">
+                            <tr class="tableRow">
+                                <td class="tableRowListing" style="font-weight: 700; color: #2563EB;">#${order.orderId}</td>
+                                <td class="tableRowListing">${order.customerName}</td>
+                                <td class="tableRowListing">${order.productName}</td>
+                                <td class="tableRowListing">${order.categoryName}</td>
+                                <td class="tableRowListing">$${order.amount}</td>
+                                <td class="tableRowListing">${order.orderDate}</td>
+                                <td class="tableRowListing">
+                                
+                                    <c:choose>
+                                    
+                                        <c:when test="${order.orderStatus == 'Completed'}">
+                                            <span class="everyStatus" style="background: #DCFCE7; color: #166534;">Completed</span>
+                                        </c:when>
+                                        
+                                        <c:when test="${order.orderStatus == 'Pending'}">
+                                            <span class="everyStatus" style="background: #FEF9C3; color: #854D0E;">Pending</span>
+                                        </c:when>
+                                        
+                                        <c:when test="${order.orderStatus == 'Refunded'}">
+                                            <span class="everyStatus" style="background: #FEE2E2; color: #991B1B;">Refunded</span>
+                                        </c:when>
+                                        
+                                        <c:otherwise>
+                                            <span class="everyStatus" style="background: #F1F5F9; color: #475569;">${order.orderStatus}</span>
+                                        </c:otherwise>
+                                        
+                                    </c:choose>
+                                </td>
+                            </tr>
+                        </c:forEach>
 	                </tbody>
 	            </table>
 	        </div>
