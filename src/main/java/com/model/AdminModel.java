@@ -6,8 +6,18 @@ public class AdminModel {
     private String password;
     private String permission;
     private String username;
+    private int adminId;
 
+    public int getAdminId() 
+    { 
+    	return adminId; 
+    }
     
+    public void setAdminId(int adminId) 
+    { 
+    	this.adminId = adminId; 
+    }
+
     public String getName() 
     { 
     	return name; 
