@@ -125,7 +125,7 @@
                     </c:when>
                     
                     <c:otherwise>
-                        <a class="lastPartButton disabled">Previous</a>
+                        <a class="lastPartButton" style="opacity: 0.4; pointer-events: none;">Previous</a>
                     </c:otherwise>
                     
                 </c:choose>
@@ -141,7 +141,7 @@
                     </c:when>
                     
                     <c:otherwise>
-                        <a class="lastPartButton disabled">Next</a>
+                        <a class="lastPartButton" style="opacity: 0.4; pointer-events: none;">Next</a>
                     </c:otherwise>
                     
                 </c:choose>
