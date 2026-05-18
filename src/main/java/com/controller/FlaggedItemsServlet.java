@@ -95,32 +95,32 @@ public class FlaggedItemsServlet extends HttpServlet {
 		
 		AdminFlaggedDAO adminFlaggedDao = new AdminFlaggedDAO();
 
-        String productIdString = request.getParameter("productId");
+	    String flagIdString = request.getParameter("flagId");
 
-        if (productIdString != null && !productIdString.isEmpty()) 
-        {
-            int productId = Integer.parseInt(productIdString);
+	    if (flagIdString != null && !flagIdString.isEmpty()) 
+	    {
+	        int flagId = Integer.parseInt(flagIdString);
 
-            try {
-            	
-                if (request.getParameter("remove") != null) 
-                {
-                    adminFlaggedDao.removeItem(productId);
-                } 
-                
-                else if (request.getParameter("keep") != null) 
-                {
-                    adminFlaggedDao.keepItem(productId);
-                }
-                
-            } 
-            
-            catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+	        try {
+	        	
+	            if (request.getParameter("remove") != null) 
+	            {
+	                adminFlaggedDao.removeItem(flagId);
+	            } 
+	            
+	            else if (request.getParameter("unflag") != null) 
+	            {
+	                adminFlaggedDao.unflagItem(flagId);
+	            }
+	            
+	        } 
+	        
+	        catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
 
-        response.sendRedirect(request.getContextPath() + "/flagged");
+	    response.sendRedirect(request.getContextPath() + "/flagged");
 	}
 
 }
