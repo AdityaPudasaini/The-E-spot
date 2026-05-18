@@ -62,5 +62,33 @@ public class AdminOrderDAO {
         return orders;
     }
 
+    public int totalOrders() throws SQLException {
+    	
+        Connection conn = DBConfig.getConnection();
+        
+        String sqlCode = "SELECT COUNT(*) AS total FROM `order`";
+        
+        PreparedStatement pst = conn.prepareStatement(sqlCode);
+        ResultSet rs = pst.executeQuery();
+        
+        int total = 0;
+        
+        if (rs.next()) 
+        {
+            total = rs.getInt("total");
+        } 
+        
+        else 
+        {
+            total = 0;
+        }
+        
+        rs.close(); 
+        pst.close(); 
+        conn.close();
+        
+        return total;
+    }
+
     
 }
