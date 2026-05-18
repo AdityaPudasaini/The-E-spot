@@ -67,10 +67,30 @@
 <body>
 <%@ include file="../components/header.jsp"%>
   <!-- Banner -->
-  <div class="banner">
-    <h1>Browse Products</h1>
-    <p>Discover great deals on quality pre-owned items</p>
+  <div style="background: #0C2C55; margin: 16px; border-radius: 8px;">
+  <div style="padding: 16px 24px; display: flex; justify-content: space-between; align-items: center;">
+    
+    <div>
+      <h1 style="font-size: 22px; font-weight: 600; color: #fff;">Browse Products</h1>
+      <p style="font-size: 14px; color: rgba(255,255,255,0.8); margin-top: 4px;">
+        Discover great deals on quality pre-owned items
+      </p>
+    </div>
+
+    <button style="
+      padding: 8px 24px;
+      background: #f59e0b;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+    ">+ Add Product</button>
+
   </div>
+</div>
 
   <!-- Products Grid -->
   <div class="products-section">

@@ -8,8 +8,8 @@
   </div>
   <div class="nav-links">
     <a href="">Home</a>
-    <a href="">Orders</a>
-    <a href="">Wishlist</a>
+    <a href="product">Product</a>
+    <a href="wishlist">Wishlist</a>
     <a href="user">Profile</a>
   </div>
 </div>

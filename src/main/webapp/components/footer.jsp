@@ -11,7 +11,7 @@
       <p class="footer-heading">Quick Links</p>
       <a href="user">Home</a>
       <a href="">Orders</a>
-      <a href="">Wishlist</a>
+      <a href="wishlist">Wishlist</a>
       <a href="">Cart</a>
     </div>
 
@@ -25,7 +25,7 @@
 
     <div class="footer-links">
       <p class="footer-heading">The E-Spot</p>
-      <a href="">About Us</a>
+      <a href="aboutUs">About Us</a>
       <a href="">Privacy Policy</a>
       <a href="">Terms of Service</a>
     </div>
