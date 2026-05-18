@@ -122,5 +122,29 @@ public class AdminFlaggedDAO {
         conn.close();
     }
     
+    public int underReview() throws SQLException {
+    	
+        Connection conn = DBConfig.getConnection();
+        
+        String sqlCode = "SELECT COUNT(*) AS total FROM flag_report WHERE Flag_Status = 'Under Review'";
+        
+        PreparedStatement pst = conn.prepareStatement(sqlCode);
+        ResultSet rs = pst.executeQuery();
+        
+        int total = 0;
+        
+        if (rs.next()) 
+        {
+            total = rs.getInt("total");
+        } 
+        
+        else 
+        {
+            total = 0;
+        }
+        
+        return total;
+    }
+
     
 }
