@@ -78,30 +78,35 @@ public class AdminListingDAO {
 	public void flagProduct(int productId, int adminId) throws SQLException {
 		
 		 Connection conn = DBConfig.getConnection();
+		 
+		 updateIsFlaggedTrue(productId);
 
-		    String updateProduct = "UPDATE product SET isFlagged = true WHERE Product_ID = ?";
-		    
-		    PreparedStatement pst1 = conn.prepareStatement(updateProduct);
-		    
-		    pst1.setInt(1, productId);
-		    pst1.executeUpdate();
-		    
-		    pst1.close();
-
-		    String insertFlag = "INSERT INTO flag_report (Product_ID, Reported_By_Admin, Reason, Date_Reported, Flag_Status) VALUES (?, ?, 'Flagged by Admin', NOW(), 'Under Review')";
-		    
-		    PreparedStatement pst2 = conn.prepareStatement(insertFlag);
-		    
-		    pst2.setInt(1, productId);
-		    pst2.setInt(2, adminId);
-		    pst2.executeUpdate();
-		    
-		    pst2.close();
-
-		    conn.close();
+		 String insertFlag = "INSERT INTO flag_report (Product_ID, Reported_By_Admin, Reason, Date_Reported, Flag_Status) VALUES (?, ?, 'Flagged by Admin', NOW(), 'Under Review')";
+		 
+		 PreparedStatement pst = conn.prepareStatement(insertFlag);
+		 
+		 pst.setInt(1, productId);
+		 pst.setInt(2, adminId);
+		 pst.executeUpdate();
+		 
+		 pst.close();
+		 
+		 conn.close();
 	}
 	
-	
+	public void updateIsFlaggedTrue(int productId) throws SQLException {
+		
+		Connection conn = DBConfig.getConnection();
+
+	    String updateProduct = "UPDATE product SET isFlagged = true WHERE Product_ID = ?";
+	    
+	    PreparedStatement pst = conn.prepareStatement(updateProduct);
+	    
+	    pst.setInt(1, productId);
+	    pst.executeUpdate();
+	    
+	    pst.close();
+	}
 
 	public void keepProduct(int productId) throws SQLException {
 		
