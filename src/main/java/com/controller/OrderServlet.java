@@ -38,13 +38,19 @@ public class OrderServlet extends HttpServlet {
             String selectedStatus = request.getParameter("status");
             String selectedSearch = request.getParameter("search");
 
-            if (selectedStatus == null) selectedStatus = "";
-            if (selectedSearch == null) selectedSearch = "";
+            if (selectedStatus == null) {
+            	selectedStatus = "";
+            }
+            
+            if (selectedSearch == null) {
+            	selectedSearch = "";
+            }
 
             int pageSize = 10;
             int page = 1;
 
             String pageString = request.getParameter("page");
+            
             if (pageString != null && !pageString.isEmpty()) {
                 page = Integer.parseInt(pageString);
             }
@@ -57,9 +63,13 @@ public class OrderServlet extends HttpServlet {
             int startFrom = (page - 1) * pageSize;
             int endWith;
 
-            if (startFrom + pageSize > totalCount) {
+            if (startFrom + pageSize > totalCount) 
+            {
                 endWith = totalCount;
-            } else {
+            } 
+            
+            else 
+            {
                 endWith = startFrom + pageSize;
             }
 
@@ -75,7 +85,9 @@ public class OrderServlet extends HttpServlet {
             request.setAttribute("pendingOrders", adminOrderDao.pendingOrders());
             request.setAttribute("refundedOrders", adminOrderDao.refundedOrders());
 
-        } catch (Exception e) {
+        } 
+		
+		catch (Exception e) {
             e.printStackTrace();
         }
 

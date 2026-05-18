@@ -84,7 +84,9 @@ public class RevenueServlet extends HttpServlet {
             request.setAttribute("revenueThisWeek", adminRevenueDao.revenueThisWeek());
             request.setAttribute("averageOrderValue", adminRevenueDao.averageOrderValue());
 
-        } catch (Exception e) {
+        } 
+		
+		catch (Exception e) {
             e.printStackTrace();
         }
 
