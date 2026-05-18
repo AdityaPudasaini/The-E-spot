@@ -116,12 +116,36 @@
 	        </div>
 	
 	        <div class="lastPartButtons">
-	            <a href="#" class="lastPartButton">Previous</a>
-	            <a href="#" class="lastPartButton pageActive">1</a>
-	            <a href="#" class="lastPartButton">2</a>
-	            <a href="#" class="lastPartButton">3</a>
-	            <a href="#" class="lastPartButton">Next</a>
-	        </div>
+	        
+                <c:choose>
+                
+                    <c:when test="${currentPageInRevenue > 1}">
+                        <a href="${pageContext.request.contextPath}/revenue?page=${currentPageInRevenue - 1}&status=${selectedStatus}&search=${selectedSearch}" class="lastPartButton">Previous</a>
+                    </c:when>
+                    
+                    <c:otherwise>
+                        <a class="lastPartButton disabled">Previous</a>
+                    </c:otherwise>
+                    
+                </c:choose>
+
+                <c:forEach begin="1" end="${totalPages}" var="i">
+                    <a href="${pageContext.request.contextPath}/revenue?page=${i}&status=${selectedStatus}&search=${selectedSearch}" class="lastPartButton ${i == currentPageInRevenue ? 'pageActive' : ''}">${i}</a>
+                </c:forEach>
+
+                <c:choose>
+                
+                    <c:when test="${currentPageInRevenue < totalPages}">
+                        <a href="${pageContext.request.contextPath}/revenue?page=${currentPageInRevenue + 1}&status=${selectedStatus}&search=${selectedSearch}" class="lastPartButton">Next</a>
+                    </c:when>
+                    
+                    <c:otherwise>
+                        <a class="lastPartButton disabled">Next</a>
+                    </c:otherwise>
+                    
+                </c:choose>
+                
+            </div>
 	
 	    </div>
 		
