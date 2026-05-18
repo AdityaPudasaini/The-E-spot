@@ -73,5 +73,26 @@ public class AdminRevenueDAO {
         return total;
     }
 
+    public String revenueThisMonth() throws SQLException {
+        Connection conn = DBConfig.getConnection();
+        
+        String sqlCode = "SELECT SUM(Payment_Amount) AS monthRevenue FROM payment WHERE Payment_Status = 'Completed' AND MONTH(Payment_Date) = MONTH(CURDATE()) AND YEAR(Payment_Date) = YEAR(CURDATE())";
+        
+        PreparedStatement pst = conn.prepareStatement(sqlCode);
+        ResultSet rs = pst.executeQuery();
+
+        String total = "0.00";
+        
+        if (rs.next()) {
+            total = String.format("%.2f", rs.getDouble("monthRevenue"));
+        }
+
+        rs.close();
+        pst.close();
+        conn.close();
+        
+        return total;
+    }
+
     
 }
