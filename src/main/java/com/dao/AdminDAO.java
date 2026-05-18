@@ -18,6 +18,7 @@ public class AdminDAO {
 
         if (rs.next()) {
         	admin = new AdminModel();
+        	admin.setAdminId(rs.getInt("Admin_ID"));
         	admin.setName(rs.getString("Admin_Name"));
         	admin.setEmail(rs.getString("Admin_Email"));
         	admin.setPassword(rs.getString("Admin_Password"));

@@ -62,6 +62,7 @@ public class LoginServlet extends HttpServlet {
 				SessionUtil.setAttribute(request, "username", model.getUserName(), 60 * 30);
 				SessionUtil.setAttribute(request, "userType", "member", 60*30);
 				
+				
 				CookieUtil.addCookie(response, "username", model.getUserName(), 60 * 60 * 24 * 30);
 	            
 	            response.sendRedirect(request.getContextPath() + "/memberDashboard");
@@ -83,6 +84,7 @@ public class LoginServlet extends HttpServlet {
 				
 				SessionUtil.setAttribute(request, "username", admin.getUserName(), 60 * 30);
 				SessionUtil.setAttribute(request, "userType", "admin", 60*30);
+				SessionUtil.setAttribute(request, "adminId", admin.getAdminId(), 60 * 30);
 				
 				CookieUtil.addCookie(response, "username", admin.getUserName(), 60 * 60 * 24 * 30);
 	            
