@@ -93,7 +93,34 @@ public class FlaggedItemsServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		doGet(request, response);
+		AdminFlaggedDAO adminFlaggedDao = new AdminFlaggedDAO();
+
+        String productIdString = request.getParameter("productId");
+
+        if (productIdString != null && !productIdString.isEmpty()) 
+        {
+            int productId = Integer.parseInt(productIdString);
+
+            try {
+            	
+                if (request.getParameter("remove") != null) 
+                {
+                    adminFlaggedDao.removeItem(productId);
+                } 
+                
+                else if (request.getParameter("keep") != null) 
+                {
+                    adminFlaggedDao.keepItem(productId);
+                }
+                
+            } 
+            
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        response.sendRedirect(request.getContextPath() + "/flagged");
 	}
 
 }
