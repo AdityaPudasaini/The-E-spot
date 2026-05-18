@@ -83,5 +83,20 @@ public class AdminFlaggedDAO {
         return total;
     }
 
+    public void removeItem(int productId) throws SQLException {
+    	
+        Connection conn = DBConfig.getConnection();
+        
+        String sqlCode = "UPDATE product SET Active_Status = 'Banned' WHERE Product_ID = ?";
+        
+        PreparedStatement pst = conn.prepareStatement(sqlCode);
+        
+        pst.setInt(1, productId);
+        pst.executeUpdate();
+        
+        pst.close();
+        conn.close();
+    }
+
     
 }
