@@ -98,5 +98,17 @@ public class AdminFlaggedDAO {
         conn.close();
     }
 
-    
+    public void keepItem(int productId) throws SQLException {
+    	
+        Connection conn = DBConfig.getConnection();
+        
+        String sqlCode = "UPDATE product SET isFlagged = false, Active_Status = 'Active' WHERE Product_ID = ?";
+        PreparedStatement pst = conn.prepareStatement(sqlCode);
+        
+        pst.setInt(1, productId);
+        pst.executeUpdate();
+        
+        pst.close();
+        conn.close();
+    }
 }
