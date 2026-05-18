@@ -6,6 +6,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+
+import com.dao.AdminOrderDAO;
+import com.model.AdminOrderModel;
 
 /**
  * Servlet implementation class OrderServlet
@@ -28,8 +32,29 @@ public class OrderServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.setAttribute("currentPage", "orders");
-		request.getRequestDispatcher("/WEB-INF/pages/orders.jsp").forward(request, response);
+		try {
+            AdminOrderDAO adminOrderDao = new AdminOrderDAO();
+
+            
+
+            ArrayList<AdminOrderModel> pagedOrders = new ArrayList<>(allOrders.subList(startFrom, endWith));
+
+            request.setAttribute("orders", pagedOrders);
+            request.setAttribute("currentPageInOrder", page);
+            request.setAttribute("totalPages", totalPages);
+            request.setAttribute("selectedStatus", selectedStatus);
+            request.setAttribute("selectedSearch", selectedSearch);
+            request.setAttribute("totalOrders", adminOrderDao.totalOrders());
+            request.setAttribute("completedOrders", adminOrderDao.completedOrders());
+            request.setAttribute("pendingOrders", adminOrderDao.pendingOrders());
+            request.setAttribute("refundedOrders", adminOrderDao.refundedOrders());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        request.setAttribute("currentPage", "orders");
+        request.getRequestDispatcher("/WEB-INF/pages/orders.jsp").forward(request, response);
 	}
 
 	/**
