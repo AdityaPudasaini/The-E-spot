@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -21,31 +22,27 @@
 	        </div>
 	
 	        <div class="statsRow">
-	            <div class="smallBox">
-	                <img class="smallBoxImage" src="https://placehold.co/50x50" alt="">
-	                <div class="smallText">Total Orders</div>
-	                <div class="moneyDollar">4,280</div>
-	                <span class="smallStat" style="background: #DCFCE7; color: #166534;">+8% from last month</span>
-	            </div>
-	            <div class="smallBox">
-	                <img class="smallBoxImage" src="https://placehold.co/50x50" alt="">
-	                <div class="smallText">Completed Orders</div>
-	                <div class="moneyDollar">3,541</div>
-	                <span class="smallStat" style="background: #DCFCE7; color: #166534;">+5.3% from last month</span>
-	            </div>
-	            <div class="smallBox">
-	                <img class="smallBoxImage" src="https://placehold.co/50x50" alt="">
-	                <div class="smallText">Pending Orders</div>
-	                <div class="moneyDollar">502</div>
-	                <span class="smallStat" style="background: #FEE2E2; color: #991B1B;">+1.2% from last week</span>
-	            </div>
-	            <div class="smallBox">
-	                <img class="smallBoxImage" src="https://placehold.co/50x50" alt="">
-	                <div class="smallText">Refunded Orders</div>
-	                <div class="moneyDollar">237</div>
-	                <span class="smallStat" style="background: #FEE2E2; color: #991B1B;">-0.7% from last month</span>
-	            </div>
-	        </div>
+                <div class="smallBox">
+                    <img class="smallBoxImage" src="${pageContext.request.contextPath}/Images/dollar.png" alt="">
+                    <div class="smallText">Total Orders</div>
+                    <div class="moneyDollar">${totalOrders}</div>
+                </div>
+                <div class="smallBox">
+                    <img class="smallBoxImage" src="${pageContext.request.contextPath}/Images/dollar.png" alt="">
+                    <div class="smallText">Completed Orders</div>
+                    <div class="moneyDollar">${completedOrders}</div>
+                </div>
+                <div class="smallBox">
+                    <img class="smallBoxImage" src="${pageContext.request.contextPath}/Images/dollar.png" alt="">
+                    <div class="smallText">Pending Orders</div>
+                    <div class="moneyDollar">${pendingOrders}</div>
+                </div>
+                <div class="smallBox">
+                    <img class="smallBoxImage" src="${pageContext.request.contextPath}/Images/dollar.png" alt="">
+                    <div class="smallText">Refunded Orders</div>
+                    <div class="moneyDollar">${refundedOrders}</div>
+                </div>
+            </div>
 	
 	        <div class="categoriesSelect">
 	            <input type="text" class="searchInput" placeholder="Search orders...">
