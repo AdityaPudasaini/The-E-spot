@@ -18,27 +18,27 @@ public class AdminOrderDAO {
 
         String sqlCode = "SELECT o.Order_ID, m.Member_Name, p.Product_Name, c.Category_Name, oi.Item_Price, o.Order_Date, o.Order_Status FROM `order` o JOIN member m ON o.Member_ID = m.Member_ID JOIN order_item oi ON o.Order_ID = oi.Order_ID JOIN product p ON oi.Product_ID = p.Product_ID JOIN category c ON p.Category_ID = c.Category_ID WHERE 1=1";
 
-        ArrayList<Object> params = new ArrayList<>();
+        ArrayList<Object> addedSqlCode = new ArrayList<>();
 
         if (status != null && !status.isEmpty()) 
         {
             sqlCode += " AND o.Order_Status = ?";
-            params.add(status);
+            addedSqlCode.add(status);
         }
 
         if (search != null && !search.isEmpty()) 
         {
             sqlCode += " AND (m.Member_Name LIKE ? OR p.Product_Name LIKE ?)";
-            params.add("%" + search + "%");
-            params.add("%" + search + "%");
+            addedSqlCode.add("%" + search + "%");
+            addedSqlCode.add("%" + search + "%");
         }
 
         sqlCode += " ORDER BY o.Order_ID DESC";
 
         PreparedStatement pst = conn.prepareStatement(sqlCode);
 
-        for (int i = 0; i < params.size(); i++) {
-            pst.setObject(i + 1, params.get(i));
+        for (int i = 0; i < addedSqlCode.size(); i++) {
+            pst.setObject(i + 1, addedSqlCode.get(i));
         }
 
         ResultSet rs = pst.executeQuery();
