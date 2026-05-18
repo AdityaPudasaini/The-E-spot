@@ -35,7 +35,12 @@ public class FlaggedItemsServlet extends HttpServlet {
 		try {
             AdminFlaggedDAO adminFlaggedDao = new AdminFlaggedDAO();
 
+            String selectedStatus = request.getParameter("status");
             String selectedSearch = request.getParameter("search");
+
+            if (selectedStatus == null) {
+            	selectedStatus = "";
+            }
             
             if (selectedSearch == null) {
             	selectedSearch = "";
@@ -51,7 +56,7 @@ public class FlaggedItemsServlet extends HttpServlet {
                 page = Integer.parseInt(pageString);
             }
 
-            ArrayList<AdminFlaggedModel> allItems = adminFlaggedDao.allFlaggedItems(selectedSearch);
+            ArrayList<AdminFlaggedModel> allItems = adminFlaggedDao.allFlaggedItems(selectedStatus, selectedSearch);
 
             int totalCount = allItems.size();
             int totalPages = (totalCount + pageSize - 1) / pageSize;
@@ -74,8 +79,12 @@ public class FlaggedItemsServlet extends HttpServlet {
             request.setAttribute("flaggedItems", pagedItems);
             request.setAttribute("currentPageInFlagged", page);
             request.setAttribute("totalPages", totalPages);
+            request.setAttribute("selectedStatus", selectedStatus);
             request.setAttribute("selectedSearch", selectedSearch);
             request.setAttribute("totalFlagged", adminFlaggedDao.totalFlagged());
+            request.setAttribute("underReview", adminFlaggedDao.underReview());
+            request.setAttribute("resolved", adminFlaggedDao.resolved());
+            request.setAttribute("dismissed", adminFlaggedDao.dismissed());
 
         } 
 		
