@@ -35,7 +35,39 @@ public class FlaggedItemsServlet extends HttpServlet {
 		try {
             AdminFlaggedDAO adminFlaggedDao = new AdminFlaggedDAO();
 
+            String selectedSearch = request.getParameter("search");
             
+            if (selectedSearch == null) {
+            	selectedSearch = "";
+            }
+
+            int pageSize = 10;
+            int page = 1;
+
+            String pageString = request.getParameter("page");
+            
+            if (pageString != null && !pageString.isEmpty()) 
+            {
+                page = Integer.parseInt(pageString);
+            }
+
+            ArrayList<AdminFlaggedModel> allItems = adminFlaggedDao.allFlaggedItems(selectedSearch);
+
+            int totalCount = allItems.size();
+            int totalPages = (totalCount + pageSize - 1) / pageSize;
+
+            int startFrom = (page - 1) * pageSize;
+            int endWith;
+
+            if (startFrom + pageSize > totalCount) 
+            {
+                endWith = totalCount;
+            } 
+            
+            else 
+            {
+                endWith = startFrom + pageSize;
+            }
 
             ArrayList<AdminFlaggedModel> pagedItems = new ArrayList<>(allItems.subList(startFrom, endWith));
 
