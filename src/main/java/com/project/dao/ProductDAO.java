@@ -13,7 +13,7 @@ import com.project.utils.DBconfig;
 public class ProductDAO {
 	 public List<ProductModel> getAllProducts() {
 	        List<ProductModel> products = new ArrayList<>();
-	        String sql = "SELECT * FROM products WHERE Active_Status = 'active'";
+	        String sql = "SELECT * FROM product";
 
 	        try (Connection conn = DBconfig.getConnection();
 	             PreparedStatement ps = conn.prepareStatement(sql);
@@ -41,7 +41,7 @@ public class ProductDAO {
 
 	    public ProductModel getProductById(int id) {
 	        ProductModel p = null;
-	        String sql = "SELECT * FROM products WHERE Product_ID = ?";
+	        String sql = "SELECT * FROM product WHERE Product_ID = ?";
 
 	        try (Connection conn = DBconfig.getConnection();
 	             PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -69,17 +69,18 @@ public class ProductDAO {
 	    }
 	    
 	    public boolean addProduct(ProductModel product) {
-	        String sql = "INSERT INTO products (Seller_ID, Product_Name, Product_Description, " +
-	                     "Product_Price, Stock_Quantity, Active_Status) VALUES (?, ?, ?, ?, 1, ?)";
+	    	String sql = "INSERT INTO product (Category_ID, Seller_ID, Product_Name, Product_Description, " +
+	                "Product_Price, Stock_Quantity, Active_Status) VALUES (?, ?, ?, ?, ?, 1, ?)";
 
 	        try (Connection conn = DBconfig.getConnection();
 	             PreparedStatement ps = conn.prepareStatement(sql)) {
 
-	            ps.setInt(1, product.getSellerId());
-	            ps.setString(2, product.getProductName());
-	            ps.setString(3, product.getProductDescription());
-	            ps.setDouble(4, product.getProductPrice());
-	            ps.setString(5, product.getActiveStatus());
+	        	ps.setInt(1, product.getCategoryId());
+	        	ps.setInt(2, product.getSellerId());
+	        	ps.setString(3, product.getProductName());
+	        	ps.setString(4, product.getProductDescription());
+	        	ps.setDouble(5, product.getProductPrice());
+	        	ps.setString(6, product.getActiveStatus());
 
 	            int rows = ps.executeUpdate();
 	            return rows > 0;

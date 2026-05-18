@@ -35,8 +35,9 @@ public class ProductServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		ProductDAO dao = new ProductDAO();
         List<ProductModel> products = dao.getAllProducts();
-        request.setAttribute("product", products);
+        request.setAttribute("products", products);
         request.getRequestDispatcher("/WEB-INF/Product.jsp").forward(request, response);
+        
 	}
 
 	/**
@@ -45,7 +46,9 @@ public class ProductServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String productName    = request.getParameter("name");
-        String category       = request.getParameter("category");
+		int categoryId = Integer.parseInt(request.getParameter("category"));
+		
+
         String condition      = request.getParameter("condition");
         String originalPrice  = request.getParameter("originalPrice");
         String sellingPrice   = request.getParameter("sellingPrice");
@@ -63,6 +66,7 @@ public class ProductServlet extends HttpServlet {
         product.setProductPrice(Double.parseDouble(sellingPrice));
         product.setSellerId(sellerId);
         product.setActiveStatus("active");
+        product.setCategoryId(categoryId);
 
         // Save to database
         ProductDAO dao = new ProductDAO();

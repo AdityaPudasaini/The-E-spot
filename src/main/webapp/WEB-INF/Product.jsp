@@ -167,10 +167,12 @@
           outline: none;
           background: #fff;
         ">
-          <option>Electronics</option>
-          <option>Clothing</option>
-          <option>Footwear</option>
-          <option>Accessories</option>
+          
+  <option value="1">Electronics</option>
+  <option value="2">Clothing</option>
+  <option value="3">Footwear</option>
+  <option value="4">Accessories</option>
+
         </select>
       </div>
       <div>
@@ -296,23 +298,89 @@
 
   <!-- Products Grid -->
   <div class="products-section">
-    <div class="grid">
+  <div class="grid">
 
-      <c:forEach var="product" items="${products}">
-  <div class="card">
-    <div class="card-body">
-      <h3>${product.productName}</h3>
-      <div class="price">Rs. ${product.productPrice}</div>
-      <div class="condition">${product.activeStatus}</div>
-      <p>${product.productDescription}</p>
-    </div>
+    <c:choose>
+      <c:when test="${empty product}">
+        <p style="font-size: 16px; color: #6b7280; text-align: center; grid-column: 1/-1;">
+          No products found.
+        </p>
+      </c:when>
+      <c:otherwise>
+        <c:forEach var="product" items="${products}">
+          <div class="card">
+
+            <!-- Image -->
+            <img src="${not empty product.image ? product.image : 'images/placeholder.jpg'}"
+                 alt="${product.productName}" />
+
+            <!-- Card Body -->
+            <div class="card-body">
+
+              <!-- Name -->
+              <h3>${product.productName}</h3>
+
+              <!-- Price -->
+              <div class="price">Rs. ${product.productPrice}</div>
+
+              <!-- Description -->
+              <p style="font-size: 12px; color: #6b7280; margin-top: 6px;">
+                ${product.productDescription}
+              </p>
+
+              <!-- Status Badge -->
+              <div style="margin-top: 8px;">
+                <c:choose>
+                  <c:when test="${product.activeStatus == 'active'}">
+                    <span style="
+                      background: #dcfce7;
+                      color: #16a34a;
+                      font-size: 11px;
+                      font-weight: 600;
+                      padding: 3px 8px;
+                      border-radius: 4px;
+                    ">Active</span>
+                  </c:when>
+                  <c:otherwise>
+                    <span style="
+                      background: #fee2e2;
+                      color: #dc2626;
+                      font-size: 11px;
+                      font-weight: 600;
+                      padding: 3px 8px;
+                      border-radius: 4px;
+                    ">Inactive</span>
+                  </c:otherwise>
+                </c:choose>
+              </div>
+
+              <!-- Stock -->
+              <p style="font-size: 12px; color: #6b7280; margin-top: 6px;">
+                Stock: ${product.stockQuantity}
+              </p>
+
+              <!-- Button -->
+              <button style="
+                width: 100%;
+                margin-top: 12px;
+                padding: 8px;
+                background: #0C2C55;
+                color: #fff;
+                border: none;
+                border-radius: 6px;
+                font-size: 14px;
+                font-weight: 500;
+                cursor: pointer;
+              ">View Product</button>
+
+            </div>
+          </div>
+        </c:forEach>
+      </c:otherwise>
+    </c:choose>
+
   </div>
-</c:forEach>
-
-     
-
-    </div>
-  </div>
+</div>
 
   <!-- Load More -->
   <div class="load-more">
