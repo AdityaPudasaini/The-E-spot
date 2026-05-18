@@ -36,6 +36,32 @@ public class RevenueServlet extends HttpServlet {
             AdminRevenueDAO adminRevenueDao = new AdminRevenueDAO();
 
             
+            int pageSize = 10;
+            int page = 1;
+
+            String pageString = request.getParameter("page");
+            
+            if (pageString != null && !pageString.isEmpty()) {
+                page = Integer.parseInt(pageString);
+            }
+
+            ArrayList<AdminRevenueModel> allOrders = adminRevenueDao.allOrders(selectedStatus, selectedSearch);
+
+            int totalCount = allOrders.size();
+            int totalPages = (totalCount + pageSize - 1) / pageSize;
+
+            int startFrom = (page - 1) * pageSize;
+            int endWith;
+
+            if (startFrom + pageSize > totalCount) 
+            {
+                endWith = totalCount;
+            } 
+            
+            else 
+            {
+                endWith = startFrom + pageSize;
+            }
 
             ArrayList<AdminRevenueModel> pagedOrders = new ArrayList<>(allOrders.subList(startFrom, endWith));
 
