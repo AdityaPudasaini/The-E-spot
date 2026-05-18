@@ -48,6 +48,23 @@
                 </div>
                 
             </div>
+            
+            <form method="get" action="${pageContext.request.contextPath}/revenue">
+            
+                <div class="categoriesSelect">
+                
+                    <input type="text" class="searchInput" placeholder="Search by customer or product..." name="search" value="${selectedSearch}">
+                    
+                    <select class="categories" name="status" onchange="this.form.submit()">
+                        <option value="" ${empty selectedStatus ? 'selected' : ''}>All Status</option>
+                        <option value="Completed" ${selectedStatus == 'Completed' ? 'selected' : ''}>Completed</option>
+                        <option value="Pending" ${selectedStatus == 'Pending' ? 'selected' : ''}>Pending</option>
+                        <option value="Refunded" ${selectedStatus == 'Refunded' ? 'selected' : ''}>Refunded</option>
+                    </select>
+                    
+                </div>
+                
+            </form>
 	
 	        <div class="tableBox">
 	            <div class="tableTitle">Revenue Breakdown</div>
