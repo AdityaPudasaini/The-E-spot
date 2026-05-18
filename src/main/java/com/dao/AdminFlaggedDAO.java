@@ -110,25 +110,34 @@ public class AdminFlaggedDAO {
     public void unflagItem(int flagId) throws SQLException {
         
     	Connection conn = DBConfig.getConnection();
-
-        String updateFlag = "UPDATE flag_report SET Flag_Status = 'Resolved' WHERE Flag_ID = ?";
-        
-        PreparedStatement pst1 = conn.prepareStatement(updateFlag);
-        
-        pst1.setInt(1, flagId);
-        pst1.executeUpdate();
-        
-        pst1.close();
+    	
+    	updateFlagStatus(flagId);
 
         String updateProduct = "UPDATE product SET isFlagged = false, Active_Status = 'Active' WHERE Product_ID = (SELECT Product_ID FROM flag_report WHERE Flag_ID = ?)";
         
-        PreparedStatement pst2 = conn.prepareStatement(updateProduct);
+        PreparedStatement pst = conn.prepareStatement(updateProduct);
         
-        pst2.setInt(1, flagId);
-        pst2.executeUpdate();
+        pst.setInt(1, flagId);
+        pst.executeUpdate();
         
-        pst2.close();
+        pst.close();
 
+        conn.close();
+    }
+    
+    public void updateFlagStatus(int flagId) throws SQLException {
+    	
+    	Connection conn = DBConfig.getConnection();
+
+        String updateFlag = "UPDATE flag_report SET Flag_Status = 'Resolved' WHERE Flag_ID = ?";
+        
+        PreparedStatement pst = conn.prepareStatement(updateFlag);
+        
+        pst.setInt(1, flagId);
+        pst.executeUpdate();
+        
+        pst.close();
+        
         conn.close();
     }
     

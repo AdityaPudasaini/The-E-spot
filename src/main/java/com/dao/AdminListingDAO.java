@@ -106,6 +106,8 @@ public class AdminListingDAO {
 	    pst.executeUpdate();
 	    
 	    pst.close();
+	    
+	    conn.close();
 	}
 
 	public void keepProduct(int productId) throws SQLException {
