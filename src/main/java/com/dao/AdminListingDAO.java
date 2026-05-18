@@ -12,35 +12,49 @@ public class AdminListingDAO {
 	
 	public ArrayList<AdminListingModel> allListings(String category, String status, String search) throws SQLException {
 	    ArrayList<AdminListingModel> listings = new ArrayList<>();
-	    
+
 	    Connection conn = DBConfig.getConnection();
-	    
+
 	    String sqlCode = "SELECT p.Product_ID, p.Product_Name, c.Category_Name, p.Product_Price, p.Stock_Quantity, p.Active_Status, p.isFlagged, p.Listed_Date FROM product p JOIN category c ON p.Category_ID = c.Category_ID WHERE p.Active_Status != 'Banned'";
-	    
-	    if (category != null && !category.isEmpty()) {
-	    	sqlCode += " AND c.Category_Name = '" + category + "'";
+
+	    ArrayList<Object> addSqlCode = new ArrayList<>();
+
+	    if (category != null && !category.isEmpty()) 
+	    {
+	        sqlCode += " AND c.Category_Name = ?";
+	        addSqlCode.add(category);
 	    }
-	    
-	    if (status != null && !status.isEmpty()) {
-	    	
-	        if (status.equals("Flagged")) {
-	        	sqlCode += " AND p.isFlagged = true";
+
+	    if (status != null && !status.isEmpty()) 
+	    {
+	        if (status.equals("Flagged")) 
+	        {
+	            sqlCode += " AND p.isFlagged = true";
 	        } 
 	        
-	        else {
-	        	sqlCode += " AND p.Active_Status = '" + status + "' AND p.isFlagged = false";
+	        else 
+	        {
+	            sqlCode += " AND p.Active_Status = ? AND p.isFlagged = false";
+	            addSqlCode.add(status);
 	        }
 	    }
-	    
-	    if (search != null && !search.isEmpty()) {
-	    	sqlCode += " AND p.Product_Name LIKE '%" + search + "%'";
+
+	    if (search != null && !search.isEmpty()) 
+	    {
+	        sqlCode += " AND p.Product_Name LIKE ?";
+	        addSqlCode.add("%" + search + "%");
 	    }
-	    
+
 	    sqlCode += " ORDER BY p.Product_ID DESC";
-	    
+
 	    PreparedStatement pst = conn.prepareStatement(sqlCode);
+
+	    for (int i = 0; i < addSqlCode.size(); i++) {
+	        pst.setObject(i + 1, addSqlCode.get(i));
+	    }
+
 	    ResultSet rs = pst.executeQuery();
-	    
+
 	    while (rs.next()) {
 	        AdminListingModel listing = new AdminListingModel();
 	        listing.setProductId(rs.getInt("Product_ID"));
@@ -53,11 +67,11 @@ public class AdminListingDAO {
 	        listing.setListedDate(rs.getString("Listed_Date"));
 	        listings.add(listing);
 	    }
-	    
+
 	    rs.close();
 	    pst.close();
 	    conn.close();
-	    
+
 	    return listings;
 	}
 	

@@ -12,45 +12,57 @@ import com.utils.DBConfig;
 public class AdminUserDAO {
 	
 	public ArrayList<AdminUserModel> allUsers(String status, String search) throws SQLException {
-		
-        ArrayList<AdminUserModel> users = new ArrayList<>();
 
-        Connection conn = DBConfig.getConnection();
+	    ArrayList<AdminUserModel> users = new ArrayList<>();
 
-        String sqlCode = "SELECT m.Member_ID, m.Member_Name, m.Member_Email, m.Member_Username, m.Account_Status, m.Member_Role, m.Created_At, COUNT(o.Order_ID) AS totalOrders FROM member m LEFT JOIN `order` o ON m.Member_ID = o.Member_ID WHERE m.Member_Role != 'Admin'";
+	    Connection conn = DBConfig.getConnection();
 
-        if (status != null && !status.isEmpty()) {
-        	sqlCode += " AND m.Account_Status = '" + status + "'";
-        }
+	    String sqlCode = "SELECT m.Member_ID, m.Member_Name, m.Member_Email, m.Member_Username, m.Account_Status, m.Member_Role, m.Created_At, COUNT(o.Order_ID) AS totalOrders FROM member m LEFT JOIN `order` o ON m.Member_ID = o.Member_ID WHERE m.Member_Role != 'Admin'";
 
-        if (search != null && !search.isEmpty()) {
-        	sqlCode += " AND (m.Member_Name LIKE '%" + search + "%' OR m.Member_Email LIKE '%" + search + "%')";
-        }
+	    ArrayList<Object> addedSqlCode = new ArrayList<>();
 
-        sqlCode += " GROUP BY m.Member_ID ORDER BY m.Member_ID DESC";
+	    if (status != null && !status.isEmpty()) 
+	    {
+	        sqlCode += " AND m.Account_Status = ?";
+	        addedSqlCode.add(status);
+	    }
 
-        PreparedStatement pst = conn.prepareStatement(sqlCode);
-        ResultSet rs = pst.executeQuery();
+	    if (search != null && !search.isEmpty()) 
+	    {
+	        sqlCode += " AND (m.Member_Name LIKE ? OR m.Member_Email LIKE ?)";
+	        addedSqlCode.add("%" + search + "%");
+	        addedSqlCode.add("%" + search + "%");
+	    }
 
-        while (rs.next()) {
-            AdminUserModel user = new AdminUserModel();
-            user.setMemberId(rs.getInt("Member_ID"));
-            user.setMemberName(rs.getString("Member_Name"));
-            user.setMemberEmail(rs.getString("Member_Email"));
-            user.setMemberUsername(rs.getString("Member_Username"));
-            user.setAccountStatus(rs.getString("Account_Status"));
-            user.setMemberRole(rs.getString("Member_Role"));
-            user.setCreatedAt(rs.getString("Created_At").substring(0, 10));
-            user.setTotalOrders(rs.getInt("totalOrders"));
-            users.add(user);
-        }
+	    sqlCode += " GROUP BY m.Member_ID ORDER BY m.Member_ID DESC";
 
-        rs.close();
-        pst.close();
-        conn.close();
+	    PreparedStatement pst = conn.prepareStatement(sqlCode);
 
-        return users;
-    }
+	    for (int i = 0; i < addedSqlCode.size(); i++) {
+	        pst.setObject(i + 1, addedSqlCode.get(i));
+	    }
+
+	    ResultSet rs = pst.executeQuery();
+
+	    while (rs.next()) {
+	        AdminUserModel user = new AdminUserModel();
+	        user.setMemberId(rs.getInt("Member_ID"));
+	        user.setMemberName(rs.getString("Member_Name"));
+	        user.setMemberEmail(rs.getString("Member_Email"));
+	        user.setMemberUsername(rs.getString("Member_Username"));
+	        user.setAccountStatus(rs.getString("Account_Status"));
+	        user.setMemberRole(rs.getString("Member_Role"));
+	        user.setCreatedAt(rs.getString("Created_At").substring(0, 10));
+	        user.setTotalOrders(rs.getInt("totalOrders"));
+	        users.add(user);
+	    }
+
+	    rs.close();
+	    pst.close();
+	    conn.close();
+
+	    return users;
+	}
 	
 	public void banUser(int memberId) throws SQLException {
 		
