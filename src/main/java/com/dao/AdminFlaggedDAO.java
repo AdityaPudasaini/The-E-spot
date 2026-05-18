@@ -16,8 +16,8 @@ public class AdminFlaggedDAO {
 
         Connection conn = DBConfig.getConnection();
 
-        String sqlCode = "SELECT f.Flag_ID, p.Product_ID, p.Product_Name, COALESCE(m.Member_Name, a.Admin_Name) AS reportedBy, f.Reason, f.Date_Reported, f.Flag_Status FROM flag_report f JOIN product p ON f.Product_ID = p.Product_ID LEFT JOIN member m ON f.Reported_By_Member = m.Member_ID LEFT JOIN admin a ON f.Reported_By_Admin = a.Admin_ID WHERE 1=1";
-
+        String sqlCode = "SELECT f.Flag_ID, p.Product_ID, p.Product_Name, COALESCE(m.Member_Name, a.Admin_Name) AS reportedBy, f.Reason, f.Date_Reported, f.Flag_Status FROM flag_report f JOIN product p ON f.Product_ID = p.Product_ID LEFT JOIN member m ON f.Reported_By_Member = m.Member_ID LEFT JOIN admin a ON f.Reported_By_Admin = a.Admin_ID WHERE p.Active_Status != 'Banned'";
+        
         ArrayList<Object> addedSqlCode = new ArrayList<>();
 
         if (status != null && !status.isEmpty()) 

@@ -75,18 +75,30 @@ public class AdminListingDAO {
 	    return listings;
 	}
 	
-	public void flagProduct(int productId) throws SQLException {
+	public void flagProduct(int productId, int adminId) throws SQLException {
 		
-	    Connection conn = DBConfig.getConnection();
-	    
-	    String sqlCOde = "UPDATE product SET isFlagged = true WHERE Product_ID = ?";
-	    PreparedStatement pst = conn.prepareStatement(sqlCOde);
-	    
-	    pst.setInt(1, productId);
-	    pst.executeUpdate();
-	    
-	    pst.close();
-	    conn.close();
+		 Connection conn = DBConfig.getConnection();
+
+		    String updateProduct = "UPDATE product SET isFlagged = true WHERE Product_ID = ?";
+		    
+		    PreparedStatement pst1 = conn.prepareStatement(updateProduct);
+		    
+		    pst1.setInt(1, productId);
+		    pst1.executeUpdate();
+		    
+		    pst1.close();
+
+		    String insertFlag = "INSERT INTO flag_report (Product_ID, Reported_By_Admin, Reason, Date_Reported, Flag_Status) VALUES (?, ?, 'Flagged by Admin', NOW(), 'Under Review')";
+		    
+		    PreparedStatement pst2 = conn.prepareStatement(insertFlag);
+		    
+		    pst2.setInt(1, productId);
+		    pst2.setInt(2, adminId);
+		    pst2.executeUpdate();
+		    
+		    pst2.close();
+
+		    conn.close();
 	}
 
 	public void keepProduct(int productId) throws SQLException {
