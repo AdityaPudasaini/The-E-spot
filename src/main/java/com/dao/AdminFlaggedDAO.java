@@ -170,5 +170,27 @@ public class AdminFlaggedDAO {
         return total;
     }
 
-    
+    public int dismissed() throws SQLException {
+    	
+        Connection conn = DBConfig.getConnection();
+        
+        String sqlCode = "SELECT COUNT(*) AS total FROM flag_report WHERE Flag_Status = 'Dismissed'";
+        
+        PreparedStatement pst = conn.prepareStatement(sqlCode);
+        ResultSet rs = pst.executeQuery();
+        
+        int total = 0;
+        
+        if (rs.next()) 
+        {
+            total = rs.getInt("total");
+        } 
+        
+        else 
+        {
+            total = 0;
+        }
+        
+        return total;
+    }
 }
