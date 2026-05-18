@@ -115,5 +115,24 @@ public class AdminRevenueDAO {
         return total;
     }
 
-    
+    public String averageOrderValue() throws SQLException {
+        Connection conn = DBConfig.getConnection();
+        
+        String sqlCode = "SELECT AVG(Payment_Amount) AS avgOrder FROM payment WHERE Payment_Status = 'Completed'";
+        
+        PreparedStatement pst = conn.prepareStatement(sqlCode);
+        ResultSet rs = pst.executeQuery();
+
+        String total = "0.00";
+        
+        if (rs.next()) {
+            total = String.format("%.2f", rs.getDouble("avgOrder"));
+        }
+
+        rs.close();
+        pst.close();
+        conn.close();
+        
+        return total;
+    }
 }
