@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import com.project.dao.ProductDAO;
@@ -34,8 +35,16 @@ public class ProductServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		ProductDAO dao = new ProductDAO();
-        List<ProductModel> products = dao.getAllProducts();
-        request.setAttribute("products", products);
+        
+		try {
+			List<ProductModel> products;
+			products = dao.getAllProducts();
+			request.setAttribute("products", products);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
         request.getRequestDispatcher("/WEB-INF/Product.jsp").forward(request, response);
         
 	}
@@ -48,7 +57,6 @@ public class ProductServlet extends HttpServlet {
 		String productName    = request.getParameter("name");
 		int categoryId = Integer.parseInt(request.getParameter("category"));
 		
-
         String condition      = request.getParameter("condition");
         String originalPrice  = request.getParameter("originalPrice");
         String sellingPrice   = request.getParameter("sellingPrice");

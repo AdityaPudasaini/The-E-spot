@@ -11,13 +11,13 @@ import com.project.model.ProductModel;
 import com.project.utils.DBconfig;
 
 public class ProductDAO {
-	 public List<ProductModel> getAllProducts() {
+	 public List<ProductModel> getAllProducts() throws SQLException {
 	        List<ProductModel> products = new ArrayList<>();
 	        String sql = "SELECT * FROM product";
 
-	        try (Connection conn = DBconfig.getConnection();
+	        Connection conn = DBconfig.getConnection();
 	             PreparedStatement ps = conn.prepareStatement(sql);
-	             ResultSet rs = ps.executeQuery()) {
+	             ResultSet rs = ps.executeQuery(); 
 
 	            while (rs.next()) {
 	                ProductModel p = new ProductModel();
@@ -33,9 +33,11 @@ public class ProductDAO {
 	                products.add(p);
 	            }
 
-	        } catch (SQLException e) {
-	            e.printStackTrace();
-	        }
+	        
+	        System.out.println("=== Total products returned: " + products.size() + " ===");
+	        conn.close();
+	        ps.close();
+	        rs.close();
 	        return products;
 	    }
 
@@ -61,19 +63,23 @@ public class ProductDAO {
 	                p.setListedDate(rs.getDate("Listed_Date"));
 	                p.setActiveStatus(rs.getString("Active_Status"));
 	            }
+	            conn.close();
+		        ps.close();
+		        rs.close();
 
 	        } catch (SQLException e) {
 	            e.printStackTrace();
 	        }
+	        
 	        return p;
 	    }
 	    
-	    public boolean addProduct(ProductModel product) {
+	    public boolean addProduct(ProductModel product) throws SQLException {
 	    	String sql = "INSERT INTO product (Category_ID, Seller_ID, Product_Name, Product_Description, " +
 	                "Product_Price, Stock_Quantity, Active_Status) VALUES (?, ?, ?, ?, ?, 1, ?)";
 
-	        try (Connection conn = DBconfig.getConnection();
-	             PreparedStatement ps = conn.prepareStatement(sql)) {
+	        Connection conn = DBconfig.getConnection();
+	        PreparedStatement ps = conn.prepareStatement(sql);
 
 	        	ps.setInt(1, product.getCategoryId());
 	        	ps.setInt(2, product.getSellerId());
@@ -83,11 +89,10 @@ public class ProductDAO {
 	        	ps.setString(6, product.getActiveStatus());
 
 	            int rows = ps.executeUpdate();
+	            conn.close();
+	            ps.close();
 	            return rows > 0;
-
-	        } catch (SQLException e) {
-	            e.printStackTrace();
-	            return false;
-	        }
+	            
+	      
 	    }
 }

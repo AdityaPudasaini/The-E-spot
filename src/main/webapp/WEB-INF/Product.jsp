@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
-<%@ taglib uri="jakarta.tags.core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -139,7 +139,7 @@
   </div>
 
   <!-- Form -->
-  <form action="${pageContext.request.contextPath}/product" method="post" style="padding: 24px; display: flex; flex-direction: column; gap: 16px;">
+  <form action="product" method="post" style="padding: 24px; display: flex; flex-direction: column; gap: 16px;">
 
     <!-- Product Name -->
     <div>
@@ -301,7 +301,7 @@
   <div class="grid">
 
     <c:choose>
-      <c:when test="${empty product}">
+      <c:when test="${empty products}">
         <p style="font-size: 16px; color: #6b7280; text-align: center; grid-column: 1/-1;">
           No products found.
         </p>
@@ -309,10 +309,6 @@
       <c:otherwise>
         <c:forEach var="product" items="${products}">
           <div class="card">
-
-            <!-- Image -->
-            <img src="${not empty product.image ? product.image : 'images/placeholder.jpg'}"
-                 alt="${product.productName}" />
 
             <!-- Card Body -->
             <div class="card-body">
