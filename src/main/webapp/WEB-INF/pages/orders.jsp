@@ -22,38 +22,50 @@
 	        </div>
 	
 	        <div class="statsRow">
+	        
                 <div class="smallBox">
                     <img class="smallBoxImage" src="${pageContext.request.contextPath}/Images/dollar.png" alt="">
                     <div class="smallText">Total Orders</div>
                     <div class="moneyDollar">${totalOrders}</div>
                 </div>
+                
                 <div class="smallBox">
                     <img class="smallBoxImage" src="${pageContext.request.contextPath}/Images/dollar.png" alt="">
                     <div class="smallText">Completed Orders</div>
                     <div class="moneyDollar">${completedOrders}</div>
                 </div>
+                
                 <div class="smallBox">
                     <img class="smallBoxImage" src="${pageContext.request.contextPath}/Images/dollar.png" alt="">
                     <div class="smallText">Pending Orders</div>
                     <div class="moneyDollar">${pendingOrders}</div>
                 </div>
+                
                 <div class="smallBox">
                     <img class="smallBoxImage" src="${pageContext.request.contextPath}/Images/dollar.png" alt="">
                     <div class="smallText">Refunded Orders</div>
                     <div class="moneyDollar">${refundedOrders}</div>
                 </div>
+                
             </div>
 	
-	        <div class="categoriesSelect">
-	            <input type="text" class="searchInput" placeholder="Search orders...">
-	            <select class="categories">
-	                <option>All Status</option>
-	                <option>Completed</option>
-	                <option>Pending</option>
-	                <option>Refunded</option>
-	                <option>Cancelled</option>
-	            </select>
-	        </div>
+	        <form method="get" action="${pageContext.request.contextPath}/order">
+	        
+                <div class="categoriesSelect">
+                
+                    <input type="text" class="searchInput" placeholder="Search orders..." name="search" value="${selectedSearch}">
+                    
+                    <select class="categories" name="status" onchange="this.form.submit()">
+                        <option value="" ${empty selectedStatus ? 'selected' : ''}>All Status</option>
+                        <option value="Completed" ${selectedStatus == 'Completed' ? 'selected' : ''}>Completed</option>
+                        <option value="Pending" ${selectedStatus == 'Pending' ? 'selected' : ''}>Pending</option>
+                        <option value="Refunded" ${selectedStatus == 'Refunded' ? 'selected' : ''}>Refunded</option>
+                        <option value="Cancelled" ${selectedStatus == 'Cancelled' ? 'selected' : ''}>Cancelled</option>
+                    </select>
+                    
+                </div>
+                
+            </form>
 	
 	        <div class="tableBox">
 	            <div class="tableTitle">Order List</div>
