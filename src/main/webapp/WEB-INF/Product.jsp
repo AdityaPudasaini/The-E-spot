@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -77,17 +77,219 @@
       </p>
     </div>
 
-    <button style="
-      padding: 8px 24px;
-      background: #f59e0b;
-      color: #fff;
+    <!-- Trigger Button (put this in your banner) -->
+<button onclick="openModal()" style="
+  padding: 8px 24px;
+  background: #f59e0b;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+">+ Add Product</button>
+
+<!-- Overlay -->
+<div id="modal-overlay" onclick="closeModal()" style="
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 50;
+"></div>
+
+<!-- Modal -->
+<div id="modal" style="
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  width: 100%;
+  max-width: 620px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+">
+
+  <!-- Modal Header -->
+  <div style="
+    position: sticky;
+    top: 0;
+    background: #0C2C55;
+    color: #fff;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px 8px 0 0;
+  ">
+    <h2 style="font-size: 20px; font-weight: 600;">Add Your Product</h2>
+    <button onclick="closeModal()" style="
+      background: none;
       border: none;
-      border-radius: 8px;
-      font-size: 15px;
-      font-weight: 500;
+      color: #fff;
+      font-size: 24px;
       cursor: pointer;
-      white-space: nowrap;
-    ">+ Add Product</button>
+      line-height: 1;
+    ">&times;</button>
+  </div>
+
+  <!-- Form -->
+  <form action="${pageContext.request.contextPath}/product" method="post" style="padding: 24px; display: flex; flex-direction: column; gap: 16px;">
+
+    <!-- Product Name -->
+    <div>
+      <label style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px;">Product Name *</label>
+      <input type="text" name="name" placeholder="Enter product name" required style="
+        width: 100%;
+        padding: 8px 16px;
+        border: 2px dashed #d1d5eb;
+        border-radius: 8px;
+        font-size: 14px;
+        outline: none;
+      " />
+    </div>
+
+    <!-- Category & Condition -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+      <div>
+        <label style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px;">Category *</label>
+        <select name="category" style="
+          width: 100%;
+          padding: 8px 16px;
+          border: 2px dashed #d1d5eb;
+          border-radius: 8px;
+          font-size: 14px;
+          outline: none;
+          background: #fff;
+        ">
+          <option>Electronics</option>
+          <option>Clothing</option>
+          <option>Footwear</option>
+          <option>Accessories</option>
+        </select>
+      </div>
+      <div>
+        <label style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px;">Condition *</label>
+        <select name="condition" style="
+          width: 100%;
+          padding: 8px 16px;
+          border: 2px dashed #d1d5eb;
+          border-radius: 8px;
+          font-size: 14px;
+          outline: none;
+          background: #fff;
+        ">
+          <option>Excellent</option>
+          <option>Like New</option>
+          <option>Good</option>
+          <option>Fair</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Original Price & Selling Price -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+      <div>
+        <label style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px;">Original Price (Rs) *</label>
+        <input type="number" name="originalPrice" placeholder="e.g. 10000" required style="
+          width: 100%;
+          padding: 8px 16px;
+          border: 2px dashed #d1d5eb;
+          border-radius: 8px;
+          font-size: 14px;
+          outline: none;
+        " />
+      </div>
+      <div>
+        <label style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px;">Selling Price (Rs) *</label>
+        <input type="number" name="sellingPrice" placeholder="e.g. 7000" required style="
+          width: 100%;
+          padding: 8px 16px;
+          border: 2px dashed #d1d5eb;
+          border-radius: 8px;
+          font-size: 14px;
+          outline: none;
+        " />
+      </div>
+    </div>
+
+    <!-- Image URL -->
+    <div>
+      <label style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px;">Image URL</label>
+      <input type="url" name="imageUrl" placeholder="https://example.com/image.jpg" style="
+        width: 100%;
+        padding: 8px 16px;
+        border: 2px dashed #d1d5eb;
+        border-radius: 8px;
+        font-size: 14px;
+        outline: none;
+      " />
+    </div>
+
+    <!-- Description -->
+    <div>
+      <label style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px;">Description *</label>
+      <textarea name="description" rows="4" placeholder="Describe your product condition, features, and any defects..." required style="
+        width: 100%;
+        padding: 8px 16px;
+        border: 2px dashed #d1d5eb;
+        border-radius: 8px;
+        font-size: 14px;
+        outline: none;
+        resize: none;
+      "></textarea>
+    </div>
+
+    <!-- Buttons -->
+    <div style="display: flex; gap: 16px; padding-top: 8px;">
+      <button type="button" onclick="closeModal()" style="
+        flex: 1;
+        padding: 10px;
+        border: 2px dashed #3b82f6;
+        color: #3b82f6;
+        background: #fff;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+      ">Cancel</button>
+      <button type="submit" style="
+        flex: 1;
+        padding: 10px;
+        background: #f59e0b;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+      ">List Product</button>
+    </div>
+
+</form>
+
+    
+</div>
+
+<!-- JavaScript -->
+<script>
+  function openModal() {
+    document.getElementById('modal').style.display = 'block';
+    document.getElementById('modal-overlay').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+    document.getElementById('modal-overlay').style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+</script>
 
   </div>
 </div>
@@ -96,32 +298,16 @@
   <div class="products-section">
     <div class="grid">
 
-      <div class="card">
-        <img src="images/product1.jpg" alt="Product" />
-        <div class="card-body">
-          <h3>Product Name</h3>
-          <div class="price">Rs. 1,500</div>
-          <div class="condition">Good Condition</div>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="images/product2.jpg" alt="Product" />
-        <div class="card-body">
-          <h3>Product Name</h3>
-          <div class="price">Rs. 2,000</div>
-          <div class="condition">Like New</div>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="images/product3.jpg" alt="Product" />
-        <div class="card-body">
-          <h3>Product Name</h3>
-          <div class="price">Rs. 800</div>
-          <div class="condition">Fair Condition</div>
-        </div>
-      </div>
+      <c:forEach var="product" items="${products}">
+  <div class="card">
+    <div class="card-body">
+      <h3>${product.productName}</h3>
+      <div class="price">Rs. ${product.productPrice}</div>
+      <div class="condition">${product.activeStatus}</div>
+      <p>${product.productDescription}</p>
+    </div>
+  </div>
+</c:forEach>
 
      
 

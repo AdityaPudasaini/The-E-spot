@@ -374,12 +374,12 @@
       <h2>Join The E-Spot Community</h2>
       <p>Whether you're looking for great deals or want to declutter by selling, The E-Spot is your trusted marketplace.</p>
       <div class="btn-group">
-        <a href="#" class="btn btn-green">Start Shopping</a>
-        <a href="#" class="btn btn-white">Become a Seller</a>
+        <a href="product" class="btn btn-green">Start Shopping</a>
+        <a href="user" class="btn btn-white">Become a Seller</a>
       </div>
     </div>
   </section>
 
-  <script>lucide.createIcons();</script>
+  
 </body>
 </html>
