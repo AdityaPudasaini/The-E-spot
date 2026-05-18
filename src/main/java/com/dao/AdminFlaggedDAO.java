@@ -11,27 +11,35 @@ import java.util.ArrayList;
 
 public class AdminFlaggedDAO {
 
-    public ArrayList<AdminFlaggedModel> allFlaggedItems(String search) throws SQLException {
+	public ArrayList<AdminFlaggedModel> allFlaggedItems(String status, String search) throws SQLException {
         ArrayList<AdminFlaggedModel> items = new ArrayList<>();
 
         Connection conn = DBConfig.getConnection();
 
-        String sqlCode = "SELECT p.Product_ID, p.Product_Name, c.Category_Name, m.Member_Name, p.Listed_Date, p.Active_Status FROM product p JOIN category c ON p.Category_ID = c.Category_ID JOIN member m ON p.Seller_ID = m.Member_ID WHERE p.isFlagged = true AND p.Active_Status != 'Banned'";
+        String sqlCode = "SELECT f.Flag_ID, p.Product_ID, p.Product_Name, COALESCE(m.Member_Name, a.Admin_Name) AS reportedBy, f.Reason, f.Date_Reported, f.Flag_Status FROM flag_report f JOIN product p ON f.Product_ID = p.Product_ID LEFT JOIN member m ON f.Reported_By_Member = m.Member_ID LEFT JOIN admin a ON f.Reported_By_Admin = a.Admin_ID WHERE 1=1";
 
         ArrayList<Object> addedSqlCode = new ArrayList<>();
 
+        if (status != null && !status.isEmpty()) 
+        {
+            sqlCode += " AND f.Flag_Status = ?";
+            addedSqlCode.add(status);
+        }
+
         if (search != null && !search.isEmpty()) 
         {
-            sqlCode += " AND (p.Product_Name LIKE ? OR m.Member_Name LIKE ?)";
+            sqlCode += " AND (p.Product_Name LIKE ? OR m.Member_Name LIKE ? OR a.Admin_Name LIKE ?)";
+            addedSqlCode.add("%" + search + "%");
             addedSqlCode.add("%" + search + "%");
             addedSqlCode.add("%" + search + "%");
         }
 
-        sqlCode += " ORDER BY p.Product_ID DESC";
+        sqlCode += " ORDER BY f.Flag_ID DESC";
 
         PreparedStatement pst = conn.prepareStatement(sqlCode);
 
-        for (int i = 0; i < addedSqlCode.size(); i++) {
+        for (int i = 0; i < addedSqlCode.size(); i++) 
+        {
             pst.setObject(i + 1, addedSqlCode.get(i));
         }
 
@@ -39,12 +47,13 @@ public class AdminFlaggedDAO {
 
         while (rs.next()) {
             AdminFlaggedModel item = new AdminFlaggedModel();
+            item.setFlagId(rs.getInt("Flag_ID"));
             item.setProductId(rs.getInt("Product_ID"));
             item.setProductName(rs.getString("Product_Name"));
-            item.setCategoryName(rs.getString("Category_Name"));
-            item.setSellerName(rs.getString("Member_Name"));
-            item.setListedDate(rs.getString("Listed_Date"));
-            item.setActiveStatus(rs.getString("Active_Status"));
+            item.setReportedBy(rs.getString("reportedBy"));
+            item.setReason(rs.getString("Reason"));
+            item.setDateReported(rs.getString("Date_Reported").substring(0, 10));
+            item.setFlagStatus(rs.getString("Flag_Status"));
             items.add(item);
         }
 
