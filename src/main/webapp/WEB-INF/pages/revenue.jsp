@@ -22,31 +22,32 @@
 	        </div>
 	
 	        <div class="statsRow">
-	            <div class="smallBox">
-	                <img class="smallBoxImage" src="https://placehold.co/50x50" alt="">
-	                <div class="smallText">Total Revenue</div>
-	                <div class="moneyDollar">$10,000,000</div>
-	                <span class="smallStat" style="background: #DCFCE7; color: #166534;">+5% from last year</span>
-	            </div>
-	            <div class="smallBox">
-	                <img class="smallBoxImage" src="https://placehold.co/50x50" alt="">
-	                <div class="smallText">Revenue This Month</div>
-	                <div class="moneyDollar">$320,000</div>
-	                <span class="smallStat" style="background: #DCFCE7; color: #166534;">+2.1% from last month</span>
-	            </div>
-	            <div class="smallBox">
-	                <img class="smallBoxImage" src="https://placehold.co/50x50" alt="">
-	                <div class="smallText">Revenue This Week</div>
-	                <div class="moneyDollar">$74,500</div>
-	                <span class="smallStat" style="background: #DCFCE7; color: #166534;">+0.8% from last week</span>
-	            </div>
-	            <div class="smallBox">
-	                <img class="smallBoxImage" src="https://placehold.co/50x50" alt="">
-	                <div class="smallText">Average Order Value</div>
-	                <div class="moneyDollar">$148</div>
-	                <span class="smallStat" style="background: #FEE2E2; color: #991B1B;">-0.3% from last month</span>
-	            </div>
-	        </div>
+	        
+                <div class="smallBox">
+                    <img class="smallBoxImage" src="${pageContext.request.contextPath}/Images/dollar.png" alt="">
+                    <div class="smallText">Total Revenue</div>
+                    <div class="moneyDollar">$${totalRevenue}</div>
+                </div>
+                
+                <div class="smallBox">
+                    <img class="smallBoxImage" src="${pageContext.request.contextPath}/Images/dollar.png" alt="">
+                    <div class="smallText">Revenue This Month</div>
+                    <div class="moneyDollar">$${revenueThisMonth}</div>
+                </div>
+                
+                <div class="smallBox">
+                    <img class="smallBoxImage" src="${pageContext.request.contextPath}/Images/dollar.png" alt="">
+                    <div class="smallText">Revenue This Week</div>
+                    <div class="moneyDollar">$${revenueThisWeek}</div>
+                </div>
+                
+                <div class="smallBox">
+                    <img class="smallBoxImage" src="${pageContext.request.contextPath}/Images/dollar.png" alt="">
+                    <div class="smallText">Average Order Value</div>
+                    <div class="moneyDollar">$${averageOrderValue}</div>
+                </div>
+                
+            </div>
 	
 	        <div class="tableBox">
 	            <div class="tableTitle">Revenue Breakdown</div>
