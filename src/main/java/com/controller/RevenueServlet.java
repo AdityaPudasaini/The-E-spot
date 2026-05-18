@@ -6,6 +6,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+
+import com.dao.AdminRevenueDAO;
+import com.model.AdminRevenueModel;
 
 /**
  * Servlet implementation class RevenueServlet
@@ -28,8 +32,29 @@ public class RevenueServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.setAttribute("currentPage", "revenue");
-		request.getRequestDispatcher("/WEB-INF/pages/revenue.jsp").forward(request, response);
+		try {
+            AdminRevenueDAO adminRevenueDao = new AdminRevenueDAO();
+
+            
+
+            ArrayList<AdminRevenueModel> pagedOrders = new ArrayList<>(allOrders.subList(startFrom, endWith));
+
+            request.setAttribute("orders", pagedOrders);
+            request.setAttribute("currentPageInRevenue", page);
+            request.setAttribute("totalPages", totalPages);
+            request.setAttribute("selectedStatus", selectedStatus);
+            request.setAttribute("selectedSearch", selectedSearch);
+            request.setAttribute("totalRevenue", adminRevenueDao.totalRevenue());
+            request.setAttribute("revenueThisMonth", adminRevenueDao.revenueThisMonth());
+            request.setAttribute("revenueThisWeek", adminRevenueDao.revenueThisWeek());
+            request.setAttribute("averageOrderValue", adminRevenueDao.averageOrderValue());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        request.setAttribute("currentPage", "revenue");
+        request.getRequestDispatcher("/WEB-INF/pages/revenue.jsp").forward(request, response);
 	}
 
 	/**
