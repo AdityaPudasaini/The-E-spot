@@ -146,5 +146,31 @@ public class AdminOrderDAO {
         return total;
     }
 
-    
+    public int refundedOrders() throws SQLException {
+    	
+        Connection conn = DBConfig.getConnection();
+        
+        String sqlCode = "SELECT COUNT(*) AS total FROM `order` WHERE Order_Status = 'Refunded'";
+        
+        PreparedStatement pst = conn.prepareStatement(sqlCode);
+        ResultSet rs = pst.executeQuery();
+        
+        int total = 0;
+        
+        if (rs.next()) 
+        {
+            total = rs.getInt("total");
+        } 
+        
+        else 
+        {
+            total = 0;
+        }
+        
+        rs.close(); 
+        pst.close(); 
+        conn.close();
+        
+        return total;
+    }
 }
