@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The-E-Spot | Buy, Sell & Auction</title>
+    <title>The_E_Spot | Buy, Sell & Auction</title>
     <style>
         /* Basic Reset & Fonts */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
@@ -74,12 +74,12 @@
 <div class="container">
     <!-- Categories -->
     <div class="categories">
-        <div class="cat-card">Electronics</div>
-        <div class="cat-card">Vehicles</div>
-        <div class="cat-card">Home & Garden</div>
-        <div class="cat-card">Fashion</div>
-        <div class="cat-card">Toys & Hobbies</div>
-        <div class="cat-card">Collectibles</div>
+        <div class="cat-card">electronics</div>
+        <div class="cat-card">vehicles</div>
+        <div class="cat-card">home & Garden</div>
+        <div class="cat-card">fashion</div>
+        <div class="cat-card">toys & Hobbies</div>
+        <div class="cat-card">collectibles</div>
     </div>
 
     <h2>Today's Picks</h2>
