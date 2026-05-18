@@ -4,3 +4,4 @@ CREATE TABLE order (
     Order_Date DATETIME,
     Order_Status VARCHAR(30),
     FOREIGN KEY (Member_ID) REFERENCES member(Member_ID)
+);
