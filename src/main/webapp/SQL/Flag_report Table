@@ -1,0 +1,12 @@
+CREATE TABLE flag_report (
+    Flag_ID INT(11) PRIMARY KEY AUTO_INCREMENT,
+    Product_ID INT(11),
+    Reported_By_Member INT(11) DEFAULT NULL,
+    Reported_By_Admin INT(11) DEFAULT NULL,
+    Reason VARCHAR(255),
+    Date_Reported DATETIME,
+    Flag_Status VARCHAR(30) DEFAULT 'Under Review',
+    FOREIGN KEY (Product_ID) REFERENCES product(Product_ID),
+    FOREIGN KEY (Reported_By_Member) REFERENCES member(Member_ID),
+    FOREIGN KEY (Reported_By_Admin) REFERENCES admin(Admin_ID)
+);
