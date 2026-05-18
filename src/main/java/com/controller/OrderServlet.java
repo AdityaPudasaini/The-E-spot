@@ -35,7 +35,33 @@ public class OrderServlet extends HttpServlet {
 		try {
             AdminOrderDAO adminOrderDao = new AdminOrderDAO();
 
-            
+            String selectedStatus = request.getParameter("status");
+            String selectedSearch = request.getParameter("search");
+
+            if (selectedStatus == null) selectedStatus = "";
+            if (selectedSearch == null) selectedSearch = "";
+
+            int pageSize = 10;
+            int page = 1;
+
+            String pageString = request.getParameter("page");
+            if (pageString != null && !pageString.isEmpty()) {
+                page = Integer.parseInt(pageString);
+            }
+
+            ArrayList<AdminOrderModel> allOrders = adminOrderDao.allOrders(selectedStatus, selectedSearch);
+
+            int totalCount = allOrders.size();
+            int totalPages = (totalCount + pageSize - 1) / pageSize;
+
+            int startFrom = (page - 1) * pageSize;
+            int endWith;
+
+            if (startFrom + pageSize > totalCount) {
+                endWith = totalCount;
+            } else {
+                endWith = startFrom + pageSize;
+            }
 
             ArrayList<AdminOrderModel> pagedOrders = new ArrayList<>(allOrders.subList(startFrom, endWith));
 
