@@ -100,30 +100,39 @@ public class AdminListingDAO {
 
 		    conn.close();
 	}
+	
+	
 
 	public void keepProduct(int productId) throws SQLException {
+		
+		Connection conn = DBConfig.getConnection();
+		
+		updateIsFlaggedFalse(productId);
+
+	    String updateFlag = "UPDATE flag_report SET Flag_Status = 'Dismissed' WHERE Product_ID = ? AND Flag_Status = 'Under Review'";
+	    
+	    PreparedStatement pst = conn.prepareStatement(updateFlag);
+	    
+	    pst.setInt(1, productId);
+	    pst.executeUpdate();
+	    
+	    pst.close();
+
+	    conn.close();
+	}
+	
+	public void updateIsFlaggedFalse(int productId) throws SQLException {
 		
 		Connection conn = DBConfig.getConnection();
 
 	    String updateProduct = "UPDATE product SET isFlagged = false, Active_Status = 'Active' WHERE Product_ID = ?";
 	    
-	    PreparedStatement pst1 = conn.prepareStatement(updateProduct);
+	    PreparedStatement pst = conn.prepareStatement(updateProduct);
 	    
-	    pst1.setInt(1, productId);
-	    pst1.executeUpdate();
+	    pst.setInt(1, productId);
+	    pst.executeUpdate();
 	    
-	    pst1.close();
-
-	    String updateFlag = "UPDATE flag_report SET Flag_Status = 'Dismissed' WHERE Product_ID = ? AND Flag_Status = 'Under Review'";
-	    
-	    PreparedStatement pst2 = conn.prepareStatement(updateFlag);
-	    
-	    pst2.setInt(1, productId);
-	    pst2.executeUpdate();
-	    
-	    pst2.close();
-
-	    conn.close();
+	    pst.close();
 	}
 	
 	public ArrayList<String> categories() throws SQLException {
@@ -133,6 +142,7 @@ public class AdminListingDAO {
 	    Connection conn = DBConfig.getConnection();
 	    
 	    String sqlCode = "SELECT Category_Name FROM category ORDER BY Category_Name ASC";
+	    
 	    PreparedStatement pst = conn.prepareStatement(sqlCode);
 	    ResultSet rs = pst.executeQuery();
 	    
