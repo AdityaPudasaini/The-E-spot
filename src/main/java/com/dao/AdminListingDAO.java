@@ -103,15 +103,26 @@ public class AdminListingDAO {
 
 	public void keepProduct(int productId) throws SQLException {
 		
-	    Connection conn = DBConfig.getConnection();
+		Connection conn = DBConfig.getConnection();
+
+	    String updateProduct = "UPDATE product SET isFlagged = false, Active_Status = 'Active' WHERE Product_ID = ?";
 	    
-	    String sqlCOde = "UPDATE product SET isFlagged = false, Active_Status = 'Active' WHERE Product_ID = ?";
-	    PreparedStatement pst = conn.prepareStatement(sqlCOde);
+	    PreparedStatement pst1 = conn.prepareStatement(updateProduct);
 	    
-	    pst.setInt(1, productId);
-	    pst.executeUpdate();
+	    pst1.setInt(1, productId);
+	    pst1.executeUpdate();
 	    
-	    pst.close();
+	    pst1.close();
+
+	    String updateFlag = "UPDATE flag_report SET Flag_Status = 'Dismissed' WHERE Product_ID = ? AND Flag_Status = 'Under Review'";
+	    
+	    PreparedStatement pst2 = conn.prepareStatement(updateFlag);
+	    
+	    pst2.setInt(1, productId);
+	    pst2.executeUpdate();
+	    
+	    pst2.close();
+
 	    conn.close();
 	}
 	

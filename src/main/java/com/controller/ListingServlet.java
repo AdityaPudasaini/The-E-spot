@@ -112,9 +112,11 @@ public class ListingServlet extends HttpServlet {
 	        
 	        try {
 	        	
-	            if (request.getParameter("flag") != null) {
-	                adminListingDao.flagProduct(productId);
-	            } 
+	        	if (request.getParameter("flag") != null) {
+	        		
+	        	    int adminId = (int) request.getSession().getAttribute("adminId");
+	        	    adminListingDao.flagProduct(productId, adminId);
+	        	}
 	            
 	            else if (request.getParameter("keep") != null) {
 	                adminListingDao.keepProduct(productId);
