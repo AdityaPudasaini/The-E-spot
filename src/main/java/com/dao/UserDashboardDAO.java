@@ -160,4 +160,50 @@ public class UserDashboardDAO {
 
 		return items;
 	}
+	
+	public DashboardItemsModel recentBought(int memberId) throws SQLException {
+		
+		Connection conn = DBConfig.getConnection();
+
+		String sql = "SELECT p.Product_Name, oi.Item_Price FROM `order` o JOIN order_item oi ON oi.Order_ID = o.Order_ID JOIN product p ON p.Product_ID = oi.Product_ID WHERE o.Member_ID = ? AND o.Order_Status = 'Completed' ORDER BY o.Order_Date DESC LIMIT 3";
+		
+		PreparedStatement pst = conn.prepareStatement(sql);
+		
+		pst.setInt(1, memberId);
+		
+		ResultSet rs = pst.executeQuery();
+		
+		DashboardItemsModel items = new DashboardItemsModel();
+
+		int i = 0;
+
+		while (rs.next() && i < 3)
+		{
+			if (i == 0)
+			{
+				items.setItem1Name(rs.getString("Product_Name"));
+				items.setItem1Price(String.format("%.2f", rs.getDouble("Item_Price")));
+			}
+			
+			else if (i == 1)
+			{
+				items.setItem2Name(rs.getString("Product_Name"));
+				items.setItem2Price(String.format("%.2f", rs.getDouble("Item_Price")));
+			}
+			
+			else
+			{
+				items.setItem3Name(rs.getString("Product_Name"));
+				items.setItem3Price(String.format("%.2f", rs.getDouble("Item_Price")));
+			}
+			
+			i++;
+		}
+		
+		rs.close();
+		pst.close();
+		conn.close();
+
+		return items;
+	}
 }
