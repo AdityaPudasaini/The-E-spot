@@ -5,7 +5,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Footer</title>
-
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
 	</head>
 		
 	<body>
