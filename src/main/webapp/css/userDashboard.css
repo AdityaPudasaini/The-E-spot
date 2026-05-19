@@ -7,55 +7,70 @@ body {
 }
 
 .pageWrapper {
-    max-width: 1280px;
+    max-width: 1100px;       /* was 1280px — tightens the side gaps */
     margin: 0 auto;
-    padding: 2rem 1.5rem 3rem;
+    padding: 1.5rem;         /* was 2rem 1.5rem 3rem */
 }
 
 .userWelcome {
-    background: linear-gradient(120deg, #0d1b4b 0%, #1a2a6c 60%, #2a3f8f 100%);
-    border-radius: 16px;
-    padding: 2rem 2.5rem;
-    margin-bottom: 1.75rem;
+    background: #0d1b4b;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;    /* was 2rem 2.5rem — less top/bottom bloat */
+    margin-bottom: 1.25rem;
 }
 
 .welcomeHeading {
     color: white;
-    font-size: 28px;
-    margin-bottom: 6px;
+    font-size: 22px;         /* was 28px */
+    margin-bottom: 4px;
 }
 
 .welcomeSub {
-    color: rgba(255, 255, 255, 0.65);
-    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    font-size: 13px;
 }
 
 .mainRow {
-    display: flex;
-    gap: 1.25rem;
-    margin-bottom: 1.25rem;
+    display: grid;
+    gap: 1rem;               /* was 1.25rem flex */
+    margin-bottom: 1rem;
 }
 
+.mainRow:first-of-type {
+    grid-template-columns: 320px 1fr;   /* profile card fixed width, stats fills rest */
+}
+
+.mainRow:not(:first-of-type) {
+    grid-template-columns: 1fr 1fr;
+}
+
+/* ── Profile card ── */
 .profileCard {
-    flex: 0 0 48%;
     background: white;
-    border-radius: 16px;
-    padding: 2rem 1.5rem;
-    box-shadow: 0 4px 24px rgba(13, 27, 75, 0.08);
+    border-radius: 12px;
+    border: 0.5px solid #e5e7eb;
+    padding: 1.25rem;
+    box-shadow: none;        /* remove the heavy shadow */
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 10px;
 }
 
-.profilePhotoWrap {
-    width: 88px;
-    height: 88px;
+.profileTop {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 1rem;
+    border-bottom: 0.5px solid #e5e7eb;
+    margin-bottom: 1rem;
+}
+
+.profileAvatar {
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     overflow: hidden;
-    border: 3px solid #4f6ef7;
-    margin-bottom: 6px;
+    border: 2px solid #185fa5;
+    flex-shrink: 0;
 }
 
 .profilePhoto {
@@ -65,194 +80,181 @@ body {
 }
 
 .profileName {
-    font-size: 17px;
+    font-size: 16px;
     color: #1f2937;
+    margin-bottom: 2px;
 }
 
 .profileEmail {
-    font-size: 13px;
-    color: #6b7280;
-    margin-top: -4px;
-}
-
-.profileJoined {
     font-size: 12px;
     color: #6b7280;
-    background: #eef0f8;
-    padding: 4px 12px;
+}
+
+.profileStatusBadge {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 8px;
     border-radius: 20px;
-}
-
-.profileActions {
-    display: flex;
-    gap: 8px;
-    width: 100%;
-    margin-top: 6px;
-}
-
-.btnSecondary {
-    flex: 1;
-    background: transparent;
-    color: #0d1b4b;
-    border: 1.5px solid #e5e7eb;
-    padding: 8px 10px;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 600;
-    text-align: center;
-    text-decoration: none;
-}
-
-.btnSecondary:hover {
-    border-color: #0d1b4b;
-    background: #eef0f8;
-}
-
-.btnAdmin {
-    display: block;
-    width: 100%;
-    background: #0d1b4b;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 600;
-    text-align: center;
-    text-decoration: none;
+    background: #ecfdf5;
+    color: #059669;
     margin-top: 4px;
 }
 
-.btnAdmin:hover { background: #1a2a6c; }
+/* Info rows inside profile card */
+.profileDetailRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 0.5px solid #e5e7eb;
+}
 
+.profileDetailRow:last-of-type { border-bottom: none; }
+
+.detailIcon {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: #eef0f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.detailLabel {
+    font-size: 11px;
+    color: #6b7280;
+    display: block;
+    margin-bottom: 1px;
+}
+
+.detailValue {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.profileActions {
+    margin-top: 1rem;
+}
+
+.btnSecondary {
+    display: block;
+    width: 100%;
+    background: transparent;
+    color: #1f2937;
+    border: 0.5px solid #d1d5db;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btnSecondary:hover { border-color: #0d1b4b; background: #eef0f8; }
+
+/* ── Stats grid ── */
 .statsGrid {
-    flex: 1;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
+    gap: .75rem;
+    align-content: center;
 }
 
 .smallBox {
-    background: white;
-    border-radius: 16px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 24px rgba(13, 27, 75, 0.08);
-}
-
-.dollarImage {
-    width: 40px;
-    height: 40px;
+    background: #eef0f8;     /* muted surface instead of white card */
     border-radius: 10px;
-    margin-bottom: 12px;
+    padding: .9rem 1rem;
+    box-shadow: none;
 }
 
 .smallText {
-    font-size: 13px;
+    font-size: 12px;
     color: #6b7280;
     font-weight: 500;
     margin-bottom: 6px;
 }
 
 .money {
-    font-size: 26px;
+    font-size: 22px;
     font-weight: 700;
     color: #1f2937;
 }
 
+/* ── List cards ── */
 .listCard {
-    flex: 1;
     background: white;
-    border-radius: 16px;
-    padding: 1.5rem;
-    box-shadow: 0 4px 24px rgba(13, 27, 75, 0.08);
+    border-radius: 12px;
+    border: 0.5px solid #e5e7eb;
+    padding: 1.25rem;
+    box-shadow: none;
 }
 
 .listCardHeader {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 1rem;
+    margin-bottom: .9rem;
 }
 
-.listCardTitle {
-    font-size: 15px;
-    color: #1f2937;
-}
+.listCardTitle { font-size: 14px; font-weight: 600; color: #1f2937; }
 
-.seeMore {
-    font-size: 13px;
-    color: #4f6ef7;
-    font-weight: 600;
-    text-decoration: none;
-}
-
+.seeMore { font-size: 12px; color: #185fa5; font-weight: 600; text-decoration: none; }
 .seeMore:hover { text-decoration: underline; }
 
 .listItem {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
-    padding: 12px 0;
-    border-bottom: 1px solid #e5e7eb;
+    gap: 8px;
+    padding: 9px 0;
+    border-bottom: 0.5px solid #e5e7eb;
 }
 
-.listItemInfo { flex: 1; min-width: 0; }
+.listItem:last-child { border-bottom: none; padding-bottom: 0; }
 
 .listItemName {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     color: #1f2937;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    max-width: 200px;
     margin-bottom: 2px;
 }
 
-.listItemSub {
-    font-size: 12px;
-    color: #6b7280;
-}
+.listItemSub { font-size: 11px; color: #6b7280; }
+.listItemPrice { font-size: 13px; font-weight: 700; color: #0d1b4b; flex-shrink: 0; }
 
-.listItemPrice {
-    font-size: 14px;
-    font-weight: 700;
-    color: #0d1b4b;
-    flex-shrink: 0;
-}
-
-.statusBadge {
-    font-size: 11px;
-    font-weight: 600;
-    padding: 3px 8px;
-    border-radius: 4px;
-    flex-shrink: 0;
-}
-
+.statusBadge { font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 4px; flex-shrink: 0; }
 .badgeGreen { background: #ecfdf5; color: #059669; }
 .badgeBlue  { background: #eff2ff; color: #4f6ef7; }
 
 .cartTotal {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding-top: 12px;
+    padding-top: 10px;
     margin-top: 4px;
-    border-top: 1px solid #e5e7eb;
+    border-top: 0.5px solid #e5e7eb;
 }
 
-.cartTotalLabel { font-size: 13px; color: #6b7280; font-weight: 500; }
-.cartTotalValue { font-size: 15px; font-weight: 700; color: #0d1b4b; }
+.cartTotalLabel { font-size: 12px; color: #6b7280; }
+.cartTotalValue { font-size: 14px; font-weight: 700; color: #0d1b4b; }
 
 .btnCheckout {
     display: block;
     width: 100%;
-    margin-top: 12px;
+    margin-top: .75rem;
     background: #0d1b4b;
     color: white;
-    padding: 10px;
+    padding: 9px;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     text-align: center;
     text-decoration: none;
@@ -261,6 +263,6 @@ body {
 .btnCheckout:hover { background: #1a2a6c; }
 
 @media (max-width: 768px) {
-    .mainRow { flex-direction: column; }
+    .mainRow { grid-template-columns: 1fr !important; }
     .statsGrid { grid-template-columns: 1fr 1fr; }
 }
