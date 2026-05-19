@@ -104,7 +104,8 @@ form {
     border-radius: 8px;
     font-size: 13px;
     font-weight: 500;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
+    margin-top: -8px;
 }
 
 .actions {
@@ -119,8 +120,7 @@ form {
     gap: 16px;
 }
 
-.btn-primary,
-.btn-outline {
+.btn-primary, .btn-outline {
     flex: 1;
     padding: 12px 24px;
     border-radius: 12px;
@@ -135,8 +135,13 @@ form {
     border: none;
 }
 
-.btn-primary:hover { background: #1a3d6b; }
-.btn-primary:active { transform: scale(0.95); }
+.btn-primary:hover { 
+	background: #1a3d6b; 
+}
+
+.btn-primary:active { 
+	transform: scale(0.95); 
+}
 
 .btn-outline {
     background: transparent;
@@ -144,8 +149,13 @@ form {
     border: 1px solid #122d4f;
 }
 
-.btn-outline:hover { background: rgba(255,255,255,0.2); }
-.btn-outline:active { transform: scale(0.95); }
+.btn-outline:hover { 
+	background: rgba(255,255,255,0.2); 
+}
+
+.btn-outline:active { 
+	transform: scale(0.95); 
+}
 
 .forgot {
     text-align: center;
@@ -160,7 +170,9 @@ form {
     cursor: pointer;
 }
 
-.btn-forgot:hover { text-decoration: underline; }
+.btn-forgot:hover { 
+	text-decoration: underline; 
+}
 
 .form-footer {
     margin-top: 48px;

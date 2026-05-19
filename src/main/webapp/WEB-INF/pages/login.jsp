@@ -24,23 +24,27 @@
 
         <form action="${pageContext.request.contextPath}/login" method="post">
         
-          <c:if test="${error == 'Username is required' || error == 'User doesn\\'t exists' || error == 'Wrong email'}">
-		    <div class="error-message">${error}</div>
-		</c:if>
-		
-		<div class="field-group">
-		    <label for="email">Email</label>
-		    <input id="email" name="Email" type="email" placeholder="example@gmail.com" value="${typedUser}" required />
-		</div>
-		
-		<c:if test="${error == 'Password is required' || error == 'Password is incorrect'}">
-		    <div class="error-message">${error}</div>
-		</c:if>
-		
-		<div class="field-group">
-		    <label for="password">Password</label>
-		    <input id="password" name="Password" type="password" placeholder="••••••••" required />
-		</div>
+			<div>
+			    <c:if test="${error == 'Email is required' || error == \"User doesn't exist\" || error == 'Your account has been banned'}">
+			        <div class="error-message">${error}</div>
+			    </c:if>
+			    
+			    <div class="field-group">
+			        <label for="email">Email</label>
+			        <input id="email" name="Email" type="email" placeholder="example@gmail.com" value="${typedUser}" required />
+			    </div>
+			</div>
+			
+			<div>
+			    <c:if test="${error == 'Password is required' || error == 'Password is incorrect'}">
+			        <div class="error-message">${error}</div>
+			    </c:if>
+			    
+			    <div class="field-group">
+			        <label for="password">Password</label>
+			        <input id="password" name="Password" type="password" placeholder="••••••••" required />
+			    </div>
+			</div>
 
           <div class="actions">
             <div class="btn-row">
