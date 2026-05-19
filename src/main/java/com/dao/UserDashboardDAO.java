@@ -28,6 +28,33 @@ public class UserDashboardDAO {
 		{
 			stats.setTotalRevenue(String.format("%.2f", rs.getDouble("totalRevenue")));
 		}
+		
+		rs.close();
+		pst.close();
+		conn.close();
+ 
+		return stats;
+	}
+	
+	public UserStatsModel totalBought(int memberId) throws SQLException {
+		
+		Connection conn = DBConfig.getConnection();
+ 
+		String sql = "SELECT COALESCE(SUM(oi.Item_Quantity), 0) AS totalBought FROM order_item oi JOIN `order` o ON oi.Order_ID = o.Order_ID WHERE o.Member_ID = ? AND o.Order_Status = 'Completed'";
+		
+		PreparedStatement pst = conn.prepareStatement(sql);
+		
+		pst.setInt(1, memberId);
+		
+		ResultSet rs = pst.executeQuery();
+		
+		UserStatsModel stats = new UserStatsModel();
+ 
+		if (rs.next())
+		{
+			stats.setTotalBought(rs.getInt("totalBought"));
+		}
+		
 		rs.close();
 		pst.close();
 		conn.close();
