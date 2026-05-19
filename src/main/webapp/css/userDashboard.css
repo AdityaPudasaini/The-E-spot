@@ -1,20 +1,16 @@
-/* =============================================
-   userDashboard.css — The E-spot User Dashboard
-   ============================================= */
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: "Times New Roman", Times, serif;
 }
 
 body {
     background-color: #eef0f8;
     color: #111111;
+    font-family: "Times New Roman", Times, serif;
 }
 
-/* ── Top Bar ─────────────────────────────── */
 .userTopBar {
     display: flex;
     align-items: center;
@@ -25,7 +21,7 @@ body {
 }
 
 .userDashboardHeading {
-    font-size: 24px;
+    font-size: 30px;
     color: #111111;
 }
 
@@ -46,7 +42,6 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* ── Welcome Banner ──────────────────────── */
 .userWelcome {
     margin: 25px 30px 0 30px;
     background: linear-gradient(135deg, #1a1f5e, #2d3494);
@@ -81,7 +76,6 @@ body {
     font-weight: 600;
 }
 
-/* ── Profile Card ────────────────────────── */
 .userProfileCard {
     margin: 20px 30px 0 30px;
     background-color: #ffffff;
@@ -145,7 +139,6 @@ body {
     white-space: nowrap;
 }
 
-/* ── Stats Row ───────────────────────────── */
 .userStats {
     display: flex;
     gap: 18px;
@@ -156,7 +149,7 @@ body {
     flex: 1;
     background-color: #ffffff;
     border-radius: 14px;
-    padding: 22px 20px;
+    padding: 30px 20px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
 }
 
@@ -170,10 +163,21 @@ body {
     margin-bottom: 14px;
 }
 
-.userStatIconBlue   { background-color: #ddeeff; }
-.userStatIconPurple { background-color: #ede8ff; }
-.userStatIconGreen  { background-color: #ddf5e8; }
-.userStatIconYellow { background-color: #fdf3d0; }
+.userStatIconBlue { 
+	background-color: #ddeeff; 
+}
+
+.userStatIconPurple { 
+	background-color: #ede8ff; 
+}
+
+.userStatIconGreen { 
+	background-color: #ddf5e8; 
+}
+
+.userStatIconYellow { 
+	background-color: #fdf3d0; 
+}
 
 .userStatImg {
     width: 22px;
@@ -182,7 +186,7 @@ body {
 }
 
 .userSmallText {
-    font-size: 13px;
+    font-size: 17px;
     color: #666666;
     margin-bottom: 6px;
 }
@@ -192,7 +196,6 @@ body {
     color: #111111;
 }
 
-/* ── Bottom Cards ────────────────────────── */
 .userLastBox {
     background-color: #ffffff;
     border-radius: 14px;
@@ -223,7 +226,6 @@ body {
     text-decoration: underline;
 }
 
-/* Item rows inside cards */
 .userListedItem {
     display: flex;
     align-items: center;
@@ -263,7 +265,6 @@ body {
     white-space: nowrap;
 }
 
-/* ── Footer ──────────────────────────────── */
 .userFooter {
     text-align: center;
     padding: 20px;

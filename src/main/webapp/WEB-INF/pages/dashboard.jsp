@@ -5,7 +5,6 @@
     <head>
         <title>User Dashboard</title>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/userDashboard.css">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/userSidebar.css">
     </head>
 
     <body>
@@ -14,26 +13,23 @@
 
         <div style="display: flex; flex-direction: column; margin-left: 250px; width: calc(100% - 250px);">
 
-            <!-- Top Bar -->
             <div class="userTopBar">
                 <p class="userDashboardHeading"><b>Dashboard</b></p>
                 <div class="userAvatarCircle">
-                    <span class="userAvatarInitials">${sessionScope.initials}</span>
+                    <img src="${pageContext.request.contextPath}/image?name=${sessionScope.username}" style="width: 100%; height: 100%; border-radius: 50%;" />
                 </div>
             </div>
 
-            <!-- Welcome Banner -->
             <div class="userWelcome">
                 <div>
                     <p class="userWelcomeTitle"><b>Welcome Back, ${sessionScope.firstName}!</b></p>
                     <p class="userWelcomeSubtitle">Manage your activity and track your marketplace presence</p>
                 </div>
                 <a href="${pageContext.request.contextPath}/profile" class="userButtonRectangle" style="text-decoration: none;">
-                    <span class="userViewProfile">View Profile ↗</span>
+                    <span class="userViewProfile">View Profile</span>
                 </a>
             </div>
 
-            <!-- Profile Card -->
             <div class="userProfileCard">
                 <div class="userProfileLeft">
                     <div class="userProfileAvatar">
@@ -42,15 +38,14 @@
                     <div class="userProfileInfo">
                         <p class="userProfileName"><b>${sessionScope.fullName}</b></p>
                         <p class="userProfileEmail">${sessionScope.email}</p>
-                        <p class="userProfileMeta">Member since ${sessionScope.memberSince} &nbsp;·&nbsp; ${sessionScope.location}</p>
+                        <p class="userProfileMeta">Member since ${sessionScope.memberSince} ${sessionScope.location}</p>
                     </div>
                 </div>
                 <a href="${pageContext.request.contextPath}/editProfile" class="userEditButton" style="text-decoration: none;">
-                    ✎ &nbsp;Edit Profile
+                    Edit Profile
                 </a>
             </div>
 
-            <!-- Stats Row -->
             <div class="userStats">
                 <div class="userSmallBox">
                     <div class="userStatIcon userStatIconBlue">
@@ -85,14 +80,11 @@
                 </div>
             </div>
 
-            <!-- Bottom Section: 2 columns -->
             <div style="display: flex; gap: 20px; padding: 0 30px 30px 30px;">
 
-                <!-- Left Column -->
                 <div style="display: flex; flex-direction: column; gap: 20px; flex: 1;">
 
-                    <!-- Cart -->
-                    <div class="userLastBox">
+                    <div class="userLastBox" style="margin-top: 20px">
                         <div class="userLastBoxHeader">
                             <p class="userLastBoxTitle"><b>Cart</b></p>
                             <a href="${pageContext.request.contextPath}/cart" class="userSeeMore">See More</a>
@@ -126,7 +118,6 @@
                         </div>
                     </div>
 
-                    <!-- Recently Bought -->
                     <div class="userLastBox">
                         <div class="userLastBoxHeader">
                             <p class="userLastBoxTitle"><b>Recently Bought</b></p>
@@ -162,11 +153,9 @@
                     </div>
                 </div>
 
-                <!-- Right Column -->
                 <div style="display: flex; flex-direction: column; gap: 20px; flex: 1;">
 
-                    <!-- Wishlist -->
-                    <div class="userLastBox">
+                    <div class="userLastBox" style="margin-top: 20px">
                         <div class="userLastBoxHeader">
                             <p class="userLastBoxTitle"><b>Wishlist</b></p>
                             <a href="${pageContext.request.contextPath}/wishlist" class="userSeeMore">See More</a>
@@ -239,6 +228,6 @@
 
         </div>
 
-        <%@ include file="/Component/userFooter.jsp" %>
+        <%@ include file="/Component/adminFooter.jsp" %>
     </body>
 </html>
