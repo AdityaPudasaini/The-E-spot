@@ -16,8 +16,7 @@
             <div class="userTopBar">
                 <p class="userDashboardHeading"><b>Listings</b></p>
                 <div class="userAvatarCircle">
-                    <img src="${pageContext.request.contextPath}/image?name=${sessionScope.username}"
-                         style="width: 100%; height: 100%; border-radius: 50%;" />
+                    <img src="${pageContext.request.contextPath}/image?name=${sessionScope.username}" style="width: 100%; height: 100%; border-radius: 50%;" />
                 </div>
             </div>
 
@@ -25,46 +24,61 @@
             
 			    <form method="get" action="${pageContext.request.contextPath}/listing" class="listingControlsLeft">
 			    
-			        <input type="text" class="searchInput" name="search" placeholder="Search listings..." value="${searchVal/>
+			        <input type="text" class="searchInput" name="search" placeholder="Search listings..." value="${searchVal}"/>
+			        
 			        <select class="categorySelect" name="category">
+			        
 			            <option value="">All Categories</option>
+			            
 			            <c:forEach var="cat" items="${categories}">
 			                <option value="${cat}" ${categoryVal == cat ? 'selected' : ''}>${cat}</option>
 			            </c:forEach>
+			            
 			        </select>
+			        
 			        <button type="submit" class="searchButton">Search</button>
+			        
 			    </form>
+			    
 			    <a href="${pageContext.request.contextPath}/addListing" class="addListingButton">+ Add Listing</a>
 			</div>
+			
 
             <c:if test="${not empty param.success}">
                 <div class="successBanner">Listing added successfully!</div>
             </c:if>
+            
             <c:if test="${not empty param.error}">
                 <div class="errorBanner">Something went wrong. Please try again.</div>
             </c:if>
 
             <div class="productGrid" id="productGrid">
+            
                 <c:choose>
+                
                     <c:when test="${empty listings}">
+                    
                         <div class="emptyState">
                             <p>No listings found.</p>
                         </div>
+                        
                     </c:when>
+                    
                     <c:otherwise>
+                    
                         <c:forEach var="listing" items="${listings}">
+                        
                             <div class="productCard" data-name="${listing.productName}" data-category="${listing.categoryName}">
                                 <div class="productImageBox">
-                                    <img src="${pageContext.request.contextPath}/image?name=product${listing.productId}"
-                                         alt="${listing.productName}"
-                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-                                         style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px 12px 0 0;" />
+                                    <img src="${pageContext.request.contextPath}/image?name=product${listing.productId}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px 12px 0 0;" />
+                                    
                                     <div class="productImageFallback">
                                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="1.5">
                                             <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
                                         </svg>
                                     </div>
                                 </div>
+                                
                                 <div class="productInfo">
                                     <p class="productName">${listing.productName}</p>
                                     <p class="productCategory">${listing.categoryName}</p>
