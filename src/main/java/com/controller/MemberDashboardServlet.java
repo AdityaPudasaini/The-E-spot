@@ -9,7 +9,12 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import com.dao.MemberDAO;
 import com.dao.UserDashboardDAO;
+import com.model.AdminListingModel;
+import com.model.MemberModel;
 import com.model.UserStatsModel;
 
 /**
@@ -38,6 +43,20 @@ public class MemberDashboardServlet extends HttpServlet {
 		int memberId = (int) session.getAttribute("memberId");
  
 		try {
+			MemberDAO memberDAO = new MemberDAO();
+			MemberModel member = memberDAO.getMemberRecordById(memberId);
+			
+			request.setAttribute("fullName", member.getName());
+			request.setAttribute("username", member.getUserName());
+			request.setAttribute("email", member.getEmail());
+			request.setAttribute("phone", member.getNumber());
+			request.setAttribute("createdDate ", member.getCreatedDate());
+			request.setAttribute("dob", member.getDob());
+			
+			ArrayList<AdminListingModel> listings = new ArrayList<>();
+	        
+		     request.setAttribute("listings", listings);
+			
 			UserDashboardDAO userDao = new UserDashboardDAO();
  
 			UserStatsModel userStats = new UserStatsModel();
@@ -60,7 +79,7 @@ public class MemberDashboardServlet extends HttpServlet {
 		}
  
 		request.setAttribute("currentPage", "dashboard");
-		request.getRequestDispatcher("/WEB-INF/pages/userDashboard.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/pages/dashboard.jsp").forward(request, response);
 	}
 
 	/**

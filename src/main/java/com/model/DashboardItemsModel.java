@@ -8,7 +8,40 @@ public class DashboardItemsModel {
     private String item2Price;
     private String item3Name;
     private String item3Price;
+    private int item1Id;
+    private int item2Id;
+    private int item3Id;
+
+    public int getItem1Id()
+    {
+	    return item1Id;
+    }
+   
+    public void setItem1Id(int item1Id)
+    {
+ 	   this.item1Id = item1Id;
+    }
+   
+    public int getItem2Id()
+    {
+ 	   return item2Id;
+    }
+   
+    public void setItem2Id(int item2Id)
+    {
+	   this.item2Id = item2Id;
+    }
   
+    public int getItem3Id()
+    {
+	   return item3Id;
+    }
+   
+    public void setItem3Id(int item3Id)
+    {
+	   this.item3Id = item3Id;
+    }
+   
     public String getItem1Name() 
     { 
     	return item1Name; 

@@ -8,7 +8,6 @@
     </head>
 
     <body>
-        <% request.setAttribute("currentPage", "dashboard"); %>
         <%@ include file="/Component/userSidebar.jsp" %>
 
         <div style="display: flex; flex-direction: column; margin-left: 250px; width: calc(100% - 250px);">
@@ -16,7 +15,7 @@
             <div class="userTopBar">
                 <p class="userDashboardHeading"><b>Dashboard</b></p>
                 <div class="userAvatarCircle">
-                    <img src="${pageContext.request.contextPath}/image?name=${sessionScope.username}" style="width: 100%; height: 100%; border-radius: 50%;" />
+                    <img src="${pageContext.request.contextPath}/image?name=${sessionScope.username}" style="width: 100%; height: 100%; border-radius: 50%;"/>
                 </div>
             </div>
 
@@ -33,12 +32,13 @@
             <div class="userProfileCard">
                 <div class="userProfileLeft">
                     <div class="userProfileAvatar">
-                        <span class="userProfileInitials">${sessionScope.initials}</span>
+                        <img src="${pageContext.request.contextPath}/image?name=${sessionScope.username}" style="width: 100%; height: 100%; border-radius: 50%;" />
                     </div>
                     <div class="userProfileInfo">
-                        <p class="userProfileName"><b>${sessionScope.fullName}</b></p>
-                        <p class="userProfileEmail">${sessionScope.email}</p>
-                        <p class="userProfileMeta">Member since ${sessionScope.memberSince} ${sessionScope.location}</p>
+                        <p class="userProfileName"><b>${fullName}</b></p>
+                        <p class="userProfileEmail">${email}</p>
+                        <p class="userProfileEmail">${phone}</p>
+                        <p class="userProfileMeta">DOB:  ${dob}</p>
                     </div>
                 </div>
                 <a href="${pageContext.request.contextPath}/editProfile" class="userEditButton" style="text-decoration: none;">
@@ -91,7 +91,9 @@
                         </div>
 
                         <div class="userListedItem" style="${empty cartData.item1Name ? 'display:none;' : ''}">
-                            <div class="userItemThumb"></div>
+                            <div class="userItemThumb">
+                            	<img src="${pageContext.request.contextPath}/image?name=product${listing.productId}" class="productImage">
+                            </div>
                             <div class="userItemInfo">
                                 <p class="userItemName">${cartData.item1Name}</p>
                                 <p class="userItemSub">Marketplace item</p>

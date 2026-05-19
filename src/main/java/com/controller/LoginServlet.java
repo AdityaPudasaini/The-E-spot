@@ -61,6 +61,7 @@ public class LoginServlet extends HttpServlet {
 				
 				SessionUtil.setAttribute(request, "username", model.getUserName(), 60 * 30);
 				SessionUtil.setAttribute(request, "userType", "member", 60*30);
+				SessionUtil.setAttribute(request, "memberId", model.getMemberId(), 60 * 30);
 				
 				
 				CookieUtil.addCookie(response, "username", model.getUserName(), 60 * 60 * 24 * 30);

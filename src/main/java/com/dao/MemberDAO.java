@@ -166,4 +166,33 @@ public class MemberDAO {
         con.close();
         return uniqueMember;
     }
+	
+	public MemberModel getMemberRecordById(int memberId) throws Exception {
+		MemberModel uniqueMember = null;
+        Connection con = DBConfig.getConnection();
+        
+        String sql = "SELECT * FROM member WHERE Member_ID = ?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setInt(1, memberId);
+        
+        ResultSet rs = pst.executeQuery();
+
+        if (rs.next()) {
+        	uniqueMember = new MemberModel();
+        	uniqueMember.setMemberId(rs.getInt("Member_ID"));
+        	uniqueMember.setName(rs.getString("Member_Name"));
+        	uniqueMember.setEmail(rs.getString("Member_Email"));
+        	uniqueMember.setPassword(rs.getString("Member_Password"));
+        	uniqueMember.setDob(rs.getDate("Member_DOB"));
+        	uniqueMember.setNumber(rs.getString("Member_Phone"));
+        	uniqueMember.setAccountStatus(rs.getString("Account_Status"));
+        	uniqueMember.setCreatedDate(rs.getDate("Created_At"));
+        	uniqueMember.setUserName(rs.getString("Member_Username"));
+        }
+
+        rs.close();
+        pst.close();
+        con.close();
+        return uniqueMember;
+    }
 }
