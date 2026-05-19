@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,21 +22,25 @@
           <p>Please log in to your account.</p>
         </div>
 
-        <% if (request.getAttribute("error") != null) { %>
-            <div class="error-message">${error}</div>
-        <% } %>
-
         <form action="${pageContext.request.contextPath}/login" method="post">
         
-          <div class="field-group">
-            <label for="email">Email</label>
-            <input id="email" name="Email" type="email" placeholder="example@gmail.com" value="${typedUser}" required />
-          </div>
-
-          <div class="field-group">
-            <label for="password">Password</label>
-            <input id="password" name="Password" type="password" placeholder="••••••••" required />
-          </div>
+          <c:if test="${error == 'Username is required' || error == 'User doesn\\'t exists' || error == 'Wrong email'}">
+		    <div class="error-message">${error}</div>
+		</c:if>
+		
+		<div class="field-group">
+		    <label for="email">Email</label>
+		    <input id="email" name="Email" type="email" placeholder="example@gmail.com" value="${typedUser}" required />
+		</div>
+		
+		<c:if test="${error == 'Password is required' || error == 'Password is incorrect'}">
+		    <div class="error-message">${error}</div>
+		</c:if>
+		
+		<div class="field-group">
+		    <label for="password">Password</label>
+		    <input id="password" name="Password" type="password" placeholder="••••••••" required />
+		</div>
 
           <div class="actions">
             <div class="btn-row">

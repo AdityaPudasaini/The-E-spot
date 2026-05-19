@@ -12,45 +12,59 @@ public class LoginService {
 	AdminDAO adminDAO = new AdminDAO();
 	
 	public String authenticate(String email, String password) {
-		
-		if (email == null || email.trim().isEmpty()) {
-            return "Username is required";
-        }
-		
-        if (password == null || password.isEmpty()) {
-            return "Password is required";
-        }
-        
-        try {
-            MemberModel member = memberDAO.getMemberRecordByEmail(email);
-            AdminModel admin = adminDAO.getAdminRecord();
-            
-            if (admin!= null && PasswordUtil.checkPassword(password, admin.getPassword()) && email.equals(admin.getEmail())) {
-                return "Admin";
-            } 
-
-            if (member == null) {
-                return "User doesn't exists";
-            }
-            
-            if (!email.equals(member.getEmail())) {
-            	return "Wrong email";
-            }
-
-            if (PasswordUtil.checkPassword(password, member.getPassword()) && email.equals(member.getEmail())) {
-                return "Success";
-            } 
-            
-            else {
-                return "Password is incorrect";
-            }
-
-        } 
-        
-        catch (Exception e) {
-            e.printStackTrace();
-            return "Error: " + e.getMessage();
-        }
+	    
+	    if (email == null || email.trim().isEmpty()) 
+	    {
+	        return "Email is required";
+	    }
+	    
+	    if (password == null || password.isEmpty()) 
+	    {
+	        return "Password is required";
+	    }
+	    
+	    try {
+	    	
+	        AdminModel admin = adminDAO.getAdminRecord();
+	        
+	        if (admin != null && email.equals(admin.getEmail())) 
+	        {
+	            if (PasswordUtil.checkPassword(password, admin.getPassword())) 
+	            {
+	                return "Admin";
+	            } 
+	            
+	            else 
+	            {
+	                return "Password is incorrect";
+	            }
+	        }
+	        
+	        MemberModel member = memberDAO.getMemberRecordByEmail(email);
+	        
+	        if (member == null) 
+	        {
+	            return "User doesn't exist";
+	        }
+	        
+	        if (!PasswordUtil.checkPassword(password, member.getPassword())) 
+	        {
+	            return "Password is incorrect";
+	        }
+	        
+	        if (member.getAccountStatus().equals("Banned")) 
+	        {
+	            return "Your account has been banned";
+	        }
+	        
+	        return "Success";
+	    } 
+	    
+	    catch (Exception e) 
+	    {
+	        e.printStackTrace();
+	        return "Error: " + e.getMessage();
+	    }
 	}
 
 }
