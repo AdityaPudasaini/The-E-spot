@@ -1,73 +1,190 @@
 @charset "UTF-8";
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    background: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    padding: 32px;
-}
-
-.formCard {
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 12px;
-    padding: 32px;
-    width: 100%;
-    max-width: 480px;
-}
-
-h2 {
-    font-size: 20px;
-    font-weight: 500;
-    margin: 0 0 24px;
-}
-
-.formField {
+    font-family: "Inter", Arial, sans-serif;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    margin-bottom: 16px;
+    background-image: url("../Images/loginBack.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
 }
 
-label {
-    font-size: 13px;
-    color: #666;
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 20, 40, 0.55);
+    backdrop-filter: blur(3px);
+    z-index: 0;
 }
 
-input {
-    padding: 10px 12px;
+.registerPageContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 32px;
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.registerCard {
+    width: 100%;
+    max-width: 460px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    padding: 52px 48px;
+}
+
+.registerFormHeader {
+    margin-bottom: 36px;
+    text-align: center;
+}
+
+.registerFormHeader h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 6px;
+}
+
+.registerFormHeader p {
+    color: rgba(255, 255, 255, 0.7);
     font-size: 14px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+}
+
+.registerForm {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.registerFieldGroup {
+    position: relative;
+}
+
+.registerFieldGroup label {
+    position: absolute;
+    left: 16px;
+    top: 8px;
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.075em;
+}
+
+.registerFieldGroup input {
+    width: 100%;
+    padding: 24px 16px 8px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 12px;
     outline: none;
+    background: #1a2744;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 14px;
+    box-sizing: border-box;
     transition: border-color 0.2s;
 }
 
-input:focus {
-    border-color: #888;
+.registerFieldGroup input::placeholder {
+    color: rgba(255, 255, 255, 0.35);
 }
 
-.submitButton {
-    width: 100%;
-    padding: 10px;
-    margin-top: 8px;
-    font-size: 14px;
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+.registerFieldGroup input:focus {
+    border-color: rgba(255, 255, 255, 0.6);
+    background: #1a2744;
+}
+
+.registerFieldGroup input[type="file"] {
+    padding: 10px 16px;
+    color: rgba(255, 255, 255, 0.6);
     cursor: pointer;
-    transition: background 0.2s;
 }
 
-.submitButton:hover {
-    background: #f0f0f0;
+.registerErrorMessage {
+    background: rgba(254, 226, 226, 0.85);
+    color: #991B1B;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 4px;
 }
 
-.errorMessage {
-    color: red;
-    background-color: #ffe6e6;
-    padding: 8px 12px;
-    margin-bottom: 12px;
-    font-size: 12px;
-    border-radius: 6px;
+.registerActions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 8px;
+}
+
+.registerBtnRow {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.registerBtnPrimary, .registerBtnOutline {
+    flex: 1;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+    white-space: nowrap;
+}
+
+.registerBtnPrimary {
+    background: #ffffff;
+    color: #0F172A;
+    border: none;
+}
+
+.registerBtnPrimary:hover {
+    background: #E2E8F0;
+}
+
+.registerBtnPrimary:active {
+    transform: scale(0.97);
+}
+
+.registerBtnOutline {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.registerBtnOutline:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.registerBtnOutline:active {
+    transform: scale(0.97);
+}
+
+.registerFormFooter {
+    margin-top: 32px;
+    text-align: center;
+}
+
+.registerFormFooter p {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.45);
+    line-height: 1.6;
 }
