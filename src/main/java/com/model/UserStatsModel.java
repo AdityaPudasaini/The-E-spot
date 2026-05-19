@@ -1,17 +1,17 @@
 package com.model;
 
 public class UserStatsModel {
-	private double totalRevenue;
+	private String totalRevenue;
     private int totalBought;
     private int totalSold;
     private double totalSpent;
  
-    public double getTotalRevenue()         
+    public String getTotalRevenue()         
     { 
     	return totalRevenue; 
     }
     
-    public void setTotalRevenue(double totalRevenue) 
+    public void setTotalRevenue(String totalRevenue) 
     { 
     	this.totalRevenue = totalRevenue; 
     }
