@@ -119,7 +119,7 @@ public class UserDashboardDAO {
 		
 		Connection conn = DBConfig.getConnection();
 
-		String sql = "SELECT p.Product_Name, p.Product_Price FROM cart c JOIN cart_items ci ON ci.Cart_ID = c.Cart_ID JOIN product p ON p.Product_ID = ci.Product_ID WHERE c.Member_ID = ? ORDER BY ci.Cart_Items_ID DESC LIMIT 3";
+		String sql = "SELECT p.Product_ID, p.Product_Name, p.Product_Price FROM cart c JOIN cart_items ci ON ci.Cart_ID = c.Cart_ID JOIN product p ON p.Product_ID = ci.Product_ID WHERE c.Member_ID = ? ORDER BY ci.Cart_Items_ID DESC LIMIT 3";
 		
 		PreparedStatement pst = conn.prepareStatement(sql);
 		
@@ -135,18 +135,21 @@ public class UserDashboardDAO {
 		{
 			if (i == 0)
 			{
+				items.setItem1Id(rs.getInt("Product_ID"));
 				items.setItem1Name(rs.getString("Product_Name"));
 				items.setItem1Price(String.format("%.2f", rs.getDouble("Product_Price")));
 			}
 			
 			else if (i == 1)
 			{
+				items.setItem2Id(rs.getInt("Product_ID"));
 				items.setItem2Name(rs.getString("Product_Name"));
 				items.setItem2Price(String.format("%.2f", rs.getDouble("Product_Price")));
 			}
 			
 			else
 			{
+				items.setItem3Id(rs.getInt("Product_ID"));
 				items.setItem3Name(rs.getString("Product_Name"));
 				items.setItem3Price(String.format("%.2f", rs.getDouble("Product_Price")));
 			}
@@ -165,7 +168,7 @@ public class UserDashboardDAO {
 		
 		Connection conn = DBConfig.getConnection();
 
-		String sql = "SELECT p.Product_Name, oi.Item_Price FROM `order` o JOIN order_item oi ON oi.Order_ID = o.Order_ID JOIN product p ON p.Product_ID = oi.Product_ID WHERE o.Member_ID = ? AND o.Order_Status = 'Completed' ORDER BY o.Order_Date DESC LIMIT 3";
+		String sql = "SELECT p.Product_ID, p.Product_Name, oi.Item_Price FROM `order` o JOIN order_item oi ON oi.Order_ID = o.Order_ID JOIN product p ON p.Product_ID = oi.Product_ID WHERE o.Member_ID = ? AND o.Order_Status = 'Completed' ORDER BY o.Order_Date DESC LIMIT 3";		
 		
 		PreparedStatement pst = conn.prepareStatement(sql);
 		
@@ -179,22 +182,25 @@ public class UserDashboardDAO {
 
 		while (rs.next() && i < 3)
 		{
-			if (i == 0)
+			if (i == 0) 
 			{
-				items.setItem1Name(rs.getString("Product_Name"));
-				items.setItem1Price(String.format("%.2f", rs.getDouble("Item_Price")));
+			    items.setItem1Id(rs.getInt("Product_ID"));
+			    items.setItem1Name(rs.getString("Product_Name"));
+			    items.setItem1Price(String.format("%.2f", rs.getDouble("Item_Price")));
 			}
 			
-			else if (i == 1)
+			else if (i == 1) 
 			{
-				items.setItem2Name(rs.getString("Product_Name"));
-				items.setItem2Price(String.format("%.2f", rs.getDouble("Item_Price")));
-			}
+			    items.setItem2Id(rs.getInt("Product_ID"));
+			    items.setItem2Name(rs.getString("Product_Name"));
+			    items.setItem2Price(String.format("%.2f", rs.getDouble("Item_Price")));
+			} 
 			
-			else
+			else 
 			{
-				items.setItem3Name(rs.getString("Product_Name"));
-				items.setItem3Price(String.format("%.2f", rs.getDouble("Item_Price")));
+			    items.setItem3Id(rs.getInt("Product_ID"));
+			    items.setItem3Name(rs.getString("Product_Name"));
+			    items.setItem3Price(String.format("%.2f", rs.getDouble("Item_Price")));
 			}
 			
 			i++;
@@ -211,7 +217,7 @@ public class UserDashboardDAO {
 		
 		Connection conn = DBConfig.getConnection();
 
-		String sql = "SELECT p.Product_Name, p.Product_Price FROM wishlist w JOIN wishlist_item wi ON wi.Wishlist_ID = w.Wishlist_ID JOIN product p ON p.Product_ID = wi.Product_ID WHERE w.Member_ID = ? ORDER BY wi.Added_Date DESC LIMIT 3";
+		String sql = "SELECT p.Product_ID, p.Product_Name, p.Product_Price FROM wishlist w JOIN wishlist_item wi ON wi.Wishlist_ID = w.Wishlist_ID JOIN product p ON p.Product_ID = wi.Product_ID WHERE w.Member_ID = ? ORDER BY wi.Added_Date DESC LIMIT 3";
 		
 		PreparedStatement pst = conn.prepareStatement(sql);
 		
@@ -225,22 +231,25 @@ public class UserDashboardDAO {
 
 		while (rs.next() && i < 3)
 		{
-			if (i == 0)
+			if (i == 0) 
 			{
-				items.setItem1Name(rs.getString("Product_Name"));
-				items.setItem1Price(String.format("%.2f", rs.getDouble("Product_Price")));
-			}
+			    items.setItem1Id(rs.getInt("Product_ID"));
+			    items.setItem1Name(rs.getString("Product_Name"));
+			    items.setItem1Price(String.format("%.2f", rs.getDouble("Product_Price")));
+			} 
 			
-			else if (i == 1)
+			else if (i == 1) 
 			{
-				items.setItem2Name(rs.getString("Product_Name"));
-				items.setItem2Price(String.format("%.2f", rs.getDouble("Product_Price")));
-			}
+			    items.setItem2Id(rs.getInt("Product_ID"));
+			    items.setItem2Name(rs.getString("Product_Name"));
+			    items.setItem2Price(String.format("%.2f", rs.getDouble("Product_Price")));
+			} 
 			
-			else
+			else 
 			{
-				items.setItem3Name(rs.getString("Product_Name"));
-				items.setItem3Price(String.format("%.2f", rs.getDouble("Product_Price")));
+			    items.setItem3Id(rs.getInt("Product_ID"));
+			    items.setItem3Name(rs.getString("Product_Name"));
+			    items.setItem3Price(String.format("%.2f", rs.getDouble("Product_Price")));
 			}
 			
 			i++;
@@ -257,7 +266,7 @@ public class UserDashboardDAO {
 		
 		Connection conn = DBConfig.getConnection();
 
-		String sql = "SELECT p.Product_Name, oi.Item_Price FROM product p JOIN order_item oi ON oi.Product_ID = p.Product_ID JOIN `order` o ON o.Order_ID = oi.Order_ID WHERE p.Seller_ID = ? AND o.Order_Status = 'Completed' ORDER BY o.Order_Date DESC LIMIT 3";
+		String sql = "SELECT p.Product_ID, p.Product_Name, oi.Item_Price FROM product p JOIN order_item oi ON oi.Product_ID = p.Product_ID JOIN `order` o ON o.Order_ID = oi.Order_ID WHERE p.Seller_ID = ? AND o.Order_Status = 'Completed' ORDER BY o.Order_Date DESC LIMIT 3";
 		
 		PreparedStatement pst = conn.prepareStatement(sql);
 		
@@ -271,22 +280,25 @@ public class UserDashboardDAO {
 
 		while (rs.next() && i < 3)
 		{
-			if (i == 0)
+			if (i == 0) 
 			{
-				items.setItem1Name(rs.getString("Product_Name"));
-				items.setItem1Price(String.format("%.2f", rs.getDouble("Item_Price")));
+			    items.setItem1Id(rs.getInt("Product_ID"));
+			    items.setItem1Name(rs.getString("Product_Name"));
+			    items.setItem1Price(String.format("%.2f", rs.getDouble("Item_Price")));
+			} 
+			
+			else if (i == 1) 
+			{
+			    items.setItem2Id(rs.getInt("Product_ID"));
+			    items.setItem2Name(rs.getString("Product_Name"));
+			    items.setItem2Price(String.format("%.2f", rs.getDouble("Item_Price")));
 			}
 			
-			else if (i == 1)
+			else 
 			{
-				items.setItem2Name(rs.getString("Product_Name"));
-				items.setItem2Price(String.format("%.2f", rs.getDouble("Item_Price")));
-			}
-			
-			else
-			{
-				items.setItem3Name(rs.getString("Product_Name"));
-				items.setItem3Price(String.format("%.2f", rs.getDouble("Item_Price")));
+			    items.setItem3Id(rs.getInt("Product_ID"));
+			    items.setItem3Name(rs.getString("Product_Name"));
+			    items.setItem3Price(String.format("%.2f", rs.getDouble("Item_Price")));
 			}
 			
 			i++;

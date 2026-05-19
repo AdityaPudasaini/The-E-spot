@@ -21,7 +21,7 @@
 
             <div class="userWelcome">
                 <div>
-                    <p class="userWelcomeTitle"><b>Welcome Back, ${sessionScope.firstName}!</b></p>
+                    <p class="userWelcomeTitle"><b>Welcome Back, ${username}!</b></p>
                     <p class="userWelcomeSubtitle">Manage your activity and track your marketplace presence</p>
                 </div>
                 <a href="${pageContext.request.contextPath}/profile" class="userButtonRectangle" style="text-decoration: none;">
@@ -47,38 +47,30 @@
             </div>
 
             <div class="userStats">
-                <div class="userSmallBox">
-                    <div class="userStatIcon userStatIconBlue">
-                        <img src="${pageContext.request.contextPath}/Images/dollar.png" class="userStatImg" alt="Revenue" />
-                    </div>
-                    <p class="userSmallText">Total Revenue Generated</p>
-                    <p class="userMoney"><b>$${userStats.totalRevenue}</b></p>
-                </div>
-
-                <div class="userSmallBox">
-                    <div class="userStatIcon userStatIconPurple">
-                        <img src="${pageContext.request.contextPath}/Images/product Sold.png" class="userStatImg" alt="Bought" />
-                    </div>
-                    <p class="userSmallText">Total Products Bought</p>
-                    <p class="userMoney"><b>${userStats.totalBought}</b></p>
-                </div>
-
-                <div class="userSmallBox">
-                    <div class="userStatIcon userStatIconGreen">
-                        <img src="${pageContext.request.contextPath}/Images/Product Listed.png" class="userStatImg" alt="Sold" />
-                    </div>
-                    <p class="userSmallText">Total Products Sold</p>
-                    <p class="userMoney"><b>${userStats.totalSold}</b></p>
-                </div>
-
-                <div class="userSmallBox">
-                    <div class="userStatIcon userStatIconYellow">
-                        <img src="${pageContext.request.contextPath}/Images/people visited.png" class="userStatImg" alt="Spent" />
-                    </div>
-                    <p class="userSmallText">Total Amount Spent</p>
-                    <p class="userMoney"><b>$${userStats.totalSpent}</b></p>
-                </div>
-            </div>
+			    <div class="userSmallBox">
+			        <img src="${pageContext.request.contextPath}/Images/dollar.png" class="userStatImg" alt="Revenue" style="width: 66px; height: 66px;"/>
+			        <p class="userSmallText">Total Revenue Generated</p>
+			        <p class="userMoney"><b>$${userStats.totalRevenue}</b></p>
+			    </div>
+			
+			    <div class="userSmallBox">
+			        <img src="${pageContext.request.contextPath}/Images/product Sold.png" class="userStatImg" alt="Bought" style="width: 66px; height: 66px;"/>
+			        <p class="userSmallText">Total Products Bought</p>
+			        <p class="userMoney"><b>${userStats.totalBought}</b></p>
+			    </div>
+			
+			    <div class="userSmallBox">
+			        <img src="${pageContext.request.contextPath}/Images/Product Listed.png" class="userStatImg" alt="Sold" style="width: 66px; height: 66px;"/>
+			        <p class="userSmallText">Total Products Sold</p>
+			        <p class="userMoney"><b>${userStats.totalSold}</b></p>
+			    </div>
+			
+			    <div class="userSmallBox">
+			        <img src="${pageContext.request.contextPath}/Images/people visited.png" class="userStatImg" alt="Spent" style="width: 66px; height: 66px;"/>
+			        <p class="userSmallText">Total Amount Spent</p>
+			        <p class="userMoney"><b>$${userStats.totalSpent}</b></p>
+			    </div>
+			</div>
 
             <div style="display: flex; gap: 20px; padding: 0 30px 30px 30px;">
 
@@ -91,33 +83,37 @@
                         </div>
 
                         <div class="userListedItem" style="${empty cartData.item1Name ? 'display:none;' : ''}">
-                            <div class="userItemThumb">
-                            	<img src="${pageContext.request.contextPath}/image?name=product${listing.productId}" class="productImage">
-                            </div>
-                            <div class="userItemInfo">
-                                <p class="userItemName">${cartData.item1Name}</p>
-                                <p class="userItemSub">Marketplace item</p>
-                            </div>
-                            <span class="userItemPrice">$${cartData.item1Price}</span>
-                        </div>
+						    <div class="userItemThumb">
+						        <img src="${pageContext.request.contextPath}/image?name=product${cartData.item1Id}" style="width: 100%; height: 100%; border-radius: 8px; object-fit: cover;" />
+						    </div>
+						    <div class="userItemInfo">
+						        <p class="userItemName">${cartData.item1Name}</p>
+						        <p class="userItemSub">Marketplace item</p>
+						    </div>
+						    <span class="userItemPrice">$${cartData.item1Price}</span>
+						</div>
 
                         <div class="userListedItem" style="${empty cartData.item2Name ? 'display:none;' : ''}">
-                            <div class="userItemThumb"></div>
-                            <div class="userItemInfo">
-                                <p class="userItemName">${cartData.item2Name}</p>
-                                <p class="userItemSub">Marketplace item</p>
-                            </div>
-                            <span class="userItemPrice">$${cartData.item2Price}</span>
-                        </div>
+						    <div class="userItemThumb">
+						        <img src="${pageContext.request.contextPath}/image?name=product${cartData.item2Id}" style="width: 100%; height: 100%; border-radius: 8px; object-fit: cover;" />
+						    </div>
+						    <div class="userItemInfo">
+						        <p class="userItemName">${cartData.item2Name}</p>
+						        <p class="userItemSub">Marketplace item</p>
+						    </div>
+						    <span class="userItemPrice">$${cartData.item2Price}</span>
+						</div>
 
-                        <div class="userListedItem" style="border: none; ${empty cartData.item3Name ? 'display:none;' : ''}">
-                            <div class="userItemThumb"></div>
-                            <div class="userItemInfo">
-                                <p class="userItemName">${cartData.item3Name}</p>
-                                <p class="userItemSub">Marketplace item</p>
-                            </div>
-                            <span class="userItemPrice">$${cartData.item3Price}</span>
-                        </div>
+                        <div class="userListedItem" style="${empty cartData.item3Name ? 'display:none;' : ''}">
+						    <div class="userItemThumb">
+						        <img src="${pageContext.request.contextPath}/image?name=product${cartData.item3Id}" style="width: 100%; height: 100%; border-radius: 8px; object-fit: cover;" />
+						    </div>
+						    <div class="userItemInfo">
+						        <p class="userItemName">${cartData.item3Name}</p>
+						        <p class="userItemSub">Marketplace item</p>
+						    </div>
+						    <span class="userItemPrice">$${cartData.item3Price}</span>
+						</div>
                     </div>
 
                     <div class="userLastBox">
@@ -127,7 +123,9 @@
                         </div>
 
                         <div class="userListedItem" style="${empty recentBought.item1Name ? 'display:none;' : ''}">
-                            <div class="userItemThumb"></div>
+                            <div class="userItemThumb">
+						        <img src="${pageContext.request.contextPath}/image?name=product${recentBought.item1Id}" style="width: 100%; height: 100%; border-radius: 8px; object-fit: cover;" />
+						    </div>
                             <div class="userItemInfo">
                                 <p class="userItemName">${recentBought.item1Name}</p>
                                 <p class="userItemSub">Marketplace item</p>
@@ -136,7 +134,9 @@
                         </div>
 
                         <div class="userListedItem" style="${empty recentBought.item2Name ? 'display:none;' : ''}">
-                            <div class="userItemThumb"></div>
+                            <div class="userItemThumb">
+						        <img src="${pageContext.request.contextPath}/image?name=product${recentBought.item2Id}" style="width: 100%; height: 100%; border-radius: 8px; object-fit: cover;" />
+						    </div>
                             <div class="userItemInfo">
                                 <p class="userItemName">${recentBought.item2Name}</p>
                                 <p class="userItemSub">Marketplace item</p>
@@ -145,7 +145,9 @@
                         </div>
 
                         <div class="userListedItem" style="border: none; ${empty recentBought.item3Name ? 'display:none;' : ''}">
-                            <div class="userItemThumb"></div>
+                            <div class="userItemThumb">
+						        <img src="${pageContext.request.contextPath}/image?name=product${recentBought.item3Id}" style="width: 100%; height: 100%; border-radius: 8px; object-fit: cover;" />
+						    </div>
                             <div class="userItemInfo">
                                 <p class="userItemName">${recentBought.item3Name}</p>
                                 <p class="userItemSub">Marketplace item</p>
@@ -164,7 +166,9 @@
                         </div>
 
                         <div class="userListedItem" style="${empty wishlistData.item1Name ? 'display:none;' : ''}">
-                            <div class="userItemThumb"></div>
+                            <div class="userItemThumb">
+						        <img src="${pageContext.request.contextPath}/image?name=product${wishlistData.item1Id}" style="width: 100%; height: 100%; border-radius: 8px; object-fit: cover;" />
+						    </div>
                             <div class="userItemInfo">
                                 <p class="userItemName">${wishlistData.item1Name}</p>
                                 <p class="userItemSub">Marketplace item</p>
@@ -173,7 +177,9 @@
                         </div>
 
                         <div class="userListedItem" style="${empty wishlistData.item2Name ? 'display:none;' : ''}">
-                            <div class="userItemThumb"></div>
+                            <div class="userItemThumb">
+						        <img src="${pageContext.request.contextPath}/image?name=product${wishlistData.item2Id}" style="width: 100%; height: 100%; border-radius: 8px; object-fit: cover;" />
+						    </div>
                             <div class="userItemInfo">
                                 <p class="userItemName">${wishlistData.item2Name}</p>
                                 <p class="userItemSub">Marketplace item</p>
@@ -182,7 +188,9 @@
                         </div>
 
                         <div class="userListedItem" style="border: none; ${empty wishlistData.item3Name ? 'display:none;' : ''}">
-                            <div class="userItemThumb"></div>
+                            <<div class="userItemThumb">
+						        <img src="${pageContext.request.contextPath}/image?name=product${wishlistData.item3Id}" style="width: 100%; height: 100%; border-radius: 8px; object-fit: cover;" />
+						    </div>
                             <div class="userItemInfo">
                                 <p class="userItemName">${wishlistData.item3Name}</p>
                                 <p class="userItemSub">Marketplace item</p>
@@ -191,7 +199,6 @@
                         </div>
                     </div>
 
-                    <!-- Recently Sold -->
                     <div class="userLastBox">
                         <div class="userLastBoxHeader">
                             <p class="userLastBoxTitle"><b>Recently Sold</b></p>
@@ -199,7 +206,9 @@
                         </div>
 
                         <div class="userListedItem" style="${empty recentSold.item1Name ? 'display:none;' : ''}">
-                            <div class="userItemThumb"></div>
+                            <div class="userItemThumb">
+						        <img src="${pageContext.request.contextPath}/image?name=product${recentSold.item1Id}" style="width: 100%; height: 100%; border-radius: 8px; object-fit: cover;" />
+						    </div>
                             <div class="userItemInfo">
                                 <p class="userItemName">${recentSold.item1Name}</p>
                                 <p class="userItemSub">Marketplace item</p>
@@ -208,7 +217,9 @@
                         </div>
 
                         <div class="userListedItem" style="${empty recentSold.item2Name ? 'display:none;' : ''}">
-                            <div class="userItemThumb"></div>
+                            <div class="userItemThumb">
+						        <img src="${pageContext.request.contextPath}/image?name=product${recentSold.item2Id}" style="width: 100%; height: 100%; border-radius: 8px; object-fit: cover;" />
+						    </div>
                             <div class="userItemInfo">
                                 <p class="userItemName">${recentSold.item2Name}</p>
                                 <p class="userItemSub">Marketplace item</p>
@@ -217,7 +228,9 @@
                         </div>
 
                         <div class="userListedItem" style="border: none; ${empty recentSold.item3Name ? 'display:none;' : ''}">
-                            <div class="userItemThumb"></div>
+                            <div class="userItemThumb">
+						        <img src="${pageContext.request.contextPath}/image?name=product${recentSold.item3Id}" style="width: 100%; height: 100%; border-radius: 8px; object-fit: cover;" />
+						    </div>
                             <div class="userItemInfo">
                                 <p class="userItemName">${recentSold.item3Name}</p>
                                 <p class="userItemSub">Marketplace item</p>
