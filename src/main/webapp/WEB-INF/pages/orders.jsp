@@ -23,25 +23,25 @@
 	
 	        <div class="statsRow">
 	        
-                <div class="smallBox">
+                <div class="smallBox" style="height: 120px;">
                     <img class="smallBoxImage" src="${pageContext.request.contextPath}/Images/dollar.png" alt="">
                     <div class="smallText">Total Orders</div>
                     <div class="moneyDollar">${totalOrders}</div>
                 </div>
                 
-                <div class="smallBox">
+                <div class="smallBox" style="height: 120px;">
                     <img class="smallBoxImage" src="${pageContext.request.contextPath}/Images/dollar.png" alt="">
                     <div class="smallText">Completed Orders</div>
                     <div class="moneyDollar">${completedOrders}</div>
                 </div>
                 
-                <div class="smallBox">
+                <div class="smallBox" style="height: 120px;">
                     <img class="smallBoxImage" src="${pageContext.request.contextPath}/Images/dollar.png" alt="">
                     <div class="smallText">Pending Orders</div>
                     <div class="moneyDollar">${pendingOrders}</div>
                 </div>
                 
-                <div class="smallBox">
+                <div class="smallBox" style="height: 120px;">
                     <img class="smallBoxImage" src="${pageContext.request.contextPath}/Images/dollar.png" alt="">
                     <div class="smallText">Refunded Orders</div>
                     <div class="moneyDollar">${refundedOrders}</div>

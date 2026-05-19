@@ -192,3 +192,154 @@ body {
 .pageActive:hover {
     background: #1E40AF;
 }
+
+@media (max-width: 1024px) {
+    .statsRow {
+        flex-wrap: wrap;
+        padding: 16px 16px 0;
+    }
+
+    .smallBox {
+        width: calc(50% - 12px);
+    }
+
+    .tableBox {
+        margin: 16px;
+        padding: 16px;
+        overflow-x: auto;
+    }
+
+    .dashboardHeading {
+        font-size: 22px;
+        padding-left: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .topPart {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    .statsRow {
+        flex-direction: column;
+        padding: 16px 16px 0;
+        gap: 12px;
+    }
+
+    .smallBox {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .tableBox {
+        margin: 12px;
+        padding: 14px;
+        overflow-x: auto;
+    }
+
+    .listingTable {
+        min-width: 600px;
+    }
+
+    .tableHead,
+    .tableRowListing {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .tableTitle {
+        font-size: 16px;
+    }
+
+    .dashboardHeading {
+        font-size: 18px;
+        padding-left: 16px;
+    }
+
+    .adminPhoto {
+        margin-right: 16px;
+    }
+
+    .lastPartButtons {
+        flex-wrap: wrap;
+        margin: 12px 16px 24px;
+    }
+
+    .errorBanner {
+        margin: 12px 12px 0;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .smallBox {
+        padding: 14px;
+        gap: 8px;
+    }
+
+    .moneyDollar {
+        font-size: 22px;
+    }
+
+    .smallText {
+        font-size: 12px;
+    }
+
+    .tableBox {
+        margin: 10px 8px;
+        padding: 12px;
+        border-radius: 8px;
+    }
+
+    .listingTable {
+        min-width: 500px;
+    }
+
+    .tableHead, .tableRowListing {
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+
+    .downloadButton {
+        padding: 5px 12px;
+        font-size: 11px;
+    }
+
+    .formatBadge, .everyStatus, .smallStat {
+        font-size: 11px;
+        padding: 3px 8px;
+    }
+
+    .lastPartButton {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .dashboardHeading {
+        font-size: 16px;
+    }
+
+    .topPart {
+        height: 60px;
+    }
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    margin-left: 250px;
+    width: calc(100% - 250px);
+}
+
+@media (max-width: 768px) {
+    .mainContent {
+        margin-left: 0;
+        width: 100%;
+    }
+}

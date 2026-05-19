@@ -13,7 +13,7 @@
 	<body>
 		<%@ include file="/Component/adminSidebar.jsp" %>
 		
-		<div style="display: flex; flex-direction: column; margin-left: 250px; width: calc(100% - 250px);">
+		<div class="mainContent">
 	
 	        <div class="topPart">
 	            <p class="dashboardHeading"><b>Reports</b></p>

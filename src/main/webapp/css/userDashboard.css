@@ -1,0 +1,266 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background: #eef0f8;
+    color: #1f2937;
+}
+
+.pageWrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+}
+
+.userWelcome {
+    background: linear-gradient(120deg, #0d1b4b 0%, #1a2a6c 60%, #2a3f8f 100%);
+    border-radius: 16px;
+    padding: 2rem 2.5rem;
+    margin-bottom: 1.75rem;
+}
+
+.welcomeHeading {
+    color: white;
+    font-size: 28px;
+    margin-bottom: 6px;
+}
+
+.welcomeSub {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 14px;
+}
+
+.mainRow {
+    display: flex;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.profileCard {
+    flex: 0 0 48%;
+    background: white;
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 4px 24px rgba(13, 27, 75, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.profilePhotoWrap {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #4f6ef7;
+    margin-bottom: 6px;
+}
+
+.profilePhoto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profileName {
+    font-size: 17px;
+    color: #1f2937;
+}
+
+.profileEmail {
+    font-size: 13px;
+    color: #6b7280;
+    margin-top: -4px;
+}
+
+.profileJoined {
+    font-size: 12px;
+    color: #6b7280;
+    background: #eef0f8;
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+.profileActions {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    margin-top: 6px;
+}
+
+.btnSecondary {
+    flex: 1;
+    background: transparent;
+    color: #0d1b4b;
+    border: 1.5px solid #e5e7eb;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btnSecondary:hover {
+    border-color: #0d1b4b;
+    background: #eef0f8;
+}
+
+.btnAdmin {
+    display: block;
+    width: 100%;
+    background: #0d1b4b;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 4px;
+}
+
+.btnAdmin:hover { background: #1a2a6c; }
+
+.statsGrid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+.smallBox {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 24px rgba(13, 27, 75, 0.08);
+}
+
+.dollarImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+.smallText {
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.money {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.listCard {
+    flex: 1;
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 24px rgba(13, 27, 75, 0.08);
+}
+
+.listCardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.listCardTitle {
+    font-size: 15px;
+    color: #1f2937;
+}
+
+.seeMore {
+    font-size: 13px;
+    color: #4f6ef7;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.seeMore:hover { text-decoration: underline; }
+
+.listItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.listItemInfo { flex: 1; min-width: 0; }
+
+.listItemName {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f2937;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 2px;
+}
+
+.listItemSub {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.listItemPrice {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0d1b4b;
+    flex-shrink: 0;
+}
+
+.statusBadge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.badgeGreen { background: #ecfdf5; color: #059669; }
+.badgeBlue  { background: #eff2ff; color: #4f6ef7; }
+
+.cartTotal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    margin-top: 4px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.cartTotalLabel { font-size: 13px; color: #6b7280; font-weight: 500; }
+.cartTotalValue { font-size: 15px; font-weight: 700; color: #0d1b4b; }
+
+.btnCheckout {
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+    background: #0d1b4b;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btnCheckout:hover { background: #1a2a6c; }
+
+@media (max-width: 768px) {
+    .mainRow { flex-direction: column; }
+    .statsGrid { grid-template-columns: 1fr 1fr; }
+}
