@@ -88,5 +88,35 @@ public class AdminReportDAO {
         return rows;
     }
 
+    public List<String[]> ordersReport() throws SQLException {
+    	
+        Connection conn = DBConfig.getConnection();
+        
+        String sqlCode = "SELECT o.Order_ID, m.Member_Name, o.Order_Date, o.Order_Status FROM `order` o JOIN member m ON o.Member_ID = m.Member_ID ORDER BY o.Order_Date DESC";
+        
+        PreparedStatement pst = conn.prepareStatement(sqlCode);
+        ResultSet rs = pst.executeQuery();
+        
+        List<String[]> rows = new ArrayList<>();
+        
+        rows.add(new String[]{"Order ID", "Customer", "Date", "Status"});
+        
+        while (rs.next()) {
+            rows.add(new String[] {
+                String.valueOf(rs.getInt("Order_ID")),
+                rs.getString("Member_Name"),
+                rs.getString("Order_Date").substring(0, 10),
+                rs.getString("Order_Status")
+            	}
+            );
+        }
+        
+        rs.close();
+        pst.close();
+        conn.close();
+        
+        return rows;
+    }
+
     
 }
