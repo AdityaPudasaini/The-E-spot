@@ -61,6 +61,7 @@ public class MemberDAO {
 
         while (rs.next()) {
             MemberModel singleMemberRecord = new MemberModel();
+            singleMemberRecord.setMemberId(rs.getInt("Member_ID"));
             singleMemberRecord.setName(rs.getString("Member_Name"));
             singleMemberRecord.setEmail(rs.getString("Member_Email"));
             singleMemberRecord.setPassword(rs.getString("Member_Password"));
@@ -91,6 +92,7 @@ public class MemberDAO {
 
         if (rs.next()) {
         	uniqueMember = new MemberModel();
+        	uniqueMember.setMemberId(rs.getInt("Member_ID"));
         	uniqueMember.setName(rs.getString("Member_Name"));
         	uniqueMember.setEmail(rs.getString("Member_Email"));
         	uniqueMember.setPassword(rs.getString("Member_Password"));
@@ -119,6 +121,7 @@ public class MemberDAO {
 
         if (rs.next()) {
         	uniqueMember = new MemberModel();
+        	uniqueMember.setMemberId(rs.getInt("Member_ID"));
         	uniqueMember.setName(rs.getString("Member_Name"));
         	uniqueMember.setEmail(rs.getString("Member_Email"));
         	uniqueMember.setPassword(rs.getString("Member_Password"));
@@ -147,6 +150,7 @@ public class MemberDAO {
 
         if (rs.next()) {
         	uniqueMember = new MemberModel();
+        	uniqueMember.setMemberId(rs.getInt("Member_ID"));
         	uniqueMember.setName(rs.getString("Member_Name"));
         	uniqueMember.setEmail(rs.getString("Member_Email"));
         	uniqueMember.setPassword(rs.getString("Member_Password"));

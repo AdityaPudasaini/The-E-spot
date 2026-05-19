@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class MemberModel{
 
+	private int memberId;
 	private String name;
     private String userName;
     private Date dob;
@@ -14,6 +15,15 @@ public class MemberModel{
     private Date createdDate;
     private String accountStatus;
 
+    public int getMemberId()
+    {
+    	return  memberId;
+    }
+    
+    public void setMemberId(int memberId)
+    {
+    	this.memberId = memberId;
+    }
     
     public String getName() 
     { 
