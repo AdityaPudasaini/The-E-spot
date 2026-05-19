@@ -68,7 +68,6 @@
 	                        <th class="tableHead">Report Name</th>
 	                        <th class="tableHead">Category</th>
 	                        <th class="tableHead">Description</th>
-	                        <th class="tableHead">Last Generated</th>
 	                        <th class="tableHead">Format</th>
 	                        <th class="tableHead">Actions</th>
 	                    </tr>
@@ -149,58 +148,51 @@
 	                    </tr>
 	                </thead>
 	                <tbody>
-	                    <tr class="tableRow">
-	                        <td class="tableRowListing" style="font-weight: 700; color: #2563EB;">#E001</td>
-	                        <td class="tableRowListing">Monthly Revenue Summary</td>
-	                        <td class="tableRowListing">Admin A</td>
-	                        <td class="tableRowListing">Apr 30, 2025 – 09:14 AM</td>
-	                        <td class="tableRowListing"><span class="formatBadge" style="background: #DBEAFE; color: #1E40AF;">CSV</span></td>
-	                        <td class="tableRowListing"><span class="everyStatus" style="background: #DCFCE7; color: #166534;">Success</span></td>
-	                    </tr>
-	                    <tr class="tableRow">
-	                        <td class="tableRowListing" style="font-weight: 700; color: #2563EB;">#E002</td>
-	                        <td class="tableRowListing">User Growth Report</td>
-	                        <td class="tableRowListing">Admin A</td>
-	                        <td class="tableRowListing">Apr 28, 2025 – 02:30 PM</td>
-	                        <td class="tableRowListing"><span class="formatBadge" style="background: #EDE9FE; color: #5B21B6;">PDF</span></td>
-	                        <td class="tableRowListing"><span class="everyStatus" style="background: #DCFCE7; color: #166534;">Success</span></td>
-	                    </tr>
-	                    <tr class="tableRow">
-	                        <td class="tableRowListing" style="font-weight: 700; color: #2563EB;">#E003</td>
-	                        <td class="tableRowListing">Flagged Items Report</td>
-	                        <td class="tableRowListing">Admin A</td>
-	                        <td class="tableRowListing">Apr 25, 2025 – 11:05 AM</td>
-	                        <td class="tableRowListing"><span class="formatBadge" style="background: #DBEAFE; color: #1E40AF;">CSV</span></td>
-	                        <td class="tableRowListing"><span class="everyStatus" style="background: #FEE2E2; color: #991B1B;">Failed</span></td>
-	                    </tr>
-	                    <tr class="tableRow">
-	                        <td class="tableRowListing" style="font-weight: 700; color: #2563EB;">#E004</td>
-	                        <td class="tableRowListing">Order Analytics Report</td>
-	                        <td class="tableRowListing">Admin A</td>
-	                        <td class="tableRowListing">Apr 22, 2025 – 04:50 PM</td>
-	                        <td class="tableRowListing"><span class="formatBadge" style="background: #DBEAFE; color: #1E40AF;">CSV</span></td>
-	                        <td class="tableRowListing"><span class="everyStatus" style="background: #DCFCE7; color: #166534;">Success</span></td>
-	                    </tr>
-	                    <tr class="tableRow">
-	                        <td class="tableRowListing" style="font-weight: 700; color: #2563EB;">#E005</td>
-	                        <td class="tableRowListing">Top Selling Products</td>
-	                        <td class="tableRowListing">Admin A</td>
-	                        <td class="tableRowListing">Apr 20, 2025 – 10:20 AM</td>
-	                        <td class="tableRowListing"><span class="formatBadge" style="background: #EDE9FE; color: #5B21B6;">PDF</span></td>
-	                        <td class="tableRowListing"><span class="everyStatus" style="background: #DCFCE7; color: #166534;">Success</span></td>
-	                    </tr>
+	                
+	                    <c:choose>
+	                    
+                            <c:when test="${empty exportHistory}">
+                            
+                                <tr>
+                                    <td class="tableRowListing" colspan="6" style="text-align: center; color: #64748B;">
+                                        No exports yet.
+                                    </td>
+                                </tr>
+                                
+                            </c:when>
+                            
+                            <c:otherwise>
+                            
+                                <c:forEach var="export" items="${exportHistory}">
+                                
+                                    <tr class="tableRow">
+                                        <td class="tableRowListing" style="font-weight: 700; color: #2563EB;">#E${export.exportId}</td>
+                                        <td class="tableRowListing">${export.reportType}</td>
+                                        <td class="tableRowListing">${export.exportedBy}</td>
+                                        <td class="tableRowListing">${export.exportDate}</td>
+                                        <td class="tableRowListing">CSV</td>
+                                        
+                                        <td class="tableRowListing">
+                                        
+                                            <c:choose>
+                                                <c:when test="${export.status == 'Success'}">
+                                                    <span class="everyStatus" style="background: #DCFCE7; color: #166534;">Success</span>
+                                                </c:when>
+                                                
+                                                <c:otherwise>
+                                                    <span class="everyStatus" style="background: #FEE2E2; color: #991B1B;">Failed</span>
+                                                </c:otherwise>
+                                                
+                                            </c:choose>
+                                            
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                            </c:otherwise>
+                        </c:choose>
 	                </tbody>
 	            </table>
 	        </div>
-	
-	        <div class="lastPartButtons">
-	            <a href="#" class="lastPartButton">Previous</a>
-	            <a href="#" class="lastPartButton pageActive">1</a>
-	            <a href="#" class="lastPartButton">2</a>
-	            <a href="#" class="lastPartButton">3</a>
-	            <a href="#" class="lastPartButton">Next</a>
-	        </div>
-	
 	    </div>
 		
 		<%@ include file="/Component/adminFooter.jsp" %>
