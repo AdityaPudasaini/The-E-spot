@@ -206,4 +206,50 @@ public class UserDashboardDAO {
 
 		return items;
 	}
+	
+	public DashboardItemsModel wishlistItems(int memberId) throws SQLException {
+		
+		Connection conn = DBConfig.getConnection();
+
+		String sql = "SELECT p.Product_Name, p.Product_Price FROM wishlist w JOIN wishlist_item wi ON wi.Wishlist_ID = w.Wishlist_ID JOIN product p ON p.Product_ID = wi.Product_ID WHERE w.Member_ID = ? ORDER BY wi.Added_Date DESC LIMIT 3";
+		
+		PreparedStatement pst = conn.prepareStatement(sql);
+		
+		pst.setInt(1, memberId);
+		
+		ResultSet rs = pst.executeQuery();
+		
+		DashboardItemsModel items = new DashboardItemsModel();
+
+		int i = 0;
+
+		while (rs.next() && i < 3)
+		{
+			if (i == 0)
+			{
+				items.setItem1Name(rs.getString("Product_Name"));
+				items.setItem1Price(String.format("%.2f", rs.getDouble("Product_Price")));
+			}
+			
+			else if (i == 1)
+			{
+				items.setItem2Name(rs.getString("Product_Name"));
+				items.setItem2Price(String.format("%.2f", rs.getDouble("Product_Price")));
+			}
+			
+			else
+			{
+				items.setItem3Name(rs.getString("Product_Name"));
+				items.setItem3Price(String.format("%.2f", rs.getDouble("Product_Price")));
+			}
+			
+			i++;
+		}
+		
+		rs.close();
+		pst.close();
+		conn.close();
+
+		return items;
+	}
 }
