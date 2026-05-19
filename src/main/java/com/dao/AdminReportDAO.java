@@ -150,17 +150,18 @@ public class AdminReportDAO {
         return rows;
     }
 
-    public void logExport(String reportType, String exportedBy, int rowCount) throws SQLException {
+    public void storeExport(String reportType, String exportedBy, int rowCount, String status) throws SQLException {
     	
         Connection conn = DBConfig.getConnection();
         
-        String sqlCode = "INSERT INTO export_history (Report_Type, Exported_By, Row_Count) VALUES (?, ?, ?)";
+        String sqlCode = "INSERT INTO export_history (Report_Type, Exported_By, Row_Count, Status) VALUES (?, ?, ?, ?)";
         
         PreparedStatement pst = conn.prepareStatement(sqlCode);
         
         pst.setString(1, reportType);
         pst.setString(2, exportedBy);
         pst.setInt(3, rowCount);
+        pst.setString(4, status);
         
         pst.executeUpdate();
         
@@ -172,27 +173,28 @@ public class AdminReportDAO {
     	
         Connection conn = DBConfig.getConnection();
         
-        String sqlCode = "SELECT Export_ID, Report_Type, Exported_By, Export_Date, Row_Count FROM export_history ORDER BY Export_Date DESC";
+        String sqlCode = "SELECT Export_ID, Report_Type, Exported_By, Export_Date, Row_Count, Status FROM export_history ORDER BY Export_Date DESC";
         
         PreparedStatement pst = conn.prepareStatement(sqlCode);
         ResultSet rs = pst.executeQuery();
         
-        ArrayList<AdminReportModel> data = new ArrayList<>();
+        ArrayList<AdminReportModel> datas = new ArrayList<>();
         
         while (rs.next()) {
-            AdminReportModel dataInside = new AdminReportModel();
-            dataInside.setExportId(rs.getInt("Export_ID"));
-            dataInside.setReportType(rs.getString("Report_Type"));
-            dataInside.setExportedBy(rs.getString("Exported_By"));
-            dataInside.setExportDate(rs.getString("Export_Date").substring(0, 16).replace("T", " "));
-            dataInside.setRowCount(rs.getInt("Row_Count"));
-            data.add(dataInside);
+            AdminReportModel data = new AdminReportModel();
+            data.setExportId(rs.getInt("Export_ID"));
+            data.setReportType(rs.getString("Report_Type"));
+            data.setExportedBy(rs.getString("Exported_By"));
+            data.setExportDate(rs.getString("Export_Date").substring(0, 16).replace("T", " "));
+            data.setRowCount(rs.getInt("Row_Count"));
+            data.setStatus(rs.getString("Status"));
+            datas.add(data);
         }
         
         rs.close();
         pst.close();
         conn.close();
         
-        return data;
+        return datas;
     }
 }

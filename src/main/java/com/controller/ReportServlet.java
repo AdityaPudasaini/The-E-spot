@@ -88,7 +88,7 @@ public class ReportServlet extends HttpServlet {
                 return;
             }
 
-            adminReportDao.logExport(reportType, exportedBy, rows.size() - 1);
+            adminReportDao.storeExport(reportType, exportedBy, rows.size() - 1, "Success");
 
             String fileName = reportType + "_report.csv";
             
@@ -131,8 +131,18 @@ public class ReportServlet extends HttpServlet {
 
         } 
         
-        catch (Exception e) {
+        catch (Exception e) 
+        {
             e.printStackTrace();
+            
+            try {
+                AdminReportDAO adminReportDao2 = new AdminReportDAO();
+                adminReportDao2.storeExport(reportType, exportedBy, 0, "Failed");
+            } 
+            
+            catch (Exception ex) {
+                ex.printStackTrace();
+            }
             response.sendRedirect(request.getContextPath() + "/report?error=export");
         }
 	}

@@ -1,8 +1,8 @@
 CREATE TABLE export_history (
     Export_ID INT(11) PRIMARY KEY AUTO_INCREMENT,
     Report_Type VARCHAR(50),
-    Time_Filter VARCHAR(20),
     Exported_By VARCHAR(100),
     Export_Date DATETIME DEFAULT CURRENT_TIMESTAMP,
-    Row_Count INT(11)
+    Row_Count INT(11),
+    Status VARCHAR(20) DEFAULT 'Success'
 );

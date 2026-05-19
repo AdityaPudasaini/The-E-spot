@@ -6,6 +6,7 @@ public class AdminReportModel {
     private String exportedBy;
     private String exportDate;
     private int rowCount;
+    private String status;
 
     public int getExportId()
     {
@@ -55,5 +56,15 @@ public class AdminReportModel {
     public void setRowCount(int rowCount)
     {
         this.rowCount = rowCount;
+    }
+    
+    public String getStatus() 
+    { 
+    	return status; 
+    }
+    
+    public void setStatus(String status) 
+    { 
+    	this.status = status; 
     }
 }
