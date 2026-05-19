@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Listings - The E-Spot</title>
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/listing.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/userListing.css">
     </head>
 
     <body>
@@ -22,19 +22,20 @@
             </div>
 
             <div class="listingControls">
-                <div class="listingControlsLeft">
-                    <input type="text" class="searchInput" placeholder="Search listings..." id="searchInput" onkeyup="filterListings()" />
-                    <select class="categorySelect" id="categoryFilter" onchange="filterListings()">
-                        <option value="">All Categories</option>
-                        <option value="Electronics">Electronics</option>
-                        <option value="Clothing">Clothing</option>
-                        <option value="Accessories">Accessories</option>
-                        <option value="Audio">Audio</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-                <a href="${pageContext.request.contextPath}/addListing" class="addListingButton">+ Add Listing</a>
-            </div>
+            
+			    <form method="get" action="${pageContext.request.contextPath}/listing" class="listingControlsLeft">
+			    
+			        <input type="text" class="searchInput" name="search" placeholder="Search listings..." value="${searchVal/>
+			        <select class="categorySelect" name="category">
+			            <option value="">All Categories</option>
+			            <c:forEach var="cat" items="${categories}">
+			                <option value="${cat}" ${categoryVal == cat ? 'selected' : ''}>${cat}</option>
+			            </c:forEach>
+			        </select>
+			        <button type="submit" class="searchButton">Search</button>
+			    </form>
+			    <a href="${pageContext.request.contextPath}/addListing" class="addListingButton">+ Add Listing</a>
+			</div>
 
             <c:if test="${not empty param.success}">
                 <div class="successBanner">Listing added successfully!</div>
