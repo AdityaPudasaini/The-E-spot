@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
 <!DOCTYPE html>
 <html>
@@ -20,6 +21,16 @@
 					<img src="${pageContext.request.contextPath}/image?name=${sessionScope.username}" style="width: 100%; height: 100%; border-radius: 50%;" />                
 				</div>
 	        </div>
+	        
+	        <c:if test="${not empty checkError.error}">
+                <div class="errorBanner">
+                    <c:choose>
+                        <c:when test="${checkError.error == 'nodata'}">No data found to export.</c:when>
+                        <c:when test="${checkError.error == 'export'}">Something went wrong during export.</c:when>
+                        <c:otherwise>An unexpected error occurred.</c:otherwise>
+                    </c:choose>
+                </div>
+            </c:if>
 	
 	        <div class="statsRow">
 	            <div class="smallBox">
