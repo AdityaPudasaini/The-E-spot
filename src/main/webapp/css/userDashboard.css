@@ -1,268 +1,273 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* =============================================
+   userDashboard.css — The E-spot User Dashboard
+   ============================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
 
 body {
-    font-family: 'Times New Roman', Times, serif;
-    background: #eef0f8;
-    color: #1f2937;
+    background-color: #eef0f8;
+    color: #111111;
 }
 
-.pageWrapper {
-    max-width: 1100px;       /* was 1280px — tightens the side gaps */
-    margin: 0 auto;
-    padding: 1.5rem;         /* was 2rem 1.5rem 3rem */
-}
-
-.userWelcome {
-    background: #0d1b4b;
-    border-radius: 12px;
-    padding: 1.5rem 2rem;    /* was 2rem 2.5rem — less top/bottom bloat */
-    margin-bottom: 1.25rem;
-}
-
-.welcomeHeading {
-    color: white;
-    font-size: 22px;         /* was 28px */
-    margin-bottom: 4px;
-}
-
-.welcomeSub {
-    color: rgba(255,255,255,0.55);
-    font-size: 13px;
-}
-
-.mainRow {
-    display: grid;
-    gap: 1rem;               /* was 1.25rem flex */
-    margin-bottom: 1rem;
-}
-
-.mainRow:first-of-type {
-    grid-template-columns: 320px 1fr;   /* profile card fixed width, stats fills rest */
-}
-
-.mainRow:not(:first-of-type) {
-    grid-template-columns: 1fr 1fr;
-}
-
-/* ── Profile card ── */
-.profileCard {
-    background: white;
-    border-radius: 12px;
-    border: 0.5px solid #e5e7eb;
-    padding: 1.25rem;
-    box-shadow: none;        /* remove the heavy shadow */
-    display: flex;
-    flex-direction: column;
-}
-
-.profileTop {
+/* ── Top Bar ─────────────────────────────── */
+.userTopBar {
     display: flex;
     align-items: center;
-    gap: 14px;
-    padding-bottom: 1rem;
-    border-bottom: 0.5px solid #e5e7eb;
-    margin-bottom: 1rem;
+    justify-content: space-between;
+    padding: 22px 30px 10px 30px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7ef;
 }
 
-.profileAvatar {
-    width: 56px;
-    height: 56px;
+.userDashboardHeading {
+    font-size: 24px;
+    color: #111111;
+}
+
+.userAvatarCircle {
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
-    overflow: hidden;
-    border: 2px solid #185fa5;
-    flex-shrink: 0;
-}
-
-.profilePhoto {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.profileName {
-    font-size: 16px;
-    color: #1f2937;
-    margin-bottom: 2px;
-}
-
-.profileEmail {
-    font-size: 12px;
-    color: #6b7280;
-}
-
-.profileStatusBadge {
-    display: inline-block;
-    font-size: 11px;
-    padding: 2px 8px;
-    border-radius: 20px;
-    background: #ecfdf5;
-    color: #059669;
-    margin-top: 4px;
-}
-
-/* Info rows inside profile card */
-.profileDetailRow {
+    background-color: #4f5bd5;
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 7px 0;
-    border-bottom: 0.5px solid #e5e7eb;
+    justify-content: center;
 }
 
-.profileDetailRow:last-of-type { border-bottom: none; }
+.userAvatarInitials {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
 
-.detailIcon {
-    width: 28px;
-    height: 28px;
-    border-radius: 8px;
-    background: #eef0f8;
+/* ── Welcome Banner ──────────────────────── */
+.userWelcome {
+    margin: 25px 30px 0 30px;
+    background: linear-gradient(135deg, #1a1f5e, #2d3494);
+    border-radius: 14px;
+    padding: 40px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.userWelcomeTitle {
+    color: #ffffff;
+    font-size: 26px;
+    margin-bottom: 6px;
+}
+
+.userWelcomeSubtitle {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 14px;
+}
+
+.userButtonRectangle {
+    background-color: #111111;
+    border-radius: 10px;
+    padding: 12px 22px;
+    white-space: nowrap;
+}
+
+.userViewProfile {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ── Profile Card ────────────────────────── */
+.userProfileCard {
+    margin: 20px 30px 0 30px;
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 24px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.userProfileLeft {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.userProfileAvatar {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background-color: #4f5bd5;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    font-size: 14px;
-    color: #6b7280;
 }
 
-.detailLabel {
-    font-size: 11px;
-    color: #6b7280;
-    display: block;
-    margin-bottom: 1px;
+.userProfileInitials {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
-.detailValue {
+.userProfileName {
+    font-size: 18px;
+    color: #111111;
+    margin-bottom: 4px;
+}
+
+.userProfileEmail {
+    font-size: 13px;
+    color: #666666;
+    margin-bottom: 4px;
+}
+
+.userProfileMeta {
+    font-size: 13px;
+    color: #888888;
+}
+
+.userEditButton {
+    background-color: #111111;
+    color: #ffffff;
     font-size: 13px;
     font-weight: 600;
-    color: #1f2937;
-}
-
-.profileActions {
-    margin-top: 1rem;
-}
-
-.btnSecondary {
-    display: block;
-    width: 100%;
-    background: transparent;
-    color: #1f2937;
-    border: 0.5px solid #d1d5db;
-    padding: 8px;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 600;
-    text-align: center;
-    text-decoration: none;
-}
-
-.btnSecondary:hover { border-color: #0d1b4b; background: #eef0f8; }
-
-/* ── Stats grid ── */
-.statsGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: .75rem;
-    align-content: center;
-}
-
-.smallBox {
-    background: #eef0f8;     /* muted surface instead of white card */
+    padding: 11px 20px;
     border-radius: 10px;
-    padding: .9rem 1rem;
-    box-shadow: none;
+    text-decoration: none;
+    white-space: nowrap;
 }
 
-.smallText {
-    font-size: 12px;
-    color: #6b7280;
-    font-weight: 500;
+/* ── Stats Row ───────────────────────────── */
+.userStats {
+    display: flex;
+    gap: 18px;
+    margin: 20px 30px 0 30px;
+}
+
+.userSmallBox {
+    flex: 1;
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 22px 20px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.userStatIcon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+}
+
+.userStatIconBlue   { background-color: #ddeeff; }
+.userStatIconPurple { background-color: #ede8ff; }
+.userStatIconGreen  { background-color: #ddf5e8; }
+.userStatIconYellow { background-color: #fdf3d0; }
+
+.userStatImg {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+.userSmallText {
+    font-size: 13px;
+    color: #666666;
     margin-bottom: 6px;
 }
 
-.money {
+.userMoney {
     font-size: 22px;
-    font-weight: 700;
-    color: #1f2937;
+    color: #111111;
 }
 
-/* ── List cards ── */
-.listCard {
-    background: white;
-    border-radius: 12px;
-    border: 0.5px solid #e5e7eb;
-    padding: 1.25rem;
-    box-shadow: none;
+/* ── Bottom Cards ────────────────────────── */
+.userLastBox {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 22px 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
 }
 
-.listCardHeader {
+.userLastBoxHeader {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: .9rem;
+    margin-bottom: 16px;
 }
 
-.listCardTitle { font-size: 14px; font-weight: 600; color: #1f2937; }
-
-.seeMore { font-size: 12px; color: #185fa5; font-weight: 600; text-decoration: none; }
-.seeMore:hover { text-decoration: underline; }
-
-.listItem {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    padding: 9px 0;
-    border-bottom: 0.5px solid #e5e7eb;
+.userLastBoxTitle {
+    font-size: 16px;
+    color: #111111;
 }
 
-.listItem:last-child { border-bottom: none; padding-bottom: 0; }
-
-.listItemName {
+.userSeeMore {
     font-size: 13px;
-    font-weight: 600;
-    color: #1f2937;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 200px;
+    color: #4f5bd5;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.userSeeMore:hover {
+    text-decoration: underline;
+}
+
+/* Item rows inside cards */
+.userListedItem {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.userItemThumb {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background-color: #f0f2f8;
+    flex-shrink: 0;
+}
+
+.userItemInfo {
+    flex: 1;
+}
+
+.userItemName {
+    font-size: 14px;
+    font-weight: 500;
+    color: #111111;
     margin-bottom: 2px;
 }
 
-.listItemSub { font-size: 11px; color: #6b7280; }
-.listItemPrice { font-size: 13px; font-weight: 700; color: #0d1b4b; flex-shrink: 0; }
-
-.statusBadge { font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 4px; flex-shrink: 0; }
-.badgeGreen { background: #ecfdf5; color: #059669; }
-.badgeBlue  { background: #eff2ff; color: #4f6ef7; }
-
-.cartTotal {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 10px;
-    margin-top: 4px;
-    border-top: 0.5px solid #e5e7eb;
+.userItemSub {
+    font-size: 12px;
+    color: #999999;
 }
 
-.cartTotalLabel { font-size: 12px; color: #6b7280; }
-.cartTotalValue { font-size: 14px; font-weight: 700; color: #0d1b4b; }
-
-.btnCheckout {
-    display: block;
-    width: 100%;
-    margin-top: .75rem;
-    background: #0d1b4b;
-    color: white;
-    padding: 9px;
-    border-radius: 8px;
-    font-size: 13px;
+.userItemPrice {
+    font-size: 14px;
     font-weight: 600;
-    text-align: center;
-    text-decoration: none;
+    color: #111111;
+    white-space: nowrap;
 }
 
-.btnCheckout:hover { background: #1a2a6c; }
-
-@media (max-width: 768px) {
-    .mainRow { grid-template-columns: 1fr !important; }
-    .statsGrid { grid-template-columns: 1fr 1fr; }
+/* ── Footer ──────────────────────────────── */
+.userFooter {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: #aaaaaa;
+    margin-left: 250px;
 }
