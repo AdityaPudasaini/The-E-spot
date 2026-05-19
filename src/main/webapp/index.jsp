@@ -64,35 +64,35 @@
         </div>
 
         <div class="reviewPart">
-            <div class="reviewLeft">
-                <h2>Trusted by thousands of buyers and sellers</h2>
-                <p>Join a growing community of people who buy, sell, and discover great deals on The E-spot every single day.</p>
-            </div>
-            <div class="reviewsContainer">
-                <div class="reviewCard">
-                    <div class="reviewStars">5.0/5.0</div>
-                    <p class="reviewText">Sold my laptop within a day of listing. The process was smooth and the buyer was genuine. Highly recommend.</p>
-                    <div class="reviewPerson">
-                        <div class="reviewLogo">P</div>
-                        <div>
-                            <p class="reviewName">Priya S.</p>
-                            <p class="reviewRole">Seller, Kathmandu</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="reviewCard">
-                    <div class="reviewStars">4.5/5.0</div>
-                    <p class="reviewText">Found a great deal on a camera I'd been looking for months. Fast communication, easy checkout.</p>
-                    <div class="reviewPerson">
-                        <div class="reviewLogo">R</div>
-                        <div>
-                            <p class="reviewName">Rajan T.</p>
-                            <p class="reviewRole">Buyer, Pokhara</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+		    <div class="reviewLeft">
+		        <h2>Trusted by thousands of buyers and sellers</h2>
+		        <p>Join a growing community of people who buy, sell, and discover great deals on The E-spot every single day.</p>
+		    </div>
+		    <div class="reviewsContainer">
+		        <div class="reviewCard">
+		            <div class="reviewStars">5/5</div>
+		            <p class="reviewText">Sold my laptop within a day of listing. The process was smooth and the buyer was genuine. Highly recommend.</p>
+		            <div class="reviewPerson">
+		                <div class="reviewLogo">R</div>
+		                <div>
+		                    <p class="reviewName">Ramesh A.</p>
+		                    <p class="reviewRole">Seller, Kathmandu</p>
+		                </div>
+		            </div>
+		        </div>
+		        <div class="reviewCard">
+		            <div class="reviewStars">4/5</div>
+		            <p class="reviewText">Found a great deal on a camera I'd been looking for months. Fast communication, easy checkout.</p>
+		            <div class="reviewPerson">
+		                <div class="reviewLogo">S</div>
+		                <div>
+		                    <p class="reviewName">Suresh T.</p>
+		                    <p class="reviewRole">Buyer, Pokhara</p>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
 
         <footer class="footerSection">
             <div class="footerTop">
