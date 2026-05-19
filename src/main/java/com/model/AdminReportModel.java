@@ -3,7 +3,6 @@ package com.model;
 public class AdminReportModel {
     private int exportId;
     private String reportType;
-    private String timeFilter;
     private String exportedBy;
     private String exportDate;
     private int rowCount;
@@ -26,16 +25,6 @@ public class AdminReportModel {
     public void setReportType(String reportType)
     {
         this.reportType = reportType;
-    }
-
-    public String getTimeFilter()
-    {
-        return timeFilter;
-    }
-    
-    public void setTimeFilter(String timeFilter)
-    {
-        this.timeFilter = timeFilter;
     }
 
     public String getExportedBy()
