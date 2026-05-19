@@ -74,71 +74,64 @@
 	                    </tr>
 	                </thead>
 	                <tbody>
-	                    <tr class="tableRow">
-	                        <td class="tableRowListing">Monthly Revenue Summary</td>
-	                        <td class="tableRowListing">Revenue</td>
-	                        <td class="tableRowListing">Total revenue breakdown by month</td>
-	                        <td class="tableRowListing">Apr 30, 2025</td>
-	                        <td class="tableRowListing"><span class="formatBadge" style="background: #DBEAFE; color: #1E40AF;">CSV</span></td>
-	                        <td class="tableRowListing"><div class="changeButtons"><button class="downloadButton">Download</button><button class="scheduleButton">Schedule</button></div></td>
-	                    </tr>
-	                    <tr class="tableRow">
-	                        <td class="tableRowListing">Order Analytics Report</td>
-	                        <td class="tableRowListing">Orders</td>
-	                        <td class="tableRowListing">Full order history with statuses</td>
-	                        <td class="tableRowListing">Apr 28, 2025</td>
-	                        <td class="tableRowListing"><span class="formatBadge" style="background: #DBEAFE; color: #1E40AF;">CSV</span></td>
-	                        <td class="tableRowListing"><div class="changeButtons"><button class="downloadButton">Download</button><button class="scheduleButton">Schedule</button></div></td>
-	                    </tr>
-	                    <tr class="tableRow">
-	                        <td class="tableRowListing">User Growth Report</td>
-	                        <td class="tableRowListing">Users</td>
-	                        <td class="tableRowListing">New signups and active users</td>
-	                        <td class="tableRowListing">Apr 25, 2025</td>
-	                        <td class="tableRowListing"><span class="formatBadge" style="background: #EDE9FE; color: #5B21B6;">PDF</span></td>
-	                        <td class="tableRowListing"><div class="changeButtons"><button class="downloadButton">Download</button><button class="scheduleButton">Schedule</button></div></td>
-	                    </tr>
-	                    <tr class="tableRow">
-	                        <td class="tableRowListing">Flagged Items Report</td>
-	                        <td class="tableRowListing">Flagged Items</td>
-	                        <td class="tableRowListing">All flagged listings and resolutions</td>
-	                        <td class="tableRowListing">Apr 22, 2025</td>
-	                        <td class="tableRowListing"><span class="formatBadge" style="background: #DBEAFE; color: #1E40AF;">CSV</span></td>
-	                        <td class="tableRowListing"><div class="changeButtons"><button class="downloadButton">Download</button><button class="scheduleButton">Schedule</button></div></td>
-	                    </tr>
-	                    <tr class="tableRow">
-	                        <td class="tableRowListing">Top Selling Products</td>
-	                        <td class="tableRowListing">Listings</td>
-	                        <td class="tableRowListing">Best performing products by sales</td>
-	                        <td class="tableRowListing">Apr 20, 2025</td>
-	                        <td class="tableRowListing"><span class="formatBadge" style="background: #EDE9FE; color: #5B21B6;">PDF</span></td>
-	                        <td class="tableRowListing"><div class="changeButtons"><button class="downloadButton">Download</button><button class="scheduleButton">Schedule</button></div></td>
-	                    </tr>
-	                    <tr class="tableRow">
-	                        <td class="tableRowListing">Refund and Returns Report</td>
-	                        <td class="tableRowListing">Orders</td>
-	                        <td class="tableRowListing">Refunded and returned orders detail</td>
-	                        <td class="tableRowListing">Apr 18, 2025</td>
-	                        <td class="tableRowListing"><span class="formatBadge" style="background: #DBEAFE; color: #1E40AF;">CSV</span></td>
-	                        <td class="tableRowListing"><div class="changeButtons"><button class="downloadButton">Download</button><button class="scheduleButton">Schedule</button></div></td>
-	                    </tr>
-	                    <tr class="tableRow">
-	                        <td class="tableRowListing">Category Performance</td>
-	                        <td class="tableRowListing">Listings</td>
-	                        <td class="tableRowListing">Revenue and orders grouped by category</td>
-	                        <td class="tableRowListing">Apr 15, 2025</td>
-	                        <td class="tableRowListing"><span class="formatBadge" style="background: #EDE9FE; color: #5B21B6;">PDF</span></td>
-	                        <td class="tableRowListing"><div class="changeButtons"><button class="downloadButton">Download</button><button class="scheduleButton">Schedule</button></div></td>
-	                    </tr>
-	                    <tr class="tableRow">
-	                        <td class="tableRowListing">Weekly Traffic Summary</td>
-	                        <td class="tableRowListing">Dashboard</td>
-	                        <td class="tableRowListing">Visits, sessions and bounce rates</td>
-	                        <td class="tableRowListing">Apr 30, 2025</td>
-	                        <td class="tableRowListing"><span class="formatBadge" style="background: #EDE9FE; color: #5B21B6;">PDF</span></td>
-	                        <td class="tableRowListing"><div class="changeButtons"><button class="downloadButton">Download</button><button class="scheduleButton">Schedule</button></div></td>
-	                    </tr>
-	                </tbody>
+                        <tr class="tableRow">
+                            <td class="tableRowListing">Revenue Report</td>
+                            <td class="tableRowListing">Revenue</td>
+                            <td class="tableRowListing">All completed payments with amounts and methods</td>
+                            
+                            <td class="tableRowListing">
+                            	<span class="formatBadge" style="background: #DBEAFE; color: #1E40AF;">CSV</span>
+                            </td>
+                            
+                            <td class="tableRowListing">
+                            
+                                <form method="post" action="${pageContext.request.contextPath}/report">
+                                    <input type="hidden" name="reportType" value="Revenue" />
+                                    <button type="submit" class="downloadButton">Download</button>
+                                </form>
+                            </td>
+                        </tr>
+                        
+                        <tr class="tableRow">
+                            <td class="tableRowListing">Orders Report</td>
+                            <td class="tableRowListing">Orders</td>
+                            <td class="tableRowListing">Full order history with customer names and statuses</td>
+                            
+                            <td class="tableRowListing">
+                            	<span class="formatBadge" style="background: #DBEAFE; color: #1E40AF;">CSV</span>
+                            </td>
+                            
+                            <td class="tableRowListing">
+                            
+                                <form method="post" action="${pageContext.request.contextPath}/report">
+                                    <input type="hidden" name="reportType" value="Orders" />
+                                    <button type="submit" class="downloadButton">Download</button>
+                                </form>
+                                
+                            </td>
+                            
+                        </tr>
+                        
+                        <tr class="tableRow">
+                            <td class="tableRowListing">Products Report</td>
+                            <td class="tableRowListing">Products</td>
+                            <td class="tableRowListing">All product listings with prices, stock and status</td>
+                            
+                            <td class="tableRowListing">
+                            	<span class="formatBadge" style="background: #DBEAFE; color: #1E40AF;">CSV</span>
+                            </td>
+                            
+                            <td class="tableRowListing">
+                            
+                                <form method="post" action="${pageContext.request.contextPath}/report">
+                                    <input type="hidden" name="reportType" value="Products" />
+                                    <button type="submit" class="downloadButton">Download</button>
+                                </form>
+                                
+                            </td>
+                            
+                        </tr>
+                    </tbody>
 	            </table>
 	        </div>
 	
