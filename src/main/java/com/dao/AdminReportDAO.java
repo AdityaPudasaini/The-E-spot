@@ -151,5 +151,23 @@ public class AdminReportDAO {
         return rows;
     }
 
+    public void logExport(String reportType, String exportedBy, int rowCount) throws SQLException {
+    	
+        Connection conn = DBConfig.getConnection();
+        
+        String sqlCode = "INSERT INTO export_history (Report_Type, Exported_By, Row_Count) VALUES (?, ?, ?)";
+        
+        PreparedStatement pst = conn.prepareStatement(sqlCode);
+        
+        pst.setString(1, reportType);
+        pst.setString(2, exportedBy);
+        pst.setInt(3, rowCount);
+        
+        pst.executeUpdate();
+        
+        pst.close();
+        conn.close();
+    }
+
     
 }
