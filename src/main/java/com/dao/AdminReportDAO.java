@@ -118,5 +118,38 @@ public class AdminReportDAO {
         return rows;
     }
 
+    public List<String[]> productsReport() throws SQLException {
+    	
+        Connection conn = DBConfig.getConnection();
+        
+        String sqlCode = "SELECT p.Product_ID, p.Product_Name, p.Product_Price, p.Stock_Quantity, p.Active_Status, p.Listed_Date FROM product p ORDER BY p.Listed_Date DESC";
+        
+        PreparedStatement pst = conn.prepareStatement(sqlCode);
+        ResultSet rs = pst.executeQuery();
+        
+        List<String[]> rows = new ArrayList<>();
+        
+        rows.add(new String[]{"Product ID", "Product Name", "Price", "Stock", "Status", "Listed Date"});
+        
+        while (rs.next()) {
+        	
+            rows.add(new String[] {
+                String.valueOf(rs.getInt("Product_ID")),
+                rs.getString("Product_Name"),
+                String.format("%.2f", rs.getDouble("Product_Price")),
+                String.valueOf(rs.getInt("Stock_Quantity")),
+                rs.getString("Active_Status"),
+                rs.getString("Listed_Date")
+            	}
+            );
+        }
+        
+        rs.close();
+        pst.close();
+        conn.close();
+        
+        return rows;
+    }
+
     
 }
