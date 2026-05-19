@@ -33,31 +33,32 @@
             </c:if>
 	
 	        <div class="statsRow">
-	            <div class="smallBox">
-	                <img class="smallBoxImage" src="https://placehold.co/50x50" alt="">
-	                <div class="smallText">Reports Generated</div>
-	                <div class="moneyDollar">128</div>
-	                <span class="smallStat" style="background: #DCFCE7; color: #166534;">+14% from last month</span>
-	            </div>
-	            <div class="smallBox">
-	                <img class="smallBoxImage" src="https://placehold.co/50x50" alt="">
-	                <div class="smallText">Last Export</div>
-	                <div class="moneyDollar">Today</div>
-	                <span class="smallStat" style="background: #DCFCE7; color: #166534;">Up to date</span>
-	            </div>
-	            <div class="smallBox">
-	                <img class="smallBoxImage" src="https://placehold.co/50x50" alt="">
-	                <div class="smallText">Scheduled Reports</div>
-	                <div class="moneyDollar">6</div>
-	                <span class="smallStat" style="background: #DCFCE7; color: #166534;">Active</span>
-	            </div>
-	            <div class="smallBox">
-	                <img class="smallBoxImage" src="https://placehold.co/50x50" alt="">
-	                <div class="smallText">Failed Exports</div>
-	                <div class="moneyDollar">2</div>
-	                <span class="smallStat" style="background: #FEE2E2; color: #991B1B;">Needs attention</span>
-	            </div>
-	        </div>
+	        
+                <div class="smallBox">
+                    <div class="smallText">Total Exports</div>
+                    <div class="moneyDollar">${totalExports}</div>
+                    <span class="smallStat" style="background: #DBEAFE; color: #1E40AF;">All time</span>
+                </div>
+                
+                <div class="smallBox">
+                    <div class="smallText">Last Export</div>
+                    <div class="moneyDollar" style="font-size: 18px;">${lastExportDate}</div>
+                    <span class="smallStat" style="background: #DCFCE7; color: #166534;">Most recent</span>
+                </div>
+                
+                <div class="smallBox">
+                    <div class="smallText">Available Reports</div>
+                    <div class="moneyDollar">3</div>
+                    <span class="smallStat" style="background: #DCFCE7; color: #166534;">Active</span>
+                </div>
+                
+                <div class="smallBox">
+                    <div class="smallText">Export Format</div>
+                    <div class="moneyDollar" style="font-size: 18px;">CSV</div>
+                    <span class="smallStat" style="background: #DBEAFE; color: #1E40AF;">Supported</span>
+                </div>
+                
+            </div>
 	
 	        <div class="tableBox">
 	            <div class="tableTitle">Available Reports</div>
