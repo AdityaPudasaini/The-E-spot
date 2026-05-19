@@ -1,0 +1,270 @@
+@charset "UTF-8";
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #eef0f8;
+    color: #111111;
+}
+
+/* ── Top Bar ─────────────────────────────── */
+.userTopBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 30px 10px 30px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7ef;
+}
+
+.userDashboardHeading {
+    font-size: 24px;
+    color: #111111;
+}
+
+.userAvatarCircle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #4f5bd5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userAvatarInitials {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* ── Welcome Banner ──────────────────────── */
+.userWelcome {
+    margin: 25px 30px 0 30px;
+    background: linear-gradient(135deg, #1a1f5e, #2d3494);
+    border-radius: 14px;
+    padding: 40px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.userWelcomeTitle {
+    color: #ffffff;
+    font-size: 26px;
+    margin-bottom: 6px;
+}
+
+.userWelcomeSubtitle {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 14px;
+}
+
+.userButtonRectangle {
+    background-color: #111111;
+    border-radius: 10px;
+    padding: 12px 22px;
+    white-space: nowrap;
+}
+
+.userViewProfile {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ── Profile Card ────────────────────────── */
+.userProfileCard {
+    margin: 20px 30px 0 30px;
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 24px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.userProfileLeft {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.userProfileAvatar {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background-color: #4f5bd5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.userProfileInitials {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.userProfileName {
+    font-size: 18px;
+    color: #111111;
+    margin-bottom: 4px;
+}
+
+.userProfileEmail {
+    font-size: 13px;
+    color: #666666;
+    margin-bottom: 4px;
+}
+
+.userProfileMeta {
+    font-size: 13px;
+    color: #888888;
+}
+
+.userEditButton {
+    background-color: #111111;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 11px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* ── Stats Row ───────────────────────────── */
+.userStats {
+    display: flex;
+    gap: 18px;
+    margin: 20px 30px 0 30px;
+}
+
+.userSmallBox {
+    flex: 1;
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 22px 20px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.userStatIcon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+}
+
+.userStatIconBlue   { background-color: #ddeeff; }
+.userStatIconPurple { background-color: #ede8ff; }
+.userStatIconGreen  { background-color: #ddf5e8; }
+.userStatIconYellow { background-color: #fdf3d0; }
+
+.userStatImg {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+.userSmallText {
+    font-size: 13px;
+    color: #666666;
+    margin-bottom: 6px;
+}
+
+.userMoney {
+    font-size: 22px;
+    color: #111111;
+}
+
+/* ── Bottom Cards ────────────────────────── */
+.userLastBox {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 22px 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.userLastBoxHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.userLastBoxTitle {
+    font-size: 16px;
+    color: #111111;
+}
+
+.userSeeMore {
+    font-size: 13px;
+    color: #4f5bd5;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.userSeeMore:hover {
+    text-decoration: underline;
+}
+
+/* Item rows inside cards */
+.userListedItem {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.userItemThumb {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background-color: #f0f2f8;
+    flex-shrink: 0;
+}
+
+.userItemInfo {
+    flex: 1;
+}
+
+.userItemName {
+    font-size: 14px;
+    font-weight: 500;
+    color: #111111;
+    margin-bottom: 2px;
+}
+
+.userItemSub {
+    font-size: 12px;
+    color: #999999;
+}
+
+.userItemPrice {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111111;
+    white-space: nowrap;
+}
+
+/* ── Footer ──────────────────────────────── */
+.userFooter {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: #aaaaaa;
+    margin-left: 250px;
+}
