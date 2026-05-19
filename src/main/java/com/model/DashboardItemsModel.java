@@ -3,11 +3,11 @@ package com.model;
 public class DashboardItemsModel {
 	
 	private String item1Name;
-    private double item1Price;
+    private String item1Price;
     private String item2Name;
-    private double item2Price;
+    private String item2Price;
     private String item3Name;
-    private double item3Price;
+    private String item3Price;
   
     public String getItem1Name() 
     { 
@@ -19,12 +19,12 @@ public class DashboardItemsModel {
     	this.item1Name = item1Name; 
     }
  
-    public double getItem1Price() 
+    public String getItem1Price() 
     { 
     	return item1Price; 
     }
     
-    public void setItem1Price(double item1Price) 
+    public void setItem1Price(String item1Price) 
     { 
     	this.item1Price = item1Price; 
     }
@@ -39,12 +39,12 @@ public class DashboardItemsModel {
     	this.item2Name = item2Name; 
     }
  
-    public double getItem2Price() 
+    public String getItem2Price() 
     { 
     	return item2Price; 
     }
     
-    public void setItem2Price(double item2Price) 
+    public void setItem2Price(String item2Price) 
     { 
     	this.item2Price = item2Price; 
     }
@@ -59,13 +59,13 @@ public class DashboardItemsModel {
     	this.item3Name = item3Name; 
     }
  
-    public double getItem3Price()             
+    public String getItem3Price()             
     { 
     	return item3Price; 
     }
     
-    public void setItem3Price(double v)     
+    public void setItem3Price(String item3Price)     
     { 
-    	this.item3Price = v; 
+    	this.item3Price = item3Price; 
     }
 }

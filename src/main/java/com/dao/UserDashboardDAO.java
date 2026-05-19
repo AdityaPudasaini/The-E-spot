@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.model.DashboardItemsModel;
 import com.model.UserStatsModel;
 import com.utils.DBConfig;
 
@@ -112,5 +113,51 @@ public class UserDashboardDAO {
 		conn.close();
 
 		return stats;
+	}
+	
+	public DashboardItemsModel cartItems(int memberId) throws SQLException {
+		
+		Connection conn = DBConfig.getConnection();
+
+		String sql = "SELECT p.Product_Name, p.Product_Price FROM cart c JOIN cart_items ci ON ci.Cart_ID = c.Cart_ID JOIN product p ON p.Product_ID = ci.Product_ID WHERE c.Member_ID = ? ORDER BY ci.Cart_Items_ID DESC LIMIT 3";
+		
+		PreparedStatement pst = conn.prepareStatement(sql);
+		
+		pst.setInt(1, memberId);
+		
+		ResultSet rs = pst.executeQuery();
+		
+		DashboardItemsModel items = new DashboardItemsModel();
+
+		int i = 0;
+
+		while (rs.next() && i < 3)
+		{
+			if (i == 0)
+			{
+				items.setItem1Name(rs.getString("Product_Name"));
+				items.setItem1Price(String.format("%.2f", rs.getDouble("Product_Price")));
+			}
+			
+			else if (i == 1)
+			{
+				items.setItem2Name(rs.getString("Product_Name"));
+				items.setItem2Price(String.format("%.2f", rs.getDouble("Product_Price")));
+			}
+			
+			else
+			{
+				items.setItem3Name(rs.getString("Product_Name"));
+				items.setItem3Price(String.format("%.2f", rs.getDouble("Product_Price")));
+			}
+			
+			i++;
+		}
+		
+		rs.close();
+		pst.close();
+		conn.close();
+
+		return items;
 	}
 }
