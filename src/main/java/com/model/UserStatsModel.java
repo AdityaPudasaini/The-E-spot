@@ -4,7 +4,7 @@ public class UserStatsModel {
 	private String totalRevenue;
     private int totalBought;
     private int totalSold;
-    private double totalSpent;
+    private String totalSpent;
  
     public String getTotalRevenue()         
     { 
@@ -36,13 +36,13 @@ public class UserStatsModel {
     	this.totalSold = totalSold; 
     }
  
-    public double getTotalSpent()           
+    public String getTotalSpent()           
     { 
     	return totalSpent; 
     }
     
-    public void setTotalSpent(double v)   
+    public void setTotalSpent(String totalSpent)   
     { 
-    	this.totalSpent = v; 
+    	this.totalSpent = totalSpent; 
     }
 }
