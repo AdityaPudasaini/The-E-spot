@@ -1,6 +1,7 @@
 package com.controller;
 
 import jakarta.servlet.ServletException;
+import com.dao.AdminReportDAO;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -28,9 +29,20 @@ public class ReportServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		request.setAttribute("currentPage", "reports");
-		request.getRequestDispatcher("/WEB-INF/pages/report.jsp").forward(request, response);
-	}
+		try {
+			AdminReportDAO adminReportDao = new AdminReportDAO();
+            request.setAttribute("totalExports", adminReportDao.totalExports());
+            request.setAttribute("lastExportDate", adminReportDao.lastExportDate());
+            request.setAttribute("exportHistory", adminReportDao.allExports());
+        } 
+		
+		catch (Exception e) {
+            e.printStackTrace();
+        }
+		
+        request.setAttribute("currentPage", "reports");
+        request.getRequestDispatcher("/WEB-INF/pages/report.jsp").forward(request, response);
+    }
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
