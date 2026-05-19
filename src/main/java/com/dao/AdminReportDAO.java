@@ -8,7 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class AdminReportDAO {
 
@@ -56,7 +55,7 @@ public class AdminReportDAO {
         return date;
     }
 
-    public List<String[]> revenueReport() throws SQLException {
+    public ArrayList<String[]> revenueReport() throws SQLException {
     	
         Connection conn = DBConfig.getConnection();
         
@@ -65,7 +64,7 @@ public class AdminReportDAO {
         PreparedStatement pst = conn.prepareStatement(sqlCode);
         ResultSet rs = pst.executeQuery();
         
-        List<String[]> rows = new ArrayList<>();
+        ArrayList<String[]> rows = new ArrayList<>();
         
         rows.add(new String[]{"Payment ID", "Date", "Amount", "Method", "Status"});
         
@@ -88,7 +87,7 @@ public class AdminReportDAO {
         return rows;
     }
 
-    public List<String[]> ordersReport() throws SQLException {
+    public ArrayList<String[]> ordersReport() throws SQLException {
     	
         Connection conn = DBConfig.getConnection();
         
@@ -97,7 +96,7 @@ public class AdminReportDAO {
         PreparedStatement pst = conn.prepareStatement(sqlCode);
         ResultSet rs = pst.executeQuery();
         
-        List<String[]> rows = new ArrayList<>();
+        ArrayList<String[]> rows = new ArrayList<>();
         
         rows.add(new String[]{"Order ID", "Customer", "Date", "Status"});
         
@@ -118,7 +117,7 @@ public class AdminReportDAO {
         return rows;
     }
 
-    public List<String[]> productsReport() throws SQLException {
+    public ArrayList<String[]> productsReport() throws SQLException {
     	
         Connection conn = DBConfig.getConnection();
         
@@ -127,7 +126,7 @@ public class AdminReportDAO {
         PreparedStatement pst = conn.prepareStatement(sqlCode);
         ResultSet rs = pst.executeQuery();
         
-        List<String[]> rows = new ArrayList<>();
+        ArrayList<String[]> rows = new ArrayList<>();
         
         rows.add(new String[]{"Product ID", "Product Name", "Price", "Stock", "Status", "Listed Date"});
         

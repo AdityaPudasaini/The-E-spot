@@ -7,6 +7,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 
 /**
  * Servlet implementation class ReportServlet
@@ -49,7 +51,90 @@ public class ReportServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String reportType = request.getParameter("reportType");
+        String exportedBy = (String) request.getSession().getAttribute("username");
+
+        if (reportType == null) {
+        	reportType = "Revenue";
+        }
+        
+        if (exportedBy == null) {
+        	exportedBy = "Admin";
+        }
+
+        try {
+            AdminReportDAO adminReportDao = new AdminReportDAO();
+            
+            ArrayList<String[]> rows = null;
+
+            if (reportType.equals("Revenue")) 
+            {
+                rows = adminReportDao.revenueReport();
+            } 
+            
+            else if (reportType.equals("Orders")) 
+            {
+                rows = adminReportDao.ordersReport();
+            } 
+            
+            else if (reportType.equals("Products")) 
+            {
+                rows = adminReportDao.productsReport();
+            }
+
+            if (rows == null || rows.size() <= 1) 
+            {
+                response.sendRedirect(request.getContextPath() + "/report?error=nodata");
+                return;
+            }
+
+            adminReportDao.logExport(reportType, exportedBy, rows.size() - 1);
+
+            String fileName = reportType + "_report.csv";
+            
+            response.setContentType("text/csv");
+            response.setHeader("Content-Disposition", "attachment; filename=\"" + fileName + "\"");
+
+            PrintWriter writer = response.getWriter();
+            
+            for (String[] row : rows) 
+            {
+                StringBuilder line = new StringBuilder();
+                
+                for (int i = 0; i < row.length; i++) 
+                {
+                	
+                	if (i > 0) 
+                	{
+                	    line.append(",");
+                	}
+
+                	String cell;
+                	
+                	if (row[i] == null) 
+                	{
+                	    cell = "";
+                	} 
+                	
+                	else 
+                	{
+                	    cell = row[i].replace("\"", "\"\"");
+                	}
+
+                	line.append("\"").append(cell).append("\"");
+                }
+                
+                writer.println(line.toString());
+            }
+            
+            writer.flush();
+
+        } 
+        
+        catch (Exception e) {
+            e.printStackTrace();
+            response.sendRedirect(request.getContextPath() + "/report?error=export");
+        }
 	}
 
 }
