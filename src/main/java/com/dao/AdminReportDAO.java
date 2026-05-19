@@ -169,5 +169,31 @@ public class AdminReportDAO {
         conn.close();
     }
 
-    
+    public ArrayList<AdminReportModel> allExports() throws SQLException {
+    	
+        Connection conn = DBConfig.getConnection();
+        
+        String sqlCode = "SELECT Export_ID, Report_Type, Exported_By, Export_Date, Row_Count FROM export_history ORDER BY Export_Date DESC";
+        
+        PreparedStatement pst = conn.prepareStatement(sqlCode);
+        ResultSet rs = pst.executeQuery();
+        
+        ArrayList<AdminReportModel> data = new ArrayList<>();
+        
+        while (rs.next()) {
+            AdminReportModel dataInside = new AdminReportModel();
+            dataInside.setExportId(rs.getInt("Export_ID"));
+            dataInside.setReportType(rs.getString("Report_Type"));
+            dataInside.setExportedBy(rs.getString("Exported_By"));
+            dataInside.setExportDate(rs.getString("Export_Date").substring(0, 16).replace("T", " "));
+            dataInside.setRowCount(rs.getInt("Row_Count"));
+            data.add(dataInside);
+        }
+        
+        rs.close();
+        pst.close();
+        conn.close();
+        
+        return data;
+    }
 }
