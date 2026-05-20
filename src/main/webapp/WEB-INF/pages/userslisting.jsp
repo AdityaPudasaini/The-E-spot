@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Listings - The E-Spot</title>
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/userListing.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/usersListing.css">
     </head>
 
     <body>
@@ -16,32 +16,32 @@
             <div class="userTopBar">
                 <p class="userDashboardHeading"><b>Listings</b></p>
                 <div class="userAvatarCircle">
-                    <img src="${pageContext.request.contextPath}/image?name=${sessionScope.username}" style="width: 100%; height: 100%; border-radius: 50%;" />
+                    <img src="${pageContext.request.contextPath}/image?name=${sessionScope.username}" style="width: 100%; height: 100%; border-radius: 50%;"/>
                 </div>
             </div>
 
-            <div class="listingControls">
-            
-			    <form method="get" action="${pageContext.request.contextPath}/listing" class="listingControlsLeft">
-			    
-			        <input type="text" class="searchInput" name="search" placeholder="Search listings..." value="${searchVal}"/>
-			        
-			        <select class="categorySelect" name="category">
-			        
-			            <option value="">All Categories</option>
-			            
-			            <c:forEach var="cat" items="${categories}">
-			                <option value="${cat}" ${categoryVal == cat ? 'selected' : ''}>${cat}</option>
-			            </c:forEach>
-			            
-			        </select>
-			        
-			        <button type="submit" class="searchButton">Search</button>
-			        
-			    </form>
-			    
-			    <a href="${pageContext.request.contextPath}/addListing" class="addListingButton">+ Add Listing</a>
-			</div>
+			<div class="listingControls">
+	            <form method="get" action="${pageContext.request.contextPath}/UserListing">
+				    <div class="categoriesSelect">
+				
+				        <input type="text" class="searchInput" placeholder="Search listings" name="search" value="${selectedSearch}" />
+				
+				        <select class="categories" name="category" onchange="this.form.submit()">
+				        
+				            <option value="">All Categories</option>
+				            
+				            <c:forEach var="cat" items="${categories}">
+				            
+				                <option value="${cat}" <c:if test="${cat == selectedCategory}">selected</c:if> >${cat}</option>
+				            </c:forEach>
+				        </select>
+				
+				        <button type="submit" style="display: none;"></button>
+				    </div>
+				</form>
+			
+			<a href="${pageContext.request.contextPath}/addListing" class="addListingButton">+ Add Listing</a>
+		</div>
 			
 
             <c:if test="${not empty param.success}">

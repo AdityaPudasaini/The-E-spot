@@ -31,38 +31,41 @@ public class UserListingServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String search = request.getParameter("search");
-        String category = request.getParameter("category");
+		String selectedCategory = request.getParameter("category");
+		String searched = request.getParameter("search");
 
-        if (search == null) 
-        { 
-        	search = ""; 
-        }
-        
-        if (category == null) 
-        {
-        	category = ""; 
-        }
+		if (selectedCategory == null) 
+		{ 
+			selectedCategory = ""; 
+		}
+		
+		if (searched == null) 
+		{ 
+			searched = ""; 
+		}
+
+		request.setAttribute("selectedCategory", selectedCategory);
+		request.setAttribute("selectedSearch", searched);
 
         try {
             ProductListingDAO dao = new ProductListingDAO();
             
-            ArrayList<ProductListingModel> listings = dao.getAllListings(search, category);
+            ArrayList<ProductListingModel> listings = dao.getAllListings(searched, selectedCategory);
             
             ArrayList<String> categories = dao.getAllCategories();
             
             request.setAttribute("listings", listings);
             request.setAttribute("categories", categories);
-            request.setAttribute("searchVal", search);
-            request.setAttribute("categoryVal", category);
+            request.setAttribute("searchVal", searched);
+            request.setAttribute("categoryVal", selectedCategory);
         } 
         
         catch (Exception e) {
             e.printStackTrace();
         }
 
-        request.setAttribute("currentPage", "listing");
-        request.getRequestDispatcher("/WEB-INF/pages/listing.jsp").forward(request, response);
+        request.setAttribute("currentPage", "Product");
+        request.getRequestDispatcher("/WEB-INF/pages/usersListing.jsp").forward(request, response);
 	}
 
 	/**

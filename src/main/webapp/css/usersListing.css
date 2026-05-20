@@ -47,48 +47,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 24px 30px;
-    gap: 12px;
-}
-
-.listingControlsLeft {
-    display: flex;
-    gap: 12px;
-    flex: 1;
-}
-
-.searchInput {
-    padding: 10px 16px;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    font-size: 14px;
-    width: 260px;
-    background: #ffffff;
-    color: #111111;
-    font-family: "Times New Roman", Times, serif;
-    outline: none;
-    transition: border-color 0.2s;
-}
-
-.searchInput:focus {
-    border-color: #2563EB;
-}
-
-.categorySelect {
-    padding: 10px 16px;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    font-size: 14px;
-    background: #ffffff;
-    color: #111111;
-    font-family: "Times New Roman", Times, serif;
-    cursor: pointer;
-    outline: none;
-    transition: border-color 0.2s;
-}
-
-.categorySelect:focus {
-    border-color: #2563EB;
 }
 
 .addListingButton {
@@ -100,11 +58,54 @@ body {
     font-weight: 600;
     text-decoration: none;
     white-space: nowrap;
-    transition: background 0.15s;
+    margin-right: 30px;
+    margin-top: 0;
+    font-family: "Times New Roman", Times, serif;
 }
 
 .addListingButton:hover {
     background-color: #1D4ED8;
+}
+
+.searchInput {
+    padding: 10px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 14px;
+    width: 900px;
+    background: #ffffff;
+    color: #111111;
+    font-family: "Times New Roman", Times, serif;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.searchInput:focus {
+    border-color: #2563EB;
+}
+
+.categoriesSelect {
+    display: flex;
+    gap: 12px;
+    padding: 10px 16px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 20px 0 30px 15px;
+}
+
+.categories {
+    border: 1px solid #E2E8F0;
+    padding: 10px 16px;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 14px;
+    font-family: "Times New Roman", Times, serif;
+    height: 42px;
+}
+
+.categories:focus {
+    border-color: #2563EB;
+    outline: none;
 }
 
 .successBanner {
