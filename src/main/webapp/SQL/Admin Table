@@ -6,3 +6,5 @@ CREATE TABLE admin (
     Admin_Permission VARCHAR(100),
     Admin_Username VARCHAR(255)
 );
+
+SELECT * FROM admin;
