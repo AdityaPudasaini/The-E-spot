@@ -4,3 +4,7 @@ CREATE TABLE wishlist (
     Created_At DATETIME,
     FOREIGN KEY (Member_ID) REFERENCES member(Member_ID)
 );
+
+INSERT INTO wishlist (Member_ID, Created_At) VALUES (?, NOW());
+
+SELECT Wishlist_ID FROM wishlist WHERE Member_ID = ?;
