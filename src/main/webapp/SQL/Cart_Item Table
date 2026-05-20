@@ -6,3 +6,13 @@ CREATE TABLE cart_items (
     FOREIGN KEY (Product_ID) REFERENCES product(Product_ID),
     FOREIGN KEY (Cart_ID) REFERENCES cart(Cart_ID)
 );
+
+INSERT INTO cart_items (Product_ID, Cart_ID, Cart_Quantity) VALUES (?, ?, ?);
+
+SELECT Cart_Items_ID FROM cart_items WHERE Cart_ID = ? AND Product_ID = ?;
+
+SELECT Cart_Quantity FROM cart_items WHERE Cart_Items_ID = ?;
+
+UPDATE cart_items SET Cart_Quantity = ? WHERE Cart_Items_ID = ?;
+
+DELETE FROM cart_items WHERE Cart_Items_ID = ?;
