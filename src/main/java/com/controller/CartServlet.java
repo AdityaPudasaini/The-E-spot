@@ -14,7 +14,7 @@ import com.model.CartModel;
 /**
  * Servlet implementation class CartServlet
  */
-@WebServlet("/CartServlet")
+@WebServlet("/Cart")
 public class CartServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -44,8 +44,8 @@ public class CartServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        request.setAttribute("currentPage", "cart");
-        request.getRequestDispatcher("/WEB-INF/pages/cartPage.jsp").forward(request, response);
+        request.setAttribute("currentPage", "Cart");
+        request.getRequestDispatcher("/WEB-INF/pages/cart.jsp").forward(request, response);
 	}
 
 	/**

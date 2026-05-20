@@ -65,4 +65,9 @@ public class CartModel {
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
+    
+    public String getTotal() {
+        double total = productPrice * quantity;
+        return String.format("%.2f", total);
+    }
 }

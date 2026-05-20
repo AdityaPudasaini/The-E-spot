@@ -388,8 +388,8 @@ public class CartWishlistDAO {
 
         Connection conn = DBConfig.getConnection();
         
-        String sqlCode = "SELECT ci.Cart_Items_ID, ci.Cart_Quantity, p.Product_ID, p.Product_Name, p.Product_Price, c.Category_Name FROM cart_items ci JOIN product p ON ci.Product_ID = p.Product_ID JOIN category c ON p.Category_ID = c.Category_ID ORDER BY ci.Cart_Items_ID DESC";
-
+        String sqlCode = "SELECT ci.Cart_Items_ID, ci.Cart_Quantity, p.Product_ID, p.Product_Name, p.Product_Price, c.Category_Name FROM cart_items ci JOIN product p ON ci.Product_ID = p.Product_ID JOIN category c ON p.Category_ID = c.Category_ID WHERE ci.Cart_ID = ? ORDER BY ci.Cart_Items_ID DESC";
+        
         PreparedStatement pst = conn.prepareStatement(sqlCode);
         
         pst.setInt(1, cartId);

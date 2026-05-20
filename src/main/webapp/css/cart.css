@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Times New Roman", Times, serif;
+}
+
+body {
+    background-color: #eef0f8;
+    color: #111111;
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    min-height: 700px;
+}
+
+.userTopBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 30px 10px 30px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7ef;
+}
+
+.userDashboardHeading {
+    font-size: 30px;
+    color: #111111;
+}
+
+.userAvatarCircle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #4f5bd5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cartWrapper {
+    padding: 28px 30px;
+}
+
+.cartHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.cartTitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111111;
+}
+
+.tableBox {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.listingTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableHead {
+    text-align: left;
+    padding: 14px 18px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: #F8FAFF;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.tableRow:hover {
+    background-color: #f0f2ff;
+}
+
+.tableRowListing {
+    padding: 14px 18px;
+    font-size: 14px;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.tableRow:last-child .tableRowListing {
+    border-bottom: none;
+}
+
+.productImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    object-fit: cover;
+    display: block;
+}
+
+.deleteButton {
+    border: none;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    background-color: #EF4444;
+}
+
+.deleteButton:hover {
+    background-color: #B91C1C;
+}
