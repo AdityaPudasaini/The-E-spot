@@ -46,7 +46,7 @@
                                     <td class="tableRowListing">${item.categoryName}</td>
                                     <td class="tableRowListing">$${item.formattedPrice}</td>
                                     <td class="tableRowListing">
-                                        <form action="${pageContext.request.contextPath}/wishlistPage" method="post" style="display:inline;">
+                                        <form action="${pageContext.request.contextPath}/Wishlist" method="post" style="display:inline;">
                                             <input type="hidden" name="wishlistItemId" value="${item.wishlistItemId}" />
                                             <button class="deleteButton" name="remove" type="submit">Remove</button>
                                         </form>

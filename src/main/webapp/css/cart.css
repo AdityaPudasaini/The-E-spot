@@ -134,3 +134,49 @@ body {
 .deleteButton:hover {
     background-color: #B91C1C;
 }
+
+.buyWrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.outOfStockLabel {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    font-weight: 700;
+    color: #EF4444;
+    white-space: nowrap;
+}
+
+.buyButton {
+    border: none;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    color: white;
+    background-color: #2563EB;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.buyButton:hover {
+    background-color: #1D4ED8;
+}
+
+.buyButton:disabled {
+    background-color: #93C5FD;
+    cursor: not-allowed;
+}
+
+.actionsCell {
+    padding: 14px 16px;
+    border-bottom: 1px solid #F1F5F9;
+    font-size: 14px;
+    color: #0F172A;
+    vertical-align: middle;
+    padding-top: 28px;
+}

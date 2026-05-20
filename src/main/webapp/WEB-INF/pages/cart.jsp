@@ -51,26 +51,34 @@
 						            <td class="tableRowListing">${item.quantity}</td>
 						            <td class="tableRowListing">$${item.total}</td>
 						            <td class="tableRowListing">
-						                <div style="display: flex; gap: 6px;">
-						                    <c:choose>
-						                        <c:when test="${item.stockQuantity == 0}">
-						                            <span style="color: #EF4444; font-size: 12px; font-weight: bold;">Out of Stock</span>
-						                        </c:when>
-						                        <c:otherwise>
-						                            <form action="${pageContext.request.contextPath}/Cart" method="post" style="display:inline;">
-						                                <input type="hidden" name="cartItemId" value="${item.cartItemId}" />
-						                                <input type="hidden" name="productId" value="${item.productId}" />
-						                                <input type="hidden" name="quantity" value="${item.quantity}" />
-						                                <button class="editButton" name="buy" type="submit"  style="border: none; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: bold; cursor: pointer; color: white; background-color: #2563EB; mrgin-right: 20px">Buy</button>
-						                            </form>
-						                        </c:otherwise>
-						                    </c:choose>
-						                    <form action="${pageContext.request.contextPath}/Cart" method="post" style="display:inline;">
-						                        <input type="hidden" name="cartItemId" value="${item.cartItemId}" />
-						                        <button class="deleteButton" name="remove" type="submit">Remove</button>
-						                    </form>
-						                </div>
-						            </td>
+									    <div style="display: flex; gap: 6px; align-items: center;">
+									        <c:choose>
+									            <c:when test="${item.stockQuantity == 0}">
+									                <form action="${pageContext.request.contextPath}/Cart" method="post" style="display:inline;">
+									                    <input type="hidden" name="cartItemId" value="${item.cartItemId}" />
+									                    <input type="hidden" name="productId" value="${item.productId}" />
+									                    <input type="hidden" name="quantity" value="${item.quantity}" />
+									                    <div class="buyWrapper">
+									                        <span class="outOfStockLabel">Out of Stock</span>
+									                        <button class="buyButton" name="buy" type="submit" disabled>Buy</button>
+									                    </div>
+									                </form>
+									            </c:when>
+									            <c:otherwise>
+									                <form action="${pageContext.request.contextPath}/Cart" method="post" style="display:inline;">
+									                    <input type="hidden" name="cartItemId" value="${item.cartItemId}" />
+									                    <input type="hidden" name="productId" value="${item.productId}" />
+									                    <input type="hidden" name="quantity" value="${item.quantity}" />
+									                    <button class="buyButton" name="buy" type="submit">Buy</button>
+									                </form>
+									            </c:otherwise>
+									        </c:choose>
+									        <form action="${pageContext.request.contextPath}/Cart" method="post" style="display:inline;">
+									            <input type="hidden" name="cartItemId" value="${item.cartItemId}" />
+									            <button class="deleteButton" name="remove" type="submit">Remove</button>
+									        </form>
+									    </div>
+									</td>
 						        </tr>
 						    </c:forEach>
 						</tbody>
