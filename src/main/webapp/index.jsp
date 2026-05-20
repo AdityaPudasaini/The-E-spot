@@ -1,11 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%-- The E-spot Version 1.0.19 - Typography Centric UI --%>
+<%-- The E-spot Version 1.0.20 - Expanded Sidebar Layout --%>
 <style>
-body { background: #fff; color: #000; padding: 100px; font-family: "Helvetica Neue", Arial; line-height: 1.5; }
-h1 { font-size: 80px; letter-spacing: -4px; margin: 0; }
-.stats { font-size: 24px; margin-top: 40px; border-top: 1px solid #000; padding-top: 20px; }
+body { display: flex; margin: 0; height: 100vh; font-family: "Inter", sans-serif; background: #f4f4f5; }
+.side { width: 250px; background: #18181b; color: white; padding: 30px; }
+.main { flex: 1; padding: 50px; }
+.link { color: #a1a1aa; display: block; margin: 15px 0; text-decoration: none; }
+.link:hover { color: white; }
 </style>
-<h1>The E-spot.</h1>
-<div class="stats">
-    Revenue: $68.5k / Users: 12k / Status: Healthy
+<div class="side">
+    <h2>The E-spot</h2>
+    <a href="#" class="link">Dashboard</a>
+    <a href="#" class="link">Revenue</a>
+    <a href="#" class="link">Flagged</a>
+</div>
+<div class="main">
+    <h1>General Report</h1>
+    <p>Version 1.0.20 iteration successfully deployed to system.</p>
 </div>
