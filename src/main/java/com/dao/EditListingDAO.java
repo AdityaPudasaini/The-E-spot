@@ -1,7 +1,7 @@
 package com.dao;
 
 import com.model.CategoryModel;
-import com.model.ProductDetailModel;
+import com.model.ProductListingModel;
 import com.utils.DBConfig;
 
 import java.sql.Connection;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class EditListingDAO {
 
-    public ProductDetailModel getProductById(int productId) throws SQLException {
+    public ProductListingModel getProductById(int productId) throws SQLException {
         Connection conn = DBConfig.getConnection();
 
         String sqlCode = "SELECT p.Product_ID, p.Product_Name, p.Product_Description, p.Product_Price, p.Stock_Quantity, p.Active_Status, p.Listed_Date, c.Category_ID, c.Category_Name, m.Member_ID, m.Member_Username FROM product p JOIN category c ON p.Category_ID = c.Category_ID JOIN member m ON p.Seller_ID = m.Member_ID WHERE p.Product_ID = ?";
@@ -22,10 +22,10 @@ public class EditListingDAO {
 
         ResultSet rs = pst.executeQuery();
 
-        ProductDetailModel product = null;
+        ProductListingModel product = null;
 
         if (rs.next()) {
-            product = new ProductDetailModel();
+            product = new ProductListingModel();
 
             product.setProductId(rs.getInt("Product_ID"));
             product.setProductName(rs.getString("Product_Name"));
