@@ -11,7 +11,7 @@
     <body>
         <%@ include file="/Component/userSidebar.jsp" %>
 
-        <div class="mainContent">
+        <div class="mainContent" style="min-height: 900px;">
 
             <div class="userTopBar">
                 <p class="userDashboardHeading"><b>Listings</b></p>
@@ -21,7 +21,7 @@
             </div>
 
 			<div class="listingControls">
-	            <form method="get" action="${pageContext.request.contextPath}/UserListing">
+	            <form method="post" action="${pageContext.request.contextPath}/UserListing">
 				    <div class="categoriesSelect">
 				
 				        <input type="text" class="searchInput" placeholder="Search listings" name="search" value="${selectedSearch}" />

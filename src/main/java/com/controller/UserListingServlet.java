@@ -31,6 +31,36 @@ public class UserListingServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		try {
+			
+			String selectedCategory = "";
+			String searched = "";
+			
+            ProductListingDAO dao = new ProductListingDAO();
+            
+            ArrayList<ProductListingModel> listings = dao.getAllListings(searched, selectedCategory);
+            
+            ArrayList<String> categories = dao.getAllCategories();
+            
+            request.setAttribute("listings", listings);
+            request.setAttribute("categories", categories);
+            request.setAttribute("searchVal", searched);
+            request.setAttribute("categoryVal", selectedCategory);
+        } 
+        
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+		
+        request.setAttribute("currentPage", "Product");
+        request.getRequestDispatcher("/WEB-INF/pages/usersListing.jsp").forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		String selectedCategory = request.getParameter("category");
 		String searched = request.getParameter("search");
 
@@ -66,14 +96,6 @@ public class UserListingServlet extends HttpServlet {
 
         request.setAttribute("currentPage", "Product");
         request.getRequestDispatcher("/WEB-INF/pages/usersListing.jsp").forward(request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
 	}
 
 }
