@@ -4,3 +4,7 @@ CREATE TABLE cart (
     Created_At DATETIME,
     FOREIGN KEY (Member_ID) REFERENCES member(Member_ID)
 );
+
+INSERT INTO cart (Member_ID, Created_At) VALUES (?, NOW());
+
+SELECT Cart_ID FROM cart WHERE Member_ID = ?;
