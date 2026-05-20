@@ -1,15 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%-- The E-spot Iteration 22 - Ivory Gold Theme --%>
+<%-- The E-spot Iteration 23 - Data Pill UI --%>
 <!DOCTYPE html><html><head><style>
-body { background: #fafaf9; color: #444; font-family: "Georgia", serif; margin: 0; }
-.header { background: #fff; border-bottom: 1px solid #d4d4d8; padding: 20px; text-align: center; }
-.main-box { width: 80%; margin: 50px auto; background: white; border: 1px solid #e2e2e2; padding: 40px; box-shadow: 10px 10px 0px #b09e74; }
-.gold-text { color: #b09e74; font-variant: small-caps; font-size: 28px; }
+body { background: #f8fafc; font-family: sans-serif; padding: 40px; }
+.pill-container { display: flex; gap: 15px; flex-wrap: wrap; }
+.pill { background: #fff; border: 1px solid #cbd5e1; padding: 15px 30px; border-radius: 50px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+.pill b { color: #2563eb; }
 </style></head><body>
-<div class="header"><h1>THE E-SPOT</h1></div>
-<div class="main-box">
-    <h2 class="gold-text">Executive Summary</h2>
-    <hr>
-    <p>Revenue: $22,500 | Active Listings: 342 | Flagged: 0</p>
+<h1>E-Spot Stats v23</h1>
+<div class="pill-container">
+    <div class="pill">Revenue: <b>$23k</b></div>
+    <div class="pill">Growth: <b>+12%</b></div>
+    <div class="pill">Orders: <b>89</b></div>
+    <div class="pill">Alerts: <b>None</b></div>
 </div>
 </body></html>
