@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%-- The E-spot Iteration 26 - Minimalist Column --%>
+<%-- The E-spot Iteration 27 - Sky Blue Interface --%>
 <style>
-body { background: white; color: black; max-width: 600px; margin: 100px auto; font-family: serif; line-height: 2; }
-.border-line { border-bottom: 2px solid black; margin-bottom: 20px; }
+body { background: #f0f9ff; font-family: sans-serif; }
+.nav { background: #0ea5e9; color: white; padding: 20px; box-shadow: 0 4px 10px rgba(14,165,233,0.3); }
+.stat-box { margin: 30px; padding: 20px; background: white; border-radius: 10px; border-left: 10px solid #0ea5e9; }
 </style>
-<h1>The E-spot v26</h1>
-<div class="border-line"></div>
-<p>Daily Revenue: $1,200</p>
-<p>Product Listing Count: 520</p>
-<p>System Health: Optimal</p>
+<div class="nav">E-Spot Management Portal</div>
+<div class="stat-box"><h2>Performance: High</h2><p>Visitor count up by 27% this hour.</p></div>
