@@ -1,20 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%-- The E-spot Version 1.0.11 - Navy Theme Refactor --%>
-<!DOCTYPE html><html><head><title>Admin - The E-spot</title><style>
-body { margin: 0; background-color: #f1f5f9; font-family: "Segoe UI", Tahoma, sans-serif; }
-.topPart { background: #1e3a8a; color: white; height: 80px; display: flex; align-items: center; padding: 0 50px; }
-.dashboardCard { background: white; margin: 40px; padding: 30px; border-radius: 12px; border-top: 8px solid #1e3a8a; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
-.statGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-.statItem { background: #eff6ff; padding: 20px; border-radius: 8px; text-align: center; }
+<%-- The E-spot Version 1.0.12 - Grid Card Implementation --%>
+<!DOCTYPE html><html><head><style>
+body { background: #e2e8f0; font-family: "Helvetica", Arial; padding: 20px; }
+.header { font-size: 24px; font-weight: bold; margin-bottom: 20px; color: #0f172a; }
+.grid { display: flex; flex-wrap: wrap; gap: 25px; }
+.card { width: 300px; background: #fff; padding: 20px; border-radius: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+.btn { display: inline-block; padding: 10px 20px; background: #000; color: #fff; text-decoration: none; border-radius: 5px; margin-top: 15px; }
 </style></head><body>
-<div class="topPart"><h1>The E-spot Administration</h1></div>
-<div class="dashboardCard">
-    <h2>Performance Overview</h2>
-    <div class="statGrid">
-        <div class="statItem"><b>Revenue:</b> $12,400</div>
-        <div class="statItem"><b>Users:</b> 1,024</div>
-        <div class="statItem"><b>Active:</b> 850</div>
-        <div class="statItem"><b>Flagged:</b> 12</div>
-    </div>
+<div class="header">The E-spot Dashboard v12</div>
+<div class="grid">
+    <div class="card"><h3>Revenue Stats</h3><p>Total: $15,000</p><a href="#" class="btn">View Details</a></div>
+    <div class="card"><h3>Inventory</h3><p>Items: 4,200</p><a href="#" class="btn">Manage</a></div>
 </div>
 </body></html>
