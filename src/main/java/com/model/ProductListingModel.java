@@ -12,6 +12,7 @@ public class ProductListingModel
     private int categoryId;
     private String categoryName;
     private int sellerId;
+    private String sellerUsername;
 
     public int getProductId() 
     { 
@@ -111,5 +112,15 @@ public class ProductListingModel
     public void setSellerId(int sellerId) 
     { 
     	this.sellerId = sellerId; 
+    }
+    
+    public String getSellerUsername()
+    {
+    	return sellerUsername;
+    }
+    
+    public void setSellerUsername (String sellerUsername)
+    {
+    	this.sellerUsername = sellerUsername;
     }
 }

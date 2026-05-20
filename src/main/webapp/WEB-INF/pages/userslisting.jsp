@@ -40,8 +40,8 @@
 				    </div>
 				</form>
 			
-			<a href="${pageContext.request.contextPath}/addListing" class="addListingButton">+ Add Listing</a>
-		</div>
+				<a href="${pageContext.request.contextPath}/addListing" class="addListingButton">+ Add Listing</a>
+			</div>
 			
 
             <c:if test="${not empty param.success}">
@@ -82,8 +82,7 @@
                                     <p class="productCategory">${listing.categoryName}</p>
                                     <p class="productPrice">$${listing.productPrice}</p>
                                     <p class="productStock">Stock: ${listing.stockQuantity}</p>
-                                    <a href="${pageContext.request.contextPath}/viewListing?id=${listing.productId}"
-                                       class="viewButton">View</a>
+                                    <a href="${pageContext.request.contextPath}/viewListing?id=${listing.productId}" class="viewButton">View</a>
                                 </div>
                             </div>
                         </c:forEach>

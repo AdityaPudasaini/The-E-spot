@@ -21,11 +21,6 @@
 
             <div class="userListingWrapper">
 
-                <div class="userListingHeader">
-                    <p class="userListingTitle">My Products</p>
-                    <a href="${pageContext.request.contextPath}/addListing" class="userListingAddBtn">+ Add Listing</a>
-                </div>
-
                 <div class="tableBox">
                     <table class="listingTable">
                         <thead>
@@ -65,7 +60,7 @@
                                     <td class="tableRowListing">
                                         <div class="changeButtons">
                                             <a href="${pageContext.request.contextPath}/editListing?productId=${listing.productId}" class="editButton">Edit</a>
-                                            <form action="${pageContext.request.contextPath}/UserListing" method="post" style="display:inline;">
+                                            <form action="${pageContext.request.contextPath}/userOwn" method="post" style="display:inline;">
                                                 <input type="hidden" name="productId" value="${listing.productId}" />
                                                 <button class="deleteButton" name="delete" type="submit">Delete</button>
                                             </form>
