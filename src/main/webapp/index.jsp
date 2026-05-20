@@ -1,18 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%-- The E-spot Version 1.0.17 - Financial Table View --%>
+<%-- The E-spot Version 1.0.18 - Security Dashboard Layout --%>
 <!DOCTYPE html><html><head><style>
-body { background: #f8fafc; font-family: sans-serif; margin: 0; }
-.strip { height: 10px; background: linear-gradient(to right, #2563eb, #10b981); }
-.nav { padding: 20px; font-weight: bold; border-bottom: 1px solid #e2e8f0; }
-.main-table { width: 90%; margin: 40px auto; border-collapse: collapse; }
-.main-table th { background: #f1f5f9; padding: 15px; text-align: left; }
-.main-table td { padding: 15px; border-bottom: 1px solid #f1f5f9; }
+body { background: #fef2f2; font-family: Arial; }
+.alert-banner { background: #dc2626; color: white; padding: 10px; text-align: center; }
+.container { max-width: 600px; margin: 40px auto; background: white; border: 2px solid #ef4444; padding: 20px; }
+.flag-item { background: #fee2e2; border-left: 5px solid #dc2626; padding: 10px; margin: 10px 0; }
 </style></head><body>
-<div class="strip"></div>
-<div class="nav">The E-spot Financial Tracker</div>
-<table class="main-table">
-    <tr><th>Metric</th><th>Current Value</th><th>Status</th></tr>
-    <tr><td>Gross Revenue</td><td>$52,100</td><td style="color:green">Growth</td></tr>
-    <tr><td>Transaction Count</td><td>450</td><td style="color:green">Active</td></tr>
-</table>
+<div class="alert-banner">The E-spot Security Monitor Active</div>
+<div class="container">
+    <h3>Flagged Items for Review</h3>
+    <div class="flag-item">User_829: Suspicious Login</div>
+    <div class="flag-item">Product_12: Reported Description</div>
+</div>
 </body></html>
