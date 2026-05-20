@@ -11,4 +11,34 @@ CREATE TABLE member (
     Member_Username VARCHAR(255)
 );
 
+SELECT * FROM member;
+
+SELECT * FROM member WHERE Member_Email = ?;
+
+SELECT * FROM member WHERE Member_ID = ?;
+
+SELECT * FROM member WHERE Member_Phone = ?;
+
+SELECT * FROM member WHERE Member_Username = ?;
+
+SELECT Member_ID FROM member WHERE Member_Email = ? AND Member_ID != ?;
+
+SELECT Member_ID FROM member WHERE Member_Phone = ? AND Member_ID != ?;
+
 SELECT Member_ID FROM member WHERE Member_Username = ?;
+
+SELECT Member_Password FROM member WHERE Member_ID = ?;
+
+SELECT COUNT(*) AS totalVisitors FROM member;
+
+SELECT m.Member_ID, m.Member_Name, m.Member_Email, m.Member_Username, m.Account_Status, m.Member_Role, m.Created_At, COUNT(o.Order_ID) AS totalOrders FROM member m LEFT JOIN `order` o ON m.Member_ID = o.Member_ID WHERE m.Member_Role != 'Admin';
+
+UPDATE member SET Member_Name = ?, Member_Email = ?, Member_Phone = ?, Member_DOB = ? WHERE Member_ID = ?;
+
+UPDATE member SET Member_Password = ? WHERE Member_ID = ?;
+
+UPDATE member SET Account_Status = 'Active' WHERE Member_ID = ?;
+
+UPDATE member SET Account_Status = 'Banned' WHERE Member_ID = ?;
+
+INSERT INTO member (Member_Name, Member_Email, Member_Password, Member_DOB, Member_Phone, Account_Status, Created_At, Member_Username);
