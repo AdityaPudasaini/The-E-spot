@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Wishlist</title>
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/wishlistPage.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/wishlist.css">
     </head>
     <body>
         <%@ include file="/Component/userSidebar.jsp" %>
