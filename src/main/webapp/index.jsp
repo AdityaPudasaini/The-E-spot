@@ -1,14 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%-- The E-spot Version 1.0.13 - Double Border Retro Style --%>
+<%-- The E-spot Version 1.0.14 - Slate Dark Mode Update --%>
 <!DOCTYPE html><html><head><style>
-body { background: #fdf2f8; font-family: "Georgia", serif; }
-.container { border: 10px double #be185d; margin: 40px; padding: 40px; background: white; }
-.title { border-bottom: 5px solid #be185d; display: inline-block; margin-bottom: 20px; font-size: 32px; color: #9d174d; }
-.info-box { padding: 20px; background: #fce7f3; font-weight: bold; }
+body { background: #020617; color: #94a3b8; font-family: "Courier New", monospace; }
+.nav { background: #0f172a; border-bottom: 1px solid #1e293b; padding: 20px; text-align: right; }
+.main { max-width: 800px; margin: 50px auto; border-left: 2px solid #38bdf8; padding-left: 30px; }
+h2 { color: #38bdf8; letter-spacing: 2px; }
+.data-line { border-bottom: 1px dashed #1e293b; padding: 10px 0; }
 </style></head><body>
-<div class="container">
-    <div class="title">The E-spot: Admin Panel</div>
-    <div class="info-box">SYSTEM STATUS: ALL ENGINES GO</div>
-    <p>Monitoring current user traffic and revenue flows.</p>
+<div class="nav">Authenticated: Admin_01</div>
+<div class="main">
+    <h2>THE E-SPOT // DATA_PORTAL</h2>
+    <div class="data-line">REVENUE_STREAM: $18,450.00</div>
+    <div class="data-line">USER_COUNT: 14,092</div>
 </div>
 </body></html>
