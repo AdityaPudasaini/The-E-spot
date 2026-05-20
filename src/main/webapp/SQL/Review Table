@@ -8,3 +8,9 @@ CREATE TABLE review (
     FOREIGN KEY (Product_ID) REFERENCES product(Product_ID),
     FOREIGN KEY (Member_ID) REFERENCES member(Member_ID)
 );
+
+INSERT INTO review (Product_ID, Member_ID, Review_Rating, Review_Comment, Review_Date);
+
+SELECT AVG(Review_Rating) AS avgRating FROM review WHERE Product_ID = ?;
+
+SELECT Review_ID FROM review WHERE Member_ID = ? AND Product_ID = ?;
