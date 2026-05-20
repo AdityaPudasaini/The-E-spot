@@ -29,9 +29,14 @@
                 <form class="addListingForm" action="${pageContext.request.contextPath}/addListing" method="post" enctype="multipart/form-data">
 
                     <div class="addListingField">
-                        <label class="addListingLabel">Product Name</label>
-                        <input class="addListingInput" type="text" name="productName" placeholder="Enter product name" required />
-                    </div>
+                    
+					    <c:if test="${productNameError}">
+					        <div class="addListingError">${errorMessage}</div>
+					    </c:if>
+					    
+					    <label class="addListingLabel">Product Name</label>
+					    <input class="addListingInput" type="text" name="productName" placeholder="Enter product name" required />
+					</div>
 
                     <div class="addListingField">
                         <label class="addListingLabel">Product Description</label>
@@ -39,16 +44,28 @@
                     </div>
 
                     <div class="addListingRow">
-                        <div class="addListingField">
-                            <label class="addListingLabel">Price ($)</label>
-                            <input class="addListingInput" type="number" name="productPrice" placeholder="0.00" step="0.01" min="0" required />
-                        </div>
-                        
-                        <div class="addListingField">
-                            <label class="addListingLabel">Stock Quantity</label>
-                            <input class="addListingInput" type="number" name="stockQuantity" placeholder="0" min="1" required />
-                        </div>
-                    </div>
+					    <div class="addListingField">
+					    
+					        <c:if test="${productPriceError}">
+					            <div class="addListingError">${errorMessage}</div>
+					        </c:if>
+					        
+					        <label class="addListingLabel">Price ($)</label>
+					        <input class="addListingInput" type="number" name="productPrice" placeholder="0.00" step="0.01" min="0" required />
+					        
+					    </div>
+					    
+					    <div class="addListingField">
+					    
+					        <c:if test="${stockQuantityError}">
+					            <div class="addListingError">${errorMessage}</div>
+					        </c:if>
+					        
+					        <label class="addListingLabel">Stock Quantity</label>
+					        <input class="addListingInput" type="number" name="stockQuantity" placeholder="0" min="1" required />
+					        
+					    </div>
+					</div>
 
                     <div class="addListingField">
                     
@@ -80,8 +97,6 @@
             </div>
 
         </div>
-
-        
 
         <%@ include file="/Component/adminFooter.jsp" %>
     </body>
