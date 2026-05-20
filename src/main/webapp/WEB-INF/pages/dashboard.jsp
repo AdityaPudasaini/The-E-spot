@@ -188,7 +188,7 @@
                         </div>
 
                         <div class="userListedItem" style="border: none; ${empty wishlistData.item3Name ? 'display:none;' : ''}">
-                            <<div class="userItemThumb">
+                            <div class="userItemThumb">
 						        <img src="${pageContext.request.contextPath}/image?name=product${wishlistData.item3Id}" style="width: 100%; height: 100%; border-radius: 8px; object-fit: cover;" />
 						    </div>
                             <div class="userItemInfo">

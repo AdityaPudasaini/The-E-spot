@@ -55,7 +55,7 @@
 
                 <div class="productLeft">
                     <div class="mainImageBox">
-                        <img src="${pageContext.request.contextPath}/image?name=product${product.productId}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;" />
+                        <img src="${pageContext.request.contextPath}/image?name=product${product.productId}" style="width: 100%; height: 100%; object-fit: contain; border-radius: 14px;" />
                         <div class="imageFallback">
                             
                         </div>
@@ -220,6 +220,33 @@
                     </c:otherwise>
                 </c:choose>
             </div>
+            
+            <div class="addReviewForm">
+			    <p class="addReviewTitle">Leave a Review</p>
+			    <form method="post" action="${pageContext.request.contextPath}/review">
+			        <input type="hidden" name="productId" value="${product.productId}" />
+			
+			        <div class="ratingSelect">
+			            <label class="reviewLabel">Rating</label>
+			            <select name="rating" class="ratingDropdown" required>
+			                <option value="">Select rating</option>
+			                <option value="5">5/5</option>
+			                <option value="4">4/5</option>
+			                <option value="3">3/5</option>
+			                <option value="2">2/5</option>
+			                <option value="1">1/5</option>
+			            </select>
+			        </div>
+			
+			        <div class="commentBox">
+			            <label class="reviewLabel">Comment</label>
+			            <textarea name="comment" class="reviewTextarea" placeholder="Write your review here..." maxlength="300" required></textarea>
+			            <p class="charLimit">Max 300 characters</p>
+			        </div>
+			
+			        <button type="submit" class="submitReviewBtn">Submit Review</button>
+			    </form>
+			</div>
 
         </div>
 
