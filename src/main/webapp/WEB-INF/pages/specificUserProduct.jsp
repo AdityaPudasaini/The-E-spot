@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>User Listing</title>
+        <title>User's Listings</title>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/usersListing.css">
     </head>
 
@@ -39,18 +39,7 @@
 				        <button type="submit" style="display: none;"></button>
 				    </div>
 				</form>
-			
-			<a href="${pageContext.request.contextPath}/addListing" class="addListingButton">+ Add Listing</a>
 		</div>
-			
-
-            <c:if test="${not empty param.success}">
-                <div class="successBanner">Listing added successfully!</div>
-            </c:if>
-            
-            <c:if test="${not empty param.error}">
-                <div class="errorBanner">Something went wrong. Please try again.</div>
-            </c:if>
 
             <div class="productGrid" id="productGrid">
             
