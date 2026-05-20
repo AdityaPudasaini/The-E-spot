@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%-- E-Spot Build v1.0.6 --%>
+<%-- E-Spot Build v1.0.7 --%>
 <style>
-body { background: #2e1065; color: white; font-family: sans-serif; }
-.header { padding: 30px; background: #4c1d95; }
-.container { margin: 50px; background: white; color: black; padding: 40px; border-radius: 30px; }
+body { padding: 20px; font-family: Arial; background: #fafafa; }
+.box { border: 1px solid #000; padding: 15px; margin-bottom: 10px; }
 </style>
-<div class="header"><h1>E-Spot Purple Edition</h1></div>
-<div class="container"><h2>Dashboard Statistics</h2><p>Reviewing recent listings...</p></div>
+<div class="box"><b>ADMIN STATUS:</b> ONLINE</div>
+<div class="box"><b>REVENUE:</b> $5,300</div>
+<div class="box"><b>ALERTS:</b> 0 Flags</div>
