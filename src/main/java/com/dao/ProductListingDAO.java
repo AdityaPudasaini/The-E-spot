@@ -18,7 +18,7 @@ public class ProductListingDAO
 
         Connection conn = DBConfig.getConnection();
 
-        String sqlCode = "SELECT p.Product_ID, p.Product_Name, p.Product_Description, p.Product_Price, p.Stock_Quantity, p.Active_Status, p.Listed_Date, p.Seller_ID, c.Category_ID, c.Category_Name FROM product p JOIN category c ON p.Category_ID = c.Category_ID WHERE p.Active_Status = 'Active'";
+        String sqlCode = "SELECT p.Product_ID, p.Product_Name, p.Product_Description, p.Product_Price, p.Stock_Quantity, p.Active_Status, p.Listed_Date, p.Seller_ID, c.Category_ID, c.Category_Name FROM product p JOIN category c ON p.Category_ID = c.Category_ID WHERE p.Active_Status = 'Active' AND p.isFlagged = 0 ";
 
         ArrayList<Object> addSqlCode = new ArrayList<>();
 

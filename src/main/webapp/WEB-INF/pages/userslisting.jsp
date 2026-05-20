@@ -73,9 +73,7 @@
                                     <img src="${pageContext.request.contextPath}/image?name=product${listing.productId}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px 12px 0 0;" />
                                     
                                     <div class="productImageFallback">
-                                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="1.5">
-                                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                                        </svg>
+                                       
                                     </div>
                                 </div>
                                 
