@@ -105,6 +105,14 @@ public class AddListingServlet extends HttpServlet {
 	        int productId = addListingService.addListing(productName, productDescription, Double.parseDouble(productPrice), Integer.parseInt(stockQuantity), Integer.parseInt(categoryId), sellerUsername);
 
 	        Part filePart = request.getPart("productImage");
+
+	        if (filePart == null || filePart.getSize() == 0) 
+	        {
+	            request.setAttribute("errorMessage", "Please upload a product image.");
+	            request.setAttribute("productImageError", true);
+	            doGet(request, response);
+	            return;
+	        }
 	        
 	        if (filePart != null && filePart.getSize() > 0) 
 	        {

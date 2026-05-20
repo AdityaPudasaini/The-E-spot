@@ -22,10 +22,6 @@
 
             <div class="addListingWrapper">
 
-                <c:if test="${not empty errorMessage}">
-                    <div class="addListingError">${errorMessage}</div>
-                </c:if>
-
                 <form class="addListingForm" action="${pageContext.request.contextPath}/addListing" method="post" enctype="multipart/form-data">
 
                     <div class="addListingField">
@@ -43,12 +39,16 @@
                         <textarea class="addListingTextarea" name="productDescription" placeholder="Enter product description" rows="4" required></textarea>
                     </div>
 
+					<c:if test="${productPriceError}">
+						<div class="addListingError">${errorMessage}</div>
+					</c:if>
+					
+					<c:if test="${stockQuantityError}">
+						<div class="addListingError">${errorMessage}</div>
+					</c:if>
+					
                     <div class="addListingRow">
 					    <div class="addListingField">
-					    
-					        <c:if test="${productPriceError}">
-					            <div class="addListingError">${errorMessage}</div>
-					        </c:if>
 					        
 					        <label class="addListingLabel">Price ($)</label>
 					        <input class="addListingInput" type="number" name="productPrice" placeholder="0.00" step="0.01" min="0" required />
@@ -56,11 +56,7 @@
 					    </div>
 					    
 					    <div class="addListingField">
-					    
-					        <c:if test="${stockQuantityError}">
-					            <div class="addListingError">${errorMessage}</div>
-					        </c:if>
-					        
+					    					        			        
 					        <label class="addListingLabel">Stock Quantity</label>
 					        <input class="addListingInput" type="number" name="stockQuantity" placeholder="0" min="1" required />
 					        
@@ -84,8 +80,13 @@
                     
 
                     <div class="addListingField">
+                    
+					    <c:if test="${productImageError}">
+					        <div class="addListingError">${errorMessage}</div>
+					    </c:if>
+					    
 					    <label class="addListingLabel">Product Image</label>
-					    <input class="addListingFileInput" type="file" name="productImage" accept="image/*" />
+					    <input class="addListingFileInput" type="file" name="productImage" accept="image/*"/>
 					</div>
 
                     <div class="addListingButtons">
