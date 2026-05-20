@@ -38,7 +38,40 @@ public class AddListingDAO {
         return categories;
     }
 
-   
+    public int addListing(String productName, String productDescription, double productPrice, int stockQuantity, int categoryId, String sellerUsername) throws SQLException {
+
+        Connection conn = DBConfig.getConnection();
+
+        int sellerId = codeMemberId(sellerUsername);
+
+        String sqlCode = "INSERT INTO product (Category_ID, Seller_ID, Product_Name, Product_Description, Product_Price, Stock_Quantity, Listed_Date, Active_Status, isFlagged) VALUES (?, ?, ?, ?, ?, ?, ?, 'Active', false)";
+        
+        PreparedStatement pst = conn.prepareStatement(sqlCode, PreparedStatement.RETURN_GENERATED_KEYS);
+        
+        pst.setInt(1, categoryId);
+        pst.setInt(2, sellerId);
+        pst.setString(3, productName);
+        pst.setString(4, productDescription);
+        pst.setDouble(5, productPrice);
+        pst.setInt(6, stockQuantity);
+        pst.setDate(7, Date.valueOf(LocalDate.now()));
+        
+        pst.executeUpdate();
+
+        ResultSet rs = pst.getGeneratedKeys();
+        
+        int productId = 0;
+        
+        if (rs.next()) {
+            productId = rs.getInt(1);
+        }
+
+        rs.close();
+        pst.close();
+        conn.close();
+
+        return productId;
+    }
     
     public int codeMemberId(String sellerUsername) throws SQLException{
     	
