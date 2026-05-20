@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%-- E-Spot Build v1.0.3 --%>
+<%-- E-Spot Build v1.0.4 --%>
 <!DOCTYPE html><html><head><style>
-body { background: #000; color: #fff; font-family: monospace; }
-.topPart { background: #111; border-bottom: 1px solid #334155; padding: 20px; }
-.adminWelcome { background: #1e293b; border: 1px solid #38bdf8; margin: 20px; padding: 40px; }
-.smallBox { border: 1px solid #334155; padding: 20px; margin: 10px; background: #000; }
+body { background: #f0fdf4; font-family: "Verdana", sans-serif; }
+.topPart { background: #166534; color: white; padding: 15px; }
+.adminWelcome { background: linear-gradient(135deg, #064e3b, #10b981); margin: 30px; border-radius: 20px; padding: 30px; color: white; }
+.smallBox { background: white; border: 2px solid #dcfce7; padding: 25px; border-radius: 12px; }
 </style></head><body>
-<div class="topPart"><h2>SYSTEM_DASHBOARD</h2></div>
-<div class="adminWelcome"><h3>[ADMIN_AUTHENTICATED]</h3><p>Tracking visitor metrics...</p></div>
-<div class="smallBox">REVENUE_DATA: $5,120.00</div>
+<div class="topPart"><h1>E-Spot Management</h1></div>
+<div class="adminWelcome"><h2>Welcome Back!</h2><p>The green market is growing.</p></div>
+<div class="smallBox">Total Listings: 452</div>
 </body></html>
