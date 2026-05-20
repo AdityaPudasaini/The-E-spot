@@ -12,7 +12,7 @@ body {
     color: #111111;
 }
 
-.mainContent {
+.mainContent { 
     display: flex;
     flex-direction: column;
     margin-left: 250px;
@@ -235,4 +235,28 @@ body {
 
 .addListingBtnSecondary:hover {
     background: #E2E8F0;
+}
+
+.currentImageBox {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px;
+    background: #F8FAFF;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.currentImagePreview {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #E2E8F0;
+}
+
+.currentImageNote {
+    font-size: 12px;
+    color: #94a3b8;
 }
