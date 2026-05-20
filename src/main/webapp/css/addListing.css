@@ -1,2 +1,44 @@
 @charset "UTF-8";
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Times New Roman", Times, serif;
+}
+
+body {
+    background-color: #eef0f8;
+    color: #111111;
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    margin-left: 250px;
+    width: calc(100% - 250px);
+}
+
+.userTopBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 30px 10px 30px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7ef;
+}
+
+.userDashboardHeading {
+    font-size: 30px;
+    color: #111111;
+}
+
+.userAvatarCircle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #4f5bd5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
