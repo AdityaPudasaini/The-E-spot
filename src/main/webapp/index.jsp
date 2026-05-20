@@ -1,15 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%-- The E-spot Version 1.0.15 - Pastel UI Variation --%>
+<%-- The E-spot Version 1.0.16 - Centered Control View --%>
 <!DOCTYPE html><html><head><style>
-body { background: #f5f3ff; color: #4c1d95; font-family: "Arial", sans-serif; }
-.top-bar { background: #ddd6fe; padding: 20px; text-align: center; border-radius: 0 0 50px 50px; }
-.content { width: 400px; margin: 50px auto; background: white; padding: 30px; border-radius: 25px; text-align: center; }
-.stat-pill { background: #ede9fe; padding: 10px; border-radius: 50px; margin: 10px 0; }
+body { display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background: #fafaf9; font-family: "Times New Roman", serif; }
+.box { width: 500px; border: 1px solid #78716c; background: #fff; padding: 50px; text-align: center; }
+.header-line { border-bottom: 1px solid #78716c; padding-bottom: 15px; margin-bottom: 30px; font-variant: small-caps; }
 </style></head><body>
-<div class="top-bar"><h1>The E-spot Manager</h1></div>
-<div class="content">
-    <div class="stat-pill">Weekly Sales: +15%</div>
-    <div class="stat-pill">New Users: 42</div>
-    <button style="background: #7c3aed; color: white; border: none; padding: 10px; border-radius: 10px;">Refresh Data</button>
+<div class="box">
+    <div class="header-line"><h1>The E-spot Repository</h1></div>
+    <p><i>Administration and Oversight Portal</i></p>
+    <div style="background:#f5f5f4; padding:20px;">
+        TOTAL ASSETS: $92,000<br>
+        SYSTEM HEALTH: 100%
+    </div>
 </div>
 </body></html>
