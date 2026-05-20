@@ -1,11 +1,13 @@
 package com.dao;
 
+import com.model.CartModel;
 import com.utils.DBConfig;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class CartWishlistDAO {
 
@@ -371,5 +373,60 @@ public class CartWishlistDAO {
         reduceStock(productId, quantity);
 
         return orderId;
+    }
+    
+    public ArrayList<CartModel> getCartItems(int memberId) throws SQLException {
+    	
+        ArrayList<CartModel> items = new ArrayList<>();
+
+        int cartId = getCartId(memberId);
+
+        if (cartId == -1) 
+        {
+            return items;
+        }
+
+        Connection conn = DBConfig.getConnection();
+        
+        String sqlCode = "SELECT ci.Cart_Items_ID, ci.Cart_Quantity, p.Product_ID, p.Product_Name, p.Product_Price, c.Category_Name FROM cart_items ci JOIN product p ON ci.Product_ID = p.Product_ID JOIN category c ON p.Category_ID = c.Category_ID ORDER BY ci.Cart_Items_ID DESC";
+
+        PreparedStatement pst = conn.prepareStatement(sqlCode);
+        
+        pst.setInt(1, cartId);
+        
+        ResultSet rs = pst.executeQuery();
+
+        while (rs.next()) {
+            CartModel item = new CartModel();
+            item.setCartItemId(rs.getInt("Cart_Items_ID"));
+            item.setProductId(rs.getInt("Product_ID"));
+            item.setProductName(rs.getString("Product_Name"));
+            item.setCategoryName(rs.getString("Category_Name"));
+            item.setProductPrice(rs.getDouble("Product_Price"));
+            item.setQuantity(rs.getInt("Cart_Quantity"));
+            item.setTotalPrice(rs.getDouble("Product_Price") * rs.getInt("Cart_Quantity"));
+            items.add(item);
+        }
+
+        rs.close();
+        pst.close();
+        conn.close();
+        
+        return items;
+    }
+
+    public void removeFromCart(int cartItemId) throws SQLException {
+    	
+        Connection conn = DBConfig.getConnection();
+        
+        String sqlCode = "DELETE FROM cart_items WHERE Cart_Items_ID = ?";
+        
+        PreparedStatement pst = conn.prepareStatement(sqlCode);
+        
+        pst.setInt(1, cartItemId);
+        pst.executeUpdate();
+        
+        pst.close();
+        conn.close();
     }
 }
