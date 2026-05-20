@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%-- E-Spot Build v1.0.8 --%>
+<%-- E-Spot Build v1.0.9 --%>
 <style>
-body { background: linear-gradient(to bottom, #4f5bd5, #962fbf); height: 100vh; margin: 0; }
-.glass { background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); margin: 50px; padding: 50px; border-radius: 20px; color: white; }
+body { display: flex; justify-content: center; align-items: center; height: 100vh; background: #f1f5f9; }
+.card { background: white; padding: 60px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); border-radius: 24px; }
 </style>
-<div class="glass"><h1>Cloud Dashboard</h1><p>E-spot Server 1 Status: Active</p></div>
+<div class="card"><h1>E-spot Central</h1><p>Ready to manage users and revenue.</p></div>
