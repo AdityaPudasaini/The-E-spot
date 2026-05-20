@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%-- The E-spot Iteration 24 - Indigo Sidebar Focus --%>
+<%-- The E-spot Iteration 25 - Card Deck Layout --%>
 <style>
-body { margin: 0; display: flex; height: 100vh; font-family: 'Inter', sans-serif; }
-.sidebar { width: 80px; background: #312e81; color: white; display: flex; flex-direction: column; align-items: center; padding-top: 20px; }
-.content { flex: 1; background: #eef2f3; padding: 50px; }
-.circle { width: 40px; height: 40px; background: rgba(255,255,255,0.2); border-radius: 50%; margin-bottom: 20px; }
+body { background: #f1f5f9; padding: 50px; font-family: Arial; }
+.deck { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+.card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
+h3 { margin: 0; color: #475569; }
 </style>
-<div class="sidebar"><div class="circle"></div><div class="circle"></div></div>
-<div class="content"><h1>E-spot Version 24</h1><p>Main administrative interface active.</p></div>
+<div class="deck">
+    <div class="card"><h3>Revenue Stream</h3><h1>$25,400</h1></div>
+    <div class="card"><h3>Total Users</h3><h1>1,450</h1></div>
+</div>
