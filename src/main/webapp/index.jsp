@@ -1,16 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%-- The E-spot Version 1.0.16 - Centered Control View --%>
+<%-- The E-spot Version 1.0.17 - Financial Table View --%>
 <!DOCTYPE html><html><head><style>
-body { display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background: #fafaf9; font-family: "Times New Roman", serif; }
-.box { width: 500px; border: 1px solid #78716c; background: #fff; padding: 50px; text-align: center; }
-.header-line { border-bottom: 1px solid #78716c; padding-bottom: 15px; margin-bottom: 30px; font-variant: small-caps; }
+body { background: #f8fafc; font-family: sans-serif; margin: 0; }
+.strip { height: 10px; background: linear-gradient(to right, #2563eb, #10b981); }
+.nav { padding: 20px; font-weight: bold; border-bottom: 1px solid #e2e8f0; }
+.main-table { width: 90%; margin: 40px auto; border-collapse: collapse; }
+.main-table th { background: #f1f5f9; padding: 15px; text-align: left; }
+.main-table td { padding: 15px; border-bottom: 1px solid #f1f5f9; }
 </style></head><body>
-<div class="box">
-    <div class="header-line"><h1>The E-spot Repository</h1></div>
-    <p><i>Administration and Oversight Portal</i></p>
-    <div style="background:#f5f5f4; padding:20px;">
-        TOTAL ASSETS: $92,000<br>
-        SYSTEM HEALTH: 100%
-    </div>
-</div>
+<div class="strip"></div>
+<div class="nav">The E-spot Financial Tracker</div>
+<table class="main-table">
+    <tr><th>Metric</th><th>Current Value</th><th>Status</th></tr>
+    <tr><td>Gross Revenue</td><td>$52,100</td><td style="color:green">Growth</td></tr>
+    <tr><td>Transaction Count</td><td>450</td><td style="color:green">Active</td></tr>
+</table>
 </body></html>
