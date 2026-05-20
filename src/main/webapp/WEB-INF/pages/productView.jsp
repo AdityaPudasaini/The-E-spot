@@ -35,6 +35,14 @@
 				            <div class="successBanner">Order placed successfully! Your order is now pending.</div>
 				        </c:when>
 				        
+				        <c:when test="${param.success == 'review'}">
+						    <div class="successBanner">Review submitted successfully!</div>
+						</c:when>
+						
+						<c:when test="${param.error == 'reviewed'}">
+						    <div class="errorBanner">You have already reviewed this product.</div>
+						</c:when>
+				        
 				    </c:choose>
 				    
 				</c:if>

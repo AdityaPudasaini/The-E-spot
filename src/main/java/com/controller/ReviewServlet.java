@@ -9,6 +9,8 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
+import com.dao.ReviewDAO;
+
 /**
  * Servlet implementation class ReviewServlet
  */
