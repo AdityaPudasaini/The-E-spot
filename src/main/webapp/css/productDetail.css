@@ -388,6 +388,94 @@ body {
     padding-left: 50px;
 }
 
+.addReviewForm {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.addReviewTitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 14px;
+}
+
+.reviewLabel {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.ratingSelect {
+    margin-bottom: 14px;
+}
+
+.ratingDropdown {
+    padding: 10px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #ffffff;
+    color: #111111;
+    font-family: "Times New Roman", Times, serif;
+    outline: none;
+    cursor: pointer;
+}
+
+.ratingDropdown:focus {
+    border-color: #2563EB;
+}
+
+.commentBox {
+    margin-bottom: 16px;
+}
+
+.reviewTextarea {
+    width: 100%;
+    height: 90px;
+    padding: 10px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: "Times New Roman", Times, serif;
+    color: #111111;
+    resize: none;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.reviewTextarea:focus {
+    border-color: #2563EB;
+}
+
+.charLimit {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-top: 4px;
+}
+
+.submitReviewBtn {
+    padding: 10px 24px;
+    background-color: #111111;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: "Times New Roman", Times, serif;
+    transition: background 0.15s;
+}
+
+.submitReviewBtn:hover {
+    background-color: #2563EB;
+}
+
 @media (max-width: 1024px) {
     .productDetailWrapper {
         flex-direction: column;
