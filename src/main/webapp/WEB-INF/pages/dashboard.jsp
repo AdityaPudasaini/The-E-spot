@@ -29,23 +29,6 @@
                 </a>
             </div>
 
-            <div class="userProfileCard">
-                <div class="userProfileLeft">
-                    <div class="userProfileAvatar">
-                        <img src="${pageContext.request.contextPath}/image?name=${sessionScope.username}" style="width: 100%; height: 100%; border-radius: 50%;" />
-                    </div>
-                    <div class="userProfileInfo">
-                        <p class="userProfileName"><b>${fullName}</b></p>
-                        <p class="userProfileEmail">${email}</p>
-                        <p class="userProfileEmail">${phone}</p>
-                        <p class="userProfileMeta">DOB:  ${dob}</p>
-                    </div>
-                </div>
-                <a href="${pageContext.request.contextPath}/editProfile" class="userEditButton" style="text-decoration: none;">
-                    Edit Profile
-                </a>
-            </div>
-
             <div class="userStats">
 			    <div class="userSmallBox">
 			        <img src="${pageContext.request.contextPath}/Images/dollar.png" class="userStatImg" alt="Revenue" style="width: 66px; height: 66px;"/>

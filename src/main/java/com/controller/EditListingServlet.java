@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -46,11 +47,16 @@ public class EditListingServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String productIdParam = request.getParameter("id");
 
-        if (productIdParam == null || productIdParam.isEmpty()) 
-        {
-            response.sendRedirect(request.getContextPath() + "/userOwn");
-            return;
-        }
+		if (productIdParam == null || productIdParam.isEmpty()) 
+		{
+		    productIdParam = request.getParameter("productId");
+		}
+
+		if (productIdParam == null || productIdParam.isEmpty()) 
+		{
+		    response.sendRedirect(request.getContextPath() + "/myProducts");
+		    return;
+		}
 
         int productId = Integer.parseInt(productIdParam);
 
@@ -74,7 +80,7 @@ public class EditListingServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        request.setAttribute("currentPage", "Product");
+        request.setAttribute("currentPage", "MyProduct");
         request.getRequestDispatcher("/WEB-INF/pages/editListing.jsp").forward(request, response);
 	}
 

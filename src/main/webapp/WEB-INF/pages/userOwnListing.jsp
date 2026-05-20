@@ -59,8 +59,7 @@
                                     <td class="tableRowListing">${listing.listedDate}</td>
                                     <td class="tableRowListing">
                                         <div class="changeButtons">
-                                            <a href="${pageContext.request.contextPath}/editListing?productId=${listing.productId}" class="editButton">Edit</a>
-                                            <form action="${pageContext.request.contextPath}/userOwn" method="post" style="display:inline;">
+											<a href="${pageContext.request.contextPath}/editListing?id=${listing.productId}" class="editButton">Edit</a>                                            <form action="${pageContext.request.contextPath}/userOwn" method="post" style="display:inline;">
                                                 <input type="hidden" name="productId" value="${listing.productId}" />
                                                 <button class="deleteButton" name="delete" type="submit">Delete</button>
                                             </form>

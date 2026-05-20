@@ -80,7 +80,7 @@
 
                     <div class="addListingButtons">
                         <button type="submit" class="addListingBtnPrimary">Save Changes</button>
-						<a href="${pageContext.request.contextPath}/myProducts" class="addListingBtnSecondary">Cancel</a>                    
+						<a href="${pageContext.request.contextPath}/userOwn" class="addListingBtnSecondary" style="text-decoration: none; text-align: center">Cancel</a>                    
 					</div>
 
                 </form>
