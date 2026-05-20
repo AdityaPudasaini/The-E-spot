@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 import com.dao.AddListingDAO;
 import com.model.CategoryModel;
+import com.service.AddListingService;
 import com.utils.FileUploadUtil;
 
 /**
@@ -66,27 +67,44 @@ public class AddListingServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		try {
 			
-            String productName = request.getParameter("productName");
-            String productDescription = request.getParameter("productDescription");
-            String productPrice = request.getParameter("productPrice");
-            String stockQuantity = request.getParameter("stockQuantity");
-            String categoryId = request.getParameter("categoryId");
-            String sellerUsername = (String) request.getSession().getAttribute("username");
-            
- 
-            if (productName == null || productName.trim().isEmpty() || productDescription == null || productDescription.trim().isEmpty() || productPrice == null || categoryId == null || categoryId.isEmpty()) 
-            {
-                request.setAttribute("errorMessage", "Please fill in all fields.");
-                doGet(request, response);
-                return;
-            }
-            
- 
-            AddListingDAO addListingDao = new AddListingDAO();
-            
-            int productId = addListingDao.addListing(productName, productDescription, Double.parseDouble(productPrice), Integer.parseInt(stockQuantity), Integer.parseInt(categoryId), sellerUsername);
-            
-            Part filePart = request.getPart("productImage");
+	        String productName = request.getParameter("productName");
+	        String productDescription = request.getParameter("productDescription");
+	        String productPrice = request.getParameter("productPrice");
+	        String stockQuantity = request.getParameter("stockQuantity");
+	        String categoryId = request.getParameter("categoryId");
+	        String sellerUsername = (String) request.getSession().getAttribute("username");
+
+	        AddListingService addListingService = new AddListingService();
+	        
+	        String status = addListingService.validate(productName, productDescription, productPrice, stockQuantity, categoryId);
+
+	        if (!status.equals("Success")) 
+	        {
+	            request.setAttribute("errorMessage", status);
+
+	            if (status.contains("name")) 
+	            {
+	            	request.setAttribute("productNameError", true);
+	            }
+	            
+	            else if (status.contains("Price") || status.contains("price")) 
+	            {
+	            	request.setAttribute("productPriceError", true);
+	            }
+	            
+	            else if (status.contains("Stock") || status.contains("stock")) 
+	            {
+	            	request.setAttribute("stockQuantityError", true);
+	            }
+
+	            doGet(request, response);
+	            
+	            return;
+	        }
+
+	        int productId = addListingService.addListing(productName, productDescription, Double.parseDouble(productPrice), Integer.parseInt(stockQuantity), Integer.parseInt(categoryId), sellerUsername);
+
+	        Part filePart = request.getPart("productImage");
 	        
 	        if (filePart != null && filePart.getSize() > 0) 
 	        {
@@ -94,16 +112,16 @@ public class AddListingServlet extends HttpServlet {
 	            String fileName = "product" + productId + extension;
 	            FileUploadUtil.saveFile(filePart, UPLOAD_DIR, fileName);
 	        }
- 
-            response.sendRedirect(request.getContextPath() + "/UserListing");
- 
-        } 
+
+	        response.sendRedirect(request.getContextPath() + "/UserListing");
+
+	    } 
 		
 		catch (Exception e) {
-            e.printStackTrace();
-            request.setAttribute("errorMessage", e.getMessage());
-            doGet(request, response);
-        }
+	        e.printStackTrace();
+	        request.setAttribute("errorMessage", e.getMessage());
+	        doGet(request, response);
+	    }
 	}
 
 }
