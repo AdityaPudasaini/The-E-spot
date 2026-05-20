@@ -60,7 +60,7 @@
                             </div>
                         </div>
 
-                        <div class="editProfileRow">
+                        <div class="editProfileRow" style="margin-top: 20px;">
                             <div class="editProfileField">
                             
                                 <label class="editProfileLabel">Full Name</label>
@@ -76,7 +76,7 @@
                             </div>
                         </div>
 
-                        <div class="editProfileRow">
+                        <div class="editProfileRow" style="margin-top: 20px;">
                             <div class="editProfileField">
                             
                                 <label class="editProfileLabel">Phone</label>
@@ -90,7 +90,7 @@
                             </div>
                         </div>
 
-                        <div class="editProfileButtons">
+                        <div class="editProfileButtons" style="margin-top: 20px;">
                             <button type="submit" class="editProfileBtnPrimary">Save Changes</button>
                             <a href="${pageContext.request.contextPath}/memberDashboard" class="editProfileBtnSecondary">Cancel</a>
                         </div>
@@ -114,7 +114,7 @@
                             <input class="editProfileInput" type="password" name="currentPassword" required />
                         </div>
 
-                        <div class="editProfileRow">
+                        <div class="editProfileRow" style="margin-top: 20px;">
                         
                             <div class="editProfileField">
                                 <label class="editProfileLabel">New Password</label>
@@ -128,7 +128,7 @@
                             
                         </div>
 
-                        <div class="editProfileButtons">
+                        <div class="editProfileButtons" style="margin-top: 20px;">
                             <button type="submit" class="editProfileBtnPrimary">Change Password</button>
                         </div>
 

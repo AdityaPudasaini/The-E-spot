@@ -16,7 +16,7 @@ import com.model.CartModel;
 /**
  * Servlet implementation class CartWishlistServlet
  */
-@WebServlet({ "/cart", "/wishlist", "/Cart"})
+@WebServlet({ "/cart", "/wishlist"})
 public class CartWishlistServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

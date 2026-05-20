@@ -11,6 +11,8 @@ import jakarta.servlet.http.Part;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.Period;
 
 import com.dao.EditProfileDAO;
 import com.dao.MemberDAO;
@@ -131,6 +133,23 @@ public class EditProfileServlet extends HttpServlet {
             if (editProfileDAO.isPhoneTaken(memberId, phone)) 
             {
                 request.setAttribute("profileError", "Phone number is already in use by another account.");
+                doGet(request, response);
+                return;
+            }
+            
+            LocalDate birthDate = LocalDate.parse(dob);
+            LocalDate today = LocalDate.now();
+            
+            if (birthDate.isAfter(today)) 
+            {
+                request.setAttribute("profileError", "Date of birth cannot be in the future.");
+                doGet(request, response);
+                return;
+            }
+            
+            if (Period.between(birthDate, today).getYears() < 13) 
+            {
+                request.setAttribute("profileError", "Invalid date of birth. You must be at least 13 years old.");
                 doGet(request, response);
                 return;
             }

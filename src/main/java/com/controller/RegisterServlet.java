@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 
+import com.dao.MemberDAO;
+import com.model.MemberModel;
 import com.service.RegisterService;
 import com.utils.CookieUtil;
 import com.utils.FileUploadUtil;
@@ -83,11 +85,15 @@ public class RegisterServlet extends HttpServlet {
 	            FileUploadUtil.saveFile(filePart, UPLOAD_DIR, fileName);
 	        }
 	        
+	        MemberDAO memberDAO = new MemberDAO();
+	        MemberModel newMember = memberDAO.getMemberRecordByUsername(username);
+
+	        SessionUtil.setAttribute(request, "memberId", newMember.getMemberId(), 60 * 30);
 	        SessionUtil.setAttribute(request, "username", username, 60 * 30);
+	        SessionUtil.setAttribute(request, "firstName", newMember.getName().split(" ")[0], 60 * 30);
 	        CookieUtil.addCookie(response, "username", username, 60 * 60 * 24 * 30);
-	        
+
 	        response.sendRedirect(request.getContextPath() + "/memberDashboard");
-	        
 	    } 
 	    
 	    catch (Exception e) 
