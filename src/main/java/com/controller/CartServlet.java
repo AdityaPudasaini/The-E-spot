@@ -53,7 +53,27 @@ public class CartServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		try {
+            CartWishlistDAO cartWishlistDao = new CartWishlistDAO();
+            String cartItemIdString = request.getParameter("cartItemId");
+
+            if (cartItemIdString != null && !cartItemIdString.isEmpty()) 
+            {
+                int cartItemId = Integer.parseInt(cartItemIdString);
+                
+                if (request.getParameter("remove") != null) 
+                {
+                    cartWishlistDao.removeFromCart(cartItemId);
+                }
+            }
+
+        } 
+		
+		catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        response.sendRedirect(request.getContextPath() + "/cartPage");
 	}
 
 }
