@@ -188,15 +188,15 @@ public class CartWishlistDAO {
         pst.setInt(1, memberId);
         pst.executeUpdate();
 
-        ResultSet keys = pst.getGeneratedKeys();
+        ResultSet rs = pst.getGeneratedKeys();
 
         int wishlistId = 0;
 
-        if (keys.next()) {
-            wishlistId = keys.getInt(1);
+        if (rs.next()) {
+            wishlistId = rs.getInt(1);
         }
 
-        keys.close();
+        rs.close();
         pst.close();
         conn.close();
 
@@ -299,24 +299,22 @@ public class CartWishlistDAO {
     private int createOrder(int memberId) throws SQLException {
         Connection conn = DBConfig.getConnection();
 
-        String sqlCode = "INSERT INTO `order` (Member_ID, Order_Date, Order_Status) VALUES (?, NOW(), 'Pending')";
-        PreparedStatement pst = conn.prepareStatement(
-                sqlCode,
-                PreparedStatement.RETURN_GENERATED_KEYS
-        );
+        String sqlCode = "INSERT INTO `order` (Member_ID, Order_Date, Order_Status) VALUES (?, NOW(), 'Completed')";
+        
+        PreparedStatement pst = conn.prepareStatement(sqlCode, PreparedStatement.RETURN_GENERATED_KEYS);
 
         pst.setInt(1, memberId);
         pst.executeUpdate();
 
-        ResultSet keys = pst.getGeneratedKeys();
+        ResultSet rs = pst.getGeneratedKeys();
 
         int orderId = 0;
 
-        if (keys.next()) {
-            orderId = keys.getInt(1);
+        if (rs.next()) {
+            orderId = rs.getInt(1);
         }
 
-        keys.close();
+        rs.close();
         pst.close();
         conn.close();
 
@@ -356,20 +354,22 @@ public class CartWishlistDAO {
     }
 
     public int buyNow(int memberId, int productId, int quantity) throws SQLException {
-        int stock = getProductStock(productId);
-
-        if (stock < quantity) {
+    	int stock = getProductStock(productId);
+    	
+        if (stock < quantity) 
+        {
             return -1;
         }
-
+        
         double price = getProductPrice(productId);
-
         int orderId = createOrder(memberId);
-
+        
         insertOrderItem(orderId, productId, quantity, price);
-
+        
         reduceStock(productId, quantity);
-
+        
+        createPayment(orderId, price * quantity);
+        
         return orderId;
     }
     
@@ -443,7 +443,9 @@ public class CartWishlistDAO {
         String sqlCode = "SELECT wi.Wishlist_Item_ID, p.Product_ID, p.Product_Name, p.Product_Price, c.Category_Name FROM wishlist_item wi JOIN product p ON wi.Product_ID = p.Product_ID JOIN category c ON p.Category_ID = c.Category_ID WHERE wi.Wishlist_ID = ? ORDER BY wi.Wishlist_Item_ID DESC";
 
         PreparedStatement pst = conn.prepareStatement(sqlCode);
+        
         pst.setInt(1, wishlistId);
+        
         ResultSet rs = pst.executeQuery();
 
         while (rs.next()) {
@@ -467,10 +469,28 @@ public class CartWishlistDAO {
         Connection conn = DBConfig.getConnection();
 
         String sqlCode = "DELETE FROM wishlist_item WHERE Wishlist_Item_ID = ?";
+        
         PreparedStatement pst = conn.prepareStatement(sqlCode);
+        
         pst.setInt(1, wishlistItemId);
         pst.executeUpdate();
 
+        pst.close();
+        conn.close();
+    }
+    
+    private void createPayment(int orderId, double amount) throws SQLException {
+        Connection conn = DBConfig.getConnection();
+        
+        String sqlCode = "INSERT INTO payment (Order_ID, Payment_Method, Payment_Date, Payment_Amount, Payment_Status) VALUES (?, 'Online', NOW(), ?, 'Completed')";
+        
+        PreparedStatement pst = conn.prepareStatement(sqlCode);
+        
+        pst.setInt(1, orderId);
+        pst.setDouble(2, amount);
+        
+        pst.executeUpdate();
+        
         pst.close();
         conn.close();
     }

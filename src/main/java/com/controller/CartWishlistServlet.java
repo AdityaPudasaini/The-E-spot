@@ -8,13 +8,15 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import com.dao.CartWishlistDAO;
+import com.model.CartModel;
 
 /**
  * Servlet implementation class CartWishlistServlet
  */
-@WebServlet({ "/cart", "/wishlist" })
+@WebServlet({ "/cart", "/wishlist", "/Cart"})
 public class CartWishlistServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,7 +33,40 @@ public class CartWishlistServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String path = request.getServletPath();
+
+        if (path.equals("/cart")) 
+        {
+        	
+            HttpSession session = request.getSession();
+            int memberId = (int) session.getAttribute("memberId");
+
+            try {
+                CartWishlistDAO dao = new CartWishlistDAO();
+                ArrayList<CartModel> cartItems = dao.getCartItems(memberId);
+
+                double grandTotal = 0;
+                
+                for (CartModel item : cartItems) 
+                {
+                    grandTotal += item.getTotalPrice();
+                }
+
+                request.setAttribute("cartItems", cartItems);
+                request.setAttribute("grandTotal", String.format("%.2f", grandTotal));
+            } 
+            
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            request.setAttribute("currentPage", "cart");
+            request.getRequestDispatcher("/WEB-INF/pages/cart.jsp").forward(request, response);
+            
+            return;
+        }
+        
+        response.sendRedirect(request.getContextPath() + "/memberDashboard");
 	}
 
 	/**
@@ -41,26 +76,8 @@ public class CartWishlistServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		HttpSession session = request.getSession();
+		
         int memberId = (int) session.getAttribute("memberId");
-
-        String productIdParam = request.getParameter("productId");
-        String quantityParam = request.getParameter("quantity");
-        String action = request.getParameter("action");
-
-        if (productIdParam == null) 
-        {
-            response.sendRedirect(request.getContextPath() + "/UserListing");
-            return;
-        }
-
-        int productId = Integer.parseInt(productIdParam);
-        int quantity = 1;
-
-        if (quantityParam != null && !quantityParam.isEmpty()) 
-        {
-            quantity = Integer.parseInt(quantityParam);
-        }
-
         String path = request.getServletPath();
 
         try {
@@ -68,13 +85,29 @@ public class CartWishlistServlet extends HttpServlet {
 
             if (path.equals("/wishlist")) 
             {
+                int productId = Integer.parseInt(request.getParameter("productId"));
+                
                 dao.addToWishlist(memberId, productId);
                 response.sendRedirect(request.getContextPath() + "/viewListing?id=" + productId + "&success=wishlist");
+                
                 return;
             }
 
             if (path.equals("/cart")) 
             {
+                int productId = Integer.parseInt(request.getParameter("productId"));
+                
+                String action = request.getParameter("action");
+                
+                String quantityParam = request.getParameter("quantity");
+                
+                int quantity = 1;
+
+                if (quantityParam != null && !quantityParam.isEmpty()) 
+                {
+                    quantity = Integer.parseInt(quantityParam);
+                }
+
                 if (action != null && action.equals("buyNow")) 
                 {
                     int orderId = dao.buyNow(memberId, productId, quantity);
@@ -85,20 +118,60 @@ public class CartWishlistServlet extends HttpServlet {
                         return;
                     }
                     
-                    response.sendRedirect(request.getContextPath() + "/viewListing?id=" + productId + "&success=bought&orderId=" + orderId);
+                    response.sendRedirect(request.getContextPath() + "/viewListing?id=" + productId + "&success=bought");
+                    return;
+                }
+
+                if (action != null && action.equals("remove")) 
+                {
+                    int cartItemId = Integer.parseInt(request.getParameter("cartItemId"));
+                    
+                    dao.removeFromCart(cartItemId);
+                    
+                    response.sendRedirect(request.getContextPath() + "/cart?success=removed")
+                    ;
                     return;
                 }
 
                 dao.addToCart(memberId, productId, quantity);
+                
                 response.sendRedirect(request.getContextPath() + "/viewListing?id=" + productId + "&success=cart");
                 return;
             }
 
-        } 
-        
-        catch (Exception e) {
+            if (path.equals("/Cart")) 
+            {
+                if (request.getParameter("buy") != null) 
+                {
+                    int productId = Integer.parseInt(request.getParameter("productId"));
+                    int quantity = Integer.parseInt(request.getParameter("quantity"));
+                    int cartItemId = Integer.parseInt(request.getParameter("cartItemId"));
+
+                    int orderId = dao.buyNow(memberId, productId, quantity);
+                    
+                    if (orderId == -1) 
+                    {
+                        response.sendRedirect(request.getContextPath() + "/cart?error=stock");
+                        return;
+                    }
+
+                    dao.removeFromCart(cartItemId);
+                    response.sendRedirect(request.getContextPath() + "/cart?success=bought");
+                    return;
+                }
+
+                if (request.getParameter("remove") != null) 
+                {
+                    int cartItemId = Integer.parseInt(request.getParameter("cartItemId"));
+                    dao.removeFromCart(cartItemId);
+                    response.sendRedirect(request.getContextPath() + "/cart?success=removed");
+                    return;
+                }
+            }
+
+        } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect(request.getContextPath() + "/viewListing?id=" + productId + "&error=general");
+            response.sendRedirect(request.getContextPath() + "/cart?error=general");
         }
 	}
 
