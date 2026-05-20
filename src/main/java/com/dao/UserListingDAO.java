@@ -43,5 +43,34 @@ public class UserListingDAO {
         return listings;
     }
 
+    public ArrayList<AdminOrderModel> getUserOrders(String username) throws SQLException {
+        ArrayList<AdminOrderModel> orders = new ArrayList<>();
+
+        Connection conn = DBConfig.getConnection();
+
+        String sqlCode = "SELECT o.Order_ID, p.Product_Name, c.Category_Name, oi.Item_Price, o.Order_Date, o.Order_Status FROM `order` o JOIN member m ON o.Member_ID = m.Member_ID JOIN order_item oi ON o.Order_ID = oi.Order_ID JOIN product p ON oi.Product_ID = p.Product_ID JOIN category c ON p.Category_ID = c.Category_ID WHERE m.Member_Username = ? ORDER BY o.Order_ID DESC";
+
+        PreparedStatement pst = conn.prepareStatement(sqlCode);
+        pst.setString(1, username);
+        ResultSet rs = pst.executeQuery();
+
+        while (rs.next()) {
+        	AdminOrderModel order = new AdminOrderModel();
+            order.setOrderId(rs.getInt("Order_ID"));
+            order.setProductName(rs.getString("Product_Name"));
+            order.setCategoryName(rs.getString("Category_Name"));
+            order.setAmount(String.format("%.2f", rs.getDouble("Item_Price")));
+            order.setOrderDate(rs.getString("Order_Date").substring(0, 10));
+            order.setOrderStatus(rs.getString("Order_Status"));
+            orders.add(order);
+        }
+
+        rs.close();
+        pst.close();
+        conn.close();
+
+        return orders;
+    }
+
     
 }
