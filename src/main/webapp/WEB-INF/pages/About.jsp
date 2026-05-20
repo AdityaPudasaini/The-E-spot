@@ -24,31 +24,20 @@
 
         <div class="aboutWrapper">
 
-            <div class="downloadRow">
-                <button class="downloadBtn" onclick="downloadAboutPDF()">
-                    &#8595; Download as PDF
-                </button>
-            </div>
-
             <div class="heroBanner" id="aboutPDFContent">
                 <h1>Welcome to The E-Spot</h1>
                 <p>Nepal's trusted reselling marketplace — where quality products find new homes and communities thrive through sustainable commerce.</p>
-                <div class="statRow">
-                    <span class="statPill">10,000+ Members</span>
-                    <span class="statPill">500+ Products</span>
-                    <span class="statPill">Since 2022</span>
-                </div>
             </div>
 
             <div class="aboutCard">
-                <p class="sectionTitle">Our Mission &amp; Vision</p>
+                <p class="sectionTitle">Our Mission & Vision</p>
                 <div class="grid2">
                     <div class="missionCard">
-                        <h3>&#127919; Our Mission</h3>
+                        <h3>Our Mission</h3>
                         <p>To revolutionize the reselling market in Nepal by creating a trusted, accessible platform where quality products find new homes. We believe in giving every item a second life and empowering sellers and buyers with fair prices and transparent transactions.</p>
                     </div>
                     <div class="missionCard vision">
-                        <h3>&#128218; Our Vision</h3>
+                        <h3>Our Vision</h3>
                         <p>To become Nepal's most trusted reselling platform, fostering a circular economy that benefits individuals, businesses, and the environment. We envision a community where buying and selling secondhand items is the norm, not the exception.</p>
                     </div>
                 </div>
@@ -67,28 +56,28 @@
                 <p class="sectionTitle">Why Choose The E-Spot?</p>
                 <div class="featureGrid">
                     <div class="featureItem">
-                        <span class="featureIcon">&#9994;</span>
+                        <span class="featureIcon"></span>
                         <div>
                             <h4>Sustainable Shopping</h4>
                             <p>Give products a second life while reducing environmental impact. Every purchase contributes to a more sustainable future for Nepal.</p>
                         </div>
                     </div>
                     <div class="featureItem">
-                        <span class="featureIcon">&#128176;</span>
+                        <span class="featureIcon"></span>
                         <div>
                             <h4>Best Value Deals</h4>
                             <p>Find quality items at unbeatable prices. Our platform connects you with verified sellers offering genuine products at discounted rates.</p>
                         </div>
                     </div>
                     <div class="featureItem">
-                        <span class="featureIcon">&#128101;</span>
+                        <span class="featureIcon"></span>
                         <div>
                             <h4>Trusted Community</h4>
                             <p>Join thousands of Nepali buyers and sellers who trust The E-Spot for safe transactions and peace of mind.</p>
                         </div>
                     </div>
                     <div class="featureItem">
-                        <span class="featureIcon">&#127757;</span>
+                        <span class="featureIcon"></span>
                         <div>
                             <h4>Local First</h4>
                             <p>Built for Nepal, by Nepali entrepreneurs. We understand local needs and actively support the growth of our community's economy.</p>
@@ -101,17 +90,17 @@
                 <p class="sectionTitle">Our Core Values</p>
                 <div class="valuesGrid">
                     <div class="valueCard">
-                        <span class="valueEmoji">&#128737;</span>
+                        <span class="valueEmoji"></span>
                         <h4>Integrity</h4>
                         <p>We operate with transparency and honesty in every transaction, building trust with our community one interaction at a time.</p>
                     </div>
                     <div class="valueCard">
-                        <span class="valueEmoji">&#127758;</span>
+                        <span class="valueEmoji"></span>
                         <h4>Sustainability</h4>
                         <p>Every resale is a step toward a more sustainable Nepal. We are dedicated to reducing waste and promoting circular commerce.</p>
                     </div>
                     <div class="valueCard">
-                        <span class="valueEmoji">&#129309;</span>
+                        <span class="valueEmoji"></span>
                         <h4>Community</h4>
                         <p>We believe in the power of community and are committed to supporting local sellers and empowering buyers across Nepal.</p>
                     </div>
@@ -124,28 +113,33 @@
 
                     <div class="teamCard">
                         <div class="teamAvatar">
-                            <img src="${pageContext.request.contextPath}/image?name=team_ceo"
-                                 onerror="this.style.display='none'; this.parentNode.innerText='RK'" />
+                            <img src="${pageContext.request.contextPath}/Images/aditya.jpg"/>
                         </div>
-                        <h4>Rajesh Karki</h4>
-                        <p class="teamRole">Founder &amp; CEO</p>
+                        <h4>Aditya Pudasaini</h4>
+                        <p class="teamRole">Founder CEO</p>
                     </div>
 
                     <div class="teamCard">
                         <div class="teamAvatar">
-                            <img src="${pageContext.request.contextPath}/image?name=team_dev"
-                                 onerror="this.style.display='none'; this.parentNode.innerText='SA'" />
+                            <img src="${pageContext.request.contextPath}/Images/jasan.jpg"/>
                         </div>
-                        <h4>Sita Adhikari</h4>
-                        <p class="teamRole">Lead Developer</p>
+                        <h4>Jasan Maharjan</h4>
+                        <p class="teamRole">Manager</p>
                     </div>
 
                     <div class="teamCard">
                         <div class="teamAvatar">
-                            <img src="${pageContext.request.contextPath}/image?name=team_support"
-                                 onerror="this.style.display='none'; this.parentNode.innerText='BP'" />
+                            <img src="${pageContext.request.contextPath}/Images/aryan.jpg"/>
                         </div>
-                        <h4>Bikash Poudel</h4>
+                        <h4>Aryan Dhoj Thapa</h4>
+                        <p class="teamRole">Head of Support</p>
+                    </div>
+                    
+                    <div class="teamCard">
+                        <div class="teamAvatar">
+                            <img src="${pageContext.request.contextPath}/Images/srijak.jpg"/>
+                        </div>
+                        <h4>Srijak Ratna Shakya</h4>
                         <p class="teamRole">Head of Support</p>
                     </div>
 
@@ -156,21 +150,21 @@
                 <p class="sectionTitle">Get In Touch</p>
                 <div class="contactGrid">
                     <div class="contactItem">
-                        <span class="contactIcon">&#128231;</span>
+                        <span class="contactIcon"></span>
                         <div>
                             <h4>Email</h4>
                             <p>support@espot.com.np</p>
                         </div>
                     </div>
                     <div class="contactItem">
-                        <span class="contactIcon">&#128222;</span>
+                        <span class="contactIcon"></span>
                         <div>
                             <h4>Phone</h4>
                             <p>+977 01-4567890</p>
                         </div>
                     </div>
                     <div class="contactItem">
-                        <span class="contactIcon">&#128205;</span>
+                        <span class="contactIcon"></span>
                         <div>
                             <h4>Address</h4>
                             <p>Thamel, Kathmandu, Nepal</p>
@@ -183,8 +177,8 @@
                 <h2>Join The E-Spot Community</h2>
                 <p>Whether you're looking for great deals or want to declutter by selling, The E-Spot is your trusted marketplace.</p>
                 <div class="ctaBtnGroup">
-                    <a href="${pageContext.request.contextPath}/product" class="ctaBtn ctaBtnPrimary">Start Shopping</a>
-                    <a href="${pageContext.request.contextPath}/register" class="ctaBtn ctaBtnSecondary">Become a Seller</a>
+                    <a href="${pageContext.request.contextPath}/UserListing" class="ctaBtn ctaBtnPrimary">Start Shopping</a>
+                    <a href="${pageContext.request.contextPath}/memberDashboard" class="ctaBtn ctaBtnSecondary">Summarize your infromation</a>
                 </div>
             </div>
 

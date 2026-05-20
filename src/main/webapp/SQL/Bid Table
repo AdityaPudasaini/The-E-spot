@@ -1,9 +1,0 @@
-CREATE TABLE bid (
-    Bid_ID INT(11) PRIMARY KEY AUTO_INCREMENT,
-    Bidding_House_ID INT(11),
-    Bidder_ID INT(11),
-    Bid_Amount DECIMAL(12,2),
-    Bid_Time DATETIME,
-    FOREIGN KEY (Bidding_House_ID) REFERENCES bidding_house(Bidding_House_ID),
-    FOREIGN KEY (Bidder_ID) REFERENCES member(Member_ID)
-);
