@@ -54,7 +54,28 @@ public class WishlistPageServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		try {
+            CartWishlistDAO cartWishlistDao = new CartWishlistDAO();
+            
+            String wishlistItemIdString = request.getParameter("wishlistItemId");
+
+            if (wishlistItemIdString != null && !wishlistItemIdString.isEmpty()) 
+            {
+                int wishlistItemId = Integer.parseInt(wishlistItemIdString);
+                
+                if (request.getParameter("remove") != null) 
+                {
+                    cartWishlistDao.removeFromWishlist(wishlistItemId);
+                }
+            }
+
+        } 
+		
+		catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        response.sendRedirect(request.getContextPath() + "/wishlist");
 	}
 
 }
