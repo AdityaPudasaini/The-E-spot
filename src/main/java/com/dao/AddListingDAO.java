@@ -38,5 +38,30 @@ public class AddListingDAO {
         return categories;
     }
 
+   
     
+    public int codeMemberId(String sellerUsername) throws SQLException{
+    	
+    	Connection conn = DBConfig.getConnection();
+
+        String getSellerIdSql = "SELECT Member_ID FROM member WHERE Member_Username = ?";
+        
+        PreparedStatement pst = conn.prepareStatement(getSellerIdSql);
+        pst.setString(1, sellerUsername);
+        
+        ResultSet rs = pst.executeQuery();
+
+        int sellerId = 0;
+        
+        if (rs.next()) 
+        {
+            sellerId = rs.getInt("Member_ID");
+        }
+
+        rs.close();
+        pst.close();
+        conn.close();
+        
+        return sellerId;
+    }
 }
