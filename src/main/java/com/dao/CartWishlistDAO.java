@@ -18,7 +18,7 @@ public class CartWishlistDAO {
 
         ResultSet rs = pst.executeQuery();
 
-        int cartId = 0;
+        int cartId = -1;
 
         if (rs.next()) {
             cartId = rs.getInt("Cart_ID");
@@ -69,7 +69,7 @@ public class CartWishlistDAO {
 
         ResultSet rs = pst.executeQuery();
 
-        int itemId = 0;
+        int itemId = -1;
 
         if (rs.next()) {
             itemId = rs.getInt("Cart_Items_ID");
@@ -139,13 +139,13 @@ public class CartWishlistDAO {
     public void addToCart(int memberId, int productId, int quantity) throws SQLException {
         int cartId = getCartId(memberId);
 
-        if (cartId == 0) {
+        if (cartId == -1) {
             cartId = createCart(memberId);
         }
 
         int cartItemId = getCartItemId(cartId, productId);
 
-        if (cartItemId ==0) {
+        if (cartItemId == -1) {
             insertCartItem(cartId, productId, quantity);
         } else {
             int existingQty = getCartItemQuantity(cartItemId);
@@ -163,7 +163,7 @@ public class CartWishlistDAO {
 
         ResultSet rs = pst.executeQuery();
 
-        int wishlistId = 0;
+        int wishlistId = -1;
 
         if (rs.next()) {
             wishlistId = rs.getInt("Wishlist_ID");
@@ -241,7 +241,7 @@ public class CartWishlistDAO {
     public void addToWishlist(int memberId, int productId) throws SQLException {
         int wishlistId = getWishlistId(memberId);
 
-        if (wishlistId == 0) {
+        if (wishlistId == -1) {
             wishlistId = createWishlist(memberId);
         }
 
