@@ -14,3 +14,24 @@ CREATE TABLE product (
 );
 
 INSERT INTO product (Category_ID, Seller_ID, Product_Name, Product_Description, Product_Price, Stock_Quantity, Listed_Date, Active_Status, isFlagged) VALUES (?, ?, ?, ?, ?, ?, ?, 'Active', false);
+
+SELECT COUNT(*) AS totalListed FROM product WHERE Active_Status = 'Active';
+
+SELECT Product_Price FROM product WHERE Product_ID = ?;
+
+SELECT Stock_Quantity FROM product WHERE Product_ID = ?;
+
+SELECT p.Product_ID, p.Product_Name, p.Product_Description, p.Product_Price, p.Stock_Quantity, p.Active_Status, p.Listed_Date, c.Category_ID, c.Category_Name, m.Member_ID, m.Member_Username FROM product p JOIN category c ON p.Category_ID = c.Category_ID JOIN member m ON p.Seller_ID = m.Member_ID WHERE p.Product_ID = ?;
+
+SELECT p.Product_ID, p.Product_Name, c.Category_Name, p.Product_Price, p.Stock_Quantity, p.Active_Status, p.isFlagged, p.Listed_Date FROM product p JOIN category c ON p.Category_ID = c.Category_ID;
+
+UPDATE product SET Product_Name = ?, Product_Description = ?, Product_Price = ?, Stock_Quantity = ?, Category_ID = ? WHERE Product_ID = ?;
+
+UPDATE product SET Stock_Quantity = Stock_Quantity - ? WHERE Product_ID = ?;
+
+UPDATE product SET Active_Status = 'Banned' WHERE Product_ID = ?;
+
+UPDATE product SET isFlagged = true WHERE Product_ID = ?;
+
+UPDATE product SET isFlagged = false, Active_Status = 'Active'
+WHERE Product_ID = ?;
