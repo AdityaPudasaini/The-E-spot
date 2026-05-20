@@ -9,6 +9,17 @@ public class CartModel {
     private double productPrice;
     private int quantity;
     private double totalPrice;
+    private int stockQuantity;
+
+    public int getStockQuantity() 
+    { 
+    	return stockQuantity; 
+    }
+    
+    public void setStockQuantity(int stockQuantity) 
+    { 
+    	this.stockQuantity = stockQuantity; 
+    }
 
     public int getCartItemId() {
         return cartItemId;
@@ -69,5 +80,9 @@ public class CartModel {
     public String getTotal() {
         double total = productPrice * quantity;
         return String.format("%.2f", total);
+    }
+    
+    public String getFormattedPrice() {
+        return String.format("%.2f", productPrice);
     }
 }

@@ -15,13 +15,13 @@ import com.model.WishlistModel;
  * Servlet implementation class WishlistPageServlet
  */
 @WebServlet("/Wishlist")
-public class WishlistPageServlet extends HttpServlet {
+public class WishlistServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public WishlistPageServlet() {
+    public WishlistServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -75,7 +75,7 @@ public class WishlistPageServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        response.sendRedirect(request.getContextPath() + "/wishlist");
+        response.sendRedirect(request.getContextPath() + "/Wishlist");
 	}
 
 }

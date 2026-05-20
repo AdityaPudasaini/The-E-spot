@@ -205,7 +205,6 @@ body {
     font-weight: 700;
     cursor: pointer;
     font-family: "Times New Roman", Times, serif;
-    transition: background 0.15s;
 }
 
 .addToCartBtn:hover {
@@ -223,7 +222,6 @@ body {
     font-weight: 700;
     cursor: pointer;
     font-family: "Times New Roman", Times, serif;
-    transition: background 0.15s;
 }
 
 .buyNowBtn:hover {

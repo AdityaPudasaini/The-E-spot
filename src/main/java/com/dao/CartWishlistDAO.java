@@ -38,23 +38,20 @@ public class CartWishlistDAO {
         Connection conn = DBConfig.getConnection();
 
         String sqlCode = "INSERT INTO cart (Member_ID, Created_At) VALUES (?, NOW())";
-        PreparedStatement pst = conn.prepareStatement(
-                sqlCode,
-                PreparedStatement.RETURN_GENERATED_KEYS
-        );
+        PreparedStatement pst = conn.prepareStatement(sqlCode, PreparedStatement.RETURN_GENERATED_KEYS);
 
         pst.setInt(1, memberId);
         pst.executeUpdate();
 
-        ResultSet keys = pst.getGeneratedKeys();
+        ResultSet rs = pst.getGeneratedKeys();
 
         int cartId = 0;
 
-        if (keys.next()) {
-            cartId = keys.getInt(1);
+        if (rs.next()) {
+            cartId = rs.getInt(1);
         }
 
-        keys.close();
+        rs.close();
         pst.close();
         conn.close();
 
@@ -389,7 +386,7 @@ public class CartWishlistDAO {
 
         Connection conn = DBConfig.getConnection();
         
-        String sqlCode = "SELECT ci.Cart_Items_ID, ci.Cart_Quantity, p.Product_ID, p.Product_Name, p.Product_Price, c.Category_Name FROM cart_items ci JOIN product p ON ci.Product_ID = p.Product_ID JOIN category c ON p.Category_ID = c.Category_ID WHERE ci.Cart_ID = ? ORDER BY ci.Cart_Items_ID DESC";
+        String sqlCode = "SELECT ci.Cart_Items_ID, ci.Cart_Quantity, p.Product_ID, p.Product_Name, p.Product_Price, p.Stock_Quantity, c.Category_Name FROM cart_items ci JOIN product p ON ci.Product_ID = p.Product_ID JOIN category c ON p.Category_ID = c.Category_ID WHERE ci.Cart_ID = ? ORDER BY ci.Cart_Items_ID DESC";
         
         PreparedStatement pst = conn.prepareStatement(sqlCode);
         
@@ -406,6 +403,7 @@ public class CartWishlistDAO {
             item.setProductPrice(rs.getDouble("Product_Price"));
             item.setQuantity(rs.getInt("Cart_Quantity"));
             item.setTotalPrice(rs.getDouble("Product_Price") * rs.getInt("Cart_Quantity"));
+            item.setStockQuantity(rs.getInt("Stock_Quantity"));
             items.add(item);
         }
 
