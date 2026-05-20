@@ -12,3 +12,5 @@ CREATE TABLE product (
     FOREIGN KEY (Category_ID) REFERENCES category(Category_ID),
     FOREIGN KEY (Seller_ID) REFERENCES member(Member_ID)
 );
+
+INSERT INTO product (Category_ID, Seller_ID, Product_Name, Product_Description, Product_Price, Stock_Quantity, Listed_Date, Active_Status, isFlagged) VALUES (?, ?, ?, ?, ?, ?, ?, 'Active', false)
