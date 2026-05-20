@@ -51,5 +51,40 @@ public class ProductDetailDAO
         return product;
     }
 
-    
+    public ArrayList<ReviewModel> getReviewsByProductId(int productId) throws SQLException 
+    {
+        Connection conn = DBConfig.getConnection();
+
+        String sqlCode = "SELECT r.Review_ID, r.Product_ID, r.Member_ID, r.Review_Rating, r.Review_Comment, r.Review_Date, m.Member_Username FROM review r JOIN member m ON r.Member_ID = m.Member_ID WHERE r.Product_ID = ? ORDER BY r.Review_Date DESC";
+
+        PreparedStatement pst = conn.prepareStatement(sqlCode);
+        
+        pst.setInt(1, productId);
+        
+        ResultSet rs = pst.executeQuery();
+
+        ArrayList<ReviewModel> reviews = new ArrayList<>();
+
+        while (rs.next()) 
+        {
+            ReviewModel review = new ReviewModel();
+            
+            review.setReviewId(rs.getInt("Review_ID"));
+            review.setProductId(rs.getInt("Product_ID"));
+            review.setMemberId(rs.getInt("Member_ID"));
+            review.setMemberUsername(rs.getString("Member_Username"));
+            review.setReviewRating(rs.getInt("Review_Rating"));
+            review.setReviewComment(rs.getString("Review_Comment"));
+            review.setReviewDate(rs.getString("Review_Date").substring(0, 10));
+            
+            reviews.add(review);
+        }
+
+        rs.close();
+        pst.close();
+        conn.close();
+
+        return reviews;
+    }
+
 }
