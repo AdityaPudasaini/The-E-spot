@@ -5,3 +5,5 @@ CREATE TABLE category (
 );
 
 SELECT Category_ID, Category_Name FROM category ORDER BY Category_Name ASC;
+
+SELECT Category_Name FROM category ORDER BY Category_Name ASC;
