@@ -10,3 +10,5 @@ CREATE TABLE member (
     Member_Role VARCHAR(50),
     Member_Username VARCHAR(255)
 );
+
+SELECT Member_ID FROM member WHERE Member_Username = ?;
