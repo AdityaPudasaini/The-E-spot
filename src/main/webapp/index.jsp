@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%-- E-Spot Build v1.0.9 --%>
+<%-- E-Spot Build v1.0.10 --%>
 <style>
-body { display: flex; justify-content: center; align-items: center; height: 100vh; background: #f1f5f9; }
-.card { background: white; padding: 60px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); border-radius: 24px; }
+body { margin: 0; display: flex; }
+.sidebar { width: 200px; height: 100vh; background: black; color: white; padding: 20px; }
+.main { flex: 1; padding: 40px; background: #eef2f3; }
 </style>
-<div class="card"><h1>E-spot Central</h1><p>Ready to manage users and revenue.</p></div>
+<div class="sidebar">The E-spot Sidebar</div>
+<div class="main"><h1>Main Content Area</h1><p>V10 Layout Refinement</p></div>
