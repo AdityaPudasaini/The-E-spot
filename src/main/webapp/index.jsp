@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%-- The E-spot Iteration 28 - Forest Theme --%>
+<%-- The E-spot Iteration 29 - Bold Flat Design --%>
 <style>
-body { background: #064e3b; color: #d1fae5; font-family: 'Verdana'; padding: 50px; }
-.box { background: rgba(255,255,255,0.1); border: 1px solid #10b981; padding: 30px; }
-.btn { background: #10b981; color: white; border: none; padding: 10px 20px; }
+body { margin: 0; background: #fff; font-family: sans-serif; }
+.header { background: #000; color: #fff; padding: 40px; font-size: 40px; font-weight: 900; }
+.stat { padding: 40px; font-size: 30px; border-bottom: 5px solid #000; }
 </style>
-<div class="box">
-    <h1>E-Spot Forest Dashboard</h1>
-    <p>Total Revenue: $28,900</p>
-    <button class="btn">View Reports</button>
-</div>
+<div class="header">E-SPOT v29</div>
+<div class="stat">REV: $29,000</div>
+<div class="stat">USERS: 2,900</div>
