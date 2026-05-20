@@ -429,4 +429,50 @@ public class CartWishlistDAO {
         pst.close();
         conn.close();
     }
+    
+    public ArrayList<WishlistModel> getWishlistItems(int memberId) throws SQLException {
+        ArrayList<WishlistModel> items = new ArrayList<>();
+
+        int wishlistId = getWishlistId(memberId);
+
+        if (wishlistId == -1) {
+            return items;
+        }
+
+        Connection conn = DBConfig.getConnection();
+
+        String sqlCode = "SELECT wi.Wishlist_Item_ID, p.Product_ID, p.Product_Name, p.Product_Price, c.Category_Name FROM wishlist_item wi JOIN product p ON wi.Product_ID = p.Product_ID JOIN category c ON p.Category_ID = c.Category_ID WHERE wi.Wishlist_ID = ? ORDER BY wi.Wishlist_Item_ID DESC";
+
+        PreparedStatement pst = conn.prepareStatement(sqlCode);
+        pst.setInt(1, wishlistId);
+        ResultSet rs = pst.executeQuery();
+
+        while (rs.next()) {
+            WishlistModel item = new WishlistModel();
+            item.setWishlistItemId(rs.getInt("Wishlist_Item_ID"));
+            item.setProductId(rs.getInt("Product_ID"));
+            item.setProductName(rs.getString("Product_Name"));
+            item.setCategoryName(rs.getString("Category_Name"));
+            item.setProductPrice(rs.getDouble("Product_Price"));
+            items.add(item);
+        }
+
+        rs.close();
+        pst.close();
+        conn.close();
+
+        return items;
+    }
+
+    public void removeFromWishlist(int wishlistItemId) throws SQLException {
+        Connection conn = DBConfig.getConnection();
+
+        String sqlCode = "DELETE FROM wishlist_item WHERE Wishlist_Item_ID = ?";
+        PreparedStatement pst = conn.prepareStatement(sqlCode);
+        pst.setInt(1, wishlistItemId);
+        pst.executeUpdate();
+
+        pst.close();
+        conn.close();
+    }
 }
