@@ -42,3 +42,197 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+.addListingWrapper {
+    padding: 32px 30px;
+}
+
+.addListingError {
+    background: #FEE2E2;
+    color: #991B1B;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.addListingForm {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 36px 40px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.addListingField {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.addListingLabel {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111111;
+}
+
+.addListingInput {
+    padding: 12px 16px;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #111111;
+    background: #F8FAFF;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.addListingInput:focus {
+    border-color: #4f5bd5;
+    background: #ffffff;
+}
+
+.addListingTextarea {
+    padding: 12px 16px;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #111111;
+    background: #F8FAFF;
+    outline: none;
+    resize: vertical;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.addListingTextarea:focus {
+    border-color: #4f5bd5;
+    background: #ffffff;
+}
+
+.addListingRow {
+    display: flex;
+    gap: 20px;
+}
+
+.addListingRow .addListingField {
+    flex: 1;
+}
+
+.addListingSelect {
+    padding: 12px 16px;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #111111;
+    background: #F8FAFF;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    width: fit-content;
+}
+
+.addListingSelect:focus {
+    border-color: #4f5bd5;
+}
+
+.addListingDropzone {
+    border: 2px dashed #CBD5E1;
+    border-radius: 12px;
+    padding: 40px 20px;
+    text-align: center;
+    cursor: pointer;
+    background: #F8FAFF;
+    transition: border-color 0.2s, background 0.2s;
+    min-height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.addListingDropzone:hover {
+    border-color: #4f5bd5;
+    background: #f0f2ff;
+}
+
+.addListingDropzoneActive {
+    border-color: #4f5bd5;
+    background: #f0f2ff;
+}
+
+.addListingUploadIcon {
+    font-size: 36px;
+    color: #94A3B8;
+    margin-bottom: 10px;
+}
+
+.addListingDropzoneText {
+    font-size: 14px;
+    color: #64748B;
+    margin-bottom: 4px;
+}
+
+.addListingDropzoneHint {
+    font-size: 12px;
+    color: #94A3B8;
+}
+
+.addListingDropzoneContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.addListingButtons {
+    display: flex;
+    gap: 16px;
+    padding-top: 8px;
+}
+
+.addListingFileInput {
+    padding: 12px 16px;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #64748B;
+    background: #F8FAFF;
+    cursor: pointer;
+    width: 100%;
+}
+
+.addListingBtnPrimary {
+    flex: 1;
+    padding: 13px 24px;
+    background: #4f5bd5;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.addListingBtnPrimary:hover {
+    background: #3a47c0;
+}
+
+.addListingBtnSecondary {
+    flex: 1;
+    padding: 13px 24px;
+    background: #F1F5F9;
+    color: #475569;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.addListingBtnSecondary:hover {
+    background: #E2E8F0;
+}

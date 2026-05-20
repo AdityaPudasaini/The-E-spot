@@ -8,9 +8,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import com.dao.AddListingDAO;
+import com.model.CategoryModel;
 import com.utils.FileUploadUtil;
 
 /**
@@ -25,6 +28,7 @@ import com.utils.FileUploadUtil;
 
 public class AddListingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final String UPLOAD_DIR = System.getProperty("user.home") + File.separator + "webapp_uploads";
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -61,6 +65,7 @@ public class AddListingServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
+			
             String productName = request.getParameter("productName");
             String productDescription = request.getParameter("productDescription");
             String productPrice = request.getParameter("productPrice");
@@ -69,9 +74,8 @@ public class AddListingServlet extends HttpServlet {
             String sellerUsername = (String) request.getSession().getAttribute("username");
             
  
-            if (productName == null || productName.trim().isEmpty() ||
-                productDescription == null || productDescription.trim().isEmpty() ||
-                productPrice == null || categoryId == null || categoryId.isEmpty()) {
+            if (productName == null || productName.trim().isEmpty() || productDescription == null || productDescription.trim().isEmpty() || productPrice == null || categoryId == null || categoryId.isEmpty()) 
+            {
                 request.setAttribute("errorMessage", "Please fill in all fields.");
                 doGet(request, response);
                 return;
@@ -82,16 +86,16 @@ public class AddListingServlet extends HttpServlet {
             
             int productId = addListingDao.addListing(productName, productDescription, Double.parseDouble(productPrice), Integer.parseInt(stockQuantity), Integer.parseInt(categoryId), sellerUsername);
             
-            Part filePart = request.getPart("Photo");
+            Part filePart = request.getPart("productImage");
 	        
 	        if (filePart != null && filePart.getSize() > 0) 
 	        {
 	            String extension = FileUploadUtil.getFileExtension(filePart.getSubmittedFileName());
-	            String fileName = "product" + productId;
+	            String fileName = "product" + productId + extension;
 	            FileUploadUtil.saveFile(filePart, UPLOAD_DIR, fileName);
 	        }
  
-            response.sendRedirect(request.getContextPath() + "/userDashboard");
+            response.sendRedirect(request.getContextPath() + "/UserListing");
  
         } 
 		
