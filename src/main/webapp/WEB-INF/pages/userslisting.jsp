@@ -70,7 +70,7 @@
                         
                             <div class="productCard" data-name="${listing.productName}" data-category="${listing.categoryName}">
                                 <div class="productImageBox">
-                                    <img src="${pageContext.request.contextPath}/image?name=product${listing.productId}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px 12px 0 0;" />
+                                    <img src="${pageContext.request.contextPath}/image?name=product${listing.productId}" style="width: 100%; height: 100%; object-fit: contain; border-radius: 12px 12px 0 0;" />
                                     
                                     <div class="productImageFallback">
                                        

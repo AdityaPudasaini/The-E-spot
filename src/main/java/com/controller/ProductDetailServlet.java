@@ -36,7 +36,7 @@ public class ProductDetailServlet extends HttpServlet {
 
         if (productIdParam == null || productIdParam.isEmpty()) 
         {
-            response.sendRedirect(request.getContextPath() + "/listing");
+            response.sendRedirect(request.getContextPath() + "/UserListing");
             return;
         }
 
@@ -71,7 +71,7 @@ public class ProductDetailServlet extends HttpServlet {
         }
 
         request.setAttribute("currentPage", "MyProduct");
-        request.getRequestDispatcher("/WEB-INF/pages/productDetail.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/productView.jsp").forward(request, response);
 	}
 
 	/**
