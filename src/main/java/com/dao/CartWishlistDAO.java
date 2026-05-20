@@ -1,6 +1,7 @@
 package com.dao;
 
 import com.model.CartModel;
+import com.model.WishlistModel;
 import com.utils.DBConfig;
 
 import java.sql.Connection;
