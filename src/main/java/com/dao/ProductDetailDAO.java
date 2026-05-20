@@ -86,5 +86,30 @@ public class ProductDetailDAO
 
         return reviews;
     }
+    
+    public double getAverageRating(int productId) throws SQLException 
+    {
+        Connection conn = DBConfig.getConnection();
 
+        String sqlCode = "SELECT COALESCE(AVG(Review_Rating), 0) AS avgRating FROM review WHERE Product_ID = ?";
+
+        PreparedStatement pst = conn.prepareStatement(sqlCode);
+        
+        pst.setInt(1, productId);
+        
+        ResultSet rs = pst.executeQuery();
+
+        double avg = 0;
+
+        if (rs.next()) 
+        {
+            avg = rs.getDouble("avgRating");
+        }
+
+        rs.close();
+        pst.close();
+        conn.close();
+
+        return avg;
+    }
 }
