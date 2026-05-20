@@ -48,8 +48,8 @@ public class UserOwnListingServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        request.setAttribute("currentPage", "listings");
-        request.getRequestDispatcher("/WEB-INF/pages/userListing.jsp").forward(request, response);
+        request.setAttribute("currentPage", "MyProduct");
+        request.getRequestDispatcher("/WEB-INF/pages/userOwnListing.jsp").forward(request, response);
 	}
 
 	/**
@@ -57,7 +57,27 @@ public class UserOwnListingServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		try {
+			
+            UserListingDAO userListingDao = new UserListingDAO();
+            String productIdString = request.getParameter("productId");
+
+            if (productIdString != null && !productIdString.isEmpty()) 
+            {
+                int productId = Integer.parseInt(productIdString);
+
+                if (request.getParameter("delete") != null) 
+                {
+                    userListingDao.deleteListing(productId);
+                }
+            }
+        } 
+		
+		catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        response.sendRedirect(request.getContextPath() + "/userOwn");
 	}
 
 }
