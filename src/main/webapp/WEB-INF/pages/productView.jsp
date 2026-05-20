@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>${product.productName}</title>
+        <title>${product.productName} - The E-Spot</title>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/productDetail.css">
     </head>
 
@@ -14,20 +14,48 @@
         <div class="mainContent">
 
             <div class="userTopBar">
-            
                 <p class="userDashboardHeading"><b>Product Detail</b></p>
-                
                 <div class="userAvatarCircle">
                     <img src="${pageContext.request.contextPath}/image?name=${sessionScope.username}" style="width: 100%; height: 100%; border-radius: 50%;" />
                 </div>
+                
+                <c:if test="${not empty code.success}">
+                
+				    <c:choose>
+				    
+				        <c:when test="${code.success == 'cart'}">
+				            <div class="successBanner">Item added to cart successfully!</div>
+				        </c:when>
+				        
+				        <c:when test="${code.success == 'wishlist'}">
+				            <div class="successBanner">Item added to wishlist successfully!</div>
+				        </c:when>
+				        
+				        <c:when test="${code.success == 'bought'}">
+				            <div class="successBanner">Order placed successfully! Your order is now pending.</div>
+				        </c:when>
+				        
+				    </c:choose>
+				    
+				</c:if>
+				
+				<c:if test="${not empty code.error}">
+				    <c:choose>
+				        <c:when test="${code.error == 'stock'}">
+				            <div class="errorBanner">Not enough stock available for the requested quantity.</div>
+				        </c:when>
+				        <c:otherwise>
+				            <div class="errorBanner">Something went wrong. Please try again.</div>
+				        </c:otherwise>
+				    </c:choose>
+				</c:if>
             </div>
 
             <div class="productDetailWrapper">
 
                 <div class="productLeft">
                     <div class="mainImageBox">
-                        <img src="${pageContext.request.contextPath}/image?name=product${product.productId}" style="width: 100%; height: 100%; object-fit: contain; border-radius: 14px;" />
-                        
+                        <img src="${pageContext.request.contextPath}/image?name=product${product.productId}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 14px;" />
                         <div class="imageFallback">
                             
                         </div>
@@ -78,10 +106,10 @@
                     <p class="productDetailDesc">${product.productDescription}</p>
 
                     <c:choose>
-                    
 					    <c:when test="${product.stockQuantity > 0}">
 					    
 					        <form method="post" action="${pageContext.request.contextPath}/cart">
+					        
 					            <input type="hidden" name="productId" value="${product.productId}" />
 					            
 					            <div class="quantityRow">
@@ -92,11 +120,16 @@
 					                <button type="submit" name="action" value="addToCart" class="addToCartBtn">Add to Cart</button>
 					                <button type="submit" name="action" value="buyNow" class="buyNowBtn">Buy Now</button>
 					            </div>
+					            
 					        </form>
+					        
 					    </c:when>
+					    
 					    <c:otherwise>
+					    
 					        <form method="post" action="${pageContext.request.contextPath}/wishlist">
 					            <input type="hidden" name="productId" value="${product.productId}" />
+					            
 					            <div class="actionButtons">
 					                <button type="submit" class="wishlistBtn">Add to Wishlist</button>
 					            </div>
@@ -144,17 +177,14 @@
                 <p class="sectionTitle">Reviews (${reviewCount})</p>
 
                 <c:choose>
-                
                     <c:when test="${empty reviews}">
                         <p class="noReviews">No reviews yet for this product.</p>
                     </c:when>
-                    
                     <c:otherwise>
-                    
                         <c:forEach var="review" items="${reviews}">
-                        
                             <div class="reviewItem">
                                 <div class="reviewHeader">
+                                
                                     <div class="reviewerAvatar">
                                         <img src="${pageContext.request.contextPath}/image?name=${review.memberUsername}" style="width: 100%; height: 100%; border-radius: 50%;"/>
                                     </div>
