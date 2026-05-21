@@ -7,3 +7,5 @@ CREATE TABLE contacted (
     message TEXT NOT NULL,    
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+INSERT INTO contacted (Name, Email, Phone, Subject, Message) VALUES (?, ?, ?, ?, ?)
