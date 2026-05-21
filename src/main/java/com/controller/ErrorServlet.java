@@ -27,7 +27,16 @@ public class ErrorServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("/WEB-INF/pages/error404.jsp").forward(request, response);
+		Integer statusCode = (Integer) request.getAttribute("jakarta.servlet.error.status_code");
+		
+		if (statusCode == null) 
+		{
+            statusCode = (Integer) request.getAttribute("jakartha.servlet.error.status_code");
+        }
+
+        if (statusCode != null && statusCode == 500) {
+            request.getRequestDispatcher("/WEB-INF/Pages/error500.jsp").forward(request, response);
+        }
 	}
 
 	/**
