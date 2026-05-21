@@ -188,3 +188,75 @@ body::before {
     color: rgba(255, 255, 255, 0.45);
     line-height: 1.6;
 }
+
+@media (max-width: 768px) {
+    .registerPageContent {
+        padding: 40px 20px;
+        align-items: flex-start;
+    }
+
+    .registerCard {
+        padding: 36px 28px;
+        max-width: 100%;
+    }
+
+    .registerFormHeader h2 {
+        font-size: 26px;
+    }
+
+    .registerBtnRow {
+        flex-direction: column;
+    }
+
+    .registerBtnPrimary,
+    .registerBtnOutline {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .registerPageContent {
+        padding: 24px 14px;
+    }
+
+    .registerCard {
+        padding: 28px 20px;
+        border-radius: 16px;
+    }
+
+    .registerFormHeader {
+        margin-bottom: 24px;
+    }
+
+    .registerFormHeader h2 {
+        font-size: 22px;
+    }
+
+    .registerFormHeader p {
+        font-size: 13px;
+    }
+
+    .registerForm {
+        gap: 12px;
+    }
+
+    .registerFieldGroup input {
+        font-size: 13px;
+    }
+
+    .registerBtnPrimary,
+    .registerBtnOutline {
+        font-size: 13px;
+        padding: 11px 16px;
+    }
+
+    .registerFormFooter {
+        margin-top: 24px;
+    }
+
+    .registerErrorMessage {
+        font-size: 12px;
+        padding: 9px 12px;
+    }
+}

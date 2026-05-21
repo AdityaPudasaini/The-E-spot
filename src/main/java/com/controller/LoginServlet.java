@@ -101,10 +101,9 @@ public class LoginServlet extends HttpServlet {
         }
         
         else {
-            // Set error and forward it to login page
         	request.setAttribute("error", status);
-            request.setAttribute("typedUser", email); // To keep the username in the box
-            request.setAttribute("errorMessage", "Invalid login credentials.");
+            request.setAttribute("typedUser", email); 
+            request.setAttribute("errorMessage", status);
             request.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(request, response);
             
 

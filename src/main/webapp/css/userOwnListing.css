@@ -17,7 +17,7 @@ body {
     flex-direction: column;
     margin-left: 250px;
     width: calc(100% - 250px);
-    min-height: 700px;
+    min-height: 1000px;
 }
 
 .userTopBar {
@@ -42,6 +42,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .userListingWrapper {
@@ -65,14 +66,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
 .searchInput {
+    flex: 1;
+    min-width: 180px;
     padding: 10px 16px;
     border: 1px solid #e2e8f0;
     border-radius: 10px;
     font-size: 14px;
-    width: 900px;
     background: #ffffff;
     color: #111111;
     font-family: "Times New Roman", Times, serif;
@@ -116,6 +120,7 @@ body {
     text-decoration: none;
     font-size: 13px;
     font-weight: 700;
+    white-space: nowrap;
 }
 
 .userListingAddBtn:hover {
@@ -126,12 +131,14 @@ body {
     background: #ffffff;
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .listingTable {
     width: 100%;
     border-collapse: collapse;
+    min-width: 580px;
 }
 
 .tableHead {
@@ -144,6 +151,7 @@ body {
     letter-spacing: 0.5px;
     background: #F8FAFF;
     border-bottom: 1px solid #E2E8F0;
+    white-space: nowrap;
 }
 
 .tableRow:hover {
@@ -154,6 +162,7 @@ body {
     padding: 14px 18px;
     font-size: 14px;
     border-bottom: 1px solid #E2E8F0;
+    white-space: nowrap;
 }
 
 .tableRow:last-child .tableRowListing {
@@ -226,4 +235,118 @@ body {
 
 .deleteButton:hover {
     background-color: #B91C1C;
+}
+
+@media (max-width: 1024px) {
+    .mainContent {
+        margin-left: 200px;
+        width: calc(100% - 200px);
+    }
+
+    .userDashboardHeading {
+        font-size: 24px;
+    }
+
+    .userListingWrapper {
+        padding: 20px 20px;
+    }
+
+    .tableHead {
+        padding: 12px 14px;
+        font-size: 12px;
+    }
+
+    .tableRowListing {
+        padding: 12px 14px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    .mainContent {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .userTopBar {
+        padding: 16px 20px 10px 20px;
+    }
+
+    .userDashboardHeading {
+        font-size: 20px;
+    }
+
+    .userListingWrapper {
+        padding: 16px 16px;
+    }
+
+    .tableHead {
+        padding: 10px 12px;
+        font-size: 11px;
+    }
+
+    .tableRowListing {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .productImage {
+        width: 40px;
+        height: 40px;
+    }
+
+    .userListingTitle {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .mainContent {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .userTopBar {
+        padding: 12px 15px 10px 15px;
+    }
+
+    .userDashboardHeading {
+        font-size: 18px;
+    }
+
+    .userListingWrapper {
+        padding: 12px 12px;
+    }
+
+    .tableHead:nth-child(3),
+    .tableRowListing:nth-child(3),
+    .tableHead:nth-child(5),
+    .tableRowListing:nth-child(5),
+    .tableHead:nth-child(7),
+    .tableRowListing:nth-child(7) {
+        display: none;
+    }
+
+    .listingTable {
+        min-width: 360px;
+    }
+
+    .tableHead {
+        padding: 10px 10px;
+        font-size: 11px;
+    }
+
+    .tableRowListing {
+        padding: 10px 10px;
+        font-size: 12px;
+    }
+
+    .productImage {
+        width: 36px;
+        height: 36px;
+    }
+
+    .userListingTitle {
+        font-size: 15px;
+    }
 }

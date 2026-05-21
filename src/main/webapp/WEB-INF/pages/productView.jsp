@@ -6,7 +6,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>${product.productName} - The E-Spot</title>
+        <title>${product.productName}</title>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/productDetail.css">
     </head>
 

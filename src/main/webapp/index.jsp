@@ -13,9 +13,9 @@
 			<div class="Logo" style="font-size: 22px;color: white;"><b>The E-sopt</b></div>
 
 			<div class="linksToNavigate">
-				<a href="#">Browse</a> 
-				<a href="#">Sell</a> 
-				<a href="#"> About</a>
+				<a href="${pageContext.request.contextPath}/UserListing">Browse</a> 
+				<a href="${pageContext.request.contextPath}/memberDashboard">Dashboard</a> 
+				<a href="${pageContext.request.contextPath}/AboutUs"> About</a>
 			</div> 
 
             <div style="display: flex;">
@@ -38,30 +38,16 @@
                  <p class="underText">Thousands of listings updated daily. Find great deals or reach buyers across the country all in one place.</p>
 
                 <div class="someButtons">
-                    <button class="sellingButton">Start Selling</button>
-                    <button class="seeListingButton">Browse Listings</button>
+	                <form action="<%=request.getContextPath()%>/UserListing" method="get">
+						<button class="sellingButton">Browse Listings</button>	                
+					</form>
+					
+					<form action="<%=request.getContextPath()%>/userOwn" method="get">
+						<button class="seeListingButton">Your Listings</button>	                
+					</form>
                 </div>
             </div>
 		</div> 
-
-        <div class="statsBar">
-            <div class="statItem">
-                <div class="statNumber"><b>12,400+</b></div>
-                <div class="statName">Active listings</div>
-            </div>
-            <div class="statItem">
-                <div class="statNumber"><b>8,200+</b></div>
-                <div class="statName">Registered users</div>
-            </div>
-            <div class="statItem">
-                <div class="statNumber"><b>3,100+</b></div>
-                <div class="statName">Items sold</div>
-            </div>
-            <div class="statItem">
-                <div class="statNumber"><b>98%</b></div>
-                <div class="statName">Satisfied buyers</div>
-            </div>
-        </div>
 
         <div class="reviewPart">
 		    <div class="reviewLeft">
@@ -93,38 +79,5 @@
 		        </div>
 		    </div>
 		</div>
-
-        <footer class="footerSection">
-            <div class="footerTop">
-                <div class="footerBrand">
-                    <div class="footerLogo">The E-spot</div>
-                    <p class="footerLine">Nepal's trusted marketplace for buying and selling everything, from electronics to everyday essentials.</p>
-                </div>
-
-                <div class="footerLinks">
-                    <h4>Marketplace</h4>
-                    <a href="#">Browse listings</a>
-                    <a href="#">Sell an item</a>
-                </div>
-
-                <div class="footerLinks">
-                    <h4>Account</h4>
-                    <a href="#">Sign up</a>
-                    <a href="#">Log in</a>
-                    <a href="#">My listings</a>
-                    <a href="#">Cart</a>
-                </div>
-
-                <div class="footerLinks">
-                    <h4>About</h4>
-                    <a href="#">About Us</a>
-                    <a href="#">Contact Us</a>
-                </div>
-                
-            </div>
-            <div class="footerBottom">
-                <span class="footerText">The E-spot ©; 2026 All rights reserved</span>
-            </div>
-        </footer>
 	</body>
 </html>

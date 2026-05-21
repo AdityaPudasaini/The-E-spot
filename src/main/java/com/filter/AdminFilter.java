@@ -52,7 +52,7 @@ public class AdminFilter extends HttpFilter implements Filter {
 		
 		String userType = (String) SessionUtil.getAttribute(httpRequest, "userType");
 		
-		if (userType == "admin") 
+		if ("admin".equals(userType))
     	{
             chain.doFilter(request, response);
         } 

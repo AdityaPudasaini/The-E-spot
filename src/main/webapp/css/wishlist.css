@@ -42,6 +42,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .wishlistWrapper {
@@ -65,12 +66,14 @@ body {
     background: #ffffff;
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .listingTable {
     width: 100%;
     border-collapse: collapse;
+    min-width: 420px;
 }
 
 .tableHead {
@@ -83,6 +86,7 @@ body {
     letter-spacing: 0.5px;
     background: #F8FAFF;
     border-bottom: 1px solid #E2E8F0;
+    white-space: nowrap;
 }
 
 .tableRow:hover {
@@ -93,6 +97,7 @@ body {
     padding: 14px 18px;
     font-size: 14px;
     border-bottom: 1px solid #E2E8F0;
+    white-space: nowrap;
 }
 
 .tableRow:last-child .tableRowListing {
@@ -120,4 +125,114 @@ body {
 
 .deleteButton:hover {
     background-color: #B91C1C;
+}
+
+@media (max-width: 1024px) {
+    .mainContent {
+        margin-left: 200px;
+        width: calc(100% - 200px);
+    }
+
+    .userDashboardHeading {
+        font-size: 24px;
+    }
+
+    .wishlistWrapper {
+        padding: 20px 20px;
+    }
+
+    .tableHead {
+        padding: 12px 14px;
+        font-size: 12px;
+    }
+
+    .tableRowListing {
+        padding: 12px 14px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    .mainContent {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .userTopBar {
+        padding: 16px 20px 10px 20px;
+    }
+
+    .userDashboardHeading {
+        font-size: 20px;
+    }
+
+    .wishlistWrapper {
+        padding: 16px 16px;
+    }
+
+    .tableHead {
+        padding: 10px 12px;
+        font-size: 11px;
+    }
+
+    .tableRowListing {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .productImage {
+        width: 40px;
+        height: 40px;
+    }
+
+    .wishlistTitle {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .mainContent {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .userTopBar {
+        padding: 12px 15px 10px 15px;
+    }
+
+    .userDashboardHeading {
+        font-size: 18px;
+    }
+
+    .wishlistWrapper {
+        padding: 12px 12px;
+    }
+
+    .tableHead:nth-child(3),
+    .tableRowListing:nth-child(3) {
+        display: none;
+    }
+
+    .listingTable {
+        min-width: 300px;
+    }
+
+    .tableHead {
+        padding: 10px 10px;
+        font-size: 11px;
+    }
+
+    .tableRowListing {
+        padding: 10px 10px;
+        font-size: 12px;
+    }
+
+    .productImage {
+        width: 36px;
+        height: 36px;
+    }
+
+    .wishlistTitle {
+        font-size: 15px;
+    }
 }

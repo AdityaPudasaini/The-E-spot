@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>About Us - The E-Spot</title>
+    <title>About Us</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/aboutUs.css">
 </head>
 <body>

@@ -10,3 +10,9 @@
     position: sticky;
     bottom: 0;
 }
+
+@media (max-width: 1024px) {
+    .footer {
+        margin-left: 0;
+    }
+}

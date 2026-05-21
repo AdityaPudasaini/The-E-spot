@@ -19,8 +19,7 @@ import com.utils.SessionUtil;
 /**
  * Servlet Filter implementation class LoggedFilter
  */
-@WebFilter(urlPatterns = {"/dashboard", "/memberDashboard", "/flagged", "/listing", "/order",
-							"/report", "/revenue", "/user"})
+@WebFilter(urlPatterns = {"/memberDashboard", "/UserListing", "/userOwn", "/Cart", "/Wishlist", "/editProfile", "/ContactUs", "/AboutUs", "/logout"})
 public class LoggedFilter extends HttpFilter implements Filter {
        
     /**
@@ -54,15 +53,14 @@ public class LoggedFilter extends HttpFilter implements Filter {
 		boolean isLoggedIn = SessionUtil.getAttribute(httpRequest, "username") != null;
 
 
-		if (isLoggedIn)
+		if (isLoggedIn) 
 		{
-			chain.doFilter(request, response);
+		    chain.doFilter(request, response);
 		} 
 		
-		else
+		else 
 		{
-			httpResponse.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-			httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
+		    httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
 		}
 	}
 

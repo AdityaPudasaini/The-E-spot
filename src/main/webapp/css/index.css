@@ -1,292 +1,404 @@
 * {
-                margin: 0;
-                padding: 0;
-            }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-            nav {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                z-index: 100;
-                display: flex;
-                padding: 20px 60px;
-                justify-content: space-between;
-            }
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    padding: 20px 60px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
 
-            .logo {
-                font-size: 30px;
-                color: white;
-            }
+.logo {
+    font-size: 30px;
+    color: white;
+}
 
-            .linksToNavigate {
-                display: flex;
-                gap: 40px;
-            }
+.linksToNavigate {
+    display: flex;
+    gap: 40px;
+}
 
-            .linksToNavigate a {
-			    color: white;
-			    text-decoration: none;
-			    font-size: 16px;
-			}
+.linksToNavigate a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
 
-            .signUpbutdtoned, .loginButton {
-                background: white;
-                color: rgb(92, 104, 175);
-                padding: 9px 22px; 
-                border-radius: 8px; 
-                font-size: 14px;
-                cursor: pointer;
-                border: none;
-            }
+.signUpbutdtoned, .loginButton {
+    background: white;
+    color: rgb(92, 104, 175);
+    padding: 9px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+}
 
-            .firstShow {
-                position: relative; 
-                height: 620px; 
-                overflow: hidden;
-            }
+.firstShow {
+    position: relative;
+    height: 620px;
+    overflow: hidden;
+}
 
-            .backgroundImage {
-                width: 100%;
-                height: 100%; 
-                object-fit: cover; 
-                display: block;
-            }
+.backgroundImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
 
-            .putOver {
-                position: absolute; 
-                background: linear-gradient(105deg, rgba(6,45,60,0.82) 40%, rgba(6,45,60,0.2));
-                inset: 0;
-            }
+.putOver {
+    position: absolute;
+    background: linear-gradient(105deg, rgba(6,45,60,0.82) 40%, rgba(6,45,60,0.2));
+    inset: 0;
+}
 
-            .insideContent {
-                position: absolute;
-                display: flex; 
-                flex-direction: column; 
-                justify-content: center; 
-                padding: 0 60px; 
-                padding-top: 60px;
-                inset: 0;
-            }
+.insideContent {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 60px;
+    padding-top: 60px;
+    inset: 0;
+}
 
-            .slogan, .discover {
-                font-size: 54px; 
-                color: white; 
-                margin-bottom: 18px; 
-                max-width: 560px;
-            }
+.slogan, .discover {
+    font-size: 54px;
+    color: white;
+    margin-bottom: 18px;
+    max-width: 560px;
+}
 
-            .underText {
-                color: rgba(255,255,255,0.72); 
-                font-size: 16px;
-                line-height: 1.7;
-                width: 440px; 
-                margin-bottom: 36px;
-            }
+.underText {
+    color: rgba(255,255,255,0.72);
+    font-size: 16px;
+    line-height: 1.7;
+    width: 440px;
+    margin-bottom: 36px;
+}
 
-            .someButtons {
-                display: flex; 
-                gap: 12px; 
-                align-items: center;
-            }
+.someButtons {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
 
-            .sellingButton {
-                background: white; 
-                color: rgb(92, 104, 175); 
-                border: none; 
-                padding: 13px 30px; 
-                border-radius: 9px; 
-                font-size: 15px; 
-                cursor: pointer;
-            }
+.sellingButton {
+    background: white;
+    color: rgb(92, 104, 175);
+    border: none;
+    padding: 13px 30px;
+    border-radius: 9px;
+    font-size: 15px;
+    cursor: pointer;
+}
 
-            .seeListingButton {
-                background: transparent; 
-                color: white; 
-                border: 1.5px solid rgba(255,255,255,0.4); 
-                padding: 13px 30px; 
-                border-radius: 9px;
-            }
+.seeListingButton {
+    background: transparent;
+    color: white;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    padding: 13px 30px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-size: 15px;
+}
 
-            .statsBar {
-                display: flex;
-                border-bottom: 1px solid #e8eef0;
-            }
+.statsBar {
+    display: flex;
+    border-bottom: 1px solid #e8eef0;
+    flex-wrap: wrap;
+}
 
-            .statItem {
-                flex: 1;
-                padding: 28px 0;
-                text-align: center;
-                border-right: 1px solid #e8eef0;
-            }
+.statItem {
+    flex: 1;
+    min-width: 120px;
+    padding: 28px 0;
+    text-align: center;
+    border-right: 1px solid #e8eef0;
+}
 
-            .statItem:last-child {
-                border-right: none;
-            }
+.statItem:last-child {
+    border-right: none;
+}
 
-            .statNumber {
-                font-size: 32px;
-                color: #09637E;
-            }
+.statNumber {
+    font-size: 32px;
+    color: #09637E;
+}
 
-            .statName {
-                font-size: 13px;
-                color: #6b7b80;
-                margin-top: 4px;
-            }
+.statName {
+    font-size: 13px;
+    color: #6b7b80;
+    margin-top: 4px;
+}
 
-            .reviewPart {
-                background: #063d4e;
-                padding: 80px 60px;
-                display: flex;
-                gap: 80px;
-                align-items: center;
-            }
+.reviewPart {
+    background: #063d4e;
+    padding: 80px 60px;
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    flex-wrap: wrap;
+}
 
-            .reviewLeft {
-                flex: 1;
-            }
+.reviewLeft {
+    flex: 1;
+    min-width: 260px;
+}
 
-            .reviewLeft h2 {
-                font-size: 38px;
-                font-weight: 600;
-                color: white;
-                line-height: 1.25;
-                margin-bottom: 16px;
-            }
+.reviewLeft h2 {
+    font-size: 38px;
+    font-weight: 600;
+    color: white;
+    line-height: 1.25;
+    margin-bottom: 16px;
+}
 
-            .reviewLeft p {
-                color: rgba(255,255,255,0.65);
-                font-size: 15px;
-                line-height: 1.75;
-                font-weight: 300;
-            }
+.reviewLeft p {
+    color: rgba(255,255,255,0.65);
+    font-size: 15px;
+    line-height: 1.75;
+    font-weight: 300;
+}
 
-            .reviewsContainer {
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                gap: 16px;
-            }
+.reviewsContainer {
+    flex: 1;
+    min-width: 260px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
 
-            .reviewCard {
-                background: rgba(255,255,255,0.07);
-                border: 1px solid rgba(255,255,255,0.1);
-                border-radius: 12px;
-                padding: 20px 22px;
-            }
+.reviewCard {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 20px 22px;
+}
 
-            .reviewStars {
-                color: #f5c842;
-                font-size: 12px;
-                margin-bottom: 8px;
-                letter-spacing: 1px;
-            }
+.reviewStars {
+    color: #f5c842;
+    font-size: 12px;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
 
-            .reviewText {
-                font-size: 14px;
-                color: rgba(255,255,255,0.8);
-                line-height: 1.65;
-                margin-bottom: 12px;
-                font-weight: 300;
-            }
+.reviewText {
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.65;
+    margin-bottom: 12px;
+    font-weight: 300;
+}
 
-            .reviewPerson {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-            }
+.reviewPerson {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-            .reviewLogo {
-                width: 32px;
-                height: 32px;
-                border-radius: 50%;
-                background: rgba(255,255,255,0.15);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 12px;
-                font-weight: 500;
-                color: white;
-            }
+.reviewLogo {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 500;
+    color: white;
+    flex-shrink: 0;
+}
 
-            .reviewName {
-                font-size: 13px;
-                font-weight: 500;
-                color: rgba(255,255,255,0.85);
-            }
+.reviewName {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.85);
+}
 
-            .reviewRole {
-                font-size: 11px;
-                color: rgba(255,255,255,0.4);
-            }
+.reviewRole {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+}
 
-            /* Footer */
-            .footerSection {
-                background: #f7f9fa;
-                padding: 56px 60px 28px;
-                border-top: 1px solid #e8eef0;
-            }
+@media (max-width: 1024px) {
+    nav {
+        padding: 16px 36px;
+    }
 
-            .footerTop {
-                display: flex;
-                gap: 48px;
-                margin-bottom: 40px;
-            }
+    .insideContent {
+        padding: 0 36px;
+        padding-top: 80px;
+    }
 
-            .footerBrand {
-                flex: 2;
-            }
+    .slogan {
+        font-size: 44px;
+    }
 
-            .footerLogo {
-                font-size: 20px;
-                font-weight: 600;
-                color: #09637E;
-                margin-bottom: 10px;
-            }
+    .underText {
+        width: 380px;
+        font-size: 15px;
+    }
 
-            .footerLine {
-                font-size: 13px;
-                color: #6b7b80;
-                line-height: 1.65;
-                font-weight: 300;
-            }
+    .reviewPart {
+        padding: 60px 36px;
+        gap: 48px;
+    }
 
-            .footerLinks {
-                flex: 1;
-            }
+    .reviewLeft h2 {
+        font-size: 30px;
+    }
+}
 
-            .footerLinks h4 {
-                font-size: 12px;
-                font-weight: 500;
-                color: #1a1a1a;
-                text-transform: uppercase;
-                letter-spacing: 0.6px;
-                margin-bottom: 14px;
-            }
+@media (max-width: 768px) {
+    nav {
+        padding: 14px 24px;
+        gap: 10px;
+    }
 
-            .footerLinks a { 
-                display: block;
-                font-size: 13px;
-                color: #6b7b80; 
-                text-decoration: none;
-                margin-bottom: 9px;
-                font-weight: 300;
-            }
- 
-            .footerLinks a:hover {
-                color: #09637E;
-            } 
+    .linksToNavigate {
+        gap: 24px;
+    }
 
-            .footerBottom {
-                border-top: 1px solid #e8eef0;
-                padding-top: 20px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
+    .linksToNavigate a {
+        font-size: 14px;
+    }
 
-            .footerText {
-                font-size: 12px;
-                color: #aab5b8;
-            }
+    .firstShow {
+        height: 520px;
+    }
+
+    .insideContent {
+        padding: 0 24px;
+        padding-top: 100px;
+    }
+
+    .slogan {
+        font-size: 36px;
+        max-width: 100%;
+    }
+
+    .underText {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .reviewPart {
+        padding: 48px 24px;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .reviewLeft h2 {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        padding: 12px 16px;
+        position: relative;
+        background: rgba(6, 45, 60, 0.95);
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .linksToNavigate {
+        order: 3;
+        width: 100%;
+        gap: 16px;
+        justify-content: center;
+    }
+
+    .linksToNavigate a {
+        font-size: 13px;
+    }
+
+    div[style*="display: flex"] > form > .signUpButtoned,
+    .loginButton {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+
+    .firstShow {
+        height: auto;
+        min-height: 480px;
+    }
+
+    .insideContent {
+        padding: 16px 16px 32px;
+        padding-top: 24px;
+        justify-content: flex-end;
+    }
+
+    .slogan {
+        font-size: 28px;
+        margin-bottom: 12px;
+    }
+
+    .underText {
+        font-size: 13px;
+        margin-bottom: 24px;
+        width: 100%;
+    }
+
+    .sellingButton,
+    .seeListingButton {
+        padding: 11px 20px;
+        font-size: 13px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .someButtons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .reviewPart {
+        padding: 36px 16px;
+        gap: 28px;
+    }
+
+    .reviewLeft h2 {
+        font-size: 22px;
+    }
+
+    .reviewLeft p {
+        font-size: 13px;
+    }
+
+    .footerSection {
+        padding: 28px 16px 16px;
+    }
+
+    .footerTop {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .footerLinks {
+        min-width: unset;
+    }
+
+    .statNumber {
+        font-size: 24px;
+    }
+
+    .statName {
+        font-size: 11px;
+    }
+}

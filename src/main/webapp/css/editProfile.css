@@ -17,6 +17,7 @@ body {
     flex-direction: column;
     margin-left: 250px;
     width: calc(100% - 250px);
+    min-height: 100px;
 }
 
 .userTopBar {
@@ -111,6 +112,7 @@ body {
 .profileImageInput {
     font-size: 13px;
     color: #64748b;
+    max-width: 100%;
 }
 
 .editProfileRow {
@@ -141,6 +143,7 @@ body {
     outline: none;
     transition: border-color 0.2s;
     font-family: "Times New Roman", Times, serif;
+    width: 100%;
 }
 
 .editProfileInput:focus {
@@ -152,6 +155,7 @@ body {
     display: flex;
     gap: 16px;
     padding-top: 8px;
+    flex-wrap: wrap;
 }
 
 .editProfileBtnPrimary {
@@ -189,21 +193,111 @@ body {
     background: #E2E8F0;
 }
 
+@media (max-width: 1024px) {
+    .mainContent {
+        margin-left: 220px;
+        width: calc(100% - 220px);
+    }
+
+    .editProfileWrapper {
+        padding: 24px 20px;
+    }
+
+    .editProfileCard {
+        padding: 28px 28px;
+    }
+
+    .userDashboardHeading {
+        font-size: 26px;
+    }
+}
+
 @media (max-width: 768px) {
     .mainContent {
         margin-left: 0;
         width: 100%;
     }
 
+    .userTopBar {
+        padding: 16px 20px 10px 20px;
+    }
+
+    .userDashboardHeading {
+        font-size: 22px;
+    }
+
     .editProfileWrapper {
         padding: 16px;
+        gap: 16px;
+    }
+
+    .editProfileCard {
+        padding: 20px 18px;
+        gap: 16px;
+        border-radius: 12px;
+    }
+
+    .editProfileTitle {
+        font-size: 17px;
     }
 
     .editProfileRow {
         flex-direction: column;
+        gap: 16px;
+    }
+
+    .profileImageSection {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .editProfileButtons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .editProfileBtnPrimary,
+    .editProfileBtnSecondary {
+        width: 100%;
+        text-align: center;
+        padding: 13px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .userTopBar {
+        padding: 14px 16px 10px 16px;
+    }
+
+    .userDashboardHeading {
+        font-size: 19px;
+    }
+
+    .userAvatarCircle {
+        width: 36px;
+        height: 36px;
+    }
+
+    .editProfileWrapper {
+        padding: 12px;
     }
 
     .editProfileCard {
-        padding: 20px;
+        padding: 16px 14px;
+    }
+
+    .editProfileInput {
+        font-size: 13px;
+        padding: 11px 13px;
+    }
+
+    .profileImageCircle {
+        width: 68px;
+        height: 68px;
+    }
+
+    .editProfileTitle {
+        font-size: 16px;
     }
 }

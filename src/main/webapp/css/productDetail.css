@@ -503,3 +503,197 @@ body {
         flex-direction: column;
     }
 }
+
+@media (max-width: 1024px) {
+    .mainContent {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .userTopBar {
+        padding: 16px 24px 10px 24px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .productDetailWrapper {
+        flex-direction: column;
+        padding: 24px;
+        gap: 24px;
+    }
+
+    .mainImageBox {
+        height: 320px;
+    }
+
+    .productDetailsCard,
+    .reviewsCard {
+        margin: 0 24px 24px;
+    }
+
+    .successBanner,
+    .errorBanner {
+        margin: 12px 24px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .mainContent {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .userTopBar {
+        padding: 14px 20px 10px 20px;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .userDashboardHeading {
+        font-size: 22px;
+    }
+
+    .productDetailWrapper {
+        padding: 16px;
+        gap: 20px;
+    }
+
+    .mainImageBox {
+        height: 260px;
+    }
+
+    .productDetailName {
+        font-size: 22px;
+    }
+
+    .productDetailPrice {
+        font-size: 26px;
+    }
+
+    .actionButtons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .productDetailsCard,
+    .reviewsCard {
+        margin: 0 16px 16px;
+        padding: 20px 16px;
+    }
+
+    .successBanner,
+    .errorBanner {
+        margin: 10px 16px 0;
+        font-size: 13px;
+    }
+
+    .reviewComment {
+        padding-left: 0;
+    }
+
+    .detailLabel {
+        width: 130px;
+    }
+}
+
+@media (max-width: 480px) {
+    .userTopBar {
+        padding: 12px 14px 10px 14px;
+    }
+
+    .userDashboardHeading {
+        font-size: 19px;
+    }
+
+    .userAvatarCircle {
+        width: 36px;
+        height: 36px;
+    }
+
+    .productDetailWrapper {
+        padding: 12px;
+        gap: 16px;
+    }
+
+    .mainImageBox {
+        height: 220px;
+        border-radius: 10px;
+    }
+
+    .productDetailName {
+        font-size: 19px;
+    }
+
+    .productDetailPrice {
+        font-size: 22px;
+    }
+
+    .starFilled,
+    .starEmpty {
+        font-size: 17px;
+    }
+
+    .addToCartBtn,
+    .buyNowBtn,
+    .wishlistBtn {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .productDetailsCard,
+    .reviewsCard {
+        margin: 0 12px 12px;
+        padding: 16px 14px;
+        border-radius: 10px;
+    }
+
+    .successBanner,
+    .errorBanner {
+        margin: 10px 12px 0;
+        font-size: 12px;
+        padding: 10px 14px;
+    }
+
+    .sectionTitle {
+        font-size: 17px;
+    }
+
+    .detailLabel,
+    .detailValue {
+        font-size: 13px;
+        padding: 11px 0;
+    }
+
+    .detailLabel {
+        width: 110px;
+    }
+
+    .reviewerName {
+        font-size: 13px;
+    }
+
+    .reviewComment {
+        font-size: 13px;
+        padding-left: 0;
+    }
+
+    .ratingDropdown,
+    .reviewTextarea {
+        font-size: 13px;
+    }
+
+    .submitReviewBtn {
+        width: 100%;
+        text-align: center;
+        padding: 11px;
+    }
+
+    .quantityInput {
+        width: 70px;
+        font-size: 14px;
+    }
+
+    .sellerInfo {
+        padding: 12px;
+    }
+}

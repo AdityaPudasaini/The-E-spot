@@ -1,16 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Admin Sidebar</title>
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/adminSidebar.css">
-	</head>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/adminSidebar.css">
 
-	<body>
 
+		<input type="checkbox" id="adminSideToggle" class="sideToggleInput">
+
+		<label for="adminSideToggle" class="hamburger">
+		    <span></span>
+		    <span></span>
+		    <span></span>
+		</label>
+		
+		<label for="adminSideToggle" class="sideOverlay"></label>
+		
 		<div class="sidePanel">
             <p class="Logo">The E-spot</p>
 
@@ -98,5 +101,3 @@
                 </div>
             </div>
         </div>
-	</body>
-</html>

@@ -19,7 +19,7 @@ import com.utils.SessionUtil;
 /**
  * Servlet Filter implementation class UserFilter
  */
-@WebFilter(urlPatterns = {"/login", "/register", "/memberDashboard"})
+@WebFilter(urlPatterns = {"/login", "/register", "/memberDashboard", "/UserListing", "/userOwn", "/Cart", "/Wishlist", "/editProfile", "/ContactUs", "/AboutUs"})
 public class UserFilter extends HttpFilter implements Filter {
        
     /**
@@ -46,7 +46,7 @@ public class UserFilter extends HttpFilter implements Filter {
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub	
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
 		
@@ -54,31 +54,32 @@ public class UserFilter extends HttpFilter implements Filter {
 		String userType = (String) SessionUtil.getAttribute(httpRequest, "userType");
 		String urlPath = httpRequest.getServletPath();
 
-        if (isLoggedIn) 
-        {
-        	if ("admin".equals(userType)) 
-        	{
-                httpResponse.sendRedirect(httpRequest.getContextPath() + "/dashboard");
-            } 
-        	
-        	else 
-        	{
-        		if (urlPath.equals("/memberDashboard")) 
-        		{
-                    chain.doFilter(request, response);
-                } 
-        		
-        		else 
-        		{
-                    httpResponse.sendRedirect(httpRequest.getContextPath() + "/memberDashboard");
-                }
-            }
-        } 
-        
-        else 
-        {
-            chain.doFilter(request, response);
-        }
+		if (isLoggedIn) 
+		{
+		    if ("admin".equals(userType)) 
+		    {
+		        httpResponse.sendRedirect(httpRequest.getContextPath() + "/dashboard");
+		        return;
+		    } 
+		    
+		    else 
+		    {
+		        chain.doFilter(request, response);
+		    }
+		} 
+		
+		else 
+		{
+		    if (urlPath.equals("/login") || urlPath.equals("/register")) 
+		    {
+		        chain.doFilter(request, response);
+		    } 
+		    
+		    else 
+		    {
+		        httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
+		    }
+		}
 	}
 
 	/**

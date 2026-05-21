@@ -6,7 +6,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Edit Profile - The E-Spot</title>
+        <title>Edit Profile</title>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/editProfile.css">
     </head>
     <body>

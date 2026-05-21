@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Cart - The E-Spot</title>
+        <title>Cart</title>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/cart.css">
     </head>
     <body>

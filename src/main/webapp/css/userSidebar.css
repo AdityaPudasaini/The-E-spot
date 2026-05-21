@@ -6,6 +6,14 @@ body {
     background-color: #F0F4FF;
 }
 
+.sideToggleInput {
+    position: fixed;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
 .sidePanel {
     width: 250px;
     height: 100vh;
@@ -17,6 +25,7 @@ body {
     left: 0;
     z-index: 100;
     transition: transform 0.3s ease;
+    overflow-y: auto;
 }
 
 .Logo {
@@ -99,7 +108,6 @@ body {
     left: 16px;
     z-index: 200;
     background: #000;
-    border: none;
     border-radius: 8px;
     padding: 8px 10px;
     cursor: pointer;
@@ -122,28 +130,40 @@ body {
     inset: 0;
     background: rgba(0, 0, 0, 0.5);
     z-index: 99;
-}
-
-.sideOverlay.visible {
-    display: block;
+    cursor: pointer;
 }
 
 @media (max-width: 1024px) {
-
     .hamburger {
         display: flex;
     }
 
     .sidePanel {
         transform: translateX(-250px);
+        z-index: 200;
     }
 
-    .sidePanel.open {
+    .sideToggleInput:checked ~ .sidePanel {
         transform: translateX(0);
     }
 
-    /* Every page's main content wrapper */
-    .mainWrapper {
+    .sideToggleInput:checked ~ .sideOverlay {
+        display: block;
+    }
+
+    .sideToggleInput:checked ~ .hamburger span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .sideToggleInput:checked ~ .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .sideToggleInput:checked ~ .hamburger span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mainContent {
         margin-left: 0 !important;
         width: 100% !important;
     }

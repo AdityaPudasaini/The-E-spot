@@ -27,9 +27,6 @@ body {
     padding: 18px 32px;
     background: #ffffff;
     border-bottom: 1px solid #e2e8f0;
-    position: sticky;
-    top: 0;
-    z-index: 10;
 }
 
 .userDashboardHeading {
@@ -483,5 +480,114 @@ body {
     .aboutCard {
         padding: 20px 14px;
         border-radius: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .userTopBar {
+        padding: 12px 14px;
+    }
+
+    .userDashboardHeading {
+        font-size: 19px;
+    }
+
+    .userAvatarCircle {
+        width: 36px;
+        height: 36px;
+    }
+
+    .contactWrapper {
+        padding: 14px 12px;
+        gap: 18px;
+    }
+
+    .heroBanner {
+        padding: 28px 14px;
+        border-radius: 10px;
+    }
+
+    .heroBanner h1 {
+        font-size: 20px;
+    }
+
+    .heroBanner p {
+        font-size: 13px;
+    }
+
+    .aboutCard {
+        padding: 18px 12px;
+        border-radius: 10px;
+    }
+
+    .sectionTitle {
+        font-size: 16px;
+        margin-bottom: 16px;
+    }
+
+    .channelCard {
+        padding: 18px 14px;
+    }
+
+    .channelIcon {
+        font-size: 24px;
+    }
+
+    .channelCard h4 {
+        font-size: 15px;
+    }
+
+    .channelDetail {
+        font-size: 14px;
+    }
+
+    .channelNote {
+        font-size: 12px;
+    }
+
+    .formGroup label {
+        font-size: 13px;
+    }
+
+    .formGroup input,
+    .formGroup select,
+    .formGroup textarea {
+        font-size: 13px;
+        padding: 10px 12px;
+    }
+
+    .submitBtn {
+        font-size: 14px;
+        padding: 11px 20px;
+    }
+
+    .faqItem {
+        padding: 16px 14px;
+    }
+
+    .faqItem h4 {
+        font-size: 14px;
+    }
+
+    .faqItem p {
+        font-size: 12px;
+    }
+
+    .ctaStrip {
+        padding: 26px 14px;
+        border-radius: 10px;
+    }
+
+    .ctaStrip h2 {
+        font-size: 19px;
+    }
+
+    .ctaStrip p {
+        font-size: 13px;
+    }
+
+    .ctaBtn {
+        padding: 10px 20px;
+        font-size: 13px;
     }
 }
