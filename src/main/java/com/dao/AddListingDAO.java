@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 public class AddListingDAO {
 
+    // Method to retrieve categories from teh database
     public ArrayList<CategoryModel> getCategories() throws SQLException {
     	
         ArrayList<CategoryModel> categories = new ArrayList<>();
@@ -38,6 +39,7 @@ public class AddListingDAO {
         return categories;
     }
 
+    //Method to add the listing to teh currtent ones
     public int addListing(String productName, String productDescription, double productPrice, int stockQuantity, int categoryId, String sellerUsername) throws SQLException {
 
         Connection conn = DBConfig.getConnection();
@@ -72,7 +74,8 @@ public class AddListingDAO {
 
         return productId;
     }
-    
+
+    //to retrieve the currewnt member's Id and then set it to seller id so that when we insert into databse, the wrong id deosn't get inserted
     public int codeMemberId(String sellerUsername) throws SQLException{
     	
     	Connection conn = DBConfig.getConnection();
