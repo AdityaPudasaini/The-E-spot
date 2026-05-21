@@ -1,0 +1,17 @@
+CREATE TABLE payment (
+    Payment_ID INT(11) PRIMARY KEY AUTO_INCREMENT,
+    Order_ID INT(11),
+    Payment_Method VARCHAR(50),
+    Payment_Date DATETIME,
+    Payment_Amount DECIMAL(12,2),
+    Payment_Status VARCHAR(30),
+    FOREIGN KEY (Order_ID) REFERENCES `order`(Order_ID)
+);
+
+INSERT INTO payment (Order_ID, Payment_Method, Payment_Date, Payment_Amount, Payment_Status) VALUES (?, 'Online', NOW(), ?, 'Completed');
+
+SELECT SUM(Payment_Amount) AS totalRevenue FROM payment WHERE Payment_Status = 'Completed';
+
+SELECT AVG(Payment_Amount) AS avgOrder FROM payment WHERE Payment_Status = 'Completed';
+
+SELECT SUM(Payment_Amount) AS monthRevenue FROM payment WHERE Payment_Status = 'Completed' AND MONTH(Payment_Date) = MONTH(CURDATE()) AND YEAR(Payment_Date) = YEAR(CURDATE());

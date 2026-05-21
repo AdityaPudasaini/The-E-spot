@@ -1,0 +1,19 @@
+CREATE TABLE order (
+    Order_ID INT(11) PRIMARY KEY AUTO_INCREMENT,
+    Member_ID INT(11),
+    Order_Date DATETIME,
+    Order_Status VARCHAR(30),
+    FOREIGN KEY (Member_ID) REFERENCES member(Member_ID)
+);
+
+INSERT INTO `order` (Member_ID, Order_Date, Order_Status) VALUES (?, NOW(), 'Completed');
+
+SELECT COUNT(*) AS total FROM `order`;
+
+SELECT COUNT(*) AS total FROM `order` WHERE Order_Status = 'Completed';
+
+SELECT COUNT(*) AS total FROM `order` WHERE Order_Status = 'Pending';
+
+SELECT COUNT(*) AS total FROM `order` WHERE Order_Status = 'Refunded';
+
+SELECT o.Order_ID, m.Member_Name, o.Order_Date, o.Order_Status FROM `order` o JOIN member m ON o.Member_ID = m.Member_ID ORDER BY o.Order_Date DESC;

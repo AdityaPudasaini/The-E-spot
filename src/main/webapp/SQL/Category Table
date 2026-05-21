@@ -1,0 +1,9 @@
+CREATE TABLE category (
+    Category_ID INT(11) PRIMARY KEY AUTO_INCREMENT,
+    Category_Name VARCHAR(100),
+    Category_Description TEXT
+);
+
+SELECT Category_ID, Category_Name FROM category ORDER BY Category_Name ASC;
+
+SELECT Category_Name FROM category ORDER BY Category_Name ASC;

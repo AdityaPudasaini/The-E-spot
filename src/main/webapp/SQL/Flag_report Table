@@ -1,0 +1,22 @@
+CREATE TABLE flag_report (
+    Flag_ID INT(11) PRIMARY KEY AUTO_INCREMENT,
+    Product_ID INT(11),
+    Reported_By_Member INT(11) DEFAULT NULL,
+    Reported_By_Admin INT(11) DEFAULT NULL,
+    Reason VARCHAR(255),
+    Date_Reported DATETIME,
+    Flag_Status VARCHAR(30) DEFAULT 'Under Review',
+    FOREIGN KEY (Product_ID) REFERENCES product(Product_ID),
+    FOREIGN KEY (Reported_By_Member) REFERENCES member(Member_ID),
+    FOREIGN KEY (Reported_By_Admin) REFERENCES admin(Admin_ID)
+);
+
+INSERT INTO flag_report (Product_ID, Reported_By_Admin, Reason, Date_Reported, Flag_Status) VALUES (?, ?, 'Flagged by Admin', NOW(), 'Under Review');
+
+SELECT COUNT(*) FROM flag_report;
+
+SELECT COUNT(*) FROM flag_report WHERE Flag_Status = 'Resolved';
+
+UPDATE flag_report SET Flag_Status = 'Resolved' WHERE Flag_ID = ?;
+
+UPDATE flag_report SET Flag_Status = 'Dismissed' WHERE Flag_ID = ?;

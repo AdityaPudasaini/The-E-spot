@@ -1,0 +1,611 @@
+@charset "UTF-8";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    color: #111827;
+    background: #eef0f8;
+}
+
+.mainContent {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.userTopBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 32px;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.userDashboardHeading {
+    font-size: 30px;
+    color: #0C2C55;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.userAvatarCircle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #2563EB;
+    flex-shrink: 0;
+}
+
+.aboutWrapper {
+    padding: 36px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.downloadRow {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.downloadBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #2563EB;
+    color: #ffffff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.downloadBtn:hover {
+    background: #1d4ed8;
+}
+
+.aboutCard {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 36px 40px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+
+.sectionTitle {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0C2C55;
+    margin-bottom: 24px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eef0f8;
+}
+
+.heroBanner {
+    background: #0C2C55;
+    border-radius: 14px;
+    padding: 52px 40px;
+    text-align: center;
+    color: #ffffff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+.heroBanner h1 {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 14px;
+}
+
+.heroBanner p {
+    font-size: 16px;
+    opacity: 0.88;
+    max-width: 580px;
+    margin: 0 auto 28px;
+    line-height: 1.7;
+}
+
+.statRow {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.statPill {
+    background: rgba(37, 99, 235, 0.25);
+    border: 1px solid rgba(37, 99, 235, 0.5);
+    color: #ffffff;
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.missionCard {
+    background: #f8faff;
+    border-radius: 10px;
+    padding: 28px;
+    border-left: 4px solid #2563EB;
+}
+
+.missionCard.vision {
+    border-left-color: #22c55e;
+}
+
+.missionCard h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0C2C55;
+    margin-bottom: 10px;
+}
+
+.missionCard p {
+    font-size: 14px;
+    color: #374151;
+    line-height: 1.75;
+}
+
+.storyText p {
+    font-size: 15px;
+    color: #374151;
+    line-height: 1.85;
+    margin-bottom: 16px;
+}
+
+.storyText p:last-child {
+    margin-bottom: 0;
+}
+
+.featureGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.featureItem {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: #f8faff;
+    border-radius: 10px;
+    padding: 22px;
+}
+
+.featureIcon {
+    font-size: 26px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.featureItem h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0C2C55;
+    margin-bottom: 6px;
+}
+
+.featureItem p {
+    font-size: 13px;
+    color: #374151;
+    line-height: 1.65;
+}
+
+.valuesGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.valueCard {
+    text-align: center;
+    background: #f8faff;
+    border-radius: 10px;
+    padding: 28px 20px;
+}
+
+.valueEmoji {
+    font-size: 36px;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.valueCard h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0C2C55;
+    margin-bottom: 8px;
+}
+
+.valueCard p {
+    font-size: 13px;
+    color: #374151;
+    line-height: 1.65;
+}
+
+.teamGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.teamCard {
+    text-align: center;
+    background: #f8faff;
+    border-radius: 10px;
+    padding: 28px 20px;
+}
+
+.teamAvatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #0C2C55;
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    color: #ffffff;
+    font-weight: 700;
+    overflow: hidden;
+}
+
+.teamAvatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.teamCard h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0C2C55;
+    margin-bottom: 4px;
+}
+
+.teamCard .teamRole {
+    font-size: 13px;
+    color: #2563EB;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.teamCard p {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+.contactGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.contactItem {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    background: #f8faff;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.contactIcon {
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.contactItem h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #0C2C55;
+    margin-bottom: 3px;
+}
+
+.contactItem p {
+    font-size: 13px;
+    color: #374151;
+}
+
+.ctaStrip {
+    background: #0C2C55;
+    border-radius: 14px;
+    padding: 44px 40px;
+    text-align: center;
+    color: #ffffff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+.ctaStrip h2 {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.ctaStrip p {
+    font-size: 15px;
+    opacity: 0.88;
+    margin-bottom: 24px;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+}
+
+.ctaBtnGroup {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.ctaBtn {
+    padding: 10px 28px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.ctaBtnPrimary {
+    background: #2563EB;
+    color: #ffffff;
+}
+
+.ctaBtnPrimary:hover {
+    background: #1d4ed8;
+}
+
+.ctaBtnSecondary {
+    background: #ffffff;
+    color: #0C2C55;
+}
+
+.ctaBtnSecondary:hover {
+    background: #eef0f8;
+}
+
+@media (max-width: 1024px) {
+    .mainContent {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .aboutWrapper {
+        padding: 28px 24px;
+        gap: 28px;
+    }
+
+    .aboutCard {
+        padding: 28px 24px;
+    }
+
+    .heroBanner {
+        padding: 40px 28px;
+    }
+
+    .heroBanner h1 {
+        font-size: 30px;
+    }
+
+    .teamGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .valuesGrid {
+        gap: 16px;
+    }
+
+    .featureGrid {
+        gap: 16px;
+    }
+
+    .contactGrid {
+        gap: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .userTopBar {
+        padding: 14px 20px;
+    }
+
+    .userDashboardHeading {
+        font-size: 22px;
+    }
+
+    .aboutWrapper {
+        padding: 20px 16px;
+        gap: 20px;
+    }
+
+    .aboutCard {
+        padding: 22px 18px;
+        border-radius: 12px;
+    }
+
+    .sectionTitle {
+        font-size: 19px;
+        margin-bottom: 18px;
+    }
+
+    .heroBanner {
+        padding: 36px 20px;
+        border-radius: 12px;
+    }
+
+    .heroBanner h1 {
+        font-size: 26px;
+    }
+
+    .heroBanner p {
+        font-size: 14px;
+    }
+
+    .grid2 {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .featureGrid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .valuesGrid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .teamGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    .contactGrid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .ctaStrip {
+        padding: 32px 20px;
+        border-radius: 12px;
+    }
+
+    .ctaStrip h2 {
+        font-size: 21px;
+    }
+
+    .ctaBtnGroup {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ctaBtn {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .userTopBar {
+        padding: 12px 14px;
+    }
+
+    .userDashboardHeading {
+        font-size: 19px;
+    }
+
+    .userAvatarCircle {
+        width: 36px;
+        height: 36px;
+    }
+
+    .aboutWrapper {
+        padding: 14px 12px;
+        gap: 16px;
+    }
+
+    .aboutCard {
+        padding: 18px 14px;
+        border-radius: 10px;
+    }
+
+    .sectionTitle {
+        font-size: 17px;
+    }
+
+    .heroBanner {
+        padding: 28px 14px;
+        border-radius: 10px;
+    }
+
+    .heroBanner h1 {
+        font-size: 22px;
+    }
+
+    .heroBanner p {
+        font-size: 13px;
+    }
+
+    .teamGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .teamCard {
+        padding: 20px 14px;
+    }
+
+    .teamAvatar {
+        width: 58px;
+        height: 58px;
+    }
+
+    .teamCard h4 {
+        font-size: 14px;
+    }
+
+    .missionCard {
+        padding: 20px 16px;
+    }
+
+    .featureItem {
+        padding: 18px 14px;
+        gap: 12px;
+    }
+
+    .featureIcon {
+        font-size: 22px;
+    }
+
+    .valueCard {
+        padding: 22px 14px;
+    }
+
+    .valueEmoji {
+        font-size: 28px;
+    }
+
+    .contactItem {
+        padding: 16px 14px;
+    }
+
+    .ctaStrip {
+        padding: 26px 14px;
+    }
+
+    .ctaStrip h2 {
+        font-size: 19px;
+    }
+
+    .ctaStrip p {
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,14 @@
+CREATE TABLE product (
+    Product_ID INT(11) PRIMARY KEY AUTO_INCREMENT,
+    Category_ID INT(11),
+    Seller_ID INT(11),
+    Product_Name VARCHAR(150),
+    Product_Description TEXT,
+    Product_Price DECIMAL(12,2),
+    Stock_Quantity INT(11),
+    Listed_Date DATE,
+    Active_Status VARCHAR(20),
+    isFlagged VARCHAR(255),
+    FOREIGN KEY (Category_ID) REFERENCES category(Category_ID),
+    FOREIGN KEY (Seller_ID) REFERENCES member(Member_ID)
+);

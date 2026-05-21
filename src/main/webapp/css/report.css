@@ -1,0 +1,345 @@
+@charset "UTF-8";
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F0F4FF;
+    color: #0F172A;
+}
+
+.topPart {
+    border: none;
+    border-bottom: 1px solid rgb(208, 208, 208);
+    width: 100%;
+    height: 74px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    background-color: white;
+}
+
+.dashboardHeading {
+    font-size: 30px;
+    padding-left: 50px;
+    margin: 0;
+    flex: 1;
+}
+
+.adminPhoto {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: #000000;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    margin-right: 32px;
+}
+
+.errorBanner {
+    margin: 16px 32px 0 32px;
+    padding: 12px 16px;
+    background: #FEE2E2;
+    color: #991B1B;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.statsRow {
+    display: flex;
+    gap: 24px;
+    padding: 24px 32px 0;
+}
+
+.smallBox {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 250px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+}
+
+.smallText {
+    color: #64748B;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.moneyDollar {
+    font-size: 26px;
+    font-weight: 800;
+    color: #0F172A;
+}
+
+.smallStat {
+    display: inline-block;
+    width: fit-content;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.tableBox {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    margin: 24px 32px;
+    padding: 24px;
+}
+
+.tableTitle {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #0F172A;
+}
+
+.listingTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableHead {
+    background: #F8FAFF;
+    text-align: left;
+    padding: 12px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tableRow:hover {
+    background: #F0F4FF;
+}
+
+.tableRowListing {
+    padding: 14px 16px;
+    border-bottom: 1px solid #F1F5F9;
+    font-size: 14px;
+    color: #0F172A;
+}
+
+.everyStatus {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.formatBadge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.downloadButton {
+    background: #3B82F6;
+    color: #fff;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.downloadButton:hover {
+    background: #2563EB;
+}
+
+.lastPartButtons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 24px 32px 32px;
+}
+
+.lastPartButton {
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: #fff;
+    border: 1px solid #E2E8F0;
+    color: #0F172A;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.lastPartButton:hover {
+    background: #F0F4FF;
+}
+
+.pageActive {
+    background: #2563EB;
+    color: #fff;
+    border-color: #2563EB;
+}
+
+.pageActive:hover {
+    background: #1E40AF;
+}
+
+@media (max-width: 1024px) {
+    .statsRow {
+        flex-wrap: wrap;
+        padding: 16px 16px 0;
+    }
+
+    .smallBox {
+        width: calc(50% - 12px);
+    }
+
+    .tableBox {
+        margin: 16px;
+        padding: 16px;
+        overflow-x: auto;
+    }
+
+    .dashboardHeading {
+        font-size: 22px;
+        padding-left: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .topPart {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    .statsRow {
+        flex-direction: column;
+        padding: 16px 16px 0;
+        gap: 12px;
+    }
+
+    .smallBox {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .tableBox {
+        margin: 12px;
+        padding: 14px;
+        overflow-x: auto;
+    }
+
+    .listingTable {
+        min-width: 600px;
+    }
+
+    .tableHead,
+    .tableRowListing {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .tableTitle {
+        font-size: 16px;
+    }
+
+    .dashboardHeading {
+        font-size: 18px;
+        padding-left: 16px;
+    }
+
+    .adminPhoto {
+        margin-right: 16px;
+    }
+
+    .lastPartButtons {
+        flex-wrap: wrap;
+        margin: 12px 16px 24px;
+    }
+
+    .errorBanner {
+        margin: 12px 12px 0;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .smallBox {
+        padding: 14px;
+        gap: 8px;
+    }
+
+    .moneyDollar {
+        font-size: 22px;
+    }
+
+    .smallText {
+        font-size: 12px;
+    }
+
+    .tableBox {
+        margin: 10px 8px;
+        padding: 12px;
+        border-radius: 8px;
+    }
+
+    .listingTable {
+        min-width: 500px;
+    }
+
+    .tableHead, .tableRowListing {
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+
+    .downloadButton {
+        padding: 5px 12px;
+        font-size: 11px;
+    }
+
+    .formatBadge, .everyStatus, .smallStat {
+        font-size: 11px;
+        padding: 3px 8px;
+    }
+
+    .lastPartButton {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .dashboardHeading {
+        font-size: 16px;
+    }
+
+    .topPart {
+        height: 60px;
+    }
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    margin-left: 250px;
+    width: calc(100% - 250px);
+}
+
+@media (max-width: 768px) {
+    .mainContent {
+        margin-left: 0;
+        width: 100%;
+    }
+}

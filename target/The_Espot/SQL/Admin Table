@@ -1,0 +1,8 @@
+CREATE TABLE admin (
+    Admin_ID INT(11) PRIMARY KEY AUTO_INCREMENT,
+    Admin_Name VARCHAR(100),
+    Admin_Email VARCHAR(150),
+    Admin_Password VARCHAR(255),
+    Admin_Permission VARCHAR(100),
+    Admin_Username VARCHAR(255)
+);

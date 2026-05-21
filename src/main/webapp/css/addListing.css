@@ -1,0 +1,376 @@
+@charset "UTF-8";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Times New Roman", Times, serif;
+}
+
+body {
+    background-color: #eef0f8;
+    color: #111111;
+}
+
+.mainContent { 
+    display: flex;
+    flex-direction: column;
+    margin-left: 250px;
+    width: calc(100% - 250px);
+}
+
+.userTopBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 30px 10px 30px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7ef;
+}
+
+.userDashboardHeading {
+    font-size: 30px;
+    color: #111111;
+}
+
+.userAvatarCircle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #4f5bd5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.addListingWrapper {
+    padding: 32px 30px;
+}
+
+.addListingError {
+    background: #FEE2E2;
+    color: #991B1B;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.addListingForm {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 36px 40px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.addListingField {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.addListingLabel {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111111;
+}
+
+.addListingInput {
+    padding: 12px 16px;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #111111;
+    background: #F8FAFF;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.addListingInput:focus {
+    border-color: #4f5bd5;
+    background: #ffffff;
+}
+
+.addListingTextarea {
+    padding: 12px 16px;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #111111;
+    background: #F8FAFF;
+    outline: none;
+    resize: vertical;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.addListingTextarea:focus {
+    border-color: #4f5bd5;
+    background: #ffffff;
+}
+
+.addListingRow {
+    display: flex;
+    gap: 20px;
+}
+
+.addListingRow .addListingField {
+    flex: 1;
+}
+
+.addListingSelect {
+    padding: 12px 16px;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #111111;
+    background: #F8FAFF;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    width: fit-content;
+}
+
+.addListingSelect:focus {
+    border-color: #4f5bd5;
+}
+
+.addListingDropzone {
+    border: 2px dashed #CBD5E1;
+    border-radius: 12px;
+    padding: 40px 20px;
+    text-align: center;
+    cursor: pointer;
+    background: #F8FAFF;
+    transition: border-color 0.2s, background 0.2s;
+    min-height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.addListingDropzone:hover {
+    border-color: #4f5bd5;
+    background: #f0f2ff;
+}
+
+.addListingDropzoneActive {
+    border-color: #4f5bd5;
+    background: #f0f2ff;
+}
+
+.addListingUploadIcon {
+    font-size: 36px;
+    color: #94A3B8;
+    margin-bottom: 10px;
+}
+
+.addListingDropzoneText {
+    font-size: 14px;
+    color: #64748B;
+    margin-bottom: 4px;
+}
+
+.addListingDropzoneHint {
+    font-size: 12px;
+    color: #94A3B8;
+}
+
+.addListingDropzoneContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.addListingButtons {
+    display: flex;
+    gap: 16px;
+    padding-top: 8px;
+}
+
+.addListingFileInput {
+    padding: 12px 16px;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #64748B;
+    background: #F8FAFF;
+    cursor: pointer;
+    width: 100%;
+}
+
+.addListingBtnPrimary {
+    flex: 1;
+    padding: 13px 24px;
+    background: #4f5bd5;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.addListingBtnPrimary:hover {
+    background: #3a47c0;
+}
+
+.addListingBtnSecondary {
+    flex: 1;
+    padding: 13px 24px;
+    background: #F1F5F9;
+    color: #475569;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.addListingBtnSecondary:hover {
+    background: #E2E8F0;
+}
+
+.currentImageBox {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px;
+    background: #F8FAFF;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.currentImagePreview {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #E2E8F0;
+}
+
+.currentImageNote {
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+@media (max-width: 1024px) {
+    .mainContent {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .addListingWrapper {
+        padding: 24px 20px;
+    }
+
+    .addListingForm {
+        padding: 28px 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .userTopBar {
+        padding: 14px 20px;
+    }
+
+    .userDashboardHeading {
+        font-size: 22px;
+    }
+
+    .addListingWrapper {
+        padding: 16px;
+    }
+
+    .addListingForm {
+        padding: 22px 18px;
+        gap: 18px;
+        border-radius: 12px;
+    }
+
+    .addListingRow {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .addListingButtons {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .addListingBtnPrimary,
+    .addListingBtnSecondary {
+        width: 100%;
+        text-align: center;
+    }
+
+    .addListingSelect {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+	
+	.currentImageBox {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .currentImagePreview {
+        width: 58px;
+        height: 58px;
+    }
+    .userTopBar {
+        padding: 12px 14px;
+    }
+
+    .userDashboardHeading {
+        font-size: 19px;
+    }
+
+    .userAvatarCircle {
+        width: 36px;
+        height: 36px;
+    }
+
+    .addListingWrapper {
+        padding: 12px;
+    }
+
+    .addListingForm {
+        padding: 18px 14px;
+        gap: 16px;
+        border-radius: 10px;
+    }
+
+    .addListingInput,
+    .addListingTextarea,
+    .addListingSelect,
+    .addListingFileInput {
+        font-size: 13px;
+        padding: 10px 12px;
+    }
+
+    .addListingLabel {
+        font-size: 13px;
+    }
+
+    .addListingBtnPrimary,
+    .addListingBtnSecondary {
+        font-size: 13px;
+        padding: 12px 16px;
+    }
+
+    .addListingError {
+        font-size: 12px;
+        padding: 10px 14px;
+    }
+}

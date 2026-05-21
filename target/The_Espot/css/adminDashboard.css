@@ -1,0 +1,217 @@
+body {
+	margin: 0;
+    padding: 0;
+    background-color: #F0F4FF;
+}
+
+.adminPhoto {
+	width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.topPart {
+	border: none;
+    border-bottom: 1px solid rgb(208, 208, 208);
+    width: 100%;
+    height: 74px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    background-color: white;
+}
+
+.dashboardHeading {
+	font-size: 30px;
+    padding-left: 50px;
+    margin: 0;
+    margin-right: 940px;
+}
+
+.adminWelcome {
+	width: 93%;
+    height: 150px;
+    background: linear-gradient(to right, #111827, #1E3A8A);
+    margin: 50px;
+    border-radius: 10px;
+    display: flex;
+}
+
+.report {
+	width: 150px;
+    height: 30px;
+    background-color: #000000;
+    margin-top: 50px;
+    margin-left: 610px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.report:hover {
+	background-color: white;
+    color: black;
+}
+
+.lastBox {
+	width: 567px;
+    height: 275px;
+    margin-top: 50px;
+    margin-left: 50px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.invalidListingText {
+	font-size: 20px;
+    padding-left: 25px;
+    padding-top: 15px;;
+}
+
+.sideText {
+	font-size: 15px;
+    padding-left: 310px;
+    padding-top: 40px;
+    text-decoration: none;
+}
+
+.invalidItem {
+	display: flex;
+    flex-direction: column;
+    padding: 12px 0;
+    margin-right: 25px;
+    margin-left: 25px; 
+    border-bottom: 1px solid #c8e4ea;
+}
+
+.invalidItemName {
+	font-size: 14px;
+    font-weight: 600;
+    color: #0a3d4a;
+    margin: 0 0 2px 0;
+}
+
+.invalidItemDesc {
+	font-size: 12px;
+    color: #5a8a96;
+    margin: 0 0 8px 0;
+}
+
+.removebutton {
+	background-color: #fdecea;
+    color: #e74c3c;
+    border: none;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.keepButton {
+	background-color: #EBF4F6;
+    color: #09637E;
+    border: none;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.recentListingText {
+	font-size: 20px; 
+    font-weight: 700; 
+    color: #0a3d4a; 
+    padding: 35px 20px 20px 30px; 
+    margin: 0;
+}
+
+.listedItem {
+	margin-left: 30px;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #c8e4ea;
+    margin-right: 25px;
+}
+
+.listedItemInfo {
+	flex: 1;
+}
+
+.listedItemName {
+	font-size: 14px;
+    font-weight: 600;
+    color: #0a3d4a;
+    margin: 1px 0 2px 0;
+}
+
+.listedItemSellerName {
+	font-size: 12px;
+    color: #5a8a96;
+    margin: 0;
+}
+
+.listedItemPrice {
+	font-size: 14px;
+    font-weight: 700;
+    color: #09637E;
+    margin-right: 10px;
+}
+
+.stats {
+	display: flex;
+    gap: 25px;
+    width: 93%;
+    height: 250px;
+    margin-left: 50px;
+}
+            
+.smallBox {
+	background-color: white;
+    height: 240px;
+    width: 275px;
+    border-radius: 15px;
+}
+
+.dollarImage {
+	width: 50px;
+    height: 50px;
+    margin-top: 25px;
+    margin-left: 25px;
+}
+
+.smallText {
+	margin-left: 25px;
+    margin-top: 20px;
+}
+
+.money {
+	margin-left: 25px;
+    font-size: 30px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.smallStat {
+	width: 160px;
+    background: #DCFCE7; 
+    color: #166534;
+    height: 25px;
+    border-radius: 10px;
+    margin-left: 25px;
+    align-content: center;
+    padding-left: 15px;
+    padding-top: 0;
+    font-size: 15px;
+}

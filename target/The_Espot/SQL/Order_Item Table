@@ -1,0 +1,9 @@
+CREATE TABLE order_item (
+    Order_Item_ID INT(11) PRIMARY KEY AUTO_INCREMENT,
+    Order_ID INT(11),
+    Product_ID INT(11),
+    Item_Quantity INT(11),
+    Item_Price DECIMAL(12,2),
+    FOREIGN KEY (Order_ID) REFERENCES `order`(Order_ID),
+    FOREIGN KEY (Product_ID) REFERENCES product(Product_ID)
+);

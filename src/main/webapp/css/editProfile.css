@@ -1,0 +1,303 @@
+@charset "UTF-8";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Times New Roman", Times, serif;
+}
+
+body {
+    background-color: #eef0f8;
+    color: #111111;
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    min-height: 100px;
+}
+
+.userTopBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 30px 10px 30px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7ef;
+}
+
+.userDashboardHeading {
+    font-size: 30px;
+    color: #111111;
+}
+
+.userAvatarCircle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #4f5bd5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.editProfileWrapper {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.successBanner {
+    padding: 12px 16px;
+    background: #DCFCE7;
+    color: #166534;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.editProfileCard {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 32px 36px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.editProfileTitle {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111111;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.editProfileError {
+    background: #FEE2E2;
+    color: #991B1B;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.profileImageSection {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profileImageCircle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #4f5bd5;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.profileImageLabel {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111111;
+    margin-bottom: 8px;
+}
+
+.profileImageInput {
+    font-size: 13px;
+    color: #64748b;
+    max-width: 100%;
+}
+
+.editProfileRow {
+    display: flex;
+    gap: 20px;
+}
+
+.editProfileField {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.editProfileLabel {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111111;
+}
+
+.editProfileInput {
+    padding: 12px 16px;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #111111;
+    background: #F8FAFF;
+    outline: none;
+    transition: border-color 0.2s;
+    font-family: "Times New Roman", Times, serif;
+    width: 100%;
+}
+
+.editProfileInput:focus {
+    border-color: #4f5bd5;
+    background: #ffffff;
+}
+
+.editProfileButtons {
+    display: flex;
+    gap: 16px;
+    padding-top: 8px;
+    flex-wrap: wrap;
+}
+
+.editProfileBtnPrimary {
+    padding: 13px 24px;
+    background: #4f5bd5;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.editProfileBtnPrimary:hover {
+    background: #3a47c0;
+}
+
+.editProfileBtnSecondary {
+    padding: 13px 24px;
+    background: #F1F5F9;
+    color: #475569;
+    border: 1.5px solid #E2E8F0;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.2s;
+}
+
+.editProfileBtnSecondary:hover {
+    background: #E2E8F0;
+}
+
+@media (max-width: 1024px) {
+    .mainContent {
+        margin-left: 220px;
+        width: calc(100% - 220px);
+    }
+
+    .editProfileWrapper {
+        padding: 24px 20px;
+    }
+
+    .editProfileCard {
+        padding: 28px 28px;
+    }
+
+    .userDashboardHeading {
+        font-size: 26px;
+    }
+}
+
+@media (max-width: 768px) {
+    .mainContent {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .userTopBar {
+        padding: 16px 20px 10px 20px;
+    }
+
+    .userDashboardHeading {
+        font-size: 22px;
+    }
+
+    .editProfileWrapper {
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .editProfileCard {
+        padding: 20px 18px;
+        gap: 16px;
+        border-radius: 12px;
+    }
+
+    .editProfileTitle {
+        font-size: 17px;
+    }
+
+    .editProfileRow {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .profileImageSection {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .editProfileButtons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .editProfileBtnPrimary,
+    .editProfileBtnSecondary {
+        width: 100%;
+        text-align: center;
+        padding: 13px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .userTopBar {
+        padding: 14px 16px 10px 16px;
+    }
+
+    .userDashboardHeading {
+        font-size: 19px;
+    }
+
+    .userAvatarCircle {
+        width: 36px;
+        height: 36px;
+    }
+
+    .editProfileWrapper {
+        padding: 12px;
+    }
+
+    .editProfileCard {
+        padding: 16px 14px;
+    }
+
+    .editProfileInput {
+        font-size: 13px;
+        padding: 11px 13px;
+    }
+
+    .profileImageCircle {
+        width: 68px;
+        height: 68px;
+    }
+
+    .editProfileTitle {
+        font-size: 16px;
+    }
+}

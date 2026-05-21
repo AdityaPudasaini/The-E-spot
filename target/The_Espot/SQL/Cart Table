@@ -1,0 +1,6 @@
+CREATE TABLE cart (
+    Cart_ID INT(11) PRIMARY KEY AUTO_INCREMENT,
+    Member_ID INT(11),
+    Created_At DATETIME,
+    FOREIGN KEY (Member_ID) REFERENCES member(Member_ID)
+);

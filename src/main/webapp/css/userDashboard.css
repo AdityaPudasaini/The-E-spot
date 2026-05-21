@@ -1,0 +1,361 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Times New Roman", Times, serif;
+}
+
+body {
+    background-color: #eef0f8;
+    color: #111111;
+    font-family: "Times New Roman", Times, serif;
+    margin: 0;
+    padding: 0;
+}
+
+.userTopBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 30px 10px 30px !important;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7ef;
+    margin-top: 0;
+}
+
+.userDashboardHeading {
+    font-size: 30px;
+    color: #111111;
+}
+
+.userAvatarCircle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: #4f5bd5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userAvatarInitials {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.userWelcome {
+    width: 95%;
+    height: 150px;
+    background: linear-gradient(to right, #111827, #1E3A8A);
+    margin: 30px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
+.userWelcomeTitle {
+    color: #ffffff;
+    font-size: 26px;
+    margin-bottom: 6px;
+}
+
+.userWelcomeSubtitle {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 14px;
+}
+
+.userButtonRectangle {
+    background-color: #111111;
+    border-radius: 10px;
+    padding: 12px 22px;
+    white-space: nowrap;
+}
+
+.userViewProfile {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.userStats {
+    display: flex;
+    gap: 18px;
+    margin: 20px 30px 0 30px;
+    flex-wrap: wrap;
+}
+
+.userSmallBox {
+    flex: 1;
+    min-width: 160px;
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 25px 20px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.userStatImg {
+    width: 66px;
+    height: 66px;
+    object-fit: contain;
+    margin-bottom: 14px;
+}
+
+.userSmallText {
+    font-size: 17px;
+    color: #666666;
+    margin-bottom: 6px;
+}
+
+.userMoney {
+    font-size: 22px;
+    color: #111111;
+}
+
+.userLastBox {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 22px 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.userLastBoxHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.userLastBoxTitle {
+    font-size: 16px;
+    color: #111111;
+}
+
+.userSeeMore {
+    font-size: 13px;
+    color: #4f5bd5;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.userSeeMore:hover {
+    text-decoration: underline;
+}
+
+.userListedItem {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.userItemThumb {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background-color: #f0f2f8;
+    flex-shrink: 0;
+}
+
+.userItemInfo {
+    flex: 1;
+    min-width: 0;
+}
+
+.userItemName {
+    font-size: 14px;
+    font-weight: 500;
+    color: #111111;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.userItemSub {
+    font-size: 12px;
+    color: #999999;
+}
+
+.userItemPrice {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111111;
+    white-space: nowrap;
+}
+
+.userFooter {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: #aaaaaa;
+    margin-left: 250px;
+}
+
+@media (max-width: 1024px) {
+    #mainWrapper {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+
+    .userTopBar {
+        padding: 16px 24px 10px 70px !important;
+    }
+
+    .userDashboardHeading {
+        font-size: 24px;
+    }
+
+    .userWelcome {
+        margin: 20px !important;
+        width: calc(100% - 40px) !important;
+        padding: 0 28px !important;
+    }
+
+    .userStats {
+        margin: 20px 20px 0 20px !important;
+    }
+
+    #bottomGrid {
+        padding: 0 20px 20px 20px !important;
+    }
+
+    .userFooter {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .userTopBar {
+        padding: 14px 20px 10px 70px !important;
+    }
+
+    .userDashboardHeading {
+        font-size: 20px;
+    }
+
+    .userWelcome {
+        margin: 16px !important;
+        width: calc(100% - 32px) !important;
+        height: auto !important;
+        padding: 20px 22px !important;
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+
+    .userWelcomeTitle {
+        font-size: 20px;
+    }
+
+    .userStats {
+        margin: 16px 16px 0 16px !important;
+        gap: 12px;
+    }
+
+    .userSmallBox {
+        min-width: calc(50% - 6px);
+        flex: 1 1 calc(50% - 6px);
+        padding: 18px 16px;
+    }
+
+    .userStatImg {
+        width: 48px !important;
+        height: 48px !important;
+    }
+
+    .userSmallText {
+        font-size: 14px;
+    }
+
+    #bottomGrid {
+        flex-direction: column !important;
+        padding: 0 16px 16px 16px !important;
+        gap: 0 !important;
+    }
+
+    #bottomGrid > div {
+        flex: unset !important;
+        width: 100% !important;
+    }
+
+    .userLastBox {
+        margin-top: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .userTopBar {
+        padding: 12px 14px 10px 64px !important;
+    }
+
+    .userDashboardHeading {
+        font-size: 18px;
+    }
+
+    .userAvatarCircle {
+        width: 36px;
+        height: 36px;
+    }
+
+    .userWelcome {
+        margin: 12px !important;
+        width: calc(100% - 24px) !important;
+        padding: 16px 18px !important;
+        border-radius: 8px;
+    }
+
+    .userWelcomeTitle {
+        font-size: 17px;
+    }
+
+    .userWelcomeSubtitle {
+        font-size: 13px;
+    }
+
+    .userStats {
+        margin: 12px 12px 0 12px !important;
+        gap: 10px;
+    }
+
+    .userSmallBox {
+        min-width: 100%;
+        flex: 1 1 100%;
+        padding: 16px;
+    }
+
+    .userStatImg {
+        width: 40px !important;
+        height: 40px !important;
+        margin-bottom: 10px;
+    }
+
+    .userSmallText {
+        font-size: 13px;
+    }
+
+    #bottomGrid {
+        padding: 0 12px 12px 12px !important;
+    }
+
+    .userLastBox {
+        padding: 16px;
+        border-radius: 10px;
+    }
+
+    .userLastBoxTitle {
+        font-size: 15px;
+    }
+
+    .userItemName {
+        font-size: 13px;
+    }
+
+    .userItemPrice {
+        font-size: 13px;
+    }
+}

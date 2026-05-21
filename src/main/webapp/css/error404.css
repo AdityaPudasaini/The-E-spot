@@ -1,0 +1,87 @@
+@charset "UTF-8";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Times New Roman", Times, serif;
+}
+
+body {
+    background-color: #eef0f8;
+    color: #111111;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.errorWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 30px;
+}
+
+.errorCard {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    padding: 60px 80px;
+    text-align: center;
+    max-width: 520px;
+    width: 100%;
+}
+
+.errorCode {
+    font-size: 120px;
+    font-weight: 800;
+    color: #4f5bd5;
+    line-height: 1;
+    margin-bottom: 16px;
+}
+
+.errorTitle {
+    font-size: 28px;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 12px;
+}
+
+.errorMessage {
+    font-size: 15px;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.errorButton {
+    display: inline-block;
+    padding: 14px 32px;
+    background-color: #4f5bd5;
+    color: #ffffff;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.errorButton:hover {
+    background-color: #3a47c0;
+}
+
+@media (max-width: 480px) {
+    .errorCard {
+        padding: 40px 24px;
+    }
+
+    .errorCode {
+        font-size: 80px;
+    }
+
+    .errorTitle {
+        font-size: 22px;
+    }
+}

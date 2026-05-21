@@ -1,0 +1,14 @@
+CREATE TABLE export_history (
+    Export_ID INT(11) PRIMARY KEY AUTO_INCREMENT,
+    Report_Type VARCHAR(50),
+    Exported_By VARCHAR(100),
+    Export_Date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    Row_Count INT(11),
+    Status VARCHAR(20) DEFAULT 'Success'
+);
+
+INSERT INTO export_history (Report_Type, Exported_By, Row_Count, Status) VALUES (?, ?, ?, ?);
+
+SELECT COUNT(*) FROM export_history;
+
+SELECT Export_Date FROM export_history ORDER BY Export_Date DESC LIMIT 1;

@@ -1,0 +1,186 @@
+@charset "UTF-8";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Inter", Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url("../Images/loginBack.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 20, 40, 0.55);
+    backdrop-filter: blur(3px);
+    z-index: 0;
+}
+
+.loginPageContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 32px;
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.loginCard {
+    width: 100%;
+    max-width: 460px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    padding: 52px 48px;
+}
+
+.loginFormHeader {
+    margin-bottom: 36px;
+    text-align: center;
+}
+
+.loginFormHeader h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 6px;
+}
+
+.loginFormHeader p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.loginFieldGroup {
+    position: relative;
+}
+
+.loginFieldGroup label {
+    position: absolute;
+    left: 16px;
+    top: 8px;
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.075em;
+    align-items: center;
+}
+
+.loginFieldGroup input {
+    width: 100%;
+    padding: 24px 16px 8px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 12px;
+    outline: none;
+    background: #1a2744;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+.loginFieldGroup input::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+    align-items: center;
+}
+
+.loginFieldGroup input:focus {
+    border-color: rgba(255, 255, 255, 0.6);
+    background: #1a2744;
+}
+
+.loginErrorMessage {
+    background: rgba(254, 226, 226, 0.85);
+    color: #991B1B;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.loginActions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 8px;
+}
+
+.loginBtnRow {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.loginBtnPrimary, .loginBtnOutline {
+    flex: 1;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+    white-space: nowrap;
+}
+
+.loginBtnPrimary {
+    background: #ffffff;
+    color: #0F172A;
+    border: none;
+}
+
+.loginBtnPrimary:hover {
+    background: #E2E8F0;
+}
+
+.loginBtnPrimary:active {
+    transform: scale(0.97);
+}
+
+.loginBtnOutline {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.loginBtnOutline:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.loginBtnOutline:active {
+    transform: scale(0.97);
+}
+
+.loginFormFooter {
+    margin-top: 32px;
+    text-align: center;
+}
+
+.loginFormFooter p {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.45);
+    line-height: 1.6;
+}

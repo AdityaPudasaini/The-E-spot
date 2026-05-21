@@ -1,0 +1,8 @@
+CREATE TABLE cart_items (
+    Cart_Items_ID INT(11) PRIMARY KEY AUTO_INCREMENT,
+    Product_ID INT(11),
+    Cart_ID INT(11),
+    Cart_Quantity INT(11),
+    FOREIGN KEY (Product_ID) REFERENCES product(Product_ID),
+    FOREIGN KEY (Cart_ID) REFERENCES cart(Cart_ID)
+);
