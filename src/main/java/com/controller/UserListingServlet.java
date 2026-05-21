@@ -53,7 +53,7 @@ public class UserListingServlet extends HttpServlet {
         }
 		
         request.setAttribute("currentPage", "Product");
-        request.getRequestDispatcher("/WEB-INF/pages/usersListing.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/userslisting.jsp").forward(request, response);
 	}
 
 	/**
@@ -95,7 +95,7 @@ public class UserListingServlet extends HttpServlet {
         }
 
         request.setAttribute("currentPage", "Product");
-        request.getRequestDispatcher("/WEB-INF/pages/usersListing.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/userslisting.jsp").forward(request, response);
 	}
 
 }
