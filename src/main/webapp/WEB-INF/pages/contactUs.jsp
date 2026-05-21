@@ -28,6 +28,12 @@
                 <p class="sectionTitle">Send Us a Message</p>
                 <form class="contactForm" action="${pageContext.request.contextPath}/ContactUs" method="post">
 
+                    <c:if test="${not empty requestScope.successMessage}">
+                        <div class="formAlert alertSuccess">${requestScope.successMessage}</div>
+                    </c:if>
+                    <c:if test="${not empty requestScope.errorMessage}">
+                        <div class="formAlert alertError">${requestScope.errorMessage}</div>
+                    </c:if>
                     <div class="formRow">
                         <div class="formGroup">
                             <label for="firstName">Full Name <span class="req">*</span></label>
@@ -68,13 +74,6 @@
                             <textarea id="message" name="message" rows="6" placeholder="Tell us how we can help…" required></textarea>
                         </div>
                     </div>
-
-                    <c:if test="${not empty requestScope.successMessage}">
-                        <div class="formAlert alertSuccess">${requestScope.successMessage}</div>
-                    </c:if>
-                    <c:if test="${not empty requestScope.errorMessage}">
-                        <div class="formAlert alertError">${requestScope.errorMessage}</div>
-                    </c:if>
 
                     <div class="formActions">
                         <button type="submit" class="submitBtn">Send Message</button>
