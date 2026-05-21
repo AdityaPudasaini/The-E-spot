@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 public class AdminFlaggedDAO {
 
+	// To retrieve all the flagged itemns to diaply in the page
 	public ArrayList<AdminFlaggedModel> allFlaggedItems(String status, String search) throws SQLException {
         ArrayList<AdminFlaggedModel> items = new ArrayList<>();
 
@@ -20,12 +21,14 @@ public class AdminFlaggedDAO {
         
         ArrayList<Object> addedSqlCode = new ArrayList<>();
 
+		//Adding status to the product
         if (status != null && !status.isEmpty()) 
         {
             sqlCode += " AND f.Flag_Status = ?";
             addedSqlCode.add(status);
         }
 
+		//Adding the search input to the sql code
         if (search != null && !search.isEmpty()) 
         {
             sqlCode += " AND (p.Product_Name LIKE ? OR m.Member_Name LIKE ? OR a.Admin_Name LIKE ?)";
@@ -64,6 +67,7 @@ public class AdminFlaggedDAO {
         return items;
     }
 
+	//To get the total flagged product to display
     public int totalFlagged() throws SQLException {
     	
         Connection conn = DBConfig.getConnection();
@@ -92,6 +96,7 @@ public class AdminFlaggedDAO {
         return total;
     }
 
+	//To remove a flagged product
     public void removeItem(int flagId) throws SQLException {
     	
         Connection conn = DBConfig.getConnection();
@@ -109,7 +114,8 @@ public class AdminFlaggedDAO {
         
         conn.close();
     }
-    
+
+	//To chaange the flagged status after it is unflagged
     public void updateFlagStatusRemoved(int flagId) throws SQLException{
     	
     	Connection conn = DBConfig.getConnection();
@@ -126,6 +132,7 @@ public class AdminFlaggedDAO {
         conn.close();
     }
 
+	//To unflag teh item
     public void unflagItem(int flagId) throws SQLException {
         
     	Connection conn = DBConfig.getConnection();
@@ -143,7 +150,8 @@ public class AdminFlaggedDAO {
 
         conn.close();
     }
-    
+
+	//to update the status of tre product
     public void updateFlagStatusResolved(int flagId) throws SQLException {
     	
     	Connection conn = DBConfig.getConnection();
@@ -159,7 +167,8 @@ public class AdminFlaggedDAO {
         
         conn.close();
     }
-    
+
+	//For the status of teh product
     public int underReview() throws SQLException {
     	
         Connection conn = DBConfig.getConnection();
@@ -184,6 +193,7 @@ public class AdminFlaggedDAO {
         return total;
     }
 
+	//To get the toatl amount of product with flagges status to resolved
     public int resolved() throws SQLException {
     	
         Connection conn = DBConfig.getConnection();
@@ -208,6 +218,7 @@ public class AdminFlaggedDAO {
         return total;
     }
 
+	//To get the toatl amount of product with flagges status to dismissed
     public int dismissed() throws SQLException {
     	
         Connection conn = DBConfig.getConnection();
