@@ -9,7 +9,8 @@ import com.model.AdminDashboardModel;
 import com.utils.DBConfig;
 
 public class AdminDashboardDAO {
-	
+
+	//To get the total revenue to display in the dashboard
 	public AdminDashboardModel totalRevenue() throws SQLException {
 		AdminDashboardModel total = new AdminDashboardModel();
 		
@@ -29,7 +30,7 @@ public class AdminDashboardDAO {
         
         return total;
 	}
-	
+	//To get the total product sold to display in the dashboard
 	public AdminDashboardModel totalProductSOld() throws SQLException {
 		AdminDashboardModel total = new AdminDashboardModel();
 		
@@ -49,7 +50,8 @@ public class AdminDashboardDAO {
         
         return total;
 	}
-	
+
+	//To get the total listed product to display in the dashboard
 	public AdminDashboardModel totalProductListed() throws SQLException {
 		AdminDashboardModel total = new AdminDashboardModel();
 		
@@ -69,7 +71,8 @@ public class AdminDashboardDAO {
         
         return total;
 	}
-	
+
+	//To get the total users to display in the dashboard
 	public AdminDashboardModel totalVisitors() throws SQLException {
 	    AdminDashboardModel total = new AdminDashboardModel();
 	    
@@ -88,7 +91,8 @@ public class AdminDashboardDAO {
 	    conn.close();
 	    return total;
 	}
-	
+
+	//To get the flagged products to display in the dashboard
 	public AdminDashboardModel flaggedProducts() throws SQLException {
 		AdminDashboardModel total = new AdminDashboardModel();
 		
@@ -123,7 +127,8 @@ public class AdminDashboardDAO {
 	     
 	    return total;
 	}
-	
+
+	//To get the remove a flagged product
 	public void removeProduct(int flaggedProductId) throws SQLException {
 		Connection conn = DBConfig.getConnection();
 		
@@ -135,7 +140,8 @@ public class AdminDashboardDAO {
 		pst.close();
 		conn.close();
 	}
-	
+
+	//to change the flagged status from flagged
 	public void keepProduct(int flaggedProductId) throws SQLException {
 		Connection conn = DBConfig.getConnection();
 		
@@ -147,7 +153,8 @@ public class AdminDashboardDAO {
 		pst.close();
 		conn.close();
 	}
-	
+
+	//To  retrieve the recent listings
 	public AdminDashboardModel recentListings() throws SQLException {
 		AdminDashboardModel total = new AdminDashboardModel();
 		
