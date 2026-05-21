@@ -57,6 +57,7 @@ public class ContactUsServlet extends HttpServlet {
             if (validationError != null) 
             {
                 request.setAttribute("errorMessage", validationError);
+				request.setAttribute("currentPage", "Contact");
                 request.getRequestDispatcher("/WEB-INF/pages/contactUs.jsp").forward(request, response);
                 return;
             }
