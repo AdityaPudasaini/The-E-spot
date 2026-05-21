@@ -8,6 +8,8 @@ import com.model.AdminModel;
 import com.utils.DBConfig;
 
 public class AdminDAO {
+
+	//to retrieve information about the admin
 	public AdminModel getAdminRecord() throws Exception {
 		AdminModel admin = null;
         Connection con = DBConfig.getConnection();
