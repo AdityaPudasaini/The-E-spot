@@ -91,7 +91,7 @@
 
                     <div class="addListingButtons">
                         <button type="submit" class="addListingBtnPrimary">Submit Listing</button>
-                        <a href="${pageContext.request.contextPath}/userDashboard" class="addListingBtnSecondary">Cancel</a>
+                        <a href="${pageContext.request.contextPath}/UserListing" class="addListingBtnSecondary">Cancel</a>
                     </div>
 
                 </form>
